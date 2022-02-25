@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Formula Book Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Lab/Lab.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Formula Book Assets/Occupied Formula.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Lab" type="Node"]
+script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="Label" parent="."]
+margin_left = 1105.0
+margin_top = 627.0
+margin_right = 1720.0
+margin_bottom = 727.0
+custom_fonts/font = SubResource( 1 )
+text = "LAB SCENE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Formula1" type="TextureButton" parent="RichTextLabel"]
+margin_left = -203.0
+margin_top = 210.0
+margin_right = 129.0
+margin_bottom = 652.0
+rect_pivot_offset = Vector2( -2831, -1755 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula1"]
+margin_left = 50.0
+margin_top = 218.0
+margin_right = 298.0
+margin_bottom = 279.0
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "FORMULA
+BOOK
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Formula2" type="TextureButton" parent="RichTextLabel"]
+margin_left = 415.0
+margin_top = 210.0
+margin_right = 747.0
+margin_bottom = 652.0
+rect_pivot_offset = Vector2( -2831, -1755 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula2"]
+margin_left = 50.0
+margin_top = 218.0
+margin_right = 298.0
+margin_bottom = 279.0
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "SHOP
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="RichTextLabel/Formula1" to="." method="_on_Formula1_pressed"]
+[connection signal="pressed" from="RichTextLabel/Formula2" to="." method="_on_Formula2_pressed"]
