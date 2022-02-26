@@ -1,23 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Shop Assets/Back Button.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Formula Book Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Shop Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Assets/Formula Book Assets/Occupied Formula.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Formula Book Assets/Money icon.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Formula Book Assets/Archive Box.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Formula Book Assets/Empty Formula.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Shop/Back Button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/FormulaBook/Formula.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Formula Book/Money icon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Formula Book/Archive Box.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/FormulaBook/FormulaBook.gd" type="Script" id=8]
-[ext_resource path="res://Assets/Formula Book/Occupied Formula.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 40
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
 
 [node name="FormulaBook" type="Node"]
 script = ExtResource( 8 )
@@ -74,252 +66,74 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Formula1" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 168.0
-margin_top = 288.0
-margin_right = 500.0
-margin_bottom = 730.0
-texture_normal = ExtResource( 9 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F1Name" type="Label" parent="FormulaBookControl/Formula1"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "NGALAN"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula2" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 667.0
-margin_top = 288.0
-margin_right = 999.0
-margin_bottom = 730.0
-texture_normal = ExtResource( 9 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F2Name" type="Label" parent="FormulaBookControl/Formula2"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "MARAHUYO"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula3" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 1168.0
-margin_top = 288.0
-margin_right = 1500.0
-margin_bottom = 730.0
-texture_normal = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F3Name" type="Label" parent="FormulaBookControl/Formula3"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "PAYZER"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula4" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 1680.0
-margin_top = 288.0
-margin_right = 2012.0
-margin_bottom = 730.0
-texture_normal = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F4Name" type="Label" parent="FormulaBookControl/Formula4"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "SAYA"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula5" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 2168.0
-margin_top = 288.0
-margin_right = 2500.0
-margin_bottom = 730.0
-texture_normal = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F5Name" type="Label" parent="FormulaBookControl/Formula5"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "SIGLA"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula6" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 168.0
-margin_top = 820.0
-margin_right = 500.0
-margin_bottom = 1262.0
-texture_normal = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F6Name" type="Label" parent="FormulaBookControl/Formula6"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "LIGAYA"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula7" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 667.0
-margin_top = 820.0
-margin_right = 999.0
-margin_bottom = 1262.0
-texture_normal = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F7Name" type="Label" parent="FormulaBookControl/Formula7"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "MANAWARI"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula8" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 1168.0
-margin_top = 820.0
-margin_right = 1500.0
-margin_bottom = 1262.0
-texture_normal = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F8Name" type="Label" parent="FormulaBookControl/Formula8"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "J&J"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula9" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 1680.0
-margin_top = 820.0
-margin_right = 2012.0
-margin_bottom = 1263.0
-texture_normal = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F9Name" type="Label" parent="FormulaBookControl/Formula9"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula10" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 2168.0
-margin_top = 820.0
-margin_right = 2500.0
-margin_bottom = 1263.0
-texture_normal = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="F10Name" type="Label" parent="FormulaBookControl/Formula10"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ArchiveIcon" type="TextureButton" parent="FormulaBookControl"]
-margin_left = 2623.0
-margin_top = 1038.0
-margin_right = 2871.0
-margin_bottom = 1260.0
+margin_left = 2624.0
+margin_top = 1024.0
+margin_right = 2872.0
+margin_bottom = 1246.0
 texture_normal = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Formula1" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 216.0
+margin_top = 272.0
+margin_right = 216.0
+margin_bottom = 272.0
+
+[node name="Formula2" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 712.0
+margin_top = 272.0
+margin_right = 712.0
+margin_bottom = 272.0
+
+[node name="Formula3" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 1232.0
+margin_top = 272.0
+margin_right = 1232.0
+margin_bottom = 272.0
+
+[node name="Formula4" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 1736.0
+margin_top = 272.0
+margin_right = 1736.0
+margin_bottom = 272.0
+
+[node name="Formula5" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 2208.0
+margin_top = 272.0
+margin_right = 2208.0
+margin_bottom = 272.0
+
+[node name="Formula6" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 216.0
+margin_top = 808.0
+margin_right = 216.0
+margin_bottom = 808.0
+
+[node name="Formula7" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 712.0
+margin_top = 808.0
+margin_right = 712.0
+margin_bottom = 808.0
+
+[node name="Formula8" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 1232.0
+margin_top = 808.0
+margin_right = 1232.0
+margin_bottom = 808.0
+
+[node name="Formula9" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 1736.0
+margin_top = 808.0
+margin_right = 1736.0
+margin_bottom = 808.0
+
+[node name="Formula10" parent="FormulaBookControl" instance=ExtResource( 4 )]
+margin_left = 2208.0
+margin_top = 808.0
+margin_right = 2208.0
+margin_bottom = 808.0
 
 [connection signal="pressed" from="FormulaBookControl/BackButton" to="." method="_on_BackButton_pressed"]
