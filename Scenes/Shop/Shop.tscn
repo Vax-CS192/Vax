@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Shop/Back Button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Shop/Shelf.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Shop/Bundle Brown.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Shop/Bundle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Shop/Bundle Purple.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Shop/Bundle Green.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Shop/Bundle Gray.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/Formula Book/Money icon.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Shop/Bundle Red.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Shop/Shop.gd" type="Script" id=12]
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 9 )
+
+[node name="Shop" type="Node"]
+script = ExtResource( 12 )
+
+[node name="ShopUI" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="ShopUI"]
+margin_right = 2960.0
+margin_bottom = 1440.0
+color = Color( 0.92549, 0.952941, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shelf" type="TextureRect" parent="ShopUI"]
+margin_right = 2960.0
+margin_bottom = 1440.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyIcon" type="TextureRect" parent="ShopControl"]
+margin_left = 2096.0
+margin_top = 64.0
+margin_right = 2175.0
+margin_bottom = 164.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ShopControl/MoneyIcon"]
+margin_left = 110.0
+margin_top = 34.0
+margin_right = 776.0
+margin_bottom = 84.0
+custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Php 1, 534, 954, 030.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="ShopControl"]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 392.0
+margin_bottom = 186.0
+rect_pivot_offset = Vector2( 288, 680 )
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bundle1" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1064.0
+margin_top = 305.0
+margin_right = 1312.0
+margin_bottom = 566.0
+
+[node name="Bundle2" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1495.0
+margin_top = 305.0
+margin_right = 1743.0
+margin_bottom = 566.0
+texture_normal = ExtResource( 3 )
+
+[node name="Bundle3" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1312.0
+margin_top = 655.0
+margin_right = 1560.0
+margin_bottom = 916.0
+texture_normal = ExtResource( 7 )
+
+[node name="Bundle4" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1697.0
+margin_top = 655.0
+margin_right = 1945.0
+margin_bottom = 916.0
+texture_normal = ExtResource( 6 )
+
+[node name="Bundle5" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1131.0
+margin_top = 987.0
+margin_right = 1379.0
+margin_bottom = 1248.0
+texture_normal = ExtResource( 5 )
+
+[node name="Bundle6" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1585.0
+margin_top = 987.0
+margin_right = 1833.0
+margin_bottom = 1248.0
+texture_normal = ExtResource( 11 )
+
+[connection signal="pressed" from="ShopControl/BackButton" to="." method="_on_BackButton_pressed"]
