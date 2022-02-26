@@ -7,8 +7,11 @@ Author: Karen Arnold
 License: CC0 Public Domain
 Notes: Photo edited for transparency, and converted from jpg original into png format
 
-File: Assets/Cauldron/"Money icon.png"
-License: Canva Free Media License Agreement
+File: Assets/Cauldron/coin.png
+Author: irmirx
+License: CC-BY-3.0
+Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
+Notes: Edited to include only a single coin
 
 File: Assets/Fonts/[buttons] 210 8bit Bold.ttf
 Author: Design 210
