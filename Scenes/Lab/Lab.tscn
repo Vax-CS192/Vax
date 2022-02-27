@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Lab/Lab.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Formula Book/Occupied Formula.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
-font_data = ExtResource( 4 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 30
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 4 )
+font_data = ExtResource( 1 )
 
 [node name="Lab" type="Node"]
 script = ExtResource( 2 )

@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Shop/Money Icon.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Shop/Bundle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Shop/Table1.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Fonts/[buttons] 210 8bit Bold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenes/Shop/Shop.gd" type="Script" id=12]
 
 [sub_resource type="Animation" id=4]
@@ -33,8 +33,9 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=3]
-size = 50
-font_data = ExtResource( 9 )
+size = 35
+extra_spacing_char = -5
+font_data = ExtResource( 6 )
 
 [node name="Shop" type="Node"]
 script = ExtResource( 12 )
@@ -80,9 +81,9 @@ anims/TurningCoin = SubResource( 2 )
 
 [node name="Account" type="Label" parent="ShopUI/Money"]
 margin_left = 2178.0
-margin_top = 105.0
-margin_right = 2844.0
-margin_bottom = 155.0
+margin_top = 103.0
+margin_right = 2868.0
+margin_bottom = 153.0
 custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Php 1, 534, 954, 030.00"
@@ -91,7 +92,7 @@ __meta__ = {
 }
 
 [node name="Icon" type="Sprite" parent="ShopUI/Money"]
-position = Vector2( 909, 736 )
+position = Vector2( 902, 727 )
 texture = ExtResource( 3 )
 offset = Vector2( 1209, -612 )
 hframes = 8
