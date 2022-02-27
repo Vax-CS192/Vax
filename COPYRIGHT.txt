@@ -8,9 +8,10 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 The remainder of this file documents both the assets referenced by scenes and the Godot binary bundled with Vax. 
 
-File: Assets/TestingArea/profile.png
-Author: Jeremy Vincent Yu
-License: 0BSD
+File: Assets/TestingArea/logo.png
+Author: KBArt
+License: CC-BY-4.0
+Link to License: https://creativecommons.org/licenses/by/4.0/legalcode
 
 
 File: Assets/TestingArea/Back.png
