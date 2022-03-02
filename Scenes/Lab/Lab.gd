@@ -18,8 +18,8 @@ func _on_BackToMainMenu_pressed():
 
 
 func _on_Formula3_pressed():
-	print('Wala pang scene')
+	get_tree().change_scene("res://Scenes/TestingArea/TestingArea.tscn")
 
 
 func _on_Formula4_pressed():
-	print('Wala pang scene')
+	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")
