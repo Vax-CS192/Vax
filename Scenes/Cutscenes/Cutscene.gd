@@ -1,3 +1,9 @@
+# Author: Kurt Ian Khalid I. Israel
+# License: 0BSD
+# Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
+
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
 extends Node
 
 onready var message = $CutsceneUI/Dialogue/DialogueBox/MarginContainer/Message
@@ -5,7 +11,7 @@ onready var tween = $Tween
 onready var next_button = $CutsceneUI/Dialogue/NextDialogue
 onready var sprite_list = [$CutsceneUI/Earth, $CutsceneUI/Viruses, $CutsceneUI/Sickness, $CutsceneUI/Death, $CutsceneUI/Prevention, $CutsceneUI/Corruption, $CutsceneUI/Research]
 
-# ENUMS
+# ENUMS for the state when updating text in the dialogue box
 enum State {
 	READY,
 	READING,
@@ -38,7 +44,8 @@ func show_message(new_message):
 
 func state_change(next_state):
 	current_state = next_state
-		
+
+# This changes the current dialogue message to the next message of the story
 func _on_NextDialogue_pressed():
 	if counter == 6:
 		get_tree().change_scene("res://Scenes/Cutscenes/PresidentInput.tscn")
@@ -49,6 +56,7 @@ func _on_NextDialogue_pressed():
 			next_button.hide()
 			current_state = State.READY
 
+# checks for tween signal completion
 func _on_Tween_tween_all_completed():
 	next_button.show()
 	state_change(State.DONE)
@@ -66,7 +74,7 @@ func update_sprites():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	update_sprites()
+	# update_sprites()
 	match current_state:
 		State.READY:
 			show_message(message_list[counter])
