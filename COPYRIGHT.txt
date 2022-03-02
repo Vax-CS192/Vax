@@ -8,77 +8,41 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 The remainder of this file documents the assets referenced by scenes, the assets whose paths are referenced in gdscripts, and the Godot binary bundled with Vax. 
 
-File: Assets\Formula Book\Archive Box
+File: Assets/Formula Book/Archive Box
 Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
 
-File: Assets\Formula Book\Back Button
+File: Assets/Formula Book/Back Button
 Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
 
-File: Assets\Formula Book\Empty Formula and Assets\Formula Book\Empty Formula
+File: Assets/Formula Book/Empty Formula and Assets/Formula Book/Empty Formula
 Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
 
-File: Assets\Formula Book\Occupied Formula
+File: Assets/Formula Book/Occupied Formula
 Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
  
-File: Assets\Formula Book\Money icon and Assets\Shop\Money icon
+File: Assets/Formula Book/Money icon and Assets/Shop/Money icon
 Source: https://opengameart.org/content/spinning-pixel-coin-0
 Author: irmirx
 License: Attribution 3.0 Unported (CC BY 3.0)
-License Text:
-You are free to:
-Share — copy and redistribute the material in any medium or format
-Adapt — remix, transform, and build upon the material
-for any purpose, even commercially.
-The licensor cannot revoke these freedoms as long as you follow the license terms.
-Under the following terms:
-Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-Notices:
-You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.
-No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
 
-
-File: Assets\Shop\box1
+File: Assets/Shop/box1
 Source: https://opengameart.org/content/box-2
 Author: Alekei
-License: Attribution 3.0 Unported (CC BY 3.0)
-License Text:
-You are free to:
-Share — copy and redistribute the material in any medium or format
-Adapt — remix, transform, and build upon the material
-for any purpose, even commercially.
-The licensor cannot revoke these freedoms as long as you follow the license terms.
-Under the following terms:
-Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-Notices:
-You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.
-No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material. 
+Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
 
-File: Assets\Shop\Table1 and Assets\Shop\Table2
+File: Assets/Shop/Table1 and Assets/Shop/Table2
 Source: https://opengameart.org/content/wooden-cupboard-shelf-pcdesk
 Author: jwiese
-License: Attribution 3.0 Unported (CC BY 3.0)
-License Text:
-You are free to:
-Share — copy and redistribute the material in any medium or format
-Adapt — remix, transform, and build upon the material
-for any purpose, even commercially.
-The licensor cannot revoke these freedoms as long as you follow the license terms.
-Under the following terms:
-Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-Notices:
-You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.
-No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
+Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
 
 
 File: Assets/TestingArea/logo.png
