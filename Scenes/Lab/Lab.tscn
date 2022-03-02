@@ -69,8 +69,8 @@ margin_left = 50.0
 margin_top = 218.0
 margin_right = 298.0
 margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 text = "FORMULA
 BOOK
 "
@@ -103,8 +103,8 @@ margin_left = 50.0
 margin_top = 218.0
 margin_right = 298.0
 margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 text = "SHOP
 "
 align = 1
@@ -129,8 +129,8 @@ margin_left = 2.53149
 margin_top = 196.903
 margin_right = 362.531
 margin_bottom = 295.903
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 text = "TESTING AREA
 "
 align = 1
@@ -166,8 +166,8 @@ margin_left = 2.53149
 margin_top = 196.903
 margin_right = 362.531
 margin_bottom = 295.903
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 text = "CAULDRON"
 align = 1
 autowrap = true
@@ -192,8 +192,8 @@ margin_left = 2.53149
 margin_top = 196.903
 margin_right = 362.531
 margin_bottom = 295.903
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 text = "MAP"
 align = 1
 autowrap = true
@@ -227,7 +227,6 @@ __meta__ = {
 position = Vector2( 1657.24, 484.175 )
 scale = Vector2( 12, 12 )
 frames = SubResource( 3 )
-
 [connection signal="pressed" from="RichTextLabel/Formula1" to="." method="_on_Formula1_pressed"]
 [connection signal="pressed" from="RichTextLabel/Formula2" to="." method="_on_Formula2_pressed"]
 [connection signal="pressed" from="RichTextLabel/Formula3" to="." method="_on_Formula3_pressed"]
