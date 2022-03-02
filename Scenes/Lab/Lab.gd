@@ -17,7 +17,6 @@ func _on_Formula1_pressed():
 func _on_Formula2_pressed():
 	get_tree().change_scene("res://Scenes/Shop/Shop.tscn")
 
-<<<<<<< HEAD
 # change scene when button to FormulaBook is pressed
 # subject to change
 func _on_BackToMainMenu_pressed():
@@ -37,7 +36,3 @@ func _on_Formula4_pressed():
 # can't find Map scene though
 func _on_Formula5_pressed():
 	pass # Replace with function body.
-=======
-func _on_Formula3_pressed():
-	get_tree().change_scene("res://Scenes/Map/map.tscn")
->>>>>>> Cutscene-Map

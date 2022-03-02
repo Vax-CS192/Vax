@@ -46,17 +46,10 @@ __meta__ = {
 }
 
 [node name="Formula1" type="TextureButton" parent="RichTextLabel"]
-<<<<<<< HEAD
 margin_left = -335.908
 margin_top = 271.818
 margin_right = -2.90753
 margin_bottom = 714.818
-=======
-margin_left = -425.0
-margin_top = 213.0
-margin_right = -92.0
-margin_bottom = 656.0
->>>>>>> Cutscene-Map
 rect_pivot_offset = Vector2( -2831, -1755 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
@@ -80,17 +73,10 @@ __meta__ = {
 }
 
 [node name="Formula2" type="TextureButton" parent="RichTextLabel"]
-<<<<<<< HEAD
 margin_left = 198.638
 margin_top = 290.363
 margin_right = 531.638
 margin_bottom = 733.363
-=======
-margin_left = 210.0
-margin_top = 225.0
-margin_right = 543.0
-margin_bottom = 668.0
->>>>>>> Cutscene-Map
 rect_pivot_offset = Vector2( -2831, -1755 )
 texture_normal = ExtResource( 3 )
 __meta__ = {
@@ -113,7 +99,6 @@ __meta__ = {
 }
 
 [node name="Formula3" type="TextureButton" parent="RichTextLabel"]
-<<<<<<< HEAD
 margin_left = 749.748
 margin_top = 289.549
 margin_right = 1082.75
@@ -136,20 +121,10 @@ text = "TESTING AREA
 align = 1
 autowrap = true
 __meta__ = {
-=======
-margin_left = 889.0
-margin_top = 219.0
-margin_right = 1222.0
-margin_bottom = 662.0
-rect_pivot_offset = Vector2( -2831, -1755 )
-texture_normal = ExtResource( 3 )
-__meta__ = {
->>>>>>> Cutscene-Map
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-<<<<<<< HEAD
 [node name="Formula4" type="TextureButton" parent="RichTextLabel"]
 margin_left = 1247.38
 margin_top = 295.731
@@ -206,23 +181,10 @@ __meta__ = {
 margin_left = 100.0
 margin_top = 100.0
 texture_normal = ExtResource( 6 )
-=======
-[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula3"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "MAP"
-align = 1
-valign = 1
->>>>>>> Cutscene-Map
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-<<<<<<< HEAD
 [node name="LabBG" type="AnimatedSprite" parent="."]
 position = Vector2( 1657.24, 484.175 )
 scale = Vector2( 12, 12 )
@@ -233,8 +195,3 @@ frames = SubResource( 3 )
 [connection signal="pressed" from="RichTextLabel/Formula4" to="." method="_on_Formula4_pressed"]
 [connection signal="pressed" from="RichTextLabel/Formula5" to="." method="_on_Formula5_pressed"]
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_BackToMainMenu_pressed"]
-=======
-[connection signal="pressed" from="RichTextLabel/Formula1" to="." method="_on_Formula1_pressed"]
-[connection signal="pressed" from="RichTextLabel/Formula2" to="." method="_on_Formula2_pressed"]
-[connection signal="pressed" from="RichTextLabel/Formula3" to="." method="_on_Formula3_pressed"]
->>>>>>> Cutscene-Map
