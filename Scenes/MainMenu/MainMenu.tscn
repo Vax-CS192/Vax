@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/MainMenu/bg-0001.png" type="Texture" id=1]
+[ext_resource path="res://Assets/MainMenu/virus-sprite001.png" type="Texture" id=2]
+[ext_resource path="res://Assets/MainMenu/virus-sprite000.png" type="Texture" id=3]
+[ext_resource path="res://Assets/MainMenu/Title.png" type="Texture" id=4]
+[ext_resource path="res://Assets/MainMenu/MainMenuContinue.png" type="Texture" id=5]
+[ext_resource path="res://Assets/MainMenu/MainMenuNewGame.png" type="Texture" id=6]
+[ext_resource path="res://Assets/MainMenu/MainMenuExit.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=8]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundColor" type="TextureRect" parent="."]
+margin_right = 2960.0
+margin_bottom = 1440.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="virus-sprite000" type="Sprite" parent="."]
+position = Vector2( 575.194, 913.073 )
+rotation = 1.38907
+scale = Vector2( 6.10015, 6.10016 )
+texture = ExtResource( 3 )
+
+[node name="virus-sprite001" type="Sprite" parent="."]
+position = Vector2( 332.565, 334.894 )
+rotation = -1.8618
+scale = Vector2( 3.519, 3.519 )
+texture = ExtResource( 3 )
+
+[node name="virus-sprite002" type="Sprite" parent="."]
+position = Vector2( 211.25, 1230.56 )
+rotation = -1.94781
+scale = Vector2( 1.66379, 1.66379 )
+texture = ExtResource( 3 )
+
+[node name="virus-sprite003" type="Sprite" parent="."]
+position = Vector2( 2675.63, 614.429 )
+rotation = -1.94781
+scale = Vector2( 4.78504, 4.78504 )
+texture = ExtResource( 2 )
+
+[node name="virus-sprite004" type="Sprite" parent="."]
+position = Vector2( 2509.75, 1181.71 )
+rotation = -1.94781
+scale = Vector2( 1.66379, 1.66379 )
+texture = ExtResource( 2 )
+
+[node name="virus-sprite005" type="Sprite" parent="."]
+position = Vector2( 2059.28, 276.631 )
+rotation = -2.99103
+scale = Vector2( 3.8688, 3.8688 )
+texture = ExtResource( 3 )
+
+[node name="virus-sprite006" type="Sprite" parent="."]
+position = Vector2( 945.564, 159.568 )
+rotation = -1.94781
+scale = Vector2( 1.66379, 1.66379 )
+texture = ExtResource( 2 )
+
+[node name="virus-sprite007" type="Sprite" parent="."]
+position = Vector2( 2180.47, 1094.58 )
+rotation = -1.94781
+scale = Vector2( 2.56071, 2.56071 )
+texture = ExtResource( 3 )
+
+[node name="virus-sprite008" type="Sprite" parent="."]
+position = Vector2( 1082.28, 1232.72 )
+rotation = -1.94781
+scale = Vector2( 1.80273, 1.80273 )
+texture = ExtResource( 2 )
+
+[node name="Title" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -596.0
+margin_top = -185.5
+margin_right = 596.0
+margin_bottom = 185.5
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 818.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/separation = 400
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="TextureButton" parent="Buttons"]
+margin_right = 1506.0
+margin_bottom = 502.0
+texture_normal = ExtResource( 6 )
+
+[node name="Continue" type="TextureButton" parent="Buttons"]
+margin_left = 1906.0
+margin_right = 3412.0
+margin_bottom = 502.0
+texture_normal = ExtResource( 5 )
+
+[node name="Exit" type="TextureButton" parent="Buttons"]
+margin_left = 3812.0
+margin_right = 5318.0
+margin_bottom = 502.0
+texture_normal = ExtResource( 7 )
+[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_Exit_pressed"]
