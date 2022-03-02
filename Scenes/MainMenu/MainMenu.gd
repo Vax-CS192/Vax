@@ -1,6 +1,7 @@
 extends Control
 
 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -23,7 +24,7 @@ func _on_NewGame_pressed():
 
 
 func _on_Continue_pressed():
-	pass # Go to Lab
+	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
 
 
 func _on_Exit_pressed():
