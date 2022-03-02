@@ -151,6 +151,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Formula5" type="TextureButton" parent="RichTextLabel"]
+margin_left = 1296.07
+margin_top = -571.775
+margin_right = 1629.07
+margin_bottom = -128.775
+rect_pivot_offset = Vector2( -2831, -1755 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula5"]
+margin_left = 2.53149
+margin_top = 196.903
+margin_right = 362.531
+margin_bottom = 295.903
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
+text = "MAP"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="BackToMainMenu" type="TextureButton" parent="."]
 margin_left = 100.0
 margin_top = 100.0
@@ -167,4 +193,5 @@ frames = SubResource( 3 )
 [connection signal="pressed" from="RichTextLabel/Formula2" to="." method="_on_Formula2_pressed"]
 [connection signal="pressed" from="RichTextLabel/Formula3" to="." method="_on_Formula3_pressed"]
 [connection signal="pressed" from="RichTextLabel/Formula4" to="." method="_on_Formula4_pressed"]
+[connection signal="pressed" from="RichTextLabel/Formula5" to="." method="_on_Formula5_pressed"]
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_BackToMainMenu_pressed"]
