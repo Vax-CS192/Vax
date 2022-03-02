@@ -17,7 +17,7 @@ func _ready():
 #	pass
 
 #  This method causes the CauldronUI to signal to the cauldron controller to instance the Lab
-#  subsystem and remove the Cauldron subsystem from memory 
+#  subsystem and remove the Cauldron subsystem from memory.
 func _on_Back_pressed():
 	var cauldron_exterior = get_parent()
 	print("Back Pressed")

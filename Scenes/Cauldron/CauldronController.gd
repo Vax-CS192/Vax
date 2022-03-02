@@ -20,6 +20,6 @@ func _ready():
 #func _process(delta):
 #	pass
 
-#This propagates the CauldronI's signal to the main Cauldron script
+#This changes the scene to the Lab.
 func _on_CauldronUI_back_to_lab():
 		get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
