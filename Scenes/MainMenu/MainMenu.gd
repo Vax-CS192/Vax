@@ -1,22 +1,32 @@
+# Author: John Henry A. Galino
+# License: 0BSD
+# Permission to use, copy, modify, and/or distribute this software for any purpose with or without 
+# fee is hereby granted.
+
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS 
+# SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE 
+# AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES 
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, 
+# NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
+# OF THIS SOFTWARE.
+
 extends Control
 
+var cutscene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Title.margin_top = -500 # needed to place the title above the middle
-	# The values used in computing for margin_top and margin_left were obtained
-	# through trial-and-error
-	$Buttons.margin_top = (get_viewport_rect().size.y / 5) 
-	$Buttons.margin_left = $Buttons.rect_size.x/6.5
-
+	# Cutscene is quite a large scene, so preload it to make loading faster
+	cutscene = preload("res://Scenes/Cutscenes/Cutscene.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-
+# changes scene to Cutscene when new game is pressed
 func _on_NewGame_pressed():
-	pass # Go to Cutscene
+	get_tree().change_scene_to(cutscene)
+
 
 # when continue is pressed, go to Lab
 # still have to load saved stuff

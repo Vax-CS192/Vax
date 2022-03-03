@@ -25,115 +25,115 @@
 [ext_resource path="res://Assets/Cutscenes/Prevention/42.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Cutscenes/Research/secret-liquid-experiment-vector.png" type="Texture" id=24]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 750, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1500, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 2250, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 3000, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 3750, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 4500, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 5250, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 6000, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 6750, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 7500, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 8250, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 9000, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 9750, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 10500, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 11250, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 12000, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 12750, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 13500, 0, 750, 750 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 14250, 0, 750, 750 )
 
-[sub_resource type="SpriteFrames" id=24]
+[sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=25]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 15 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
@@ -141,7 +141,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=26]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 9 ) ],
 "loop": true,
@@ -149,7 +149,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=27]
+[sub_resource type="DynamicFont" id=24]
 size = 90
 font_data = ExtResource( 17 )
 
@@ -176,8 +176,8 @@ __meta__ = {
 [node name="Earth" type="AnimatedSprite" parent="CutsceneUI"]
 position = Vector2( 1480, 720 )
 scale = Vector2( 1.35, 1.35 )
-frames = SubResource( 24 )
-frame = 15
+frames = SubResource( 21 )
+frame = 8
 speed_scale = 0.35
 playing = true
 
@@ -194,176 +194,174 @@ __meta__ = {
 [node name="blue_virus 1" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1959, 529 )
 scale = Vector2( 0.547414, 0.547414 )
-frames = SubResource( 25 )
-frame = 6
+frames = SubResource( 22 )
+frame = 2
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 2" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1745, 1151 )
 scale = Vector2( 0.857758, 0.857758 )
-frames = SubResource( 25 )
-frame = 6
+frames = SubResource( 22 )
+frame = 2
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 3" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1311.62, 549.513 )
 scale = Vector2( 0.902478, 0.902478 )
-frames = SubResource( 25 )
-frame = 5
+frames = SubResource( 22 )
+frame = 1
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 4" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1140, 1000 )
 scale = Vector2( 0.639009, 0.639009 )
-frames = SubResource( 25 )
-frame = 4
+frames = SubResource( 22 )
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 5" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1730, 732 )
 scale = Vector2( 0.293642, 0.293642 )
-frames = SubResource( 25 )
-frame = 4
+frames = SubResource( 22 )
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 6" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 2067, 795 )
 scale = Vector2( 0.639009, 0.639009 )
-frames = SubResource( 25 )
-frame = 3
+frames = SubResource( 22 )
+frame = 6
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 7" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1709, 289 )
 scale = Vector2( 0.461746, 0.461746 )
-frames = SubResource( 25 )
-frame = 3
+frames = SubResource( 22 )
+frame = 6
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 8" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 827, 1060 )
 scale = Vector2( 0.639009, 0.639009 )
-frames = SubResource( 25 )
-frame = 2
+frames = SubResource( 22 )
+frame = 5
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 9" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 988, 337 )
 scale = Vector2( 0.461746, 0.461746 )
-frames = SubResource( 25 )
-frame = 2
+frames = SubResource( 22 )
+frame = 5
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 10" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 657, 701 )
 scale = Vector2( 0.847252, 0.847253 )
-frames = SubResource( 25 )
-frame = 3
+frames = SubResource( 22 )
+frame = 6
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 11" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 2263.25, 517.818 )
 scale = Vector2( 0.639009, 0.639009 )
-frames = SubResource( 25 )
-frame = 2
+frames = SubResource( 22 )
+frame = 5
 speed_scale = 2.3
 playing = true
 
 [node name="blue_virus 12" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 2067, 1191 )
 scale = Vector2( 0.611799, 0.611799 )
-frames = SubResource( 25 )
-frame = 2
+frames = SubResource( 22 )
+frame = 5
 speed_scale = 2.3
 playing = true
 
 [node name="clasic_virus 1" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1466, 937 )
 scale = Vector2( 0.875, 0.875 )
-frames = SubResource( 26 )
-frame = 4
+frames = SubResource( 23 )
+frame = 6
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 2" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 989, 708 )
 scale = Vector2( 0.782328, 0.782328 )
-frames = SubResource( 26 )
-frame = 3
+frames = SubResource( 23 )
+frame = 5
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 3" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1696, 512 )
 scale = Vector2( 0.606681, 0.606681 )
-frames = SubResource( 26 )
-frame = 3
+frames = SubResource( 23 )
+frame = 5
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 4" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1424, 239 )
 scale = Vector2( 0.471444, 0.471444 )
-frames = SubResource( 26 )
-frame = 3
+frames = SubResource( 23 )
+frame = 5
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 5" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1895, 913 )
 scale = Vector2( 0.436961, 0.436961 )
-frames = SubResource( 26 )
-frame = 3
+frames = SubResource( 23 )
+frame = 5
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 6" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1404, 1205 )
 scale = Vector2( 0.302532, 0.302532 )
-frames = SubResource( 26 )
-frame = 2
+frames = SubResource( 23 )
+frame = 4
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 7" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 1060, 1284 )
 scale = Vector2( 0.625, 0.625 )
-frames = SubResource( 26 )
-frame = 2
+frames = SubResource( 23 )
+frame = 4
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 8" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 2348, 906 )
 scale = Vector2( 0.770205, 0.770205 )
-frames = SubResource( 26 )
-frame = 2
+frames = SubResource( 23 )
+frame = 4
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 9" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 749, 307 )
 scale = Vector2( 0.635372, 0.635372 )
-frames = SubResource( 26 )
-frame = 2
+frames = SubResource( 23 )
+frame = 4
 speed_scale = 2.0
 playing = true
 
 [node name="clasic_virus 10" type="AnimatedSprite" parent="CutsceneUI/Viruses"]
 position = Vector2( 2029, 272 )
 scale = Vector2( 0.635372, 0.635372 )
-frames = SubResource( 26 )
-frame = 1
+frames = SubResource( 23 )
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -434,9 +432,9 @@ margin_right = 2563.0
 margin_bottom = 313.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 24 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.133333, 0.133333, 1 )
-custom_fonts/font = SubResource( 27 )
 text = "Placeholder text:"
 autowrap = true
 clip_text = true
@@ -444,6 +442,5 @@ clip_text = true
 [node name="NextDialogue" parent="CutsceneUI/Dialogue" instance=ExtResource( 19 )]
 
 [node name="Tween" type="Tween" parent="."]
-
 [connection signal="pressed" from="CutsceneUI/Dialogue/NextDialogue" to="." method="_on_NextDialogue_pressed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

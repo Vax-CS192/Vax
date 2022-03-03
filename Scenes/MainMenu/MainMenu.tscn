@@ -82,28 +82,34 @@ rotation = -1.94781
 scale = Vector2( 1.80273, 1.80273 )
 texture = ExtResource( 2 )
 
-[node name="Title" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -596.0
-margin_top = -185.5
-margin_right = 596.0
-margin_bottom = 185.5
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="CenterContainer"]
+margin_left = 884.0
+margin_top = 534.0
+margin_right = 2076.0
+margin_bottom = 905.0
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Buttons" type="HBoxContainer" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 818.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -647.957
+margin_top = -375.557
+margin_right = 4670.04
+margin_bottom = 126.443
 rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 5
-size_flags_vertical = 5
 custom_constants/separation = 400
 alignment = 1
 __meta__ = {

@@ -60,6 +60,97 @@ File: Assets/TestingArea/background.png
 Author: Jeremy Vincent Yu
 License: 0BSD
 
+File: Assets/Lab/01coin.png
+Source: https://opengameart.org/content/spinning-pixel-coin-0
+Author: irmirx
+License: Attribution 3.0 Unported (CC BY 3.0)
+Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
+
+File: Assets/Lab/Back Button
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from prototype and stored in png
+
+File: Assets/Lab/cauldron.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/shop.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/lab-bg.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/testing.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/map.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/Back Button.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/01coin.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/lab-bg-color.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/virus-sprite001.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/MainMenuExit.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/bg-0001.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/mainmenubutton.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/Title.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/MainMenuContinue.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/MainMenuNewGame.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/virus-sprite000.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
 File: Assets/TestingArea/Reset.png
 Author: Kurt Ian Khalid Israel
 License: 0BSD
