@@ -99,6 +99,71 @@ Author: irmirx
 License: CC-BY-3.0
 Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
 
+Files: Assets/Cutscenes/Blue_virus
+Author: sbadany
+License Text: This asset pack can be used in both free and commercial projects. You can modify it to suit your own needs. Credit is not necessary, but appreciated. You cannot redistribute this asset pack.
+
+File: Assets/Cutscenes/Buttons/enter_disabled
+Author Kurt Ian Khalid I. Israel
+License: OBSD
+
+File: Assets/Cutscenes/Buttons/enter_enabled
+Author Kurt Ian Khalid I. Israel
+License: OBSD
+
+Files: Assets/Cutscenes/Classic_virus
+Author: sbadany
+License Text: This asset pack can be used in both free and commercial projects. You can modify it to suit your own needs. Credit is not necessary, but appreciated. You cannot redistribute this asset pack.
+
+Files: Assets/Cutscenes/Corrupt/vecteezy_anti-corruption-campaign-orator_.png
+Author: ayamjantanstudio
+License: CC-BY-4.0
+License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+attribution link: <a href="https://www.vecteezy.com/free-vector/corruption">Corruption Vectors by Vecteezy</a>
+
+Files: Assets/Cutscenes/Death/3.png
+Author: craftpix
+License: CC-BY-4.0
+License Link: https://craftpix.net/file-licenses/
+
+Files: Assets/Cutscenes/DialogueBox/DialogueContainer.png
+Author: Lynda Mc Donald
+License Text: This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". You may not distribute or sell these assets. Please link me to any games you use my assets in. I would love to see them.
+
+Files: Assets/Cutscenes/DialogueBox/NextBtn.png
+Author: Lynda Mc Donald
+License Text: This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". You may not distribute or sell these assets. Please link me to any games you use my assets in. I would love to see them.
+
+Files: Assets/Cutscenes/DialogueBox/NextBtnPressed.png
+Author: Lynda Mc Donald
+License Text: This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". You may not distribute or sell these assets. Please link me to any games you use my assets in. I would love to see them.
+
+Files: Assets/Cutscenes/Prevention/42.png
+Author: Grapict Studio
+License: CC-BY-4.0
+License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+attribution link: <a href="https://www.vecteezy.com/free-vector/healthy-living">Healthy Living Vectors by Vecteezy</a>
+
+Files: Assets/Cutscenes/Research/secret-liquid-experiment-vector.png
+Author: laphotospot
+License: CC-BY-4.0
+License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+attribution link: <a href="https://www.vecteezy.com/free-vector/experiment">Experiment Vectors by Vecteezy</a>
+
+File: Assets/Cutscenes/Sickness/1819_SkVNQSBHRVIgMTAxMi0xMg.png
+Author: jemastock
+License: CC-BY-4.0
+License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+attribution link: <a href="https://www.vecteezy.com/free-vector/sick">Sick Vectors by Vecteezy</a>
+
+File: Assets/Cutscenes/earth_spriteseet.png
+Author: Deep-Fold
+License: MIT License
+
+File: Assets/Map/adcel-villanueva-pixel-061220-2.jpg
+Author: Adcel Villanueva
+License: Explicit permission from author
+
 File: Assets/Fonts/prstart.ttf
 Author: codeman38
 License Text: 
