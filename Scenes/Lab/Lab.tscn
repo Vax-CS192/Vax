@@ -1,22 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Lab/ButtonContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Lab/Lab.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Formula Book/Occupied Formula.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Lab/Coin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Lab/lab-bg.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Lab/lab-bg-color.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Lab/Back Button.png" type="Texture" id=6]
 
-[sub_resource type="DynamicFont" id=1]
-size = 100
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 30
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -27,153 +18,11 @@ animations = [ {
 [node name="Lab" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 945.505, 1188.63 )
 texture = ExtResource( 5 )
 expand = true
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="Label" parent="."]
-margin_left = 1105.0
-margin_top = 627.0
-margin_right = 2005.0
-margin_bottom = 728.0
-custom_fonts/font = SubResource( 1 )
-text = "LAB SCENE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula1" type="TextureButton" parent="RichTextLabel"]
-margin_left = -335.908
-margin_top = 271.818
-margin_right = -2.90753
-margin_bottom = 714.818
-rect_pivot_offset = Vector2( -2831, -1755 )
-texture_normal = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula1"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-text = "FORMULA
-BOOK
-"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula2" type="TextureButton" parent="RichTextLabel"]
-margin_left = 198.638
-margin_top = 290.363
-margin_right = 531.638
-margin_bottom = 733.363
-rect_pivot_offset = Vector2( -2831, -1755 )
-texture_normal = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula2"]
-margin_left = 50.0
-margin_top = 218.0
-margin_right = 298.0
-margin_bottom = 279.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-text = "SHOP
-"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula3" type="TextureButton" parent="RichTextLabel"]
-margin_left = 749.748
-margin_top = 289.549
-margin_right = 1082.75
-margin_bottom = 732.549
-rect_pivot_offset = Vector2( -2831, -1755 )
-texture_normal = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula3"]
-margin_left = 2.53149
-margin_top = 196.903
-margin_right = 362.531
-margin_bottom = 295.903
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-text = "TESTING AREA
-"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Formula4" type="TextureButton" parent="RichTextLabel"]
-margin_left = 1247.38
-margin_top = 295.731
-margin_right = 1580.38
-margin_bottom = 738.731
-rect_pivot_offset = Vector2( -2831, -1755 )
-texture_normal = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula4"]
-margin_left = 2.53149
-margin_top = 196.903
-margin_right = 362.531
-margin_bottom = 295.903
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-text = "CAULDRON"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Formula5" type="TextureButton" parent="RichTextLabel"]
-margin_left = 1296.07
-margin_top = -571.775
-margin_right = 1629.07
-margin_bottom = -128.775
-rect_pivot_offset = Vector2( -2831, -1755 )
-texture_normal = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Formula1Name" type="Label" parent="RichTextLabel/Formula5"]
-margin_left = 2.53149
-margin_top = 196.903
-margin_right = 362.531
-margin_bottom = 295.903
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
-text = "MAP"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -186,12 +35,16 @@ __meta__ = {
 }
 
 [node name="LabBG" type="AnimatedSprite" parent="."]
-position = Vector2( 1657.24, 484.175 )
+position = Vector2( 1492.52, 347.548 )
 scale = Vector2( 12, 12 )
-frames = SubResource( 3 )
-[connection signal="pressed" from="RichTextLabel/Formula1" to="." method="_on_Formula1_pressed"]
-[connection signal="pressed" from="RichTextLabel/Formula2" to="." method="_on_Formula2_pressed"]
-[connection signal="pressed" from="RichTextLabel/Formula3" to="." method="_on_Formula3_pressed"]
-[connection signal="pressed" from="RichTextLabel/Formula4" to="." method="_on_Formula4_pressed"]
-[connection signal="pressed" from="RichTextLabel/Formula5" to="." method="_on_Formula5_pressed"]
+frames = SubResource( 1 )
+offset = Vector2( 0, 20 )
+
+[node name="ButtonContainer" parent="." instance=ExtResource( 1 )]
+margin_top = -353.374
+margin_bottom = -97.3735
+
+[node name="AnimatedSprite" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2260.52, 100 )
+frame = 7
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_BackToMainMenu_pressed"]

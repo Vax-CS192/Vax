@@ -1,38 +1,52 @@
+# Author: John Henry A. Galino
+# License: 0BSD
+# Permission to use, copy, modify, and/or distribute this software for any purpose with or without 
+# fee is hereby granted.
+
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS 
+# SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE 
+# AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES 
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, 
+# NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
+# OF THIS SOFTWARE.
+
 extends Control 
+
+# preload to make main menu scene switch faster
+var mainMenu = preload("res://Scenes/MainMenu/MainMenu.tscn")
 
 # This function is run at the start of the scene
 func _ready():
-	# These are used to place the LabBG sprite on the screen regardless
-	# of what the size of the screen would be
-	$LabBG.position.x = get_viewport_rect().size.x / 2
-	$LabBG.position.y = get_viewport_rect().size.y / 4
-
-# change scene when button to FormulaBook is pressed
-# subject to change
-func _on_Formula1_pressed():
-	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
-
-# change scene when button to FormulaBook is pressed
-# subject to change
-func _on_Formula2_pressed():
-	get_tree().change_scene("res://Scenes/Shop/Shop.tscn")
+	# Since we need to connect signals from the instantiated ButtonContainer,
+	# we have to manually get a reference to those buttons using code and
+	# connect the signals to this script manually
+	var cauldronButton = get_node("ButtonContainer/Cauldron")
+	var shopButton = get_node("ButtonContainer/Shop")
+	var mapButton = get_node("ButtonContainer/Map")
+	var testButton = get_node("ButtonContainer/Testing")
+	
+	cauldronButton.connect("pressed", self, "_on_cauldronButton_pressed")
+	shopButton.connect("pressed", self, "_on_shopButton_pressed")
+	mapButton.connect("pressed", self, "_on_mapButton_pressed")
+	testButton.connect("pressed", self, "_on_testButton_presed")
 
 # change scene when button to FormulaBook is pressed
 # subject to change
 func _on_BackToMainMenu_pressed():
-	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
+	get_tree().change_scene_to(mainMenu)
 
-# change scene when button to FormulaBook is pressed
-# subject to change
-func _on_Formula3_pressed():
-	get_tree().change_scene("res://Scenes/TestingArea/TestingArea.tscn")
-
-# change scene when button to FormulaBook is pressed
-# subject to change
-func _on_Formula4_pressed():
+# change scene to Cauldron when cauldron button is pressed
+func _on_cauldronButton_pressed():
 	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")
 
-# change scene when button to Map is pressed
-# can't find Map scene though
-func _on_Formula5_pressed():
-	pass # Replace with function body.
+# changes scene to shop when shop button is pressed
+func _on_shopButton_pressed():
+	get_tree().change_scene("res://Scenes/Shop/Shop.tscn")
+	
+# changes scene to Map when map button is pressed
+func _on_mapButton_pressed():
+	get_tree().change_scene("res://Scenes/Map/map.tscn")
+
+# change scene to Testing when Test button is pressed
+func _on_testButton_presed():
+	get_tree().change_scene("res://Scenes/TestingArea/TestingArea.tscn")
