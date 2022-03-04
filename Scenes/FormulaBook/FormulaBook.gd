@@ -24,4 +24,4 @@ func _process(delta):
 
 #Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://Scenes/Cauldron/CauldronUI.tscn")
+	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")
