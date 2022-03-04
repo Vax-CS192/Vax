@@ -46,5 +46,6 @@ margin_bottom = -97.3735
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2260.52, 100 )
-frame = 7
+frame = 0
+
 [connection signal="pressed" from="BackToMainMenu" to="." method="_on_BackToMainMenu_pressed"]
