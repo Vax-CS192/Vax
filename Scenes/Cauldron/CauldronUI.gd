@@ -5,6 +5,7 @@
 
 # THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 signal back_to_lab
+signal open_formulabook
 extends Node2D
 
 
@@ -19,6 +20,10 @@ func _ready():
 #  This method causes the CauldronUI to signal to the cauldron controller to instance the Lab
 #  subsystem and remove the Cauldron subsystem from memory.
 func _on_Back_pressed():
-	var cauldron_exterior = get_parent()
-	print("Back Pressed")
 	emit_signal("back_to_lab")
+
+#This method causes the CauldronUI to signal to the cauldron controller to instance the Formulabook
+#  subsystem and remove the Cauldron subsystem from memory.
+func _on_formulabook_icon_pressed():
+	emit_signal("open_formulabook")
+

@@ -23,3 +23,7 @@ func _ready():
 #This changes the scene to the Lab.
 func _on_CauldronUI_back_to_lab():
 		get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+
+#This changes the scene to the Formulabook.
+func _on_CauldronUI_open_formulabook():
+		get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
