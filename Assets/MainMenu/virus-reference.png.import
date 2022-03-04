@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/map.png-a9832f43d5073304b87a1a69d46898ef.stex"
+path="res://.import/virus-reference.png-46c8a20ac7a1915d777fdaefebaa17cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Lab/map.png"
-dest_files=[ "res://.import/map.png-a9832f43d5073304b87a1a69d46898ef.stex" ]
+source_file="res://Assets/MainMenu/virus-reference.png"
+dest_files=[ "res://.import/virus-reference.png-46c8a20ac7a1915d777fdaefebaa17cc.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
