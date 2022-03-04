@@ -209,48 +209,80 @@ License Text: This asset pack can be used in both free and commercial projects. 
 
 Files: Assets/Cutscenes/Corrupt/vecteezy_anti-corruption-campaign-orator_.png
 Author: ayamjantanstudio
-License: CC-BY-4.0
-License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+License Link: https://www.vecteezy.com/licensing-agreement
 attribution link: <a href="https://www.vecteezy.com/free-vector/corruption">Corruption Vectors by Vecteezy</a>
 
 Files: Assets/Cutscenes/Death/3.png
 Author: craftpix
-License: CC-BY-4.0
 License Link: https://craftpix.net/file-licenses/
 
 Files: Assets/Cutscenes/DialogueBox/DialogueContainer.png
 Author: Lynda Mc Donald
-License Text: This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". You may not distribute or sell these assets. Please link me to any games you use my assets in. I would love to see them.
+License Text: 
+
+This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". 
+
+You may not distribute or sell these assets. 
+
+Please link me to any games you use my assets in. I would love to see them.
 
 Files: Assets/Cutscenes/DialogueBox/NextBtn.png
 Author: Lynda Mc Donald
-License Text: This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". You may not distribute or sell these assets. Please link me to any games you use my assets in. I would love to see them.
+License Text: 
+
+This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". 
+
+You may not distribute or sell these assets. 
+
+Please link me to any games you use my assets in. I would love to see them.
 
 Files: Assets/Cutscenes/DialogueBox/NextBtnPressed.png
 Author: Lynda Mc Donald
-License Text: This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". You may not distribute or sell these assets. Please link me to any games you use my assets in. I would love to see them.
+License Text: 
 
+This UI kit may be used in any personal or commercial projects as long as you credit me "Lynda Mc Donald". 
+
+You may not distribute or sell these assets. 
+
+Please link me to any games you use my assets in. I would love to see them.
 Files: Assets/Cutscenes/Prevention/42.png
 Author: Grapict Studio
-License: CC-BY-4.0
-License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+License Link: https://www.vecteezy.com/licensing-agreement
 attribution link: <a href="https://www.vecteezy.com/free-vector/healthy-living">Healthy Living Vectors by Vecteezy</a>
 
 Files: Assets/Cutscenes/Research/secret-liquid-experiment-vector.png
 Author: laphotospot
-License: CC-BY-4.0
-License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+License Link: https://www.vecteezy.com/licensing-agreement
 attribution link: <a href="https://www.vecteezy.com/free-vector/experiment">Experiment Vectors by Vecteezy</a>
 
 File: Assets/Cutscenes/Sickness/1819_SkVNQSBHRVIgMTAxMi0xMg.png
 Author: jemastock
-License: CC-BY-4.0
-License Link: https://www.vecteezy.com/license/license_compare_modal?id=4318754
+License Link: https://www.vecteezy.com/licensing-agreement
 attribution link: <a href="https://www.vecteezy.com/free-vector/sick">Sick Vectors by Vecteezy</a>
 
 File: Assets/Cutscenes/earth_spriteseet.png
 Author: Deep-Fold
 License: MIT License
+License Text:
+Copyright (c) 2020 Deep-Fold
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 File: Assets/Map/adcel-villanueva-pixel-061220-2.jpg
 Author: Adcel Villanueva
@@ -260,6 +292,7 @@ File: Assets/Fonts/prstart.ttf
 Author: codeman38
 License Text: 
 Thanks for downloading one of codeman38's retro video game fonts, as seen on Memepool, BoingBoing, and all around the blogosphere.
+
 
 So, you're wondering what the license is for these fonts? Pretty simple; it's based upon that used for Bitstream's Vera font set <http://www.gnome.org/fonts/>.
 
@@ -276,7 +309,6 @@ Also, feel free to mirror these fonts on your own site, as long as you make it r
 Well, that pretty much sums it up... so without further ado, install and enjoy these fonts from the golden age of video games.
 
 [ codeman38 | cody@zone38.net | http://www.zone38.net/ ]
-
 
 
 File: Assets/Fonts/[labels] basis33.ttf
