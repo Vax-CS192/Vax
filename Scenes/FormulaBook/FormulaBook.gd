@@ -22,6 +22,6 @@ func _process(delta):
 	get_node("FormulaBookControl/Formula8/Name").text="J&J"
 
 
-#Go to Lab Subsystem when the button is pressed	
+#Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+	get_tree().change_scene("res://Scenes/Cauldron/CauldronUI.tscn")
