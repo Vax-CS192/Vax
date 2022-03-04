@@ -101,11 +101,6 @@ Author: John Henry Galino
 License: CC0 1.0
 Link to License: http://creativecommons.org/publicdomain/zero/1.0
 
-File: Assets/Lab/01coin.png
-Author: John Henry Galino
-License: CC0 1.0
-Link to License: http://creativecommons.org/publicdomain/zero/1.0
-
 File: Assets/Lab/lab-bg-color.png
 Author: John Henry Galino
 License: CC0 1.0
