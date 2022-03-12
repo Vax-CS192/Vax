@@ -22,8 +22,11 @@ func _ready():
 func _process(_delta):
 	var bundle_count = $Bundles.get_child_count()
 	var all_bundles = $Bundles.get_children()
+	var total_selected = 0;
 	for i in range(0,bundle_count):
 		if (all_bundles[i].included  and all_bundles[i].rect_position.y < 600) or all_bundles[i].rect_position.y < 321:
+			total_selected += 1
+		if total_selected > 0 and total_selected<6:
 			$mix_button.disabled = false
 			return
 	$mix_button.disabled = true
