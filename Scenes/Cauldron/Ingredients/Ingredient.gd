@@ -41,20 +41,20 @@ func _on_button_up():
 	selected = false
 	
 	#Case where user failed to drag out of inventory
-	if (not included) and (self.rect_position.y > 400) :
+	if (not included) and (self.rect_position.y > 600) :
 		self.rect_position = Vector2(origin_x,origin_y)
 		
 	#Case where user successfully dragged out of inventory
-	elif (not included) and (self.rect_position.y <=400) :
+	elif (not included) and (self.rect_position.y <=600) :
 		self.rect_position = Vector2(origin_x,400)
 		included = true
 	
 	#Case where user succcessfully dragged out of working area
-	elif included and (self.rect_position.y > 400):
+	elif included and (self.rect_position.y > 600):
 		self.rect_position = Vector2(origin_x,origin_y)
 		included = false
 	#Case where user failed to drag out of working area
-	elif included and (self.rect_position.y <= 400):
+	elif included and (self.rect_position.y <= 600):
 		self.rect_position = Vector2(origin_x,400)
 
 func set_up(formula_name, x_pos, y_pos):
