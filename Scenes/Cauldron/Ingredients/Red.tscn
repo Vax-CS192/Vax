@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Cauldron/Ingredients/Ingredient.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Cauldron/violet.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Cauldron/green.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
 font_data = ExtResource( 3 )
 
-[node name="Yellow" type="TextureButton"]
+[node name="Blue" type="TextureButton"]
 margin_right = 280.0
 margin_bottom = 279.0
 texture_normal = ExtResource( 2 )

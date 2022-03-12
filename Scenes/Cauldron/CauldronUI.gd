@@ -20,7 +20,7 @@ func _ready():
 	$Bundles.add_child(test2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+	pass
 
 #  This method causes the CauldronUI to signal to the cauldron controller to instance the Lab
 #  subsystem and remove the Cauldron subsystem from memory.

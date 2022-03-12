@@ -8,7 +8,7 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 The remainder of this file documents the assets referenced by scenes, the assets whose paths are referenced in gdscripts, the godot icon, and the Godot binary bundled with Vax. 
 
-File: Assets/Cauldron/poÆo amarela.png
+File: Assets/Cauldron/yellow.png
 Author: Flip
 License Text: 
 This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
@@ -20,9 +20,9 @@ If you liked it, consider following me on twitter @flippurgatory, and artstation
 URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
 
 
-Comment: File extracted from downloaded asset pack; ; single frame selected
+Comment: File extracted from downloaded asset pack; ; single frame selected; file renamed from "poÆo amarela.png" to "yellow.png" for android compatibility
 
-File: Assets/Cauldron/poÆo azul.png
+File: Assets/Cauldron/blue.png
 Author: Flip
 License Text: 
 This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
@@ -33,9 +33,9 @@ If you liked it, consider following me on twitter @flippurgatory, and artstation
 
 URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
 
-Comment: File extracted from downloaded asset pack; single frame selected
+Comment: File extracted from downloaded asset pack; single frame selected; file renamed from "poÆo azul.png" to "blue.png" for android compatibility 
 
-File: Assets/Cauldron/poÆo roxa.png
+File: Assets/Cauldron/violet.png
 Author: Flip
 License Text: 
 This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
@@ -46,9 +46,9 @@ If you liked it, consider following me on twitter @flippurgatory, and artstation
 
 URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
 
-Comment: File extracted from downloaded asset pack; single frame selected
+Comment: File extracted from downloaded asset pack; single frame selected; file renamed from "poÆo roxa.png" to "violet.png" for android compatibility
 
-File: Assets/Cauldron/poÆo verde.png
+File: Assets/Cauldron/green.png
 Author: Flip
 License Text: 
 This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
@@ -59,9 +59,9 @@ If you liked it, consider following me on twitter @flippurgatory, and artstation
 
 URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
 
-Comment: File extracted from downloaded asset pack; single frame selected
+Comment: File extracted from downloaded asset pack; single frame selected; file renamed from "poÆo verde.png" to "green.png" for android compatibility
 
-File: Assets/Cauldron/poÆo vermelha.png
+File: Assets/Cauldron/red.png
 Author: Flip
 License Text: 
 This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
@@ -72,7 +72,7 @@ If you liked it, consider following me on twitter @flippurgatory, and artstation
 
 URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
 
-Comment: File extracted from downloaded asset pack; single frame selected
+Comment: File extracted from downloaded asset pack; single frame selected; file renamed from "poÆo vermelha.png" to "red.png" for android compatibility
 
 File: ./icon.png
 Comment: Godot Engine logo
