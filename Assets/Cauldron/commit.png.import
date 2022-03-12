@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/01coin.png-13e672329d4a46d786a5b3c5d366b561.stex"
+path="res://.import/commit.png-b9435b1b11b82838217042398ba0e6b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TestingArea/01coin.png"
-dest_files=[ "res://.import/01coin.png-13e672329d4a46d786a5b3c5d366b561.stex" ]
+source_file="res://Assets/Cauldron/commit.png"
+dest_files=[ "res://.import/commit.png-b9435b1b11b82838217042398ba0e6b3.stex" ]
 
 [params]
 

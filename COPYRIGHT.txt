@@ -7,6 +7,15 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 
 The remainder of this file documents the assets referenced by scenes, the assets whose paths are referenced in gdscripts, the godot icon, and the Godot binary bundled with Vax. 
+File: Assets/Cauldron/commit.png
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from slide and stored in png
+
+File: Assets/Cauldron/Shop Popup (2).png
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from slide and stored in png
 
 File: Assets/Cauldron/mix.png
 Author: Aira Mae Aloveros

@@ -14,6 +14,8 @@ extends TextureButton
 var selected = false
 var origin_x = 0
 var origin_y = 0
+var master_window
+var first_time = true
 export var included = false
 
 # Declare member variables here. Examples:
@@ -21,13 +23,14 @@ export var included = false
 # var b = "text"
 
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-
-# Update the Button's position if it has been pushed
+# Find master window as soon as ingredient is ready
+func _ready():
+	master_window = get_viewport()
+	
+# Update the Ingredient's position if it has been selected; offsets make it so that the bottle's center
+# rather than the top left follows the cursor
 func _process(_delta):
 	if selected:
-		var master_window = get_viewport()
 		var new_position = master_window.get_mouse_position()
 		self.rect_position = Vector2(new_position.x-140, new_position.y-130)
 #	pass

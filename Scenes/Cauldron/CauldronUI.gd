@@ -38,3 +38,6 @@ func _on_Back_pressed():
 func _on_formulabook_icon_pressed():
 	emit_signal("open_formulabook")
 
+func confirm(name,description):
+	print(name)
+	print(description)
