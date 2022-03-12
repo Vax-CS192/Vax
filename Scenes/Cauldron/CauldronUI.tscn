@@ -125,7 +125,7 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
 frames = SubResource( 10 )
-frame = 1
+frame = 6
 playing = true
 
 [node name="Bundles" type="Node" parent="."]
@@ -149,3 +149,4 @@ __meta__ = {
 [connection signal="pressed" from="lab_button" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="mix_button" to="MixHolder" method="_on_mix_button_pressed"]
 [connection signal="pressed" from="formulabook_icon" to="." method="_on_formulabook_icon_pressed"]
+[connection signal="reset" from="MixHolder/MixPopup" to="." method="reset"]
