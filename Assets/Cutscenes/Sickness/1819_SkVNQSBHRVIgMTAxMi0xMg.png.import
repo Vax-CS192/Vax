@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Back.png-f3b405835bcdc288991aafd9b78c1ef3.stex"
+path="res://.import/1819_SkVNQSBHRVIgMTAxMi0xMg.png-8c0d3521d096bdb8a05a7d63076eebfa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TestingArea/Back.png"
-dest_files=[ "res://.import/Back.png-f3b405835bcdc288991aafd9b78c1ef3.stex" ]
+source_file="res://Assets/Cutscenes/Sickness/1819_SkVNQSBHRVIgMTAxMi0xMg.png"
+dest_files=[ "res://.import/1819_SkVNQSBHRVIgMTAxMi0xMg.png-8c0d3521d096bdb8a05a7d63076eebfa.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
