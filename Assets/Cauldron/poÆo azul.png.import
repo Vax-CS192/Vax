@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lab Button.png-487d48e108af128d45e5ba15d524ea3a.stex"
+path="res://.import/poÆo azul.png-73a293f88251ea64c69a52dc301db074.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TestingArea/Lab Button.png"
-dest_files=[ "res://.import/Lab Button.png-487d48e108af128d45e5ba15d524ea3a.stex" ]
+source_file="res://Assets/Cauldron/poÆo azul.png"
+dest_files=[ "res://.import/poÆo azul.png-73a293f88251ea64c69a52dc301db074.stex" ]
 
 [params]
 

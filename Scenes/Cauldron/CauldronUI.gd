@@ -10,9 +10,14 @@ extends Node2D
 
 
 func _ready():
-	pass # Replace with function body.
-
-
+	var yellow_scene = preload("res://Scenes/Cauldron/Ingredients/Yellow.tscn")
+	var blue_scene = preload("res://Scenes/Cauldron/Ingredients/Blue.tscn")
+	var test1 = yellow_scene.instance()
+	var test2 = blue_scene.instance()
+	test1.set_up("A",80,1000)
+	test2.set_up("B",320,1000)
+	$Bundles.add_child(test1)
+	$Bundles.add_child(test2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

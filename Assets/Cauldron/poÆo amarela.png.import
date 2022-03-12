@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lab Button.png-487d48e108af128d45e5ba15d524ea3a.stex"
+path="res://.import/poÆo amarela.png-27c31dcbe70b688dd9ccfb17f256e369.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TestingArea/Lab Button.png"
-dest_files=[ "res://.import/Lab Button.png-487d48e108af128d45e5ba15d524ea3a.stex" ]
+source_file="res://Assets/Cauldron/poÆo amarela.png"
+dest_files=[ "res://.import/poÆo amarela.png-27c31dcbe70b688dd9ccfb17f256e369.stex" ]
 
 [params]
 

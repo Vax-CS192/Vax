@@ -8,6 +8,72 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 The remainder of this file documents the assets referenced by scenes, the assets whose paths are referenced in gdscripts, the godot icon, and the Godot binary bundled with Vax. 
 
+File: Assets/Cauldron/poÆo amarela.png
+Author: Flip
+License Text: 
+This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
+
+You may not redistribute it or resell it.
+
+If you liked it, consider following me on twitter @flippurgatory, and artstation flip_santos
+
+URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
+
+
+Comment: File extracted from downloaded asset pack; ; single frame selected
+
+File: Assets/Cauldron/poÆo azul.png
+Author: Flip
+License Text: 
+This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
+
+You may not redistribute it or resell it.
+
+If you liked it, consider following me on twitter @flippurgatory, and artstation flip_santos
+
+URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
+
+Comment: File extracted from downloaded asset pack; single frame selected
+
+File: Assets/Cauldron/poÆo roxa.png
+Author: Flip
+License Text: 
+This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
+
+You may not redistribute it or resell it.
+
+If you liked it, consider following me on twitter @flippurgatory, and artstation flip_santos
+
+URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
+
+Comment: File extracted from downloaded asset pack; single frame selected
+
+File: Assets/Cauldron/poÆo verde.png
+Author: Flip
+License Text: 
+This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
+
+You may not redistribute it or resell it.
+
+If you liked it, consider following me on twitter @flippurgatory, and artstation flip_santos
+
+URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
+
+Comment: File extracted from downloaded asset pack; single frame selected
+
+File: Assets/Cauldron/poÆo vermelha.png
+Author: Flip
+License Text: 
+This pack is free to be used in both non-commercial and commercial projects, but please, credit me!
+
+You may not redistribute it or resell it.
+
+If you liked it, consider following me on twitter @flippurgatory, and artstation flip_santos
+
+URL: https://flippurgatory.itch.io/animated-potion-assets-pack-free?download
+
+Comment: File extracted from downloaded asset pack; single frame selected
+
 File: ./icon.png
 Comment: Godot Engine logo
 Copyright: 2017, Andrea Calabró
