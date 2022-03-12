@@ -26,4 +26,8 @@ func _on_CauldronUI_back_to_lab():
 
 #This changes the scene to the Formulabook.
 func _on_CauldronUI_open_formulabook():
-		get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
+	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
+
+#Reload the Cauldron to reset the UI
+func _on_CauldronUI_reset():
+	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")

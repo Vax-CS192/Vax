@@ -35,11 +35,12 @@ func _process(_delta):
 		self.rect_position = Vector2(new_position.x-140, new_position.y-130)
 #	pass
 
-
+# Once the button is pressed(but not released), set selected to true in order to make the code in _process
+# move the button
 func _on_button_down():
 	selected = true
 
-
+#Once the button is released, set selected to false to prevent the code in _process from moving the button
 func _on_button_up():
 	selected = false
 	
@@ -62,6 +63,7 @@ func _on_button_up():
 	elif included:
 		self.rect_position = Vector2(origin_x,320)
 
+# Set up the ingredient button after it has been instantiated
 func set_up(formula_name, x_pos, y_pos):
 	$my_name.set_text(formula_name)
 	self.rect_position = Vector2(x_pos,y_pos)
