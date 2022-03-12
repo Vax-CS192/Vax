@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Cauldron/cauldron.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Cauldron/Lab Button.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Cauldron/CauldronUI.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Cauldron/Mix.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Cauldron/mix.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/Cauldron/01coin.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Cauldron/formulabook_icon.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Cauldron/disabled.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -89,7 +90,9 @@ margin_left = 2447.0
 margin_top = 1154.0
 margin_right = 2816.0
 margin_bottom = 1340.0
+disabled = true
 texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 8 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -128,7 +131,7 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
 frames = SubResource( 10 )
-frame = 1
+frame = 7
 playing = true
 
 [node name="Bundles" type="Node" parent="."]

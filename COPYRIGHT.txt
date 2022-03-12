@@ -8,6 +8,11 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 The remainder of this file documents the assets referenced by scenes, the assets whose paths are referenced in gdscripts, the godot icon, and the Godot binary bundled with Vax. 
 
+File: Assets/Cauldron/mix.png
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from prototype and stored in png
+
 File: Assets/Cauldron/yellow.png
 Author: Flip
 License Text: 
@@ -240,7 +245,7 @@ File: Assets/Cauldron/Lab Button.png
 Author: Aira Mae Aloveros
 License: 0BSD
 
-File: Assets/Cauldron/Mix.png
+File: Assets/Cauldron/disabled.png
 Author: Aira Mae Aloveros
 License: 0BSD
 Notice: Image extracted from prototype and stored in png

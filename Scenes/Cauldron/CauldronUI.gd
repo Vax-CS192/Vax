@@ -19,8 +19,14 @@ func _ready():
 	$Bundles.add_child(test1)
 	$Bundles.add_child(test2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	pass
+func _process(_delta):
+	var bundle_count = $Bundles.get_child_count()
+	var all_bundles = $Bundles.get_children()
+	for i in range(0,bundle_count):
+		if all_bundles[i].rect_position.y < 321:
+			$mix_button.disabled = false
+			return
+	$mix_button.disabled = true
 
 #  This method causes the CauldronUI to signal to the cauldron controller to instance the Lab
 #  subsystem and remove the Cauldron subsystem from memory.
