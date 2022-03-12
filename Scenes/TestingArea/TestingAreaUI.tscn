@@ -7,37 +7,44 @@
 [ext_resource path="res://Assets/TestingArea/Test.png" type="Texture" id=5]
 [ext_resource path="res://Assets/TestingArea/logo.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Assets/TestingArea/Back.png" type="Texture" id=8]
+[ext_resource path="res://Assets/TestingArea/Lab Button.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=10]
 size = 50
 font_data = ExtResource( 7 )
 
 [sub_resource type="AtlasTexture" id=12]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=13]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 120, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=14]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 240, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=15]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 360, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=16]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 480, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=17]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 600, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=18]
+flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 720, 0, 120, 120 )
 
@@ -71,6 +78,9 @@ margin_right = 489.0
 margin_bottom = 239.0
 texture_normal = ExtResource( 8 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="reset" type="TextureButton" parent="."]
 margin_left = 2577.0
@@ -159,7 +169,6 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
 frames = SubResource( 11 )
-frame = 3
 playing = true
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
