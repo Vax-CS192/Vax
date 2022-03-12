@@ -57,10 +57,9 @@ License: CC-BY-4.0
 Link to License: https://creativecommons.org/licenses/by/4.0/legalcode
 
 
-File: Assets/TestingArea/Back.png
+File: Assets/TestingArea/Lab Button.png
 Author: Aira Mae Aloveros
 License: 0BSD
-Notice: Image extracted from prototype and stored in png
 
 File: Assets/TestingArea/background.png
 Author: Jeremy Vincent Yu
@@ -171,10 +170,9 @@ File: Assets/Cauldron/formulabook_icon.png
 Author: Jeremy Vincent Yu
 License: 0BSD
 
-File: Assets/Cauldron/Back.png
+File: Assets/Cauldron/Lab Button.png
 Author: Aira Mae Aloveros
 License: 0BSD
-Notice: Image extracted from prototype and stored in png
 
 File: Assets/Cauldron/Mix.png
 Author: Aira Mae Aloveros
