@@ -21,27 +21,44 @@ func _ready():
 # The bundle names and font color are set here.
 func _process(delta):
 	#Set Bundle Names
-	$ShopControl/Bundle1/Name.text="One"
-	$ShopControl/Bundle2/Name.text="Two"
-	$ShopControl/Bundle3/Name.text="Three"
-	$ShopControl/Bundle4/Name.text="Four"
-	$ShopControl/Bundle5/Name.text="Five"
-	$ShopControl/Bundle6/Name.text="Six"
-	$ShopControl/Bundle7/Name.text="Seven"
-	$ShopControl/Bundle8/Name.text="Eight"
-	$ShopControl/Bundle9/Name.text="Nine"
-	$ShopControl/Bundle10/Name.text="Ten"
-	$ShopControl/Bundle11/Name.text="Eleven"
-	$ShopControl/Bundle12/Name.text="Twelve"
-	$ShopControl/Bundle13/Name.text="Thirteen"
+	$ShopControl/Bundle1/Bundle/Name.text="One"	
+	$ShopControl/Bundle2/Bundle/Name.text="Two"
+	$ShopControl/Bundle3/Bundle/Name.text="Three"
+	$ShopControl/Bundle4/Bundle/Name.text="Four"
+	$ShopControl/Bundle5/Bundle/Name.text="Five"
+	$ShopControl/Bundle6/Bundle/Name.text="Six"
+	$ShopControl/Bundle7/Bundle/Name.text="Seven"
+	$ShopControl/Bundle8/Bundle/Name.text="Eight"
+	$ShopControl/Bundle9/Bundle/Name.text="Nine"
+	$ShopControl/Bundle10/Bundle/Name.text="Ten"
+	$ShopControl/Bundle11/Bundle/Name.text="Eleven"
+	$ShopControl/Bundle12/Bundle/Name.text="Twelve"
+	$ShopControl/Bundle13/Bundle/Name.text="Thirteen"
 
 	#Set name colors to compliment tables 
-	$ShopControl/Bundle9/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle10/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle11/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle12/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle13/Name.set("custom_colors/font_color",Color(1,1,1,1))
+	$ShopControl/Bundle9/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
+	$ShopControl/Bundle10/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
+	$ShopControl/Bundle11/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
+	$ShopControl/Bundle12/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
+	$ShopControl/Bundle13/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
+	
+	#Set PopupNames - Task: Create a function that fills up the popup details
+	$ShopControl/Bundle1/Popup/ArchivePopupControl/FormulaName.text="One"
+	$ShopControl/Bundle2/Popup/ArchivePopupControl/FormulaName.text="Two"
+	$ShopControl/Bundle3/Popup/ArchivePopupControl/FormulaName.text="Three"
+	$ShopControl/Bundle4/Popup/ArchivePopupControl/FormulaName.text="Four"
+	$ShopControl/Bundle5/Popup/ArchivePopupControl/FormulaName.text="Five"
+	$ShopControl/Bundle6/Popup/ArchivePopupControl/FormulaName.text="Six"
+	$ShopControl/Bundle7/Popup/ArchivePopupControl/FormulaName.text="Seven"
+	$ShopControl/Bundle8/Popup/ArchivePopupControl/FormulaName.text="Eight"
+	$ShopControl/Bundle9/Popup/ArchivePopupControl/FormulaName.text="Nine"
+	$ShopControl/Bundle10/Popup/ArchivePopupControl/FormulaName.text="Ten"
+	$ShopControl/Bundle11/Popup/ArchivePopupControl/FormulaName.text="Eleven"
+	$ShopControl/Bundle12/Popup/ArchivePopupControl/FormulaName.text="Twelve"
+	$ShopControl/Bundle13/Popup/ArchivePopupControl/FormulaName.text="Thirteen"
 
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+
+

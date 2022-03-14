@@ -9,8 +9,8 @@ extends Control
 export var is_occupied=false	#Variable to store state of the archive slot
 
 #preload the icons of the occupied and empty formula
-var occupied_icon=preload("res://Assets/Formula Book/Occupied Formula.png")
-var empty_icon=preload("res://Assets/Formula Book/Empty Formula.png")
+var occupied_icon=preload("res://Assets/Formula Book/Archive Page/Occupied Archive.png")
+var empty_icon=preload("res://Assets/Formula Book/Archive Page/Unoccupied Archive.png")
 
 
 
@@ -19,7 +19,6 @@ var empty_icon=preload("res://Assets/Formula Book/Empty Formula.png")
 func _ready():
 	is_occupied=false
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # If there is previously saved formula, the icon will be set accordingly
 func _process(delta):
@@ -27,9 +26,9 @@ func _process(delta):
 	if is_occupied==true:
 		get_node(".").texture_normal=occupied_icon
 		
-
-#Go to corresponding Cauldron Subsystem when the button is pressed	
-func _on_Formula_pressed():
-	#Task: change details of formula depending on the formula selected
+	
+func _on_ArchiveIcon_pressed():
 	if is_occupied==true:
-		get_tree().change_scene("res://Scenes/FormulaBook/Formula Page/FormulaPage.tscn")
+		$ArchivePopup.popup_centered()
+	else:
+		pass

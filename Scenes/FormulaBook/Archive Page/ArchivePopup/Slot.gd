@@ -9,10 +9,9 @@ extends Control
 export var is_occupied=false	#Variable to store state of the archive slot
 
 #preload the icons of the occupied and empty formula
-var occupied_icon=preload("res://Assets/Formula Book/Occupied Formula.png")
-var empty_icon=preload("res://Assets/Formula Book/Empty Formula.png")
-
-
+var occupied_icon=preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Mini Occupied.png")
+var empty_icon=preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Mini Not Occupied.png")
+var icon_toggle = 1
 
 # Called when the node enters the scene tree for the first time.
 # The default state of a formula slot is empty.
@@ -23,13 +22,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # If there is previously saved formula, the icon will be set accordingly
 func _process(delta):
-	get_node(".").texture_normal=empty_icon
 	if is_occupied==true:
 		get_node(".").texture_normal=occupied_icon
 		
 
 #Go to corresponding Cauldron Subsystem when the button is pressed	
-func _on_Formula_pressed():
-	#Task: change details of formula depending on the formula selected
-	if is_occupied==true:
-		get_tree().change_scene("res://Scenes/FormulaBook/Formula Page/FormulaPage.tscn")
+func _on_Slot_pressed():
+	if is_occupied==false:
+		if icon_toggle  == 1:
+			get_node(".").texture_normal = occupied_icon
+			icon_toggle  = 2
+		else:
+			get_node(".").texture_normal = empty_icon
+			icon_toggle = 1
