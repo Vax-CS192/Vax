@@ -169,3 +169,4 @@ margin_right = 2208.0
 margin_bottom = 808.0
 
 [connection signal="pressed" from="FormulaBookControl/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="FormulaBookControl/ArchiveIcon" to="." method="_on_ArchiveIcon_pressed"]

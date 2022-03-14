@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fonts/[labels] basis33.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Shop/box1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Shop/Bundle Popup/Buy Button.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Shop/Bundle Popup/Shop Popup.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Shop/Bundle.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 27
@@ -31,48 +30,38 @@ size = 40
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[node name="Bundle" type="Control"]
+[node name="Bundle" type="TextureButton"]
 margin_left = 64.0
 margin_top = 88.0
-margin_right = 262.0
-margin_bottom = 268.0
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bundle" type="TextureButton" parent="."]
-margin_left = 2.66667
-margin_right = 62.6667
-margin_bottom = 60.0
+margin_right = 124.0
+margin_bottom = 148.0
 rect_scale = Vector2( 3, 3 )
 texture_normal = ExtResource( 2 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Name" type="Label" parent="Bundle"]
+[node name="Name" type="Label" parent="."]
 margin_left = -21.0
 margin_top = -24.0
-margin_right = 80.0
-margin_bottom = 4.0
+margin_right = 85.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Name"
+text = "Name
+"
 align = 1
-max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Popup" type="Popup" parent="."]
-margin_left = 853.0
-margin_top = 174.0
-margin_right = 1944.0
-margin_bottom = 1036.0
+visible = true
+margin_left = 322.667
+margin_top = 77.3333
+margin_right = 362.667
+margin_bottom = 117.333
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -93,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FormulaName" type="LineEdit" parent="Popup/ArchivePopupControl"]
+[node name="LineEdit" type="LineEdit" parent="Popup/ArchivePopupControl"]
 margin_left = 120.0
 margin_top = 64.0
 margin_right = 1032.0
@@ -155,5 +144,3 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[connection signal="pressed" from="Bundle" to="." method="_on_Bundle_pressed"]

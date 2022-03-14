@@ -1,0 +1,117 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Shop/Bundle Popup/Shop Popup.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Shop/Bundle Popup/Buy Button.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchivePopup/ArchivePopup.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Fonts/[labels] basis33.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="ArchivePopup" type="Popup"]
+visible = true
+margin_left = 891.0
+margin_top = 294.0
+margin_right = 891.0
+margin_bottom = 294.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArchivePopupUI" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ArchivePopupUI"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArchivePopupControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="ArchivePopupControl"]
+margin_left = 120.0
+margin_top = 64.0
+margin_right = 1032.0
+margin_bottom = 160.0
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "Name"
+align = 1
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuyButton" type="TextureButton" parent="ArchivePopupControl"]
+margin_left = 658.0
+margin_top = 640.0
+margin_right = 1026.0
+margin_bottom = 792.0
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FormulaNote" type="TextEdit" parent="ArchivePopupControl"]
+anchor_right = 10.6
+anchor_bottom = 6.6
+margin_left = 168.0
+margin_top = 192.0
+margin_right = 568.0
+margin_bottom = 376.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Insert bundle note..."
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ArchivePopupControl"]
+margin_left = 168.0
+margin_top = 699.0
+margin_right = 438.0
+margin_bottom = 730.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "P 120,000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

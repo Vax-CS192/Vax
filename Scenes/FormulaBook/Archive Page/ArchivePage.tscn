@@ -1,0 +1,304 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchiveIcon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fonts/[labels] basis33.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Shop/Money Icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Formula Book/Archive Page/RightPointer.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Formula Book/Archive Page/Page field.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Formula Book/Archive Page/LeftPointer.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Shop/Back Button.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchivePage.gd" type="Script" id=9]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Money/Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TurningCoin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Money/Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+extra_spacing_char = -5
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 65
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="ArchivePage" type="Node"]
+script = ExtResource( 9 )
+
+[node name="ArchivePageUI" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ArchivePageUI"]
+margin_right = 2960.0
+margin_bottom = 1440.0
+rect_pivot_offset = Vector2( 656, 728 )
+color = Color( 0.733333, 0.231373, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Money" type="AnimationPlayer" parent="ArchivePageUI"]
+autoplay = "TurningCoin"
+anims/RESET = SubResource( 1 )
+anims/TurningCoin = SubResource( 2 )
+
+[node name="Account" type="Label" parent="ArchivePageUI/Money"]
+margin_left = 2178.0
+margin_top = 105.0
+margin_right = 2844.0
+margin_bottom = 155.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Php 1, 534, 954, 030.00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="Sprite" parent="ArchivePageUI/Money"]
+position = Vector2( 909, 736 )
+texture = ExtResource( 4 )
+offset = Vector2( 1209, -612 )
+hframes = 8
+
+[node name="ArchivePageControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="ArchivePageControl"]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 392.0
+margin_bottom = 186.0
+rect_pivot_offset = Vector2( 288, 680 )
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="TextureButton" parent="ArchivePageControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 2100.0
+margin_top = 1220.0
+margin_right = 2119.0
+margin_bottom = 1234.0
+rect_scale = Vector2( 6, 6 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftButton" type="TextureButton" parent="ArchivePageControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 748.0
+margin_top = 1220.0
+margin_right = 767.0
+margin_bottom = 1234.0
+rect_scale = Vector2( 6, 6 )
+texture_normal = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PageField" type="Control" parent="ArchivePageControl"]
+margin_left = 1359.0
+margin_top = 1224.0
+margin_right = 1399.0
+margin_bottom = 1264.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="ArchivePageControl/PageField"]
+margin_left = 25.0
+margin_right = 327.0
+margin_bottom = 114.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextField" type="LineEdit" parent="ArchivePageControl/PageField"]
+margin_left = 9.0
+margin_right = 345.0
+margin_bottom = 120.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "1"
+align = 1
+max_length = 3
+placeholder_text = "Page"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArchiveIcons" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArchiveIcon1" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 672.0
+margin_top = 264.0
+margin_right = 876.0
+margin_bottom = 416.0
+
+[node name="ArchiveIcon2" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1048.0
+margin_top = 264.0
+margin_right = 1252.0
+margin_bottom = 416.0
+
+[node name="ArchiveIcon3" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1424.0
+margin_top = 272.0
+margin_right = 1628.0
+margin_bottom = 424.0
+
+[node name="ArchiveIcon4" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1776.0
+margin_top = 280.0
+margin_right = 1980.0
+margin_bottom = 432.0
+
+[node name="ArchiveIcon5" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 2128.0
+margin_top = 280.0
+margin_right = 2332.0
+margin_bottom = 432.0
+
+[node name="ArchiveIcon6" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 680.0
+margin_top = 504.0
+margin_right = 884.0
+margin_bottom = 656.0
+
+[node name="ArchiveIcon7" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1040.0
+margin_top = 504.0
+margin_right = 1244.0
+margin_bottom = 656.0
+
+[node name="ArchiveIcon8" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1424.0
+margin_top = 504.0
+margin_right = 1628.0
+margin_bottom = 656.0
+
+[node name="ArchiveIcon9" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1776.0
+margin_top = 504.0
+margin_right = 1980.0
+margin_bottom = 656.0
+
+[node name="ArchiveIcon10" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 2144.0
+margin_top = 520.0
+margin_right = 2348.0
+margin_bottom = 672.0
+
+[node name="ArchiveIcon11" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 672.0
+margin_top = 720.0
+margin_right = 876.0
+margin_bottom = 872.0
+
+[node name="ArchiveIcon12" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1048.0
+margin_top = 720.0
+margin_right = 1252.0
+margin_bottom = 872.0
+
+[node name="ArchiveIcon13" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1424.0
+margin_top = 728.0
+margin_right = 1628.0
+margin_bottom = 880.0
+
+[node name="ArchiveIcon14" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1776.0
+margin_top = 736.0
+margin_right = 1980.0
+margin_bottom = 888.0
+
+[node name="ArchiveIcon15" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 2128.0
+margin_top = 736.0
+margin_right = 2332.0
+margin_bottom = 888.0
+
+[node name="ArchiveIcon16" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 680.0
+margin_top = 960.0
+margin_right = 884.0
+margin_bottom = 1112.0
+
+[node name="ArchiveIcon17" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1040.0
+margin_top = 960.0
+margin_right = 1244.0
+margin_bottom = 1112.0
+
+[node name="ArchiveIcon18" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1424.0
+margin_top = 960.0
+margin_right = 1628.0
+margin_bottom = 1112.0
+
+[node name="ArchiveIcon19" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 1776.0
+margin_top = 960.0
+margin_right = 1980.0
+margin_bottom = 1112.0
+
+[node name="ArchiveIcon20" parent="ArchiveIcons" instance=ExtResource( 1 )]
+margin_left = 2144.0
+margin_top = 976.0
+margin_right = 2348.0
+margin_bottom = 1128.0
+
+[connection signal="pressed" from="ArchivePageControl/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="ArchivePageControl/RightButton" to="." method="_on_RightButton_pressed"]
+[connection signal="pressed" from="ArchivePageControl/LeftButton" to="." method="_on_LeftButton_pressed"]
+[connection signal="text_entered" from="ArchivePageControl/PageField/TextField" to="." method="_on_TextField_text_entered"]
