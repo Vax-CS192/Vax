@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Cutscenes/custome_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Cutscenes/line_edit.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/Cutscenes/PresidentInput.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Cutscenes/Buttons/enter_disabled.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Cutscenes/Buttons/enter_enabled.png" type="Texture" id=6]
 
@@ -13,6 +14,7 @@ size = 75
 font_data = ExtResource( 3 )
 
 [node name="PresidentInput" type="Node"]
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_vertical_guides_": [ 1480.0 ]
 }
@@ -65,7 +67,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="UI"]
+[node name="EnterButton" type="TextureButton" parent="UI"]
 margin_left = 1100.0
 margin_top = 929.0
 margin_right = 1867.0
@@ -77,4 +79,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="UI/TextureButton" to="UI/InputBox" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="UI/EnterButton" to="." method="_on_EnterButton_pressed"]

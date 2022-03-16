@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/6 Mimaropa.bmp-a3b46818d0634663ca014f52fdaf71f6.res"
+
+[deps]
+
+source_file="res://Assets/Map/Regions Mask/6 Mimaropa.bmp"
+dest_files=[ "res://.import/6 Mimaropa.bmp-a3b46818d0634663ca014f52fdaf71f6.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

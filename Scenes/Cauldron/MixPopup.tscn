@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/[labels] basis33(1).ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/Cauldron/MixPopup.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Cauldron/Shop Popup (2).png" type="Texture" id=4]
-[ext_resource path="res://Assets/Cauldron/commit.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -27,7 +25,6 @@ margin_left = 1.0
 margin_top = -7.0
 margin_right = 2058.0
 margin_bottom = 1056.0
-texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -89,7 +86,6 @@ margin_left = 845.0
 margin_top = 846.0
 margin_right = 1251.0
 margin_bottom = 998.0
-texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

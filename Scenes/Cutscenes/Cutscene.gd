@@ -21,7 +21,7 @@ enum State {
 # Declare member variables here.
 var counter = 0
 var gameStart = true
-const CHAR_READ_RATE = 0.05
+const CHAR_READ_RATE = 0.0125
 
 # Declare List Variables here
 var message_list = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, nibh quis faucibus fermentum, arcu orci semper ante, a sollicitudin urna mi eget nisl.", "Nullam ultrices ultricies enim, sit amet congue nisl volutpat ac. Donec facilisis elementum vestibulum. Donec tincidunt malesuada elementum.", "Cras ut placerat sem, ut tincidunt orci. Aenean aliquam eros tortor, in sodales lorem commodo vitae. Vestibulum finibus felis erat, non eleifend lacus malesuada volutpat.", "Ut suscipit ullamcorper tempor. Etiam pharetra metus quis fringilla egestas. Fusce vitae nisi ac metus tristique pellentesque id vitae purus. Maecenas quis mi facilisis, elementum neque in, gravida ligula.", "Sed at cursus leo. Maecenas quis dictum quam, nec scelerisque diam.", "Aenean efficitur viverra justo. Quisque feugiat sit amet tellus a bibendum. Proin auctor massa urna, ut tempor sapien lobortis ut. Aliquam ut odio nec massa auctor posuere.", "Duis eget laoreet ex. Etiam vel condimentum risus. Vestibulum maximus arcu eget ullamcorper laoreet. Nullam et urna quis diam tincidunt commodo.", "Nam molestie urna ac justo tristique, eu varius augue facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis rutrum nisl, at bibendum nisi ornare eget."]
@@ -74,7 +74,7 @@ func update_sprites():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# update_sprites()
+	update_sprites()
 	match current_state:
 		State.READY:
 			show_message(message_list[counter])

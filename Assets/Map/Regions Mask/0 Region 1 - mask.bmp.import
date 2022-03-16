@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/0 Region 1 - mask.bmp-19a55e853c597a97d1a24e5f6bbd7172.res"
+
+[deps]
+
+source_file="res://Assets/Map/Regions Mask/0 Region 1 - mask.bmp"
+dest_files=[ "res://.import/0 Region 1 - mask.bmp-19a55e853c597a97d1a24e5f6bbd7172.res" ]
+
+[params]
+
+create_from=0
+threshold=0.0
