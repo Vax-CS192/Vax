@@ -61,7 +61,7 @@ frames = SubResource( 9 )
 frame = 5
 playing = true
 
-[node name="Label" type="Label" parent="."]
+[node name="money" type="Label" parent="."]
 margin_left = 60.0
 margin_top = -16.7491
 margin_right = 700.0

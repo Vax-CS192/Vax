@@ -12,8 +12,9 @@
 
 extends Control 
 
-# preload to make main menu scene switch faster
+# preload to make main menu scene and template pop-up switch faster
 var mainMenu = preload("res://Scenes/MainMenu/MainMenu.tscn")
+var templatePopUp = preload("res://Scenes/Lab/TemplatePopUp.tscn")
 
 # This function is run at the start of the scene
 func _ready():
@@ -29,10 +30,15 @@ func _ready():
 	shopButton.connect("pressed", self, "_on_shopButton_pressed")
 	mapButton.connect("pressed", self, "_on_mapButton_pressed")
 	testButton.connect("pressed", self, "_on_testButton_presed")
+	
+	# if new game, then start timer
+	if Profile.is_new_game == true:
+		$Timer.start()
 
 # change scene when button to FormulaBook is pressed
 # subject to change
 func _on_BackToMainMenu_pressed():
+	Profile.save_data()
 	get_tree().change_scene_to(mainMenu)
 
 # change scene to Cauldron when cauldron button is pressed
@@ -50,3 +56,13 @@ func _on_mapButton_pressed():
 # change scene to Testing when Test button is pressed
 func _on_testButton_presed():
 	get_tree().change_scene("res://Scenes/TestingArea/TestingArea.tscn")
+
+# this function runs every frame
+func _process(delta):
+	# sets money on screen
+	$Money/money.text = "PHP " + Profile.format_money(Profile.money)
+
+# after 0.5 seconds, instantiate template popup
+func _on_Timer_timeout():
+	templatePopUp = templatePopUp.instance()
+	add_child(templatePopUp)

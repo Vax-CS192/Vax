@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/MainMenu/bg-0001.png" type="Texture" id=1]
+[ext_resource path="res://Assets/MainMenu/MainMenuContinue_disabled.png" type="Texture" id=2]
 [ext_resource path="res://Assets/MainMenu/Title.png" type="Texture" id=4]
 [ext_resource path="res://Assets/MainMenu/MainMenuContinue.png" type="Texture" id=5]
 [ext_resource path="res://Assets/MainMenu/MainMenuNewGame.png" type="Texture" id=6]
 [ext_resource path="res://Assets/MainMenu/MainMenuExit.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=8]
 
-[node name="MainMenu" type="Control" groups=[
-"viruses",
-]]
+[node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
@@ -17,7 +16,6 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
-num_of_viruses = 15
 
 [node name="BackgroundColor" type="TextureRect" parent="."]
 margin_right = 2960.0
@@ -28,40 +26,6 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
-
-[node name="Buttons" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -647.957
-margin_top = -375.557
-margin_right = 4670.04
-margin_bottom = 126.443
-rect_scale = Vector2( 0.25, 0.25 )
-custom_constants/separation = 400
-alignment = 1
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="NewGame" type="TextureButton" parent="Buttons"]
-margin_right = 1506.0
-margin_bottom = 502.0
-texture_normal = ExtResource( 6 )
-
-[node name="Continue" type="TextureButton" parent="Buttons"]
-margin_left = 1906.0
-margin_right = 3412.0
-margin_bottom = 502.0
-texture_normal = ExtResource( 5 )
-
-[node name="Exit" type="TextureButton" parent="Buttons"]
-margin_left = 3812.0
-margin_right = 5318.0
-margin_bottom = 502.0
-texture_normal = ExtResource( 7 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -80,6 +44,44 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
-[connection signal="pressed" from="Buttons/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="Buttons/Exit" to="." method="_on_Exit_pressed"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -647.957
+margin_top = -375.557
+margin_right = 4670.04
+margin_bottom = 126.443
+rect_scale = Vector2( 0.25, 0.25 )
+custom_constants/separation = 400
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="NewGame" type="TextureButton" parent="CanvasLayer/Buttons"]
+margin_right = 1506.0
+margin_bottom = 502.0
+texture_normal = ExtResource( 6 )
+
+[node name="Continue" type="TextureButton" parent="CanvasLayer/Buttons"]
+margin_left = 1906.0
+margin_right = 3412.0
+margin_bottom = 502.0
+texture_normal = ExtResource( 5 )
+texture_disabled = ExtResource( 2 )
+
+[node name="Exit" type="TextureButton" parent="CanvasLayer/Buttons"]
+margin_left = 3812.0
+margin_right = 5318.0
+margin_bottom = 502.0
+texture_normal = ExtResource( 7 )
+
+[connection signal="pressed" from="CanvasLayer/Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Exit" to="." method="_on_Exit_pressed"]
