@@ -45,7 +45,7 @@ func _on_shopButton_pressed():
 	
 # changes scene to Map when map button is pressed
 func _on_mapButton_pressed():
-	get_tree().change_scene("res://Scenes/Map/map.tscn")
+	get_tree().change_scene("res://Scenes/Map/MapUI.tscn")
 
 # change scene to Testing when Test button is pressed
 func _on_testButton_presed():

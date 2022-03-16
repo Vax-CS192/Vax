@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/4 NCR.bmp-22d62f8c7048bb225edcb49b369b1762.res"
+
+[deps]
+
+source_file="res://Assets/Map/Regions Mask/4 NCR.bmp"
+dest_files=[ "res://.import/4 NCR.bmp-22d62f8c7048bb225edcb49b369b1762.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

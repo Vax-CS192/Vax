@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/1 CAR.bmp-348ad6c16b0b1f5c5b7d866792704393.res"
+
+[deps]
+
+source_file="res://Assets/Map/Regions Mask/1 CAR.bmp"
+dest_files=[ "res://.import/1 CAR.bmp-348ad6c16b0b1f5c5b7d866792704393.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

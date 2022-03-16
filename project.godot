@@ -29,6 +29,13 @@ window/stretch/aspect="keep"
 
 window=false
 
+[importer_defaults]
+
+bitmap={
+"create_from": 0,
+"threshold": 0.5
+}
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
