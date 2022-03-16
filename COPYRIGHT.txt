@@ -156,6 +156,16 @@ Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
 
+File: Assets/Lab/yes_no.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/Lab/main_menu_buttonpng
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
 File: Assets/Lab/cauldron.png
 Author: John Henry Galino
 License: CC0 1.0
@@ -187,6 +197,16 @@ License: CC0 1.0
 Link to License: http://creativecommons.org/publicdomain/zero/1.0
 
 File: Assets/Lab/lab-bg-color.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/MainMenuContinue_disabled.png.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
+File: Assets/MainMenu/main_menu_pop_up.png
 Author: John Henry Galino
 License: CC0 1.0
 Link to License: http://creativecommons.org/publicdomain/zero/1.0
