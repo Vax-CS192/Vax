@@ -11,15 +11,6 @@ onready var region_hud = $RegionHud/Vaccines/ScrollContainer/VSeparator
 var available_vaccines = ["NGALAN", "MARAHUYO", "PAYZER", "SAYA", "SIGLA", "LIGAYA", "MANAWARI", "J&J"]
 var VaccineScene = preload("res://Scenes/Map/Region Huds/VaccineInstance.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _instantiate_vaccine_scenes():
 	for i in range(len(available_vaccines)):
 		var instantiate = VaccineScene.instance()
