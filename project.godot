@@ -18,6 +18,10 @@ config/name="Vax"
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Profile="*res://Scenes/MainMenu/Profile.gd"
+
 [display]
 
 window/size/width=2960
@@ -28,6 +32,7 @@ window/stretch/aspect="keep"
 [global]
 
 window=false
+touch=false
 
 [importer_defaults]
 
