@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/green.png-5d8cf035680c69640086d26badb6a34d.stex"
+path="res://.import/coronavirus-red-rim-light-idle1_00_pa_coronavirus-red-rim-light-idle1_00.png-3829dd095c9139bd483d3f7692500361.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cauldron/green.png"
-dest_files=[ "res://.import/green.png-5d8cf035680c69640086d26badb6a34d.stex" ]
+source_file="res://Assets/MainMenu/coronavirus-red-rim-light-idle1_00/coronavirus-red-rim-light-idle1_00_pa_coronavirus-red-rim-light-idle1_00.png"
+dest_files=[ "res://.import/coronavirus-red-rim-light-idle1_00_pa_coronavirus-red-rim-light-idle1_00.png-3829dd095c9139bd483d3f7692500361.stex" ]
 
 [params]
 

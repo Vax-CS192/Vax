@@ -12,12 +12,32 @@
 
 extends Control
 
-var cutscene
+# preload to make loading faster for these scenes
+var cutscene = preload("res://Scenes/Cutscenes/Cutscene.tscn")
+var virus_0 = preload("res://Scenes/MainMenu/Virus_0.tscn")
+var virus_1 = preload("res://Scenes/MainMenu/Virus_1.tscn")
+
+export var num_of_viruses = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Cutscene is quite a large scene, so preload it to make loading faster
-	cutscene = preload("res://Scenes/Cutscenes/Cutscene.tscn")
+	randomize()
+	
+	for x in range(num_of_viruses + 1):
+		
+		var rand_num = randi() % 2
+		var vir: Node2D
+		var vir_scale = rand_range(1,3)
+		
+		if rand_num == 0:
+			vir = virus_0.instance()
+		elif rand_num == 1:
+			vir = virus_1.instance()
+			
+		vir.position.x = rand_range(100, 2800)
+		vir.position.y = rand_range(100, 1300)
+		vir.scale = Vector2(vir_scale,vir_scale)
+		add_child_below_node($BackgroundColor, vir)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
