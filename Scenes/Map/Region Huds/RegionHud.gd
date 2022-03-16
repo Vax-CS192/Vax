@@ -14,7 +14,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_DeployButton_pressed():
-	counter = 0;
 	_close_and_deploy()
 
 func _on_CloseButton_pressed():
@@ -26,6 +25,7 @@ func _close_and_deploy():
 		vaccines.remove_child(node)
 		node.queue_free()
 	get_parent().hide()
+	counter = 0;
 
 func _process(delta):
 	if counter == 0:

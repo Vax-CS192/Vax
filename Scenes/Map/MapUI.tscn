@@ -18,7 +18,7 @@
 [ext_resource path="res://Assets/Map/Regions/8 Region 6.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Map/Regions/10 Region 8.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Map/Regions/6 Mimaropa.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Shop/Back Button.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Map/Buttons/Lab Button Map.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Shop/Money Icon.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=21]
 [ext_resource path="res://Assets/Map/adcel-villanueva-pixel-061220-2.jpg" type="Texture" id=22]
