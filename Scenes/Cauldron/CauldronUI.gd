@@ -21,7 +21,9 @@ func _ready():
 	$Bundles.add_child(test2)
 
 # Check whether the mix button should be enabled every frame
+# Also, update money in real time
 func _process(_delta):
+	get_node("money_bg/money_value").text = "PHP "+ Profile.format_money(Profile.money)
 	var bundle_count = $Bundles.get_child_count()
 	var all_bundles = $Bundles.get_children()
 	var total_selected = 0;
