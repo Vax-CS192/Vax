@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Assets/Shop/Back Button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Shop/Lab Button.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Shop/Table2.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Shop/Money Icon.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Shop/Bundle.tscn" type="PackedScene" id=4]
