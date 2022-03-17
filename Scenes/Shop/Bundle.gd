@@ -24,11 +24,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#$Popup.popup_centered()
-	
-
+# Bundle popup appears when a bundle is pressed
 func _on_Bundle_pressed():
 	$Popup.popup_centered()
 	

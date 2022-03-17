@@ -17,7 +17,6 @@ var max_page=2
 var curr_page:int = 1
 const last_page = 2
 var occupied_page = true
-#add maxselectedslots
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # The formula name and state are set here.
@@ -28,7 +27,8 @@ func _process(delta):
 	else:
 		_new_page()
 
-		
+# Load the page with occupied folders		
+# Task: Create a function that will load all details of a page when nav buttons are pressed
 func _load_page():
 	#set state
 	$ArchiveIcons/ArchiveIcon1.is_occupied=true
@@ -37,8 +37,11 @@ func _load_page():
 	#set names
 	$ArchiveIcons/ArchiveIcon1/Name.text = "Really"
 	$ArchiveIcons/ArchiveIcon2/Name.text = "Try"
+
+	$ArchiveIcons/ArchiveIcon1/ArchivePopup/ArchivePopupControl/FormulaName.text = "Really"
+	$ArchiveIcons/ArchiveIcon2/ArchivePopup/ArchivePopupControl/FormulaName.text = "Try"
 	
-	
+#load a page with empty foalders (only for the demo)
 func _new_page():
 	$ArchiveIcons/ArchiveIcon1.is_occupied=false
 	$ArchiveIcons/ArchiveIcon2.is_occupied=false
@@ -48,16 +51,11 @@ func _new_page():
 	$ArchiveIcons/ArchiveIcon2/Name.text = ""
 
 
-#Go to Cauldron Subsystem when the button is pressed	
+# Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
 
-#Task: Create a function that will load all details of a page when nav buttons are pressed
-
-func _on_ArchiveIcon_pressed():
-	$ArchivePopup.popup_centered()
-
-
+# Moves to the next page
 func _on_LeftButton_pressed():
 	if curr_page==1:#before update
 		occupied_page=false 
@@ -70,6 +68,8 @@ func _on_LeftButton_pressed():
 		curr_page -=1
 	$ArchivePageControl/PageField/TextField.text = str(curr_page)
 
+
+# Moves to the previous page
 func _on_RightButton_pressed():
 	if curr_page==last_page: #before update
 		occupied_page=true #go back to first page
@@ -79,7 +79,7 @@ func _on_RightButton_pressed():
 		curr_page +=1
 	$ArchivePageControl/PageField/TextField.text = str(curr_page)
 
-
+# Moves to the page number according to the user's input
 func _on_TextField_text_entered(new_text):
 	var text_page = int($ArchivePageControl/PageField/TextField.text)
 	if text_page>max_page:
@@ -91,4 +91,3 @@ func _on_TextField_text_entered(new_text):
 			occupied_page=true
 		elif curr_page==2:
 			occupied_page=false
-	

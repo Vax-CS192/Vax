@@ -39,5 +39,7 @@ func _process(delta):
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")
 
+# Archive Page appears when the Archive icon is pressed from the Favorites page
 func _on_ArchiveIcon_pressed():
 	get_tree().change_scene("res://Scenes/FormulaBook/Archive Page/ArchivePage.tscn")
+	

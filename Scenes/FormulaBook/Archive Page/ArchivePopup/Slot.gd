@@ -43,4 +43,3 @@ func _on_Slot_pressed():
 				get_node(".").texture_normal = empty_icon
 				is_pressed=false
 				icon_toggle = 1
-
