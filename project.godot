@@ -20,7 +20,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Profile="*res://Scenes/MainMenu/Profile.gd"
+Profile="*res://Scenes/Shared/Profile.gd"
 
 [display]
 
