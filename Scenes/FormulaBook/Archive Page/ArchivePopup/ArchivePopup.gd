@@ -13,6 +13,9 @@
 
 extends Popup
 
+onready var enabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Set as Favorite Button enabled.png")
+onready var disabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Set as Favorite Button.png")
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -21,17 +24,27 @@ extends Popup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ArchivePopupControl/Slots/Slot1.is_occupied=true
+	$ArchivePopupControl/Slots/Slot2.is_occupied=true
+	$ArchivePopupControl/Slots/Slot3.is_occupied=true
+	$ArchivePopupControl/Slots/Slot4.is_occupied=true
+	$ArchivePopupControl/Slots/Slot5.is_occupied=true
+	$ArchivePopupControl/Slots/Slot6.is_occupied=true
+	$ArchivePopupControl/Slots/Slot7.is_occupied=true
+	$ArchivePopupControl/Slots/Slot8.is_occupied=true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Slots/Slot1.is_occupied=true
-	$Slots/Slot2.is_occupied=true
-	$Slots/Slot3.is_occupied=true
-	$Slots/Slot4.is_occupied=true
-	$Slots/Slot5.is_occupied=true
-	$Slots/Slot6.is_occupied=true
-	$Slots/Slot7.is_occupied=true
-	$Slots/Slot8.is_occupied=true
-
+	
+	#Fix this hardcoded code
+	if $ArchivePopupControl/Slots/Slot9.is_pressed==true || $ArchivePopupControl/Slots/Slot10.is_pressed==true:
+		$ArchivePopupControl/SetAsFavoriteButton.texture_normal=enabled_fav_button
+		if $ArchivePopupControl/Slots/Slot9.is_pressed==true:
+			$ArchivePopupControl/Slots/Slot10.is_disabled=true              
+		elif $ArchivePopupControl/Slots/Slot10.is_pressed==true:
+			$ArchivePopupControl/Slots/Slot9.is_disabled=true 
+	else:
+		$ArchivePopupControl/Slots/Slot9.is_disabled=false
+		$ArchivePopupControl/Slots/Slot10.is_disabled=false
+		$ArchivePopupControl/SetAsFavoriteButton.texture_normal=disabled_fav_button
