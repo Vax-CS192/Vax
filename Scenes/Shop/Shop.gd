@@ -15,11 +15,6 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#randomize() #will be needed to randomize bundle names
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-# The bundle names and font color are set here.
-func _process(delta):
 	#Set Bundle Names
 	$ShopControl/Bundle1/Bundle/Name.text="One"	
 	$ShopControl/Bundle2/Bundle/Name.text="Two"
@@ -56,6 +51,12 @@ func _process(delta):
 	$ShopControl/Bundle11/Popup/ArchivePopupControl/FormulaName.text="Eleven"
 	$ShopControl/Bundle12/Popup/ArchivePopupControl/FormulaName.text="Twelve"
 	$ShopControl/Bundle13/Popup/ArchivePopupControl/FormulaName.text="Thirteen"
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+# The bundle names and font color are set here.
+func _process(delta):
+	#pass
+	pass
 
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():

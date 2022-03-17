@@ -7,6 +7,8 @@
 extends Control
 
 export var is_occupied=false	#Variable to store state of the archive slot
+export var is_pressed=false
+export var is_disabled=false
 
 #preload the icons of the occupied and empty formula
 var occupied_icon=preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Mini Occupied.png")
@@ -29,9 +31,16 @@ func _process(delta):
 #Go to corresponding Cauldron Subsystem when the button is pressed	
 func _on_Slot_pressed():
 	if is_occupied==false:
-		if icon_toggle  == 1:
-			get_node(".").texture_normal = occupied_icon
-			icon_toggle  = 2
-		else:
+		if is_disabled==true:
 			get_node(".").texture_normal = empty_icon
-			icon_toggle = 1
+		else:
+			if icon_toggle  == 1:
+				get_node(".").texture_normal = occupied_icon
+				is_pressed=true
+				icon_toggle  = 2
+				is_disabled=false
+			else:
+				get_node(".").texture_normal = empty_icon
+				is_pressed=false
+				icon_toggle = 1
+
