@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Set as Favorite Button.png-1ac7aa8fb14ad50df6814c2f935265bd.stex"
+path="res://.import/Archive bg.png-a8b3d47aedd6f071713d880ab8b97c8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Archive Page/Archive Formula Page/Set as Favorite Button.png"
-dest_files=[ "res://.import/Set as Favorite Button.png-1ac7aa8fb14ad50df6814c2f935265bd.stex" ]
+source_file="res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Archive bg.png"
+dest_files=[ "res://.import/Archive bg.png-a8b3d47aedd6f071713d880ab8b97c8f.stex" ]
 
 [params]
 

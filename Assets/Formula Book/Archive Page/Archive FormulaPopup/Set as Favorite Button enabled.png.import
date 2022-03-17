@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Popup rRename Ready.png-54966a88988ab3fe8a6644d9e0d38136.stex"
+path="res://.import/Set as Favorite Button enabled.png-ecc5ef2640baf2fbe1c8ed54f92b4408.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Archive Page/Archive Formula Page/Popup rRename Ready.png"
-dest_files=[ "res://.import/Popup rRename Ready.png-54966a88988ab3fe8a6644d9e0d38136.stex" ]
+source_file="res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Set as Favorite Button enabled.png"
+dest_files=[ "res://.import/Set as Favorite Button enabled.png-ecc5ef2640baf2fbe1c8ed54f92b4408.stex" ]
 
 [params]
 

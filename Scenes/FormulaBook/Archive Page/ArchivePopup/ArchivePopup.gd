@@ -13,8 +13,8 @@
 
 extends Popup
 
-onready var enabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Set as Favorite Button enabled.png")
-onready var disabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Set as Favorite Button.png")
+onready var enabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Set as Favorite Button enabled.png")
+onready var disabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Set as Favorite Button.png")
 
 
 # Declare member variables here. Examples:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mini Occupied.png-749a5364b9e97b73e44effb7636c2b6a.stex"
+path="res://.import/Disabled Button.png-bf88686c212347545077024d7b777860.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Archive Page/Archive Formula Page/Mini Occupied.png"
-dest_files=[ "res://.import/Mini Occupied.png-749a5364b9e97b73e44effb7636c2b6a.stex" ]
+source_file="res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Disabled Button.png"
+dest_files=[ "res://.import/Disabled Button.png-bf88686c212347545077024d7b777860.stex" ]
 
 [params]
 
