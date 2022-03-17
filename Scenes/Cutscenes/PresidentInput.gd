@@ -23,5 +23,4 @@ func _process(delta):
 # This changes the scene to the Lab.
 func _on_EnterButton_pressed():
 	Profile.president_name = input_box.text
-	Profile.save_president_name()
 	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")

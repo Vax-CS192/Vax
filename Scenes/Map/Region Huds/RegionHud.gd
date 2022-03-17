@@ -13,12 +13,15 @@ onready var deploy_button = $Buttons/DeployButton
 func _ready():
 	pass # Replace with function body.
 
+# called whenever the deploy button is pressed, which basically calls the _close_and_deploy function
 func _on_DeployButton_pressed():
 	_close_and_deploy()
 
+# called whenever the close button is pressed, which basically calls the _close_and_deploy function
 func _on_CloseButton_pressed():
 	_close_and_deploy()
 
+# function responsible for closing all child instance of the Vseparator node in the scene, it then hides the region hud
 func _close_and_deploy():
 	var vaccines = get_node("Vaccines/ScrollContainer/VSeparator")
 	for node in vaccines.get_children():
@@ -32,5 +35,3 @@ func _process(delta):
 		deploy_button.disabled = true
 	else:
 		deploy_button.disabled = false
-
-
