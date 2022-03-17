@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Favorites Button.png-24fee4530064ade02ab2177a6111fb5e.stex"
+path="res://.import/Delete.png-83161a7aa5c917ad91747875ce342ad0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Favorites Button.png"
-dest_files=[ "res://.import/Favorites Button.png-24fee4530064ade02ab2177a6111fb5e.stex" ]
+source_file="res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Delete.png"
+dest_files=[ "res://.import/Delete.png-83161a7aa5c917ad91747875ce342ad0.stex" ]
 
 [params]
 

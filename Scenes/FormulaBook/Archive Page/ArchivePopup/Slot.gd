@@ -11,8 +11,8 @@ export var is_pressed=false
 export var is_disabled=false
 
 #preload the icons of the occupied and empty formula
-var occupied_icon=preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Mini Occupied.png")
-var empty_icon=preload("res://Assets/Formula Book/Archive Page/Archive Formula Page/Mini Not Occupied.png")
+var occupied_icon=preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Mini Occupied.png")
+var empty_icon=preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Mini Not Occupied.png")
 var icon_toggle = 1
 
 # Called when the node enters the scene tree for the first time.
