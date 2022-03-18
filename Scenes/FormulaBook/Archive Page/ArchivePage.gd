@@ -27,6 +27,12 @@ func _process(delta):
 	else:
 		_new_page()
 
+# Called when the node enters the scene tree for the first time.
+# Loads Popup names
+func _ready():
+	$ArchiveIcons/ArchiveIcon1/ArchivePopup/ArchivePopupControl/FormulaName.text = "Really"
+	$ArchiveIcons/ArchiveIcon2/ArchivePopup/ArchivePopupControl/FormulaName.text = "Try"
+
 # Load the page with occupied folders		
 # Task: Create a function that will load all details of a page when nav buttons are pressed
 func _load_page():
@@ -37,9 +43,6 @@ func _load_page():
 	#set names
 	$ArchiveIcons/ArchiveIcon1/Name.text = "Really"
 	$ArchiveIcons/ArchiveIcon2/Name.text = "Try"
-
-	$ArchiveIcons/ArchiveIcon1/ArchivePopup/ArchivePopupControl/FormulaName.text = "Really"
-	$ArchiveIcons/ArchiveIcon2/ArchivePopup/ArchivePopupControl/FormulaName.text = "Try"
 	
 #load a page with empty foalders (only for the demo)
 func _new_page():
