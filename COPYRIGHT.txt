@@ -343,6 +343,7 @@ This UI kit may be used in any personal or commercial projects as long as you cr
 You may not distribute or sell these assets. 
 
 Please link me to any games you use my assets in. I would love to see them.
+
 Files: Assets/Cutscenes/Prevention/42.png
 Author: Grapict Studio
 License Link: https://www.vecteezy.com/licensing-agreement
@@ -363,6 +364,43 @@ Author: Deep-Fold
 License: MIT License
 License Text:
 Copyright (c) 2020 Deep-Fold
+
+File: Assets/Map/Buttons/close_button.png
+Author: Kurt Ian Khalid I. Israel
+License: OBSD
+
+File: Assets/Map/Buttons/deploy_active.png
+Author: Kurt Ian Khalid I. Israel
+License: OBSD
+
+File: Assets/Map/Buttons/deploy_inactive.png
+Author: Kurt Ian Khalid I. Israel
+License: OBSD
+
+File: Assets/Map/Buttons/Lab Button Map.png
+Author: Aira Mae Aloveros
+License: OBSD
+
+File: Assets/Map/Region Hud/HUDBackground.png
+Author: Kurt Ian Khalid I. Israel
+License: OBSD
+
+File: Assets/Map/Region Hud/Syringe.png
+Author: OceansDream
+License: CC-BY 3.0, CC-BY-SA 3.0
+Link to License: http://creativecommons.org/licenses/by/3.0/, http://creativecommons.org/licenses/by-sa/3.0/
+
+Files: Assets/Map/Regions/*
+Author: Adcel Villanueva
+License: Given conset from the author
+
+Files: Assets/Map/Regions Mask/*
+Author: Adcel Villanueva
+License: Given conset from the author
+
+Files: Assets/Map/Sea/*
+Author: Adcel Villanueva
+License: Given conset from the author
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
