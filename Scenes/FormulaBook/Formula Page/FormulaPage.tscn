@@ -236,3 +236,6 @@ margin_right = 2232.0
 margin_bottom = 672.0
 
 [connection signal="pressed" from="FormulaPageControl/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="FormulaPageControl/DeleteFormula" to="." method="_on_DeleteFormula_pressed"]
+[connection signal="pressed" from="FormulaPageControl/MassProduce" to="." method="_on_MassProduce_pressed"]
+[connection signal="pressed" from="FormulaPageControl/LoadCauldron" to="." method="_on_LoadCauldron_pressed"]
