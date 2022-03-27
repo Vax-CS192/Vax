@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Cauldron/cauldron.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Cauldron/Lab Button.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Cauldron/disabled.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Cauldron/Popup.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Cauldron/MixPopup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Cauldron/Shelf.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -68,6 +69,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Shelf" type="Sprite" parent="background"]
+position = Vector2( 1298, 320 )
+scale = Vector2( 9.61539, 9.30772 )
+texture = ExtResource( 11 )
+
 [node name="lab_button" type="TextureButton" parent="."]
 margin_left = 39.0
 margin_top = 13.0
@@ -80,10 +86,10 @@ __meta__ = {
 }
 
 [node name="mix_button" type="TextureButton" parent="."]
-margin_left = 2447.0
-margin_top = 1154.0
-margin_right = 2816.0
-margin_bottom = 1340.0
+margin_left = 2545.0
+margin_top = 1205.0
+margin_right = 2914.0
+margin_bottom = 1391.0
 disabled = true
 texture_normal = ExtResource( 4 )
 texture_disabled = ExtResource( 8 )
@@ -112,10 +118,10 @@ __meta__ = {
 }
 
 [node name="formulabook_icon" type="TextureButton" parent="."]
-margin_left = 2460.0
-margin_top = 141.0
-margin_right = 2788.0
-margin_bottom = 506.0
+margin_left = 2654.0
+margin_top = 184.0
+margin_right = 2889.0
+margin_bottom = 456.0
 texture_normal = ExtResource( 7 )
 expand = true
 __meta__ = {
@@ -131,7 +137,7 @@ playing = true
 [node name="Bundles" type="Node" parent="."]
 
 [node name="Cauldron" type="Sprite" parent="."]
-position = Vector2( 1468, 790 )
+position = Vector2( 1429, 907 )
 scale = Vector2( 3.33519, 2.95 )
 texture = ExtResource( 1 )
 
