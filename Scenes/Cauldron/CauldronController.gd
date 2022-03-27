@@ -22,12 +22,32 @@ func _ready():
 
 #This changes the scene to the Lab.
 func _on_CauldronUI_back_to_lab():
-		get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+		var cauldron_subsystem = get_parent()
+		cauldron_subsystem.get_node("CauldronUI").hide()
+		var lab_subsystem = preload("res://Scenes/Lab/Lab.tscn")
+		get_tree().get_root().add_child(lab_subsystem.instance())
 
 #This changes the scene to the Formulabook.
 func _on_CauldronUI_open_formulabook():
-	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
+		var cauldron_subsystem = get_parent()
+		cauldron_subsystem.get_node("CauldronUI").hide()
+		var formulabook_subsystem = preload("res://Scenes/FormulaBook/FormulaBook.tscn")
+		get_tree().get_root().add_child(formulabook_subsystem.instance())
 
-#Reload the Cauldron to reset the UI
-func _on_CauldronUI_reset():
-	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")
+# Load specified bundles into cauldron		
+func load_to_cauldron(five_array):
+	var cauldron_subsystem = get_parent()
+	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
+	cauldron_ui.reset()
+	for x in range(5):
+		if five_array[x] == -1:
+			break
+		cauldron_ui.select_ingredient(five_array[x])
+	cauldron_ui.show()
+	
+# Reset the CauldronUI and draw it to the screen
+func draw():
+	var cauldron_subsystem = get_parent()
+	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
+	cauldron_ui.reset()
+	cauldron_ui.show()

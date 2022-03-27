@@ -162,7 +162,7 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
 frames = SubResource( 11 )
-frame = 1
+frame = 3
 playing = true
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

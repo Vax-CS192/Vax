@@ -6,33 +6,45 @@
 # THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 signal back_to_lab
 signal open_formulabook
-signal reset
 extends Node2D
 
-#Load some test ingredients in
+#Load all ingredients into the inventory area
 func _ready():
 	var yellow_scene = preload("res://Scenes/Cauldron/Ingredients/Yellow.tscn")
 	var blue_scene = preload("res://Scenes/Cauldron/Ingredients/Blue.tscn")
-	var test1 = yellow_scene.instance()
-	var test2 = blue_scene.instance()
-	test1.set_up("A",80,1000)
-	test2.set_up("B",320,1000)
-	$Bundles.add_child(test1)
-	$Bundles.add_child(test2)
-
+	var red_scene = preload("res://Scenes/Cauldron/Ingredients/Red.tscn")
+	var violet_scene = preload("res://Scenes/Cauldron/Ingredients/Violet.tscn")
+	var green_scene = preload("res://Scenes/Cauldron/Ingredients/Green.tscn")
+	var group_width = 600
+	var formula_depth = 1200
+	for x in range(4):
+		var yellow = yellow_scene.instance()
+		var blue = blue_scene.instance() 
+		var red = red_scene.instance() 
+		var violet = violet_scene.instance() 
+		var green = green_scene.instance() 
+		yellow.set_up("Y",80+x*group_width,formula_depth)
+		$Bundles.add_child(yellow)
+		blue.set_up("B",200+x*group_width,formula_depth)
+		$Bundles.add_child(blue)
+		red.set_up("R",320+x*group_width,formula_depth)
+		$Bundles.add_child(red)
+		violet.set_up("V",440+x*group_width,formula_depth)
+		$Bundles.add_child(violet)
+		green.set_up("G",560+x*group_width,formula_depth)
+		$Bundles.add_child(green)
 # Check whether the mix button should be enabled every frame
 # Also, update money in real time
 func _process(_delta):
 	get_node("money_bg/money_value").text = "PHP "+ Profile.format_money(Profile.money)
-	var bundle_count = $Bundles.get_child_count()
 	var all_bundles = $Bundles.get_children()
 	var total_selected = 0;
-	for i in range(0,bundle_count):
-		if (all_bundles[i].included  and all_bundles[i].rect_position.y < 600) or all_bundles[i].rect_position.y < 321:
+	for every_bundle in all_bundles:
+		if every_bundle.rect_position.y < 441:
 			total_selected += 1
-		if total_selected > 0 and total_selected<6:
-			$mix_button.disabled = false
-			return
+	if total_selected > 0 and total_selected<6:
+		$mix_button.disabled = false
+		return
 	$mix_button.disabled = true
 
 #  This method causes the CauldronUI to signal to the cauldron controller to instance the Lab
@@ -50,6 +62,13 @@ func confirm(name,description):
 	print(name)
 	print(description)
 	
-#Propagate the MixPopup's signal all the way to CauldronController
+#Propagate the MixPopup's signal to the individual bundles
 func reset():
-	emit_signal("reset")
+	var all_bundles = $Bundles.get_children()
+	for bundle in all_bundles:
+		bundle.reset()
+		
+#Selects an ingredient and puts it on the working area
+func select_ingredient(bundle_id):
+	var all_bundles = $Bundles.get_children()
+	all_bundles[bundle_id].select()
