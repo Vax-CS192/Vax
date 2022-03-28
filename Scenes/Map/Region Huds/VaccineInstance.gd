@@ -13,11 +13,17 @@ var active = false
 signal add_counter
 signal subtract_counter
 
-# function that has one argument and will use that argument to update the text field for the vaccine_name of our VaccineInstance scene
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if check_box.pressed == true:
+		print("fuck")
+	pass # Replace with function body.
+
+
 func _update_name(name):
 	vaccine_name.text = name
 
-# function that checks whenever the checkbox is toggled together with the current state of the active variable to make a decision of sending an increment or decrement of the counter variable of the RegionHud script
+
 func _on_CheckBox_toggled(button_pressed):
 	if !active:
 		get_parent().get_parent().get_parent().get_parent().counter += 1

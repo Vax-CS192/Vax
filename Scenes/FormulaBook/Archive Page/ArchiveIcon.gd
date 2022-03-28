@@ -19,6 +19,7 @@ var occupied_icon=preload("res://Assets/Formula Book/Archive Page/Occupied Archi
 var empty_icon=preload("res://Assets/Formula Book/Archive Page/Unoccupied Archive.png")
 
 
+
 # Called when the node enters the scene tree for the first time.
 # The default state of a formula slot is empty.
 func _ready():
@@ -31,7 +32,7 @@ func _process(delta):
 	if is_occupied==true:
 		get_node(".").texture_normal=occupied_icon
 		
-#The Archive Popup appears when an occupied ArchiveIcon is pressed	
+	
 func _on_ArchiveIcon_pressed():
 	if is_occupied==true:
 		$ArchivePopup.popup_centered()

@@ -6,7 +6,6 @@
 
 extends LineEdit
 
-# variable that is a new instance of a StyleBoxFlat which will be applied on the LineInput of the scene 
 var my_style = StyleBoxFlat.new()
 
 func _ready():

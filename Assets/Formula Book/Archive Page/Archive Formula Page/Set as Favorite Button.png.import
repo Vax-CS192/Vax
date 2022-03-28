@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lab Button.png-af9f7ff1c93705111892d5c4bf4914b5.stex"
+path="res://.import/Set as Favorite Button.png-1ac7aa8fb14ad50df6814c2f935265bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Shop/Lab Button.png"
-dest_files=[ "res://.import/Lab Button.png-af9f7ff1c93705111892d5c4bf4914b5.stex" ]
+source_file="res://Assets/Formula Book/Archive Page/Archive Formula Page/Set as Favorite Button.png"
+dest_files=[ "res://.import/Set as Favorite Button.png-1ac7aa8fb14ad50df6814c2f935265bd.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
