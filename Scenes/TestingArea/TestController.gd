@@ -11,7 +11,7 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var lab = preload("res://Scenes/Lab/Lab.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,4 +24,4 @@ func _ready():
 
 #This changes the scene to the Lab.
 func _on_TestingAreaUI_back_pressed():
-	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.testingArea, lab.instance())
+	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")

@@ -10,7 +10,6 @@ onready var message = $CutsceneUI/Dialogue/DialogueBox/MarginContainer/Message
 onready var tween = $Tween
 onready var next_button = $CutsceneUI/Dialogue/NextDialogue
 onready var sprite_list = [$CutsceneUI/Earth, $CutsceneUI/Viruses, $CutsceneUI/Sickness, $CutsceneUI/Death, $CutsceneUI/Prevention, $CutsceneUI/Corruption, $CutsceneUI/Research]
-var president_input = load("res://Scenes/Cutscenes/PresidentInput.tscn")
 
 # ENUMS for the state when updating text in the dialogue box
 enum State {
@@ -49,7 +48,7 @@ func state_change(next_state):
 # This changes the current dialogue message to the next message of the story
 func _on_NextDialogue_pressed():
 	if counter == 6:
-		get_node("/root/Session").changeSceneTo(self, president_input.instance)
+		get_tree().change_scene("res://Scenes/Cutscenes/PresidentInput.tscn")
 	else:
 		if current_state == State.DONE:
 			counter += 1
