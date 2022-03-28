@@ -12,6 +12,8 @@
 
 extends Node
 
+var lab = preload("res://Scenes/Lab/Lab.tscn")
+
 # Called when the node enters the scene tree for the first time.
 #Bundle name, and color as well as Popup name are set here
 func _ready():
@@ -56,6 +58,6 @@ func _ready():
 
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.shop, lab.instance())
 
 

@@ -88,9 +88,9 @@ margin_right = 505.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0.952941, 0.945098, 0.945098, 1 )
-custom_fonts/font = SubResource( 2 )
 text = "Deployable"
 align = 1
 valign = 1
@@ -127,8 +127,8 @@ margin_right = 544.0
 margin_bottom = 115.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Statistics"
 align = 1
 valign = 1
@@ -138,9 +138,9 @@ margin_left = 716.0
 margin_top = 508.0
 margin_right = 866.0
 margin_bottom = 1033.0
-custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
 value = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -151,9 +151,9 @@ margin_left = 916.0
 margin_top = 508.0
 margin_right = 1066.0
 margin_bottom = 1033.0
-custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
 value = 76.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -164,9 +164,9 @@ margin_left = 1116.0
 margin_top = 508.0
 margin_right = 1266.0
 margin_bottom = 1033.0
-custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
 value = 69.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,9 +177,9 @@ margin_left = 1316.0
 margin_top = 508.0
 margin_right = 1466.0
 margin_bottom = 1033.0
-custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
 value = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,9 +190,9 @@ margin_left = 1516.0
 margin_top = 508.0
 margin_right = 1666.0
 margin_bottom = 1033.0
-custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
 value = 56.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -225,6 +225,5 @@ texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="pressed" from="Buttons/DeployButton" to="." method="_on_DeployButton_pressed"]
 [connection signal="pressed" from="Buttons/CloseButton" to="." method="_on_CloseButton_pressed"]

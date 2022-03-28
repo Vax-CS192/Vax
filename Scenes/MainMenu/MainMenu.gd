@@ -16,6 +16,7 @@ extends Control
 var cutscene = preload("res://Scenes/Cutscenes/Cutscene.tscn")
 var virus_0 = preload("res://Scenes/MainMenu/Virus_0.tscn")
 var virus_1 = preload("res://Scenes/MainMenu/Virus_1.tscn")
+var lab = load("res://Scenes/Lab/Lab.tscn")
 
 export var num_of_viruses = 15
 
@@ -50,7 +51,8 @@ func _ready():
 	
 	# if new game, disable continue button
 	if Profile.is_new_game == true:
-		$CanvasLayer/Buttons/Continue.disabled = true
+		# set this to true later
+		$CanvasLayer/Buttons/Continue.disabled = false
 	else:
 		$CanvasLayer/Buttons/Continue.disabled = false
 	
@@ -64,12 +66,12 @@ func _on_NewGame_pressed():
 	# set new game to true and set money
 	Profile.is_new_game = true
 	Profile.money = 1_000_000
-	get_tree().change_scene_to(cutscene)
+	get_node("/root/Session").changeSceneTo(self, cutscene.instance())
 
 # when continue is pressed, go to Lab
 # still have to load saved stuff
 func _on_Continue_pressed():
-	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+	get_node("/root/Session").changeSceneTo(self, lab.instance())
 
 # exit
 func _on_Exit_pressed():

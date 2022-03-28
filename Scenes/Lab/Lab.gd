@@ -39,23 +39,23 @@ func _ready():
 # subject to change
 func _on_BackToMainMenu_pressed():
 	Profile.save_data()
-	get_tree().change_scene_to(mainMenu)
+	get_node("/root/Session").changeSceneTo(self, mainMenu.instance())
 
 # change scene to Cauldron when cauldron button is pressed
 func _on_cauldronButton_pressed():
-	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")
+	get_node("/root/Session").changeSceneTo(self, PersistentScenes.cauldron)
 
 # changes scene to shop when shop button is pressed
 func _on_shopButton_pressed():
-	get_tree().change_scene("res://Scenes/Shop/Shop.tscn")
+	get_node("/root/Session").changeSceneTo(self, PersistentScenes.shop)
 	
 # changes scene to Map when map button is pressed
 func _on_mapButton_pressed():
-	get_tree().change_scene("res://Scenes/Map/MapUI.tscn")
+	get_node("/root/Session").changeSceneTo(self, PersistentScenes.map)
 
 # change scene to Testing when Test button is pressed
 func _on_testButton_presed():
-	get_tree().change_scene("res://Scenes/TestingArea/TestingArea.tscn")
+	get_node("/root/Session").changeSceneTo(self, PersistentScenes.testingArea)
 
 # this function runs every frame
 func _process(delta):

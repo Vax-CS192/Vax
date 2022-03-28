@@ -10,6 +10,7 @@ onready var region_name = $RegionHud/MarginContainer/RegionName
 onready var region_hud = $RegionHud/Vaccines/ScrollContainer/VSeparator
 var available_vaccines = ["NGALAN", "MARAHUYO", "PAYZER", "SAYA", "SIGLA", "LIGAYA", "MANAWARI", "J&J"]
 var VaccineScene = preload("res://Scenes/Map/Region Huds/VaccineInstance.tscn")
+var lab = preload("res://Scenes/Lab/Lab.tscn")
 
 # function responsible for instantiating a number of VaccineInstance Scene, which highly depends on the availble vaccines 
 func _instantiate_vaccine_scenes():
@@ -21,7 +22,7 @@ func _instantiate_vaccine_scenes():
 
 # function called whenever the back button is pressed and will change the scene to that of the lab
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.map, lab.instance())
 
 # function called whenever the Region 1 button is pressed and will show the region hud popup containing info about the region as well as the deployable vaccines that are available
 func _on_0_Region_1_pressed():

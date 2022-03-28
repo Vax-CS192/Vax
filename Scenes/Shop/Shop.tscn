@@ -36,7 +36,7 @@ size = 35
 extra_spacing_char = -5
 font_data = ExtResource( 6 )
 
-[node name="Shop" type="Node"]
+[node name="Shop" type="Node2D"]
 script = ExtResource( 12 )
 
 [node name="ShopUI" type="Node2D" parent="."]
@@ -83,8 +83,8 @@ margin_left = 2178.0
 margin_top = 103.0
 margin_right = 2868.0
 margin_bottom = 153.0
-custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
 text = "Php 1, 534, 954, 030.00"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -196,5 +196,4 @@ margin_bottom = 1073.0
 [node name="Popup" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-
 [connection signal="pressed" from="ShopControl/BackButton" to="." method="_on_BackButton_pressed"]
