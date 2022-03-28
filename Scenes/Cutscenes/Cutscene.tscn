@@ -153,7 +153,7 @@ animations = [ {
 size = 90
 font_data = ExtResource( 17 )
 
-[node name="Cutscene" type="Node"]
+[node name="Cutscene" type="Node2D"]
 script = ExtResource( 18 )
 
 [node name="CutsceneUI" type="Control" parent="."]
@@ -177,7 +177,6 @@ __meta__ = {
 position = Vector2( 1480, 720 )
 scale = Vector2( 1.35, 1.35 )
 frames = SubResource( 21 )
-frame = 18
 speed_scale = 0.35
 playing = true
 
@@ -195,7 +194,6 @@ __meta__ = {
 position = Vector2( 1959, 529 )
 scale = Vector2( 0.547414, 0.547414 )
 frames = SubResource( 22 )
-frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -203,7 +201,6 @@ playing = true
 position = Vector2( 1745, 1151 )
 scale = Vector2( 0.857758, 0.857758 )
 frames = SubResource( 22 )
-frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -211,7 +208,7 @@ playing = true
 position = Vector2( 1311.62, 549.513 )
 scale = Vector2( 0.902478, 0.902478 )
 frames = SubResource( 22 )
-frame = 3
+frame = 6
 speed_scale = 2.3
 playing = true
 
@@ -219,7 +216,7 @@ playing = true
 position = Vector2( 1140, 1000 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
-frame = 2
+frame = 5
 speed_scale = 2.3
 playing = true
 
@@ -227,7 +224,7 @@ playing = true
 position = Vector2( 1730, 732 )
 scale = Vector2( 0.293642, 0.293642 )
 frames = SubResource( 22 )
-frame = 2
+frame = 5
 speed_scale = 2.3
 playing = true
 
@@ -235,7 +232,7 @@ playing = true
 position = Vector2( 2067, 795 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
-frame = 1
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -243,7 +240,7 @@ playing = true
 position = Vector2( 1709, 289 )
 scale = Vector2( 0.461746, 0.461746 )
 frames = SubResource( 22 )
-frame = 1
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -251,6 +248,7 @@ playing = true
 position = Vector2( 827, 1060 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
+frame = 3
 speed_scale = 2.3
 playing = true
 
@@ -258,6 +256,7 @@ playing = true
 position = Vector2( 988, 337 )
 scale = Vector2( 0.461746, 0.461746 )
 frames = SubResource( 22 )
+frame = 3
 speed_scale = 2.3
 playing = true
 
@@ -265,7 +264,7 @@ playing = true
 position = Vector2( 657, 701 )
 scale = Vector2( 0.847252, 0.847253 )
 frames = SubResource( 22 )
-frame = 1
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -273,6 +272,7 @@ playing = true
 position = Vector2( 2263.25, 517.818 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
+frame = 3
 speed_scale = 2.3
 playing = true
 
@@ -280,6 +280,7 @@ playing = true
 position = Vector2( 2067, 1191 )
 scale = Vector2( 0.611799, 0.611799 )
 frames = SubResource( 22 )
+frame = 3
 speed_scale = 2.3
 playing = true
 
@@ -426,9 +427,9 @@ margin_right = 2563.0
 margin_bottom = 313.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 24 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.133333, 0.133333, 1 )
-custom_fonts/font = SubResource( 24 )
 text = "Placeholder text:"
 autowrap = true
 clip_text = true
@@ -436,6 +437,5 @@ clip_text = true
 [node name="NextDialogue" parent="CutsceneUI/Dialogue" instance=ExtResource( 19 )]
 
 [node name="Tween" type="Tween" parent="."]
-
 [connection signal="pressed" from="CutsceneUI/Dialogue/NextDialogue" to="." method="_on_NextDialogue_pressed"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
