@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Vax"
-run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
+run/main_scene="res://Scenes/Shared/Session.tscn"
 config/icon="res://icon.png"
 
 [autoload]
