@@ -170,3 +170,13 @@ margin_bottom = 808.0
 
 [connection signal="pressed" from="FormulaBookControl/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="FormulaBookControl/ArchiveIcon" to="." method="_on_ArchiveIcon_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula1" to="." method="_on_Formula1_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula2" to="." method="_on_Formula2_pressed" binds= [ "" ]]
+[connection signal="pressed" from="FormulaBookControl/Formula3" to="." method="_on_Formula3_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula4" to="." method="_on_Formula4_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula5" to="." method="_on_Formula5_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula6" to="." method="_on_Formula6_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula7" to="." method="_on_Formula7_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula8" to="." method="_on_Formula8_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula9" to="." method="_on_Formula9_pressed"]
+[connection signal="pressed" from="FormulaBookControl/Formula10" to="." method="_on_Formula10_pressed"]

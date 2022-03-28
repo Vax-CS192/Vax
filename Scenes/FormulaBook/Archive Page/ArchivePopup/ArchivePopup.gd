@@ -16,6 +16,13 @@ extends Popup
 onready var enabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Set as Favorite Button enabled.png")
 onready var disabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Set as Favorite Button.png")
 
+onready var formula_parameters := {
+	"ID":null,
+	"Name": "",
+	"Description":"",
+	"MassProducePrice":0,
+	"Components": []
+}
 
 # Declare member variables here. Examples:
 # var a = 2
