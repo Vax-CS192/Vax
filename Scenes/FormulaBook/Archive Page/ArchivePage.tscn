@@ -298,6 +298,7 @@ margin_top = 976.0
 margin_right = 2348.0
 margin_bottom = 1128.0
 
+[connection signal="archives_changed" from="." to="." method="_on_ArchivePage_archives_changed"]
 [connection signal="pressed" from="ArchivePageControl/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="ArchivePageControl/RightButton" to="." method="_on_RightButton_pressed"]
 [connection signal="pressed" from="ArchivePageControl/LeftButton" to="." method="_on_LeftButton_pressed"]

@@ -13,20 +13,52 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var favorites_file_path = "user://favoritesdirectory.save"
+
+onready var formula_parameters := {
+	"ID":null,
+	"Name": "",
+	"Description":"",
+	"MassProducePrice":0,
+	"Components": []
+}
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$FormulaPageUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	
+#Loads data to the page
+#Task: Called by Formula book when a slot is pressed
+func load_formula_parameters(new_formula_parameters: Dictionary):
+	formula_parameters = new_formula_parameters
+	$FormulaPageControl/FormulaName.text=formula_parameters["Name"]
+	$FormulaPageControl/FormulaNote.text= formula_parameters["Description"]
+	var index = 0
+	while index <5:
+		var component_node = "FormulaPageControl/Component"+str(index+1)+"/Name"
+		var components = formula_parameters["Components"]
+		get_node(component_node).text= components[index]
+		index+=1
+	$FormulaPageUI/MassProdText.text = "PHP "+str(formula_parameters["MassProducePrice"])
+	
+	
 #Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
+	#Task: Save
 	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
+	
+
+# Formula is deleted from the Formula file
+func _on_DeleteFormula_pressed():
+	pass # Replace with function body.
+
+# runs when Mass Produce button is clicked
+func _on_MassProduce_pressed():
+	#Map.add_to_mass_produced(formula_parameters.Name,formula_parameters.Components)
+	pass
+# runs when Load to Cauldron button is clicked
+func _on_LoadCauldron_pressed():
+	#Cauldron.load_to_cauldron(formula_parameters.Components)
+	pass
