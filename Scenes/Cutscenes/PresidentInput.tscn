@@ -44,8 +44,8 @@ margin_bottom = 729.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 theme = ExtResource( 1 )
-custom_styles/focus = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/focus = SubResource( 1 )
 align = 1
 max_length = 15
 expand_to_text_length = true
@@ -59,8 +59,8 @@ margin_left = 211.0
 margin_top = 551.0
 margin_right = 1011.0
 margin_bottom = 669.0
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "President:"
 valign = 1
 __meta__ = {
@@ -78,4 +78,5 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="UI/EnterButton" to="." method="_on_EnterButton_pressed"]

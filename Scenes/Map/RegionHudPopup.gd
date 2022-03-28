@@ -10,7 +10,6 @@ onready var region_name = $RegionHud/MarginContainer/RegionName
 onready var region_hud = $RegionHud/Vaccines/ScrollContainer/VSeparator
 var available_vaccines = ["NGALAN", "MARAHUYO", "PAYZER", "SAYA", "SIGLA", "LIGAYA", "MANAWARI", "J&J"]
 var VaccineScene = preload("res://Scenes/Map/Region Huds/VaccineInstance.tscn")
-var lab = preload("res://Scenes/Lab/Lab.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,7 +28,7 @@ func _instantiate_vaccine_scenes():
 	show()
 		
 func _on_BackButton_pressed():
-	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.map, lab.instance())
+	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
 
 func _on_0_Region_1_pressed():
 	region_name.text = "Region 1"

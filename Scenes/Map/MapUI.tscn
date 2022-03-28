@@ -106,8 +106,8 @@ margin_left = 384.0
 margin_top = 1341.0
 margin_right = 1079.0
 margin_bottom = 1391.0
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Php 1, 534, 954, 030.00"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -323,6 +323,7 @@ margin_bottom = 40.0
 script = ExtResource( 24 )
 
 [node name="RegionHud" parent="RegionHudPopup" instance=ExtResource( 23 )]
+
 [connection signal="pressed" from="Buttons/BackButton" to="RegionHudPopup" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="Buttons/0 Region 1" to="RegionHudPopup" method="_on_0_Region_1_pressed"]
 [connection signal="pressed" from="Buttons/1 CAR" to="RegionHudPopup" method="_on_1_CAR_pressed"]

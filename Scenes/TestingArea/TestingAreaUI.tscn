@@ -9,48 +9,48 @@
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Assets/TestingArea/Lab Button.png" type="Texture" id=8]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=10]
 size = 50
 font_data = ExtResource( 7 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 120, 120 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 120, 0, 120, 120 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 240, 0, 120, 120 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 360, 0, 120, 120 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 480, 0, 120, 120 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 600, 0, 120, 120 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 720, 0, 120, 120 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -159,8 +159,8 @@ margin_left = 2091.0
 margin_top = 60.0
 margin_right = 2979.0
 margin_bottom = 169.0
-custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 10 )
 text = "Php 1,000,000.00"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -168,7 +168,7 @@ __meta__ = {
 
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
-frames = SubResource( 9 )
-frame = 6
+frames = SubResource( 11 )
 playing = true
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
