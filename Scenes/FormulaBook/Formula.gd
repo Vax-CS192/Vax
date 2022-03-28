@@ -12,6 +12,7 @@
 
 
 extends Control
+var formulaPage = preload("res://Scenes/FormulaBook/Formula Page/FormulaPage.tscn")
 
 export var is_occupied=false	#Variable to store state of the archive slot
 
@@ -34,9 +35,3 @@ func _process(delta):
 	if is_occupied==true:
 		get_node(".").texture_normal=occupied_icon
 		
-
-#Go to corresponding Cauldron Subsystem when the button is pressed	
-func _on_Formula_pressed():
-	#Task: change details of formula depending on the formula selected
-	if is_occupied==true:
-		get_tree().change_scene("res://Scenes/FormulaBook/Formula Page/FormulaPage.tscn")

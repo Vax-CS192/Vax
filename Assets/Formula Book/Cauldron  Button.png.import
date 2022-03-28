@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Unoccupied Archive.png-b0801a0c1af9784d421b76ec01054cd5.stex"
+path="res://.import/Cauldron  Button.png-ccf4468f2748e08b40915aadcdde067e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Archive Page/Unoccupied Archive.png"
-dest_files=[ "res://.import/Unoccupied Archive.png-b0801a0c1af9784d421b76ec01054cd5.stex" ]
+source_file="res://Assets/Formula Book/Cauldron  Button.png"
+dest_files=[ "res://.import/Cauldron  Button.png-ccf4468f2748e08b40915aadcdde067e.stex" ]
 
 [params]
 

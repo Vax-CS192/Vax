@@ -35,7 +35,8 @@ var current_state = State.READY
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	next_button.hide()
-	
+
+# function responsible for showing the running text on the dialogue box
 func show_message(new_message):
 	gameStart = false;
 	message.text = new_message
@@ -43,6 +44,7 @@ func show_message(new_message):
 	$Tween.interpolate_property(message, "percent_visible", 0.0, 1.0, len(message_list[counter]) * CHAR_READ_RATE, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	$Tween.start()
 
+# function with input argument which is the next state that the dialogue box will take
 func state_change(next_state):
 	current_state = next_state
 
@@ -62,6 +64,7 @@ func _on_Tween_tween_all_completed():
 	next_button.show()
 	state_change(State.DONE)
 
+# function respnsible for updating the sprite that is shown on the screen
 func update_sprites():
 	if counter == 1:
 		sprite_list[counter].show()

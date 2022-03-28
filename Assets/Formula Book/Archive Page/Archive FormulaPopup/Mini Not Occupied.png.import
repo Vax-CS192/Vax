@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Back Button.png-b9de627910d5802de445ac0c15e32902.stex"
+path="res://.import/Mini Not Occupied.png-263fbc9ebd37a3f0007fb00e5b392cf4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Back Button.png"
-dest_files=[ "res://.import/Back Button.png-b9de627910d5802de445ac0c15e32902.stex" ]
+source_file="res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Mini Not Occupied.png"
+dest_files=[ "res://.import/Mini Not Occupied.png-263fbc9ebd37a3f0007fb00e5b392cf4.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

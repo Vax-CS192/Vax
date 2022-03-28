@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Popup rRename Ready.png-54966a88988ab3fe8a6644d9e0d38136.stex"
+path="res://.import/Archive bg.png-a8b3d47aedd6f071713d880ab8b97c8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Archive Page/Archive Formula Page/Popup rRename Ready.png"
-dest_files=[ "res://.import/Popup rRename Ready.png-54966a88988ab3fe8a6644d9e0d38136.stex" ]
+source_file="res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Archive bg.png"
+dest_files=[ "res://.import/Archive bg.png-a8b3d47aedd6f071713d880ab8b97c8f.stex" ]
 
 [params]
 
