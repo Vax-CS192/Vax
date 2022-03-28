@@ -16,7 +16,7 @@ var origin_x = 0
 var origin_y = 0
 var master_window
 var first_time = true
-var included = false
+export var included = false
 
 # Declare member variables here. Examples:
 # var a = 2

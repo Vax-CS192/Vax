@@ -7,14 +7,20 @@
 signal back_to_lab
 signal open_formulabook
 extends Node2D
+var yellow_scene
+var blue_scene
+var red_scene
+var violet_scene
+var green_scene
 
-#Load all ingredients into the inventory area
 func _ready():
-	var yellow_scene = preload("res://Scenes/Cauldron/Ingredients/Yellow.tscn")
-	var blue_scene = preload("res://Scenes/Cauldron/Ingredients/Blue.tscn")
-	var red_scene = preload("res://Scenes/Cauldron/Ingredients/Red.tscn")
-	var violet_scene = preload("res://Scenes/Cauldron/Ingredients/Violet.tscn")
-	var green_scene = preload("res://Scenes/Cauldron/Ingredients/Green.tscn")
+	yellow_scene = preload("res://Scenes/Cauldron/Ingredients/Yellow.tscn")
+	blue_scene = preload("res://Scenes/Cauldron/Ingredients/Blue.tscn")
+	red_scene = preload("res://Scenes/Cauldron/Ingredients/Red.tscn")
+	violet_scene = preload("res://Scenes/Cauldron/Ingredients/Violet.tscn")
+	green_scene = preload("res://Scenes/Cauldron/Ingredients/Green.tscn")
+#Load all ingredients into the inventory area
+func draw():
 	var group_width = 600
 	var formula_depth = 1200
 	for x in range(4):
@@ -57,11 +63,19 @@ func _on_Back_pressed():
 func _on_formulabook_icon_pressed():
 	emit_signal("open_formulabook")
 
-#This would normally save the name, description, and formula, but for now, it just prints name and description to stdout
+#This forwards all releevant information to the CauldronController.
 func confirm(name,description):
-	print(name)
-	print(description)
-	
+	var cauldron_controller = get_parent().get_node("CauldronController")
+	var five_array = []
+	var counter = 0
+	for ingredient in $Bundles.get_children():
+		if ingredient.included:
+			five_array.append(counter)
+		counter += 1
+	var remaining_blanks = 5 - len(five_array)
+	for x in range(remaining_blanks):
+		five_array.append(-1)
+	cauldron_controller.add_to_formulabook(name,description,five_array)
 #Propagate the MixPopup's signal to the individual bundles
 func reset():
 	var all_bundles = $Bundles.get_children()
