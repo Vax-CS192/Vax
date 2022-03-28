@@ -56,7 +56,8 @@ func _on_mapButton_pressed():
 
 # change scene to Testing when Test button is pressed
 func _on_testButton_presed():
-	get_node("/root/Session").changeSceneTo(self, PersistentScenes.testingArea)
+	self.queue_free()
+	get_tree().get_root().get_node("Session/TestingArea").draw()
 
 # this function runs every frame
 func _process(delta):
