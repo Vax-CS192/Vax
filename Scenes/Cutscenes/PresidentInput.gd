@@ -8,6 +8,7 @@ extends Node
 
 onready var input_box = $UI/InputBox
 onready var enter_button = $UI/EnterButton
+var lab = load("res://Scenes/Lab/Lab.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,4 +23,4 @@ func _process(delta):
 
 # This changes the scene to the Lab.
 func _on_EnterButton_pressed():
-	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+	get_node("/root/Session").changeSceneTo(self, lab.instance())

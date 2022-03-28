@@ -3,12 +3,11 @@
 [ext_resource path="res://Scenes/Cauldron/CauldronUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Cauldron/CauldronController.tscn" type="PackedScene" id=2]
 
-[node name="Cauldron" type="Node"]
+[node name="Cauldron" type="Node2D"]
 
 [node name="CauldronUI" parent="." instance=ExtResource( 1 )]
 
 [node name="CauldronController" parent="." instance=ExtResource( 2 )]
-
 [connection signal="back_to_lab" from="CauldronUI" to="CauldronController" method="_on_CauldronUI_back_to_lab"]
 [connection signal="open_formulabook" from="CauldronUI" to="CauldronController" method="_on_CauldronUI_open_formulabook"]
 [connection signal="reset" from="CauldronUI" to="CauldronController" method="_on_CauldronUI_reset"]

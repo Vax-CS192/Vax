@@ -9,6 +9,7 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var lab = preload("res://Scenes/Lab/Lab.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +23,7 @@ func _ready():
 
 #This changes the scene to the Lab.
 func _on_CauldronUI_back_to_lab():
-		get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.cauldron, lab.instance())
 
 #This changes the scene to the Formulabook.
 func _on_CauldronUI_open_formulabook():

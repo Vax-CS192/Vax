@@ -81,7 +81,6 @@ margin_left = 3812.0
 margin_right = 5318.0
 margin_bottom = 502.0
 texture_normal = ExtResource( 7 )
-
 [connection signal="pressed" from="CanvasLayer/Buttons/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Exit" to="." method="_on_Exit_pressed"]

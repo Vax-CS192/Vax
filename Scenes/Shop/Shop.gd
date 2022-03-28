@@ -12,6 +12,8 @@
 
 extends Node
 
+var lab = preload("res://Scenes/Lab/Lab.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#randomize() #will be needed to randomize bundle names
@@ -59,6 +61,6 @@ func _process(delta):
 
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://Scenes/Lab/Lab.tscn")
+	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.shop, lab.instance())
 
 
