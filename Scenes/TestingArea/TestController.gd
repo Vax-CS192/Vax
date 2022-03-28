@@ -30,4 +30,4 @@ func _on_TestingAreaUI_back_pressed():
 		get_parent().get_parent().add_child(lab_subsystem.instance())
 
 func draw():
-	$TestingAreaUI.show()
+	get_parent().get_node("TestingAreaUI").show()

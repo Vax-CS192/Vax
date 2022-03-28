@@ -4,13 +4,11 @@
 [ext_resource path="res://Scenes/Cauldron/CauldronController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Cauldron/Cauldron.gd" type="Script" id=3]
 
-[node name="Cauldron" type="Node"]
+[node name="Cauldron" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="CauldronUI" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="CauldronController" parent="." instance=ExtResource( 2 )]
-
 [connection signal="back_to_lab" from="CauldronUI" to="CauldronController" method="_on_CauldronUI_back_to_lab"]
 [connection signal="open_formulabook" from="CauldronUI" to="CauldronController" method="_on_CauldronUI_open_formulabook"]
