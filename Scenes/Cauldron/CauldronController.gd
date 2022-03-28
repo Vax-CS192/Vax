@@ -25,14 +25,14 @@ func _on_CauldronUI_back_to_lab():
 		var cauldron_subsystem = get_parent()
 		cauldron_subsystem.get_node("CauldronUI").hide()
 		var lab_subsystem = preload("res://Scenes/Lab/Lab.tscn")
-		get_tree().get_root().add_child(lab_subsystem.instance())
+		get_parent().get_parent().add_child(lab_subsystem.instance())
 
 #This changes the scene to the Formulabook.
 func _on_CauldronUI_open_formulabook():
 		var cauldron_subsystem = get_parent()
 		cauldron_subsystem.get_node("CauldronUI").hide()
-		var formulabook_subsystem = preload("res://Scenes/FormulaBook/FormulaBook.tscn")
-		get_tree().get_root().add_child(formulabook_subsystem.instance())
+		var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
+		formulabook_subsystem.draw()
 
 # Load specified bundles into cauldron		
 func load_to_cauldron(five_array):
@@ -51,3 +51,8 @@ func draw():
 	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
 	cauldron_ui.reset()
 	cauldron_ui.show()
+	
+func add_to_formulabook(name, description,five_array):
+	var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
+	formulabook_subsystem.add_to_formulabook(name, description, five_array)
+	
