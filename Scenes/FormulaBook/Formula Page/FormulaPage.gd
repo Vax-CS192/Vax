@@ -48,8 +48,9 @@ func _on_DeleteFormula_pressed():
 
 # runs when Mass Produce button is clicked
 func _on_MassProduce_pressed():
-	add_to_mass_produced(formula_parameters.Name,formula_parameters.Components)
-
+	#Map.add_to_mass_produced(formula_parameters.Name,formula_parameters.Components)
+	pass
 # runs when Load to Cauldron button is clicked
 func _on_LoadCauldron_pressed():
-	load_to_cauldron(formula_parameters.Components)
+	Cauldron.load_to_cauldron(formula_parameters.Components)
+

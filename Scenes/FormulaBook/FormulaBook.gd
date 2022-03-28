@@ -19,6 +19,7 @@ signal formula_loaded_to_cauldron #indicates that the load to cauldron button is
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
 
+
 var is_new_game: bool
 #Directory items---------------------------
 var curr_dir_length = 0 #size of directory
@@ -28,21 +29,21 @@ var mass_prod_price = 200000 #Task: randomize
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	#Create Formula save fiiles is not yet existing, otherwise load the data
 	var init_formula = File.new()
 	if not init_formula.file_exists(formula_file_path):
+		print("Creating new file")
 		#Create Archive and favorites file
-		init_formula.open(formula_file_path, File.READ_WRITE)
+		init_formula.open(formula_file_path, File.WRITE)
 		init_formula.close()
 
 		var init_favorites = File.new()
-		init_favorites.open(favorites_file_path, File.READ_WRITE)
+		init_favorites.open(favorites_file_path, File.WRITE)
 		init_favorites.close()
-		return 0 #indicates new game
 	else:
 		#Load presaved formula
 		initialize_formula_book() 
-		return 1 #indicates pre-existing game
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # The formula name and state are set here.
@@ -51,6 +52,7 @@ func _process(delta):
 
 #Sets up the favorites page's formula
 func initialize_formula_book():
+	print("Doing initialization")
 	var file = File.new()
 	file.open(favorites_file_path, File.READ)
 	var index = 1
@@ -96,7 +98,7 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 	curr_dir_length= curr_dir_length+1
 	
 # this function loads the profile data
-# if there is no profile data, then it just returns
+# if there is no profile data, then it just returns nothing
 func load_a_formulae(id:int,file_path:String):
 	var save_formula = File.new()
 	if not save_formula.file_exists(file_path):
