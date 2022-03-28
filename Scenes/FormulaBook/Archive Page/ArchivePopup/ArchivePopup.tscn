@@ -21,7 +21,6 @@ font_data = ExtResource( 6 )
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="Popup" type="Popup"]
-visible = true
 anchor_left = 0.474
 anchor_top = 0.497
 anchor_right = 0.474

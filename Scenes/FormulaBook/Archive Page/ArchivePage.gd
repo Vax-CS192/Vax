@@ -1,4 +1,4 @@
-# Author: Aira Mae E. Aloveros
+ # Author: Aira Mae E. Aloveros
 # License: 0BSD
 # Permission to use, copy, modify, and/or distribute this software for any purpose with or without 
 # fee is hereby granted.
@@ -13,26 +13,83 @@
 
 extends Node
 
+onready var formula_file_path = "user://formuladirectory.save"
+onready var favorites_file_path = "user://favoritesdirectory.save"
+
+onready var fav_count=0
 var max_page=2
 var curr_page:int = 1
 const last_page = 2
 var occupied_page = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-# The formula name and state are set here.
-func _process(delta):
-	if occupied_page:
-		_load_page()
-	#Set Formula State and Name
-	else:
-		_new_page()
+
+onready var all_formula=[]
+onready var curr_page_formula=[]
 
 # Called when the node enters the scene tree for the first time.
 # Loads Popup names
 func _ready():
-	$ArchiveIcons/ArchiveIcon1/ArchivePopup/ArchivePopupControl/FormulaName.text = "Really"
-	$ArchiveIcons/ArchiveIcon2/ArchivePopup/ArchivePopupControl/FormulaName.text = "Try"
+	$ArchivePageUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
+	#add_to_formulabook("formula_name","formula_description",["1","2","3","4","5"])
+	#Create Formula save fiiles is not yet existing, otherwise load the data
+	#Load presaved formula
+	initialize_archive_page() 
+	set_archive_page()
+	fav_count = favorites_counts()
 
+#read all formula
+func initialize_archive_page():
+	var file = File.new()
+	file.open(formula_file_path, File.READ)
+	var index = 1
+	var a_page = []
+	while not file.eof_reached(): # iterate thrrough all lines until the end of file is reached
+		var dict = parse_json(file.get_line())
+		if dict==null:
+			continue
+
+		a_page.append(dict)
+		if len(a_page)==20:
+			curr_page_formula.append(a_page)
+			a_page=[]
+		index += 1
+	if (index-1)%20!=0: #if last page has excess
+		curr_page_formula.append(a_page)
+	file.close()
+
+func favorites_counts():
+	var file = File.new()
+	file.open(favorites_file_path, File.READ)
+	while not file.eof_reached():
+		var dict = parse_json(file.get_line())
+		if dict==null:
+			continue
+		fav_count+=1
+	file.close()
+
+#Sets up the favorites page's formula
+func set_archive_page():
+	#print(curr_page_formula)
+	var page_formula = curr_page_formula[curr_page-1] #list of directories in a page
+	print(page_formula)
+	var index = 1
+	var slot_path = ""
+	while index<=len(page_formula):
+		var dict=page_formula[index-1]
+		print(dict)
+		slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
+		if dict!=null:
+			get_node(slot_path+"/Name").text=dict["Name"]
+			get_node(slot_path).is_occupied=true
+			index += 1
+			
+	if index<=20: #set occupied to false
+		while index<=20:
+			print(index)
+			slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
+			get_node(slot_path).is_occupied=false
+			index+=1
+	
 # Load the page with occupied folders		
 # Task: Create a function that will load all details of a page when nav buttons are pressed
 func _load_page():

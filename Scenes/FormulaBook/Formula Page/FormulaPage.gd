@@ -12,8 +12,11 @@
 
 extends Node
 
+
 onready var favorites_file_path = "user://favoritesdirectory.save"
-var formula_parameters := {
+
+onready var formula_parameters := {
+	"ID":null
 	"Name": "",
 	"Description":"",
 	"MassProducePrice":0,
@@ -22,23 +25,28 @@ var formula_parameters := {
 
 
 func _ready():
-	load_formula_parameters(formula_parameters)
+	$FormulaPageUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
+	
 
+	
 #Loads data to the page
 #Task: Called by Formula book when a slot is pressed
 func load_formula_parameters(new_formula_parameters: Dictionary):
 	formula_parameters = new_formula_parameters
-	$FormulaPageControl/FormulaName.text= formula_parameters.Name
-	$FormulaPageControl/FormulaNote.text= formula_parameters.Description
+	$FormulaPageControl/FormulaName.text=formula_parameters["Name"]
+	$FormulaPageControl/FormulaNote.text= formula_parameters["Description"]
 	var index = 0
 	while index <5:
-		var component_node = "FormulaPageControl/Component"+str(index+1)
-		get_node(component_node).text= formula_parameters.Components[index]
+		var component_node = "FormulaPageControl/Component"+str(index+1)+"/Name"
+		var components = formula_parameters["Components"]
+		get_node(component_node).text= components[index]
 		index+=1
-	$FormulaPageUI/MassProdText.text = formula_parameters.MassProducePrice
-
+	$FormulaPageUI/MassProdText.text = "PHP "+str(formula_parameters["MassProducePrice"])
+	
+	
 #Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
+	#Task: Save
 	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
 	
 
@@ -52,5 +60,5 @@ func _on_MassProduce_pressed():
 	pass
 # runs when Load to Cauldron button is clicked
 func _on_LoadCauldron_pressed():
-	Cauldron.load_to_cauldron(formula_parameters.Components)
-
+	#Cauldron.load_to_cauldron(formula_parameters.Components)
+	pass
