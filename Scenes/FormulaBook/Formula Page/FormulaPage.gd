@@ -16,7 +16,7 @@ extends Node
 onready var favorites_file_path = "user://favoritesdirectory.save"
 
 onready var formula_parameters := {
-	"ID":null
+	"ID":null,
 	"Name": "",
 	"Description":"",
 	"MassProducePrice":0,

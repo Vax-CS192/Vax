@@ -13,6 +13,8 @@
 
 extends Node
 
+signal archives_changed() #indicates that the there has been some changes in the formula archive file
+
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
 
@@ -22,20 +24,29 @@ var curr_page:int = 1
 const last_page = 2
 var occupied_page = true
 
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+# The formula name and state are set here.
+func _process(delta):
+	pass
+		
 onready var all_formula=[]
 onready var curr_page_formula=[]
 
 # Called when the node enters the scene tree for the first time.
 # Loads Popup names
 func _ready():
+	pass
+	
+# Called when the archive file is changed
+func _on_ArchivePage_archives_changed():
 	$ArchivePageUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
 	#add_to_formulabook("formula_name","formula_description",["1","2","3","4","5"])
 	#Create Formula save fiiles is not yet existing, otherwise load the data
 	#Load presaved formula
 	initialize_archive_page() 
 	set_archive_page()
-	fav_count = favorites_counts()
+	count_favorites()
+
 
 #read all formula
 func initialize_archive_page():
@@ -57,7 +68,7 @@ func initialize_archive_page():
 		curr_page_formula.append(a_page)
 	file.close()
 
-func favorites_counts():
+func count_favorites():
 	var file = File.new()
 	file.open(favorites_file_path, File.READ)
 	while not file.eof_reached():
@@ -66,6 +77,7 @@ func favorites_counts():
 			continue
 		fav_count+=1
 	file.close()
+	
 
 #Sets up the favorites page's formula
 func set_archive_page():
@@ -151,3 +163,6 @@ func _on_TextField_text_entered(new_text):
 			occupied_page=true
 		elif curr_page==2:
 			occupied_page=false
+
+
+

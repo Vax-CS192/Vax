@@ -168,6 +168,7 @@ margin_top = 808.0
 margin_right = 2208.0
 margin_bottom = 808.0
 
+[connection signal="favorites_changed" from="." to="." method="_on_FormulaBook_favorites_changed"]
 [connection signal="pressed" from="FormulaBookControl/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="FormulaBookControl/ArchiveIcon" to="." method="_on_ArchiveIcon_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula1" to="." method="_on_Formula1_pressed"]
