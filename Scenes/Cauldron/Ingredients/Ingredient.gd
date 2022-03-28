@@ -32,7 +32,7 @@ func _ready():
 func _process(_delta):
 	if selected:
 		var new_position = master_window.get_mouse_position()
-		self.rect_position = Vector2(new_position.x-60, new_position.y-60)
+		self.rect_position = Vector2(new_position.x-140, new_position.y-130)
 #	pass
 
 # Once the button is pressed(but not released), set selected to true in order to make the code in _process
@@ -51,7 +51,7 @@ func _on_button_up():
 		included = true
 	
 	#Case where user succcessfully dragged out of working area
-	elif included and (self.rect_position.y > 440):
+	elif included and (self.rect_position.y > 600):
 		self.rect_position = Vector2(origin_x,origin_y)
 		included = false
 		
@@ -70,11 +70,3 @@ func set_up(formula_name, x_pos, y_pos):
 	origin_x = x_pos
 	origin_y = y_pos
 
-func reset():
-	self.rect_position = Vector2(origin_x,origin_y)
-
-func select():
-	self.rect_position = Vector2(origin_x,320)
-	
-func set_name(formula_name):
-	$my_name.set_text(formula_name)

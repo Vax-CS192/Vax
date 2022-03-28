@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Active Button.png-9e91ea9fbe9e56ab408bdf45b8156d58.stex"
+path="res://.import/Pointer.png-add57c152870be1a2d6bd126478424ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Active Button.png"
-dest_files=[ "res://.import/Active Button.png-9e91ea9fbe9e56ab408bdf45b8156d58.stex" ]
+source_file="res://Assets/Formula Book/Pointer.png"
+dest_files=[ "res://.import/Pointer.png-add57c152870be1a2d6bd126478424ae.stex" ]
 
 [params]
 

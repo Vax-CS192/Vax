@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Formula Book/Archive Page/RightPointer.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Formula Book/Archive Page/Page field.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Formula Book/Archive Page/LeftPointer.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Formula Book/Archive Page/Favorites Button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Shop/Back Button.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchivePage.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
@@ -80,7 +80,7 @@ margin_right = 2844.0
 margin_bottom = 155.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
-text = "Php 1, 000, 000"
+text = "Php 1, 534, 954, 030.00"
 __meta__ = {
 "_edit_use_anchors_": false
 }

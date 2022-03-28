@@ -15,9 +15,13 @@ extends Node
 var lab = preload("res://Scenes/Lab/Lab.tscn")
 
 # Called when the node enters the scene tree for the first time.
-#Bundle name, and color as well as Popup name are set here
 func _ready():
 	#randomize() #will be needed to randomize bundle names
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+# The bundle names and font color are set here.
+func _process(delta):
 	#Set Bundle Names
 	$ShopControl/Bundle1/Bundle/Name.text="One"	
 	$ShopControl/Bundle2/Bundle/Name.text="Two"
@@ -54,7 +58,6 @@ func _ready():
 	$ShopControl/Bundle11/Popup/ArchivePopupControl/FormulaName.text="Eleven"
 	$ShopControl/Bundle12/Popup/ArchivePopupControl/FormulaName.text="Twelve"
 	$ShopControl/Bundle13/Popup/ArchivePopupControl/FormulaName.text="Thirteen"
-
 
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():

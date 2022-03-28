@@ -24,7 +24,8 @@ margin_bottom = 279.0
 custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 custom_fonts/font = SubResource( 1 )
 align = 1
-autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="." to="." method="_on_Formula_pressed"]
