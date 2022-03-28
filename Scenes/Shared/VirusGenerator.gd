@@ -29,7 +29,7 @@ func generateSymptom(length: int) -> String:
 
 func generateBundles() -> Array:
 	var baseSymp: String = generateSymptom(10)
-	var genBund1 = baseSymp.substr(0,5) + generateSymptom(4)
-	var genBund2 = baseSymp.substr(0,6) + generateSymptom(3)
-	var genBund3 = baseSymp.substr(0,7) + generateSymptom(2)
+	var genBund1 = baseSymp.substr(0,5) + generateSymptom(5)
+	var genBund2 = baseSymp.substr(0,6) + generateSymptom(4)
+	var genBund3 = baseSymp.substr(0,7) + generateSymptom(3)
 	return [baseSymp, genBund1, genBund2, genBund3]
