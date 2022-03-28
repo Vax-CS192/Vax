@@ -43,7 +43,8 @@ func _on_BackToMainMenu_pressed():
 
 # change scene to Cauldron when cauldron button is pressed
 func _on_cauldronButton_pressed():
-	get_node("/root/Session").changeSceneTo(self, PersistentScenes.cauldron)
+	self.queue_free()
+	get_tree().get_root().get_node("Session/Cauldron").draw()
 
 # changes scene to shop when shop button is pressed
 func _on_shopButton_pressed():
