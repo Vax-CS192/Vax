@@ -22,8 +22,6 @@ func _process(delta):
 	pass
 
 func _on_ready_Session():
-	cauldron.hide()
-	testingArea.hide()
 	map.hide()
 	shop.hide()
 	get_node("/root/Session").add_child(cauldron)

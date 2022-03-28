@@ -51,6 +51,7 @@ func draw():
 	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
 	cauldron_ui.reset()
 	cauldron_ui.show()
+	cauldron_ui.draw()
 	
 func add_to_formulabook(name, description,five_array):
 	var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
