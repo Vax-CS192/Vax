@@ -9,7 +9,6 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var lab = preload("res://Scenes/Lab/Lab.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,12 +22,37 @@ func _ready():
 
 #This changes the scene to the Lab.
 func _on_CauldronUI_back_to_lab():
-	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.cauldron, lab.instance())
+		var cauldron_subsystem = get_parent()
+		cauldron_subsystem.get_node("CauldronUI").hide()
+		var lab_subsystem = preload("res://Scenes/Lab/Lab.tscn")
+		get_parent().get_parent().add_child(lab_subsystem.instance())
 
 #This changes the scene to the Formulabook.
 func _on_CauldronUI_open_formulabook():
-	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
+		var cauldron_subsystem = get_parent()
+		cauldron_subsystem.get_node("CauldronUI").hide()
+		var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
+		formulabook_subsystem.draw()
 
-#Reload the Cauldron to reset the UI
-func _on_CauldronUI_reset():
-	get_tree().change_scene("res://Scenes/Cauldron/Cauldron.tscn")
+# Load specified bundles into cauldron		
+func load_to_cauldron(five_array):
+	var cauldron_subsystem = get_parent()
+	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
+	cauldron_ui.reset()
+	for x in range(5):
+		if five_array[x] == -1:
+			break
+		cauldron_ui.select_ingredient(five_array[x])
+	cauldron_ui.show()
+	
+# Reset the CauldronUI and draw it to the screen
+func draw():
+	var cauldron_subsystem = get_parent()
+	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
+	cauldron_ui.reset()
+	cauldron_ui.show()
+	
+func add_to_formulabook(name, description,five_array):
+	var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
+	formulabook_subsystem.add_to_formulabook(name, description, five_array)
+	
