@@ -13,7 +13,7 @@
 
 extends Node
 
-signal formula_loaded_to_cauldron #indicates that the load to cauldron button is pressed
+signal favorites_changed() #indicates that the there has been some changes in the favorites file
 
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
@@ -38,6 +38,10 @@ var favorites = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+	
+# Called when the favorites file is changed
+func _on_FormulaBook_favorites_changed():
 	$FormulaBookUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
 	#add_to_formulabook("formula_name","formula_description",["1","2","3","4","5"])
 	#Create Formula save fiiles is not yet existing, otherwise load the data
@@ -114,6 +118,7 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 	save_data.close()
 	#update current length
 	curr_dir_length= curr_dir_length+1
+	emit_signal("archives_changed")
 	
 # this function loads the profile data
 # if there is no profile data, then it just returns nothing
@@ -220,3 +225,8 @@ func _on_Formula10_pressed():
 		_on_Formula_pressed(10)
 	else:
 		pass
+
+
+
+
+
