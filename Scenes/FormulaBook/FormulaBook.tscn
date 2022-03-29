@@ -1,49 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Formula Book/Cauldron  Button.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Shop/Money Icon.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/FormulaBook/CoinFB.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/FormulaBook/Formula.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/FormulaBook/Formula Page/FormulaPage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Formula Book/Archive Box.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchivePage.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/FormulaBook/FormulaBook.gd" type="Script" id=8]
 
-[sub_resource type="Animation" id=1]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Money/Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "TurningCoin"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Money/Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7 ]
-}
-
-[sub_resource type="DynamicFont" id=3]
-size = 35
-extra_spacing_char = -5
-font_data = ExtResource( 3 )
-
-[node name="FormulaBook" type="Node"]
+[node name="FormulaBook" type="Node2D"]
+visible = false
 script = ExtResource( 8 )
 
 [node name="FormulaBookUI" type="Node2D" parent="."]
@@ -52,33 +18,10 @@ script = ExtResource( 8 )
 margin_right = 2960.0
 margin_bottom = 1440.0
 rect_pivot_offset = Vector2( 656, 728 )
-color = Color( 0.92549, 0.952941, 1, 1 )
+color = Color( 0.658824, 0.784314, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Money" type="AnimationPlayer" parent="FormulaBookUI"]
-autoplay = "TurningCoin"
-anims/RESET = SubResource( 1 )
-anims/TurningCoin = SubResource( 2 )
-
-[node name="Account" type="Label" parent="FormulaBookUI/Money"]
-margin_left = 2178.0
-margin_top = 105.0
-margin_right = 2844.0
-margin_bottom = 155.0
-custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Php 1, 000, 000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Icon" type="Sprite" parent="FormulaBookUI/Money"]
-position = Vector2( 909, 736 )
-texture = ExtResource( 2 )
-offset = Vector2( 1209, -612 )
-hframes = 8
 
 [node name="FormulaBookControl" type="Control" parent="."]
 margin_right = 40.0
@@ -168,11 +111,22 @@ margin_top = 808.0
 margin_right = 2208.0
 margin_bottom = 808.0
 
+[node name="FormulaPage" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="ArchivePage" parent="." instance=ExtResource( 7 )]
+visible = false
+
+[node name="Coin" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2227, 118 )
+frame = 3
+
+[connection signal="draw" from="." to="." method="_on_FormulaBook_draw"]
 [connection signal="favorites_changed" from="." to="." method="_on_FormulaBook_favorites_changed"]
 [connection signal="pressed" from="FormulaBookControl/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="FormulaBookControl/ArchiveIcon" to="." method="_on_ArchiveIcon_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula1" to="." method="_on_Formula1_pressed"]
-[connection signal="pressed" from="FormulaBookControl/Formula2" to="." method="_on_Formula2_pressed" binds= [ "" ]]
+[connection signal="pressed" from="FormulaBookControl/Formula2" to="." method="_on_Formula2_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula3" to="." method="_on_Formula3_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula4" to="." method="_on_Formula4_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula5" to="." method="_on_Formula5_pressed"]
@@ -181,3 +135,6 @@ margin_bottom = 808.0
 [connection signal="pressed" from="FormulaBookControl/Formula8" to="." method="_on_Formula8_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula9" to="." method="_on_Formula9_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula10" to="." method="_on_Formula10_pressed"]
+[connection signal="delete_formulae" from="FormulaPage" to="." method="_on_FormulaPage_delete_formulae"]
+[connection signal="formula_deets_edited" from="FormulaPage" to="." method="_on_FormulaPage_formula_deets_edited"]
+[connection signal="archives_changed" from="ArchivePage" to="." method="_on_ArchivePage_archives_changed"]

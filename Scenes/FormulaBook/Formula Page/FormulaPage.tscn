@@ -65,7 +65,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
-[node name="FormulaPage" type="Node"]
+[node name="FormulaPage" type="Node2D"]
 script = ExtResource( 10 )
 
 [node name="FormulaPageUI" type="Node2D" parent="."]
@@ -84,6 +84,7 @@ anims/RESET = SubResource( 1 )
 anims/TurningCoin = SubResource( 2 )
 
 [node name="Account" type="Label" parent="FormulaPageUI/Money"]
+visible = false
 margin_left = 2178.0
 margin_top = 105.0
 margin_right = 2844.0
@@ -96,6 +97,7 @@ __meta__ = {
 }
 
 [node name="Icon" type="Sprite" parent="FormulaPageUI/Money"]
+visible = false
 position = Vector2( 909, 736 )
 texture = ExtResource( 4 )
 offset = Vector2( 1209, -612 )
@@ -191,9 +193,9 @@ __meta__ = {
 }
 
 [node name="FormulaName" type="LineEdit" parent="FormulaPageControl"]
-margin_left = 1272.0
+margin_left = 328.0
 margin_top = 272.0
-margin_right = 1662.0
+margin_right = 2630.0
 margin_bottom = 338.0
 custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -201,6 +203,8 @@ custom_styles/focus = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "Name"
 align = 1
+caret_blink = true
+caret_blink_speed = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -11,9 +11,10 @@
 # OF THIS SOFTWARE.
 
 
-extends Node
+extends Node2D
 
 signal archives_changed() #indicates that the there has been some changes in the formula archive file
+
 
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
@@ -35,7 +36,7 @@ onready var curr_page_formula=[]
 # Called when the node enters the scene tree for the first time.
 # Loads Popup names
 func _ready():
-	pass
+	_on_ArchivePage_archives_changed()
 	
 # Called when the archive file is changed
 func _on_ArchivePage_archives_changed():
@@ -81,14 +82,11 @@ func count_favorites():
 
 #Sets up the favorites page's formula
 func set_archive_page():
-	#print(curr_page_formula)
 	var page_formula = curr_page_formula[curr_page-1] #list of directories in a page
-	print(page_formula)
 	var index = 1
 	var slot_path = ""
 	while index<=len(page_formula):
 		var dict=page_formula[index-1]
-		print(dict)
 		slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
 		if dict!=null:
 			get_node(slot_path+"/Name").text=dict["Name"]
@@ -97,8 +95,8 @@ func set_archive_page():
 			
 	if index<=20: #set occupied to false
 		while index<=20:
-			print(index)
 			slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
+			get_node(slot_path+"/Name").text=""
 			get_node(slot_path).is_occupied=false
 			index+=1
 	
@@ -139,7 +137,7 @@ func _on_LeftButton_pressed():
 		occupied_page=false
 		curr_page -=1
 	$ArchivePageControl/PageField/TextField.text = str(curr_page)
-
+	emit_signal("archives_changed")
 
 # Moves to the previous page
 func _on_RightButton_pressed():
@@ -150,6 +148,7 @@ func _on_RightButton_pressed():
 		occupied_page=false
 		curr_page +=1
 	$ArchivePageControl/PageField/TextField.text = str(curr_page)
+	emit_signal("archives_changed")
 
 # Moves to the page number according to the user's input
 func _on_TextField_text_entered(new_text):
@@ -163,6 +162,6 @@ func _on_TextField_text_entered(new_text):
 			occupied_page=true
 		elif curr_page==2:
 			occupied_page=false
-
+	emit_signal("archives_changed")
 
 
