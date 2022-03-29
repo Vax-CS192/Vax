@@ -37,7 +37,7 @@ onready var curr_page_formula=[]
 func _ready():
 	_on_ArchivePage_archives_changed()
 	count_favorites()
-	print("FAAAAAAAAAAAAV ",fav_count)
+
 	
 # Called when the archive file is changed
 func _on_ArchivePage_archives_changed():
@@ -58,34 +58,39 @@ func _on_ArchivePage_archives_changed():
 #read all formula
 func initialize_archive_page():
 	var file = File.new()
-	file.open(formula_file_path, File.READ)
-	var index = 1
-	var a_page = []
-	while not file.eof_reached(): # iterate thrrough all lines until the end of file is reached
-		var dict = parse_json(file.get_line())
-		if dict==null:
-			continue
-		all_formula.append(dict)
-		a_page.append(dict)
-		if len(a_page)==20:
+	if file.file_exists(formula_file_path):
+		file.open(formula_file_path, File.READ)
+		var index = 1
+		var a_page = []
+		while not file.eof_reached(): # iterate thrrough all lines until the end of file is reached
+			var dict = parse_json(file.get_line())
+			if dict==null:
+				continue
+			all_formula.append(dict)
+			a_page.append(dict)
+			if len(a_page)==20:
+				curr_page_formula.append(a_page)
+				a_page=[]
+			index += 1
+		if (index-1)%20!=0: #if last page has excess
 			curr_page_formula.append(a_page)
-			a_page=[]
-		index += 1
-	if (index-1)%20!=0: #if last page has excess
-		curr_page_formula.append(a_page)
-	file.close()
+		file.close()
+	else: 
+		pass
 
 func count_favorites():
 	fav_count=0
 	var file = File.new()
-	file.open(favorites_file_path, File.READ)
-	while not file.eof_reached():
-		var dict = parse_json(file.get_line())
-		if dict==null:
-			continue
-		fav_count+=1
-	file.close()
-	
+	if file.file_exists(favorites_file_path):
+		file.open(favorites_file_path, File.READ)
+		while not file.eof_reached():
+			var dict = parse_json(file.get_line())
+			if dict==null:
+				continue
+			fav_count+=1
+		file.close()
+	else: 
+		pass
 
 #Sets up the favorites page's formula
 func set_archive_page():
@@ -301,7 +306,8 @@ func _on_Popup_delete_an_archive(id):
 
 func save_archives_data():
 	var remove_data = File.new()
-	remove_data.remove_meta(formula_file_path)
+	if remove_data.file_exists(formula_file_path):
+		remove_data.remove_meta(formula_file_path)
 	print(all_formula)
 	var save_data = File.new()
 	save_data.open(formula_file_path, File.WRITE)

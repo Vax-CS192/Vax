@@ -13,9 +13,6 @@
 extends Node2D
 
 
-onready var favorites_file_path = "user://favoritesdirectory.save"
-
-
 signal delete_formulae(id)
 signal formula_deets_edited(formula_parameters)
 
@@ -29,7 +26,7 @@ onready var formula_parameters := {
 
 
 func _ready():
-	$FormulaPageUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
+	pass
 	
 #Loads data to the page
 #Task: Called by Formula book when a slot is pressed
