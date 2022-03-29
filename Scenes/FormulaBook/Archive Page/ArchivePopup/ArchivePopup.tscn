@@ -179,3 +179,6 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+
+[connection signal="popup_hide" from="." to="." method="_on_Popup_popup_hide"]
+[connection signal="pressed" from="ArchivePopupControl/DeleteButton" to="." method="_on_DeleteButton_pressed"]

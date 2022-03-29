@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchiveIcon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Formula Book/Archive Page/LeftPointer.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Formula Book/Archive Page/Favorites Button.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchivePage.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/FormulaBook/Archive Page/ArchivePopup/ArchivePopup.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -302,8 +303,32 @@ margin_top = 976.0
 margin_right = 2348.0
 margin_bottom = 1128.0
 
+[node name="Popup" parent="." instance=ExtResource( 10 )]
+
 [connection signal="archives_changed" from="." to="." method="_on_ArchivePage_archives_changed"]
 [connection signal="pressed" from="ArchivePageControl/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="ArchivePageControl/RightButton" to="." method="_on_RightButton_pressed"]
 [connection signal="pressed" from="ArchivePageControl/LeftButton" to="." method="_on_LeftButton_pressed"]
 [connection signal="text_entered" from="ArchivePageControl/PageField/TextField" to="." method="_on_TextField_text_entered"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon1" to="." method="_on_ArchiveIcon1_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon2" to="." method="_on_ArchiveIcon2_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon3" to="." method="_on_ArchiveIcon3_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon4" to="." method="_on_ArchiveIcon4_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon5" to="." method="_on_ArchiveIcon5_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon6" to="." method="_on_ArchiveIcon6_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon7" to="." method="_on_ArchiveIcon7_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon8" to="." method="_on_ArchiveIcon8_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon9" to="." method="_on_ArchiveIcon9_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon10" to="." method="_on_ArchiveIcon10_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon11" to="." method="_on_ArchiveIcon11_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon12" to="." method="_on_ArchiveIcon12_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon13" to="." method="_on_ArchiveIcon13_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon14" to="." method="_on_ArchiveIcon14_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon15" to="." method="_on_ArchiveIcon15_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon16" to="." method="_on_ArchiveIcon16_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon17" to="." method="_on_ArchiveIcon17_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon18" to="." method="_on_ArchiveIcon18_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon19" to="." method="_on_ArchiveIcon19_pressed"]
+[connection signal="pressed" from="ArchiveIcons/ArchiveIcon20" to="." method="_on_ArchiveIcon20_pressed"]
+[connection signal="archive_deets_edited" from="Popup" to="." method="_on_Popup_archive_deets_edited"]
+[connection signal="delete_an_archive" from="Popup" to="." method="_on_Popup_delete_an_archive"]
