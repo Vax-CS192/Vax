@@ -14,6 +14,7 @@
 extends Node2D
 
 signal favorites_changed() #indicates that the there has been some changes in the favorites file
+#signal fav_count_changed(fav_count)
 
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
@@ -60,6 +61,8 @@ func _on_FormulaBook_favorites_changed():
 	else:
 		#Load presaved formula
 		initialize_formula_book() 
+	var fav_count = len(favorites)
+	emit_signal("fav_count_changed",fav_count)
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -285,5 +288,6 @@ func draw():
 #Hides the Archive page when back button from the archive page is pressed
 func _on_ArchivePage_archives_closed():
 	$ArchivePage.hide()
+
 
 

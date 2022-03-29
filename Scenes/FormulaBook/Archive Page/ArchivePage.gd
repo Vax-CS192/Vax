@@ -36,6 +36,8 @@ onready var curr_page_formula=[]
 # Loads Popup names
 func _ready():
 	_on_ArchivePage_archives_changed()
+	count_favorites()
+	print("FAAAAAAAAAAAAV ",fav_count)
 	
 # Called when the archive file is changed
 func _on_ArchivePage_archives_changed():
@@ -50,7 +52,7 @@ func _on_ArchivePage_archives_changed():
 	#Load presaved formula
 	initialize_archive_page() 
 	set_archive_page()
-	count_favorites()
+
 
 
 #read all formula
@@ -74,6 +76,7 @@ func initialize_archive_page():
 	file.close()
 
 func count_favorites():
+	fav_count=0
 	var file = File.new()
 	file.open(favorites_file_path, File.READ)
 	while not file.eof_reached():
@@ -155,6 +158,9 @@ func _on_TextField_text_entered(new_text):
 #Go to corresponding Cauldron Subsystem when the button is pressed. Task: Merge into one method if kaya
 func _on_Archive_pressed(fp_slot):
 	var formula_parameters= curr_page_formula[curr_page-1] [fp_slot-1] #fp_slot names are 1-index
+	
+	count_favorites()
+	print("BEFORE POPUP, FAV IS ", fav_count)
 	$Popup._on_Popup_about_to_show(formula_parameters,fav_count)
 	#$Popup.popup_centered()
 
@@ -318,3 +324,4 @@ func _on_Popup_archive_deets_edited(formula_parameters):
 		index+=1
 	save_archives_data()
 	emit_signal("archives_changed")
+
