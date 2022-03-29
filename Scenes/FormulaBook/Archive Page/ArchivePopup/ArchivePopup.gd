@@ -69,7 +69,6 @@ func _on_DeleteButton_pressed():
 	emit_signal("delete_an_archive",formula_parameters["ID"])
 	self.hide()
 
-
 func _on_Popup_popup_hide():
 	synch_formula_parameters()
 	emit_signal("archive_deets_edited", formula_parameters)
