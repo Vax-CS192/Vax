@@ -10,10 +10,14 @@
 # NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
 # OF THIS SOFTWARE.
 
-extends Node
+extends Node2D
 
 
 onready var favorites_file_path = "user://favoritesdirectory.save"
+
+
+signal delete_formulae(id)
+signal formula_deets_edited(formula_parameters)
 
 onready var formula_parameters := {
 	"ID":null,
@@ -26,8 +30,6 @@ onready var formula_parameters := {
 
 func _ready():
 	$FormulaPageUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
-	
-
 	
 #Loads data to the page
 #Task: Called by Formula book when a slot is pressed
@@ -43,16 +45,21 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 		index+=1
 	$FormulaPageUI/MassProdText.text = "PHP "+str(formula_parameters["MassProducePrice"])
 	
-	
+#saves possible changes in the formula deetails
+func synch_formula_parameters():
+	formula_parameters["Name"]=$FormulaPageControl/FormulaName.text
+	formula_parameters["Description"]=$FormulaPageControl/FormulaNote.text
+
 #Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
 	#Task: Save
-	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
+	synch_formula_parameters()
+	emit_signal("formula_deets_edited", formula_parameters)
 	
 
 # Formula is deleted from the Formula file
 func _on_DeleteFormula_pressed():
-	pass # Replace with function body.
+	emit_signal("delete_formulae",formula_parameters["ID"])
 
 # runs when Mass Produce button is clicked
 func _on_MassProduce_pressed():
