@@ -31,9 +31,4 @@ func _process(delta):
 	if is_occupied==true:
 		get_node(".").texture_normal=occupied_icon
 		
-#The Archive Popup appears when an occupied ArchiveIcon is pressed	
-func _on_ArchiveIcon_pressed():
-	if is_occupied==true:
-		$ArchivePopup.popup_centered()
-	else:
-		pass
+

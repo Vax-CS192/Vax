@@ -125,7 +125,7 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 	save_data.store_line(to_json(dict_to_save))
 	save_data.close()
 	#update current length
-	curr_dir_length= curr_dir_length+1
+	curr_dir_length=+1
 	emit_signal("archives_changed")
 	
 # this function loads the profile data
@@ -235,8 +235,6 @@ func _on_Formula10_pressed():
 		pass
 
 
-func _on_ArchivePage_archives_changed():
-	pass # Replace with function body.
 
 #save changes to favorites file
 func save_favorites_data():
@@ -253,7 +251,7 @@ func save_favorites_data():
 			save_data.store_line(to_json(formulae))
 	save_data.close()
 	#update current length
-	curr_dir_length= curr_dir_length+1
+	#update current length
 	emit_signal("favorites_changed")
 	
 #delete a formula in the favorites fila
@@ -266,6 +264,7 @@ func _on_FormulaPage_delete_formulae(id):
 		index+=1
 	save_favorites_data()	
 	$FormulaPage.hide()
+	curr_dir_length-=1
 	
 #updates the deetails of the edited data
 func _on_FormulaPage_formula_deets_edited(formula_parameters):
@@ -282,3 +281,9 @@ func _on_FormulaPage_formula_deets_edited(formula_parameters):
 #directly shows the formula book screen which is hidden by default
 func draw():
 	get_node("/root/Session").hideAndChangeSceneTo(self, PersistentScenes.formulaBook)
+
+#Hides the Archive page when back button from the archive page is pressed
+func _on_ArchivePage_archives_closed():
+	$ArchivePage.hide()
+
+
