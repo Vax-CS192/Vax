@@ -38,7 +38,6 @@ func _process(delta):
 func _on_ready_Session():
 	map.hide()
 	shop.hide()
-	formulaBook.hide()
 	get_node("/root/Session").add_child(cauldron)
 	get_node("/root/Session").add_child(testingArea)
 	get_node("/root/Session").add_child(map)
