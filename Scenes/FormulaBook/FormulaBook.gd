@@ -39,37 +39,21 @@ var favorites = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_on_FormulaBook_favorites_changed()
+	print("creae files")
+	var init_formula = File.new()
+	init_formula.open(formula_file_path, File.WRITE)
+	init_formula.close()
+		
+	var init_favorites = File.new()
+	init_favorites.open(favorites_file_path, File.WRITE)
+	init_favorites.close()
 	
 # Called when the favorites file is changed
 func _on_FormulaBook_favorites_changed():
-	#$FormulaBookUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
-	#add_to_formulabook("formula_name","formula_description",["1","2","3","4","5"])
-	#Create Formula save fiiles is not yet existing, otherwise load the data
-	
-	favorites=[]#reset
-	print("SETTING UP")
-	var init_formula = File.new()
-	if not init_formula.file_exists(formula_file_path):
-		#Create Archive and favorites file
-		init_formula.open(formula_file_path, File.WRITE)
-		init_formula.close()
-
-		var init_favorites = File.new()
-		init_favorites.open(favorites_file_path, File.WRITE)
-		init_favorites.close()
-	else:
-		#Load presaved formula
+	var favorites_formula = File.new()
+	if favorites_formula.file_exists(formula_file_path):
 		initialize_formula_book() 
-	var fav_count = len(favorites)
-	emit_signal("fav_count_changed",fav_count)
-
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-# The formula name and state are set here.
-func _process(delta):
-	pass
-
 #Sets up the favorites page's formula
 func initialize_formula_book():
 	var slot_path = ""
