@@ -37,7 +37,8 @@ func _ready():
 		$Bundles.add_child(violet)
 		green.set_up("G",560+x*group_width,formula_depth)
 		$Bundles.add_child(green)
-#Load all ingredients into the inventory area
+		
+#Change the names of ingredients to reflect what is in the bundles
 func draw():
 	reset()
 # Check whether the mix button should be enabled every frame
