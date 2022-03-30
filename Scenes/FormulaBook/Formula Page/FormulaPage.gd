@@ -37,8 +37,15 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 	while index <5:
 		var component_node = "FormulaPageControl/Component"+str(index+1)+"/Name"
 		var components = formula_parameters["Components"]
-		get_node(component_node).text= str(components[index])
-		index+=1
+		#If -1, blank. If 0 or higher, get the name of the associated bundle.
+		if components[index]==-1:
+			get_node(component_node).text=""
+			index+=1
+			continue
+		elif components[index]>=0:
+			get_node(component_node).text= str(components[index])
+			print("num",str(components[index]))
+			index+=1
 	$FormulaPageUI/MassProdText.text = "PHP "+str(formula_parameters["MassProducePrice"])
 	
 #saves possible changes in the formula deetails
