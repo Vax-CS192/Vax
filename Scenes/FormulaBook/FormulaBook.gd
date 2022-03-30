@@ -41,7 +41,7 @@ var favorites = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("creae files")
-	add_to_formulabook("Hey","Bago ito",[1,2,3,4,5])
+	#add_to_formulabook("Hey","Bago ito",[1,2,3,4,5])
 	create_archives_file()
 	create_favorites_file()
 		
@@ -126,7 +126,7 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 	save_data.store_line(to_json(dict_to_save))
 	save_data.close()
 	#update current length
-	curr_dir_length=+1
+	curr_dir_length += 1 #for formula id
 	emit_signal("archives_changed")
 	
 # this function loads the profile data
@@ -265,7 +265,7 @@ func _on_FormulaPage_delete_formulae(id):
 		index+=1
 	save_favorites_data()	
 	$FormulaPage.hide()
-	curr_dir_length-=1
+
 	
 #updates the deetails of the edited data
 func _on_FormulaPage_formula_deets_edited(formula_parameters):
@@ -292,3 +292,4 @@ func _on_ArchivePage_archives_closed():
 
 
 
+	

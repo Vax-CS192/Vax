@@ -182,3 +182,4 @@ __meta__ = {
 
 [connection signal="popup_hide" from="." to="." method="_on_Popup_popup_hide"]
 [connection signal="pressed" from="ArchivePopupControl/DeleteButton" to="." method="_on_DeleteButton_pressed"]
+[connection signal="pressed" from="ArchivePopupControl/SetAsFavoriteButton" to="." method="_on_SetAsFavoriteButton_pressed"]

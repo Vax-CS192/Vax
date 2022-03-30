@@ -14,6 +14,7 @@
 extends Popup
 signal delete_an_archive(id)
 signal archive_deets_edited(formula_parameters)
+signal set_as_fav(id)
 
 onready var enabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Set as Favorite Button enabled.png")
 onready var disabled_fav_button = preload("res://Assets/Formula Book/Archive Page/Archive FormulaPopup/Set as Favorite Button.png")
@@ -73,3 +74,7 @@ func _on_Popup_popup_hide():
 	synch_formula_parameters()
 	emit_signal("archive_deets_edited", formula_parameters)
 	self.hide() # Replace with function body.
+
+func _on_SetAsFavoriteButton_pressed():
+	print("WANT TO SET AS FAv")
+	emit_signal("set_as_fav",formula_parameters["ID"])
