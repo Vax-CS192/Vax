@@ -18,7 +18,6 @@ signal formula_deets_edited(formula_parameters)
 
 onready var formula_parameters := {
 	"ID":null,
-	"Name": "",
 	"Description":"",
 	"MassProducePrice":0,
 	"Components": []
@@ -56,7 +55,7 @@ func _on_BackButton_pressed():
 
 # Formula is deleted from the Formula file
 func _on_DeleteFormula_pressed():
-	emit_signal("delete_formulae",formula_parameters["ID"])
+	emit_signal("delete_formulae",formula_parameters["Name"])
 
 # runs when Mass Produce button is clicked
 func _on_MassProduce_pressed():

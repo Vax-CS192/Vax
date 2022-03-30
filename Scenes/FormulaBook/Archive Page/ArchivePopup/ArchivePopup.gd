@@ -21,7 +21,6 @@ onready var disabled_fav_button = preload("res://Assets/Formula Book/Archive Pag
 
 onready var formula_parameters := {
 	"ID":null,
-	"Name": "",
 	"Description":"",
 	"MassProducePrice":0,
 	"Components": []
@@ -51,7 +50,7 @@ onready var formula_parameters := {
 
 func _on_Popup_about_to_show(new_formula_parameters: Dictionary,fav_count:int):
 	formula_parameters = new_formula_parameters
-	$ArchivePopupControl/FormulaName.text=formula_parameters["Name"]
+	$ArchivePopupControl/FormulaName.text=formula_parameters["ID"]
 	$ArchivePopupControl/FormulaNote.text= formula_parameters["Description"]
 	for i in range(10):
 		var slot_path="ArchivePopupControl/Slots/Slot"+str(i+1)
@@ -62,7 +61,7 @@ func _on_Popup_about_to_show(new_formula_parameters: Dictionary,fav_count:int):
 	self.popup_centered()
 
 func synch_formula_parameters():
-	formula_parameters["Name"]=$ArchivePopupControl/FormulaName.text
+	formula_parameters["ID"]=$ArchivePopupControl/FormulaName.text
 	formula_parameters["Description"]=$ArchivePopupControl/FormulaNote.text
 	
 #Emits signal
