@@ -68,7 +68,7 @@ margin_bottom = -97.3735
 
 [node name="Money" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2260.52, 100 )
-frame = 3
+frame = 7
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

@@ -67,6 +67,8 @@ func _on_NewGame_pressed():
 	Profile.is_new_game = true
 	Profile.money = 1_000_000
 	get_node("/root/Session").changeSceneTo(self, cutscene.instance())
+	# generate new Virus and Bundles on new game
+	get_node("/root/Session").generateVirusAndBundles()
 
 # when continue is pressed, go to Lab
 # still have to load saved stuff
