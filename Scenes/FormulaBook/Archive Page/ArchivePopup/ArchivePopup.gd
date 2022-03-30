@@ -79,7 +79,6 @@ func _on_Popup_popup_hide():
 	self.hide() # Replace with function body.
 
 func _on_SetAsFavoriteButton_pressed():
-	print("WANT TO SET AS FAv")
 	emit_signal("set_as_fav",formula_parameters["ID"])
 	self.hide()
 
