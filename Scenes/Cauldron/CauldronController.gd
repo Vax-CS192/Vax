@@ -32,7 +32,7 @@ func _on_CauldronUI_open_formulabook():
 		var cauldron_subsystem = get_parent()
 		cauldron_subsystem.get_node("CauldronUI").hide()
 		var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
-		formulabook_subsystem.draw()
+		formulabook_subsystem.show()
 
 # Load specified bundles into cauldron		
 func load_to_cauldron(five_array):
