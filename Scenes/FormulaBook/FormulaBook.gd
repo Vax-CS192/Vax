@@ -139,8 +139,6 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 	#reset favorites list
 	_on_FormulaBook_favorites_changed()
 	
-	print("[COMPONENTS]",dict_to_save["Components"])	
-	
 	var exist = false
 	var index = 0
 	for formulae in favorites:	
