@@ -139,11 +139,12 @@ visible = false
 
 [node name="Coin" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2227, 118 )
-frame = 0
+frame = 3
 
 [connection signal="check_new_exist" from="." to="ArchivePage" method="_on_FormulaBook_check_new_exist"]
 [connection signal="draw" from="." to="." method="_on_FormulaBook_draw"]
 [connection signal="favorites_changed" from="." to="." method="_on_FormulaBook_favorites_changed"]
+[connection signal="favorites_changed" from="." to="ArchivePage" method="count_favorites"]
 [connection signal="pressed" from="FormulaBookControl/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="FormulaBookControl/ArchiveIcon" to="." method="_on_ArchiveIcon_pressed"]
 [connection signal="pressed" from="FormulaBookControl/Formula1" to="." method="_on_Formula1_pressed"]

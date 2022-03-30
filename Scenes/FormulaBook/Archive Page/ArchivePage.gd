@@ -88,9 +88,8 @@ func count_favorites():
 		file.open(favorites_file_path, File.READ)
 		while not file.eof_reached():
 			var dict = parse_json(file.get_line())
-			if dict==null:
-				continue
-			fav_count+=1
+			if dict!=null:
+				fav_count+=1
 		file.close()
 	else: 
 		pass
