@@ -37,9 +37,20 @@ func generateSymptom(length: int) -> String:
 # genBund3 are derived from it. baseSymp is supposed to be the bundle that cures
 # the symptom by 100%, which is why it is the symptom as well. genBund1, genBund2, and
 # genBund3 are bundles with less efficiency than baseSymp
-func generateBundles() -> Array:
-	var baseSymp: String = generateSymptom(10)
-	var genBund1 = baseSymp.substr(0,5) + generateSymptom(5)
-	var genBund2 = baseSymp.substr(0,6) + generateSymptom(4)
-	var genBund3 = baseSymp.substr(0,7) + generateSymptom(3)
-	return [baseSymp, genBund1, genBund2, genBund3]
+func generateBundleSequence(base: String) -> String:
+	randomize()
+	var lengthOfBaseRetained = round(rand_range(1,9))
+	var genBund1 = base.substr(0,lengthOfBaseRetained) \
+					+ generateSymptom(10 - lengthOfBaseRetained)
+	return genBund1
+	
+func generateBundle(id: int, key: int, price: float, bundleName: String, 
+	desc: String, sequence: String) -> Dictionary:
+		return	{
+			"id": id,
+			"symptom": key,
+			"price": price,
+			"bundleName": bundleName,
+			"desc": desc,
+			"sequence": sequence
+			}
