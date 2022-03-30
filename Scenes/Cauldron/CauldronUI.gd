@@ -19,8 +19,6 @@ func _ready():
 	red_scene = preload("res://Scenes/Cauldron/Ingredients/Red.tscn")
 	violet_scene = preload("res://Scenes/Cauldron/Ingredients/Violet.tscn")
 	green_scene = preload("res://Scenes/Cauldron/Ingredients/Green.tscn")
-#Load all ingredients into the inventory area
-func draw():
 	var group_width = 600
 	var formula_depth = 1200
 	for x in range(4):
@@ -39,6 +37,9 @@ func draw():
 		$Bundles.add_child(violet)
 		green.set_up("G",560+x*group_width,formula_depth)
 		$Bundles.add_child(green)
+#Load all ingredients into the inventory area
+func draw():
+	reset()
 # Check whether the mix button should be enabled every frame
 # Also, update money in real time
 func _process(_delta):
