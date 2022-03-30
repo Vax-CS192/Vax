@@ -33,6 +33,8 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 	formula_parameters = new_formula_parameters
 	$FormulaPageControl/FormulaName.text=formula_parameters["ID"]
 	$FormulaPageControl/FormulaNote.text= formula_parameters["Description"]
+	
+	#components
 	var index = 0
 	while index <5:
 		var component_node = "FormulaPageControl/Component"+str(index+1)+"/Name"
@@ -73,6 +75,8 @@ func _on_LoadCauldron_pressed():
 	#Cauldron.load_to_cauldron(formula_parameters.Components)
 	synch_formula_parameters()
 	var cauldron_subsystem = PersistentScenes.cauldron
+	self.hide()
+	PersistentScenes.formulaBook.hide()
 	cauldron_subsystem.load_to_cauldron(formula_parameters["Components"])
 	print("LOAD TO CAULDRON")
 
