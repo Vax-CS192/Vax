@@ -17,34 +17,42 @@ size = 50
 font_data = ExtResource( 5 )
 
 [sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=3]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 120, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 240, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=5]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 360, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=6]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 480, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=7]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 600, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=8]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 720, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=9]
+flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 840, 0, 120, 120 )
 
@@ -131,10 +139,10 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
 frames = SubResource( 10 )
-frame = 5
+frame = 3
 playing = true
 
-[node name="Bundles" type="Node" parent="."]
+[node name="Bundles" type="Node2D" parent="."]
 
 [node name="Cauldron" type="Sprite" parent="."]
 position = Vector2( 1429, 907 )
