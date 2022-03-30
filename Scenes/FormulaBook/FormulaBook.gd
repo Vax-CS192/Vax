@@ -15,6 +15,7 @@ extends Node2D
 
 signal favorites_changed() #indicates that the there has been some changes in the favorites file
 #signal fav_count_changed(fav_count)
+signal archives_changed()
 
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
@@ -40,13 +41,22 @@ var favorites = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("creae files")
-	var init_formula = File.new()
-	init_formula.open(formula_file_path, File.WRITE)
-	init_formula.close()
+	add_to_formulabook("Hey","Bago ito",[1,2,3,4,5])
+	create_archives_file()
+	create_favorites_file()
 		
+
+func create_archives_file():
+	var init_formula = File.new()
+	if not init_formula.file_exists(formula_file_path):
+		init_formula.open(formula_file_path, File.WRITE)
+		init_formula.close()
+
+func create_favorites_file():
 	var init_favorites = File.new()
-	init_favorites.open(favorites_file_path, File.WRITE)
-	init_favorites.close()
+	if not init_favorites.file_exists(formula_file_path):
+		init_favorites.open(favorites_file_path, File.WRITE)
+		init_favorites.close()
 	
 # Called when the favorites file is changed
 func _on_FormulaBook_favorites_changed():
@@ -99,6 +109,7 @@ func _on_ArchiveIcon_pressed():
 # check the link below to see where your OS saves profile.save
 # https://docs.godotengine.org/en/stable/tutorials/io/data_paths.html#accessing-persistent-user-data
 func add_to_formulabook(formula_name:String,formula_description:String,components:Array):
+	create_archives_file()
 	dict_to_save = {	#can be checked if occpied if it is in the favorites file
 		"ID":curr_dir_length+1, #so it starts with 1
 		"Name": formula_name,
@@ -109,6 +120,7 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 	
 	#Append the formula at the end of the file
 	var save_data = File.new()
+	
 	save_data.open(formula_file_path, File.READ_WRITE)
 	save_data.seek_end()
 	save_data.store_line(to_json(dict_to_save))
@@ -272,6 +284,7 @@ func draw():
 	get_node("/root/Session").hideAndChangeSceneTo(self, PersistentScenes.formulaBook)
 	get_node("/root/Session").hideAndChangeSceneTo(self, PersistentScenes.formulaBook)
 
+#Hides the Archive page when back button from the archive page is pressed
 #Hides the Archive page when back button from the archive page is pressed
 func _on_ArchivePage_archives_closed():
 	$ArchivePage.hide()
