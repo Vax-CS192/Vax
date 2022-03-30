@@ -72,7 +72,7 @@ func set_up(formula_name, x_pos, y_pos):
 
 func reset():
 	self.rect_position = Vector2(origin_x,origin_y)
-
+	included = false
 func select():
 	self.rect_position = Vector2(origin_x,320)
 	
