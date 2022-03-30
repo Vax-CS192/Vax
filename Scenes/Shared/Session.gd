@@ -21,7 +21,7 @@ var mainMenu = load("res://Scenes/MainMenu/MainMenu.tscn")
 # These bundles are arrays of 4 randomly generated DNA strings with the
 # first item in the array being the actual symptom
 
-var mainDict
+var mainDict = {}
 
 # This signal is used to signify to PersistentScenes to add the persistent
 # subsystems as children to session
@@ -29,6 +29,9 @@ signal entered
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# temporary for testing only. delete on final product
+	generateVirusAndBundles()
+	
 	# on ready, connect the entered signal to PersistentScenes, then emit the
 	# signal to add the persistent scenes to session
 	self.connect("entered", get_node("/root/PersistentScenes"), "_on_ready_Session")
@@ -36,9 +39,7 @@ func _ready():
 	# instantiate mainMenu and add it as children
 	mainMenu = mainMenu.instance()
 	self.add_child(mainMenu)
-	
-	# temporary for testing only. delete on final product
-	generateVirusAndBundles()
+
 
 
 # this function changes the scene for susbsytems that don't need to be persistent
@@ -71,6 +72,9 @@ func generateVirusAndBundles():
 		4: baseSymp4
 	}
 	
+	var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
+					"p","q","r","s","t"]
+	
 	mainDict = {
 		"symptoms": virus
 	}
@@ -78,16 +82,15 @@ func generateVirusAndBundles():
 	# generate bundles from virus
 	var bundleID = 0
 	for key in virus.keys():
-		while bundleID < 20:
+		for letter in letters:
 			if bundleID % 4 == 0:
 				bundles[bundleID] = generateBundle(bundleID, key, 0.0,
-												"", "", virus[key])
-				
+												letter, "", virus[key])
 			else:
 				bundles[bundleID] = generateBundle(bundleID, key, 0.0,
-									"", "", generateBundleSequence(virus[key]))
-				print(generateBundleSequence(virus[key]))
+									letter, "", generateBundleSequence(virus[key]))
 			bundleID += 1
 			
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles
+	#print(mainDict["bundles"])
