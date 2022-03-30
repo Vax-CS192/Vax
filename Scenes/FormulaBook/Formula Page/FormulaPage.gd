@@ -30,9 +30,12 @@ func _ready():
 #Loads data to the page
 #Task: Called by Formula book when a slot is pressed
 func load_formula_parameters(new_formula_parameters: Dictionary):
+	var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
 	formula_parameters = new_formula_parameters
 	$FormulaPageControl/FormulaName.text=formula_parameters["ID"]
 	$FormulaPageControl/FormulaNote.text= formula_parameters["Description"]
+	
+	#components
 	var index = 0
 	while index <5:
 		var component_node = "FormulaPageControl/Component"+str(index+1)+"/Name"
@@ -43,8 +46,9 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 			index+=1
 			continue
 		elif components[index]>=0:
-			get_node(component_node).text= str(components[index])
-			print("num",str(components[index]))
+			var id = components[index]
+			var bundle_name = bundle_Dict[id]["bundleName"]
+			get_node(component_node).text= bundle_name
 			index+=1
 	$FormulaPageUI/MassProdText.text = "PHP "+str(formula_parameters["MassProducePrice"])
 	
@@ -73,6 +77,8 @@ func _on_LoadCauldron_pressed():
 	#Cauldron.load_to_cauldron(formula_parameters.Components)
 	synch_formula_parameters()
 	var cauldron_subsystem = PersistentScenes.cauldron
+	self.hide()
+	PersistentScenes.formulaBook.hide()
 	cauldron_subsystem.load_to_cauldron(formula_parameters["Components"])
-	print("LOAD TO CAULDRON")
+
 

@@ -32,6 +32,7 @@ func _process(delta):
 		
 onready var all_formula=[]
 onready var curr_page_formula=[]
+var set_fav_enabled =false
 
 # Called when the node enters the scene tree for the first time.
 # Loads Popup names
@@ -42,13 +43,11 @@ func _ready():
 	
 # Called when the archive file is changed
 func _archives_changed():
-	print("[ARCHIVE PAGE IS SETTING UP]")	
 	#add_to_formulabook("formula_name","formula_description",["1","2","3","4","5"])
 	#Create Formula save fiiles is not yet existing, otherwise load the data
 	#Load presaved formula
 	initialize_archive_page() 
 	set_archive_page()
-	print("[Formula]: ",all_formula)
 
 
 
@@ -68,7 +67,6 @@ func initialize_archive_page():
 			var dict = parse_json(file.get_line())
 			if dict==null:
 				continue
-			print("GOT: ",dict)
 			all_formula.append(dict)
 			a_page.append(dict)
 			if len(a_page)==20:
@@ -162,7 +160,6 @@ func _on_RightButton_pressed():
 # Moves to the page number according to the user's input
 func _on_TextField_text_entered(new_text):
 	var text_page = int($ArchivePageControl/PageField/TextField.text)
-	print("LEN",len(curr_page_formula))
 	if text_page>len(curr_page_formula):
 		$ArchivePageControl/PageField/TextField.text=str(curr_page)
 	else:
@@ -180,7 +177,6 @@ func _on_Archive_pressed(fp_slot):
 	if len(all_formula)>0:
 		var formula_parameters= curr_page_formula[curr_page-1] [fp_slot-1] #fp_slot names are 1-index
 		count_favorites()
-		print("BEFORE POPUP, FAV IS ", fav_count)
 		$Popup._on_Popup_about_to_show(formula_parameters,fav_count)
 		#$Popup.popup_centered()
 
@@ -311,7 +307,6 @@ func _on_ArchiveIcon20_pressed():
 func _on_Popup_delete_an_archive(id):
 	var index=0
 	for formulae in all_formula:
-		print(formulae)
 		if formulae["ID"]==id:
 			all_formula.remove(index)
 			break
@@ -324,12 +319,10 @@ func save_archives_data():
 	var remove_data = File.new()
 	if remove_data.file_exists(formula_file_path):
 		remove_data.remove_meta(formula_file_path)
-	print(all_formula)
 	var save_data = File.new()
 	save_data.open(formula_file_path, File.WRITE)
 	for formulae in all_formula:
 		if formulae!=null:
-			print("writing...", formulae)
 			#save_data.seek_end()
 			save_data.store_line(to_json(formulae))
 	save_data.close()
@@ -340,7 +333,6 @@ func _on_Popup_archive_deets_edited(formula_parameters):
 	var index=0
 	for formulae in all_formula:
 		if formulae["ID"]==formula_parameters["ID"]:
-			print("EDITED TO",formula_parameters)
 			all_formula[index]=formula_parameters
 			break
 		index+=1
@@ -349,30 +341,30 @@ func _on_Popup_archive_deets_edited(formula_parameters):
 	
 #Transfer data from archives to favorites file
 func _on_Popup_set_as_fav(id):
+	if set_fav_enabled ==true:
 	#temporarily store formulae
-	var index =0 
-	var formulae_temp={}
-	for formulae in all_formula:
-		if formulae["ID"]==id:
-			formulae_temp=formulae
-			#delete in archives
-			all_formula.remove(index)
-			break
-		index+=1
-	#save changes to file
+		var index =0 
+		var formulae_temp={}
+		for formulae in all_formula:
+			if formulae["ID"]==id:
+				formulae_temp=formulae
+				#delete in archives
+				all_formula.remove(index)
+				break
+			index+=1
+		#save changes to file
 
-	print("[SENDING]...",formulae_temp)
-	save_archives_data()
-	_ready()
-	
-	#Append the formula at the end of the file
-	var save_data = File.new()
-	save_data.open(favorites_file_path, File.READ_WRITE)
-	save_data.seek_end()
-	save_data.store_line(to_json(formulae_temp))
-	save_data.close()
-	#update current length
-	emit_signal("favorites_changed")
+		save_archives_data()
+		_ready()
+		
+		#Append the formula at the end of the file
+		var save_data = File.new()
+		save_data.open(favorites_file_path, File.READ_WRITE)
+		save_data.seek_end()
+		save_data.store_line(to_json(formulae_temp))
+		save_data.close()
+		#update current length
+		emit_signal("favorites_changed")
 
 
 func _on_FormulaBook_check_new_exist(dict_to_save):
@@ -395,3 +387,7 @@ func _on_FormulaBook_check_new_exist(dict_to_save):
 		save_data.store_line(to_json(dict_to_save))
 		save_data.close()
 	_archives_changed()
+
+
+func _on_Popup_set_fav_enabled(status):
+	set_fav_enabled =status
