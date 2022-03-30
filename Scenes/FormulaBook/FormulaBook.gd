@@ -135,9 +135,11 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 		"MassProducePrice": mass_prod_price, #Task: create a Randomize function for mass produce price, or something based to it's components price
 		"Components": components
 	}
-	
+
 	#reset favorites list
 	_on_FormulaBook_favorites_changed()
+	
+	print("[COMPONENTS]",dict_to_save["Components"])	
 	
 	var exist = false
 	var index = 0
@@ -196,7 +198,6 @@ func is_favorite_formula(id:String):
 #Go to corresponding Cauldron Subsystem when the button is pressed. Task: Merge into one method if kaya
 func _on_Formula_pressed(fp_slot):
 	emit_signal("favorites_changed")
-	print("[CURR FAVS]\n",favorites)
 	var formulae_details = favorites[fp_slot-1] #fp_slot names are 1-index
 	$FormulaPage.load_formula_parameters(formulae_details)
 	#formulaPage.set_visible()
@@ -277,7 +278,6 @@ func save_favorites_data():
 	save_data.open(favorites_file_path, File.WRITE)
 	for formulae in favorites:
 		if formulae!=null:
-			print("writing...", formulae)
 			#save_data.seek_end()
 			save_data.store_line(to_json(formulae))
 	save_data.close()
@@ -302,9 +302,7 @@ func _on_FormulaPage_formula_deets_edited(formula_parameters):
 	var index=0
 	for formulae in favorites:
 		if formulae["ID"]==formula_parameters["ID"]:
-			print("EDITED TO",formula_parameters)
 			favorites.remove(index)
-			print("TIRA DAPAT",favorites)
 			favorites[index]=formula_parameters
 			break
 		index+=1
