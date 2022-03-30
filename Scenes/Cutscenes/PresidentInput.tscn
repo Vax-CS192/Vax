@@ -13,11 +13,8 @@
 size = 75
 font_data = ExtResource( 3 )
 
-[node name="PresidentInput" type="Node"]
+[node name="PresidentInput" type="Node2D"]
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_vertical_guides_": [ 1480.0 ]
-}
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
@@ -31,6 +28,8 @@ __meta__ = {
 [node name="BG color" type="ColorRect" parent="UI"]
 anchor_right = 74.0
 anchor_bottom = 36.0
+margin_right = 2960.0
+margin_bottom = 1440.0
 color = Color( 0.517647, 0.611765, 0.698039, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,11 +43,13 @@ margin_bottom = 729.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 theme = ExtResource( 1 )
-custom_styles/focus = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/focus = SubResource( 1 )
 align = 1
 max_length = 15
 expand_to_text_length = true
+caret_blink = true
+caret_blink_speed = 0.5
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -59,8 +60,8 @@ margin_left = 211.0
 margin_top = 551.0
 margin_right = 1011.0
 margin_bottom = 669.0
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "President:"
 valign = 1
 __meta__ = {
@@ -78,4 +79,5 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="UI/EnterButton" to="." method="_on_EnterButton_pressed"]

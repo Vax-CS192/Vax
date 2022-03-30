@@ -14,10 +14,12 @@ corner_radius_bottom_left = 35
 size = 50
 font_data = ExtResource( 2 )
 
-[node name="Vaccine" type="Control"]
+[node name="Vaccine" type="Container"]
 margin_right = 456.0
 margin_bottom = 165.0
 rect_pivot_offset = Vector2( -368, 143 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Shop/Lab Button.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Shop/Table2.png" type="Texture" id=2]
@@ -8,35 +8,13 @@
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenes/Shop/Shop.gd" type="Script" id=12]
 
-[sub_resource type="Animation" id=1]
-resource_name = "AnimatedCoin"
-step = 0.05
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-step = 0.05
-
-[sub_resource type="Animation" id=3]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Money/Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7 ]
-}
-
 [sub_resource type="DynamicFont" id=4]
 size = 35
 extra_spacing_char = -5
 font_data = ExtResource( 6 )
 
 [node name="Shop" type="Node2D"]
+visible = false
 script = ExtResource( 12 )
 
 [node name="ShopUI" type="Node2D" parent="."]
@@ -72,19 +50,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Money" type="AnimationPlayer" parent="ShopUI"]
-autoplay = "TurningCoin"
-anims/AnimatedCoin = SubResource( 1 )
-anims/RESET = SubResource( 2 )
-anims/TurningCoin = SubResource( 3 )
+[node name="Money" type="Control" parent="ShopUI"]
 
 [node name="Account" type="Label" parent="ShopUI/Money"]
 margin_left = 2178.0
 margin_top = 103.0
 margin_right = 2868.0
 margin_bottom = 153.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Php 1, 534, 954, 030.00"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -196,4 +170,5 @@ margin_bottom = 1073.0
 [node name="Popup" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+
 [connection signal="pressed" from="ShopControl/BackButton" to="." method="_on_BackButton_pressed"]

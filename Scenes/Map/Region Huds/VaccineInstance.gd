@@ -10,8 +10,6 @@ onready var vaccine_name = $MarginContainer/Label
 onready var check_box = $CheckBox
 
 var active = false
-signal add_counter
-signal subtract_counter
 
 # function that has one argument and will use that argument to update the text field for the vaccine_name of our VaccineInstance scene
 func _update_name(name):
@@ -19,9 +17,12 @@ func _update_name(name):
 
 # function that checks whenever the checkbox is toggled together with the current state of the active variable to make a decision of sending an increment or decrement of the counter variable of the RegionHud script
 func _on_CheckBox_toggled(button_pressed):
+	var region_hud = get_parent().get_parent().get_parent().get_parent()
 	if !active:
-		get_parent().get_parent().get_parent().get_parent().counter += 1
+		region_hud.counter += 1
+		region_hud.add_vaccine(vaccine_name.text)
 		active = true
 	else:
-		get_parent().get_parent().get_parent().get_parent().counter -= 1
+		region_hud.counter -= 1
+		region_hud.remove_vaccine(vaccine_name.text)
 		active = false

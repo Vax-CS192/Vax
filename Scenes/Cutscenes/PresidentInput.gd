@@ -24,3 +24,4 @@ func _process(delta):
 # This changes the scene to the Lab.
 func _on_EnterButton_pressed():
 	get_node("/root/Session").changeSceneTo(self, lab.instance())
+	Profile.save_president_name()
