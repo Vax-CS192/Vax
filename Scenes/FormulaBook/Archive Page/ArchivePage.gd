@@ -15,7 +15,8 @@ extends Node2D
 
 signal archives_changed() #indicates that the there has been some changes in the formula archive file
 signal archives_closed()
-
+signal an_archive_to_fave(formulae_temp)
+signal favorites_changed()
 
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
@@ -331,4 +332,30 @@ func _on_Popup_archive_deets_edited(formula_parameters):
 		index+=1
 	save_archives_data()
 	emit_signal("archives_changed")
+	
+#Transfer data from archives to favorites file
+func _on_Popup_set_as_fav(id):
+	#temporarily store formulae
+	var index =0 
+	var formulae_temp={}
+	for formulae in all_formula:
+		if formulae["ID"]==id:
+			formulae_temp=formulae
+			#delete in archives
+			all_formula.remove(index)
+			break
+		index+=1
+	#save changes to file
+	emit_signal("archives_changed")
+	print("[SENDING]...",formulae_temp)
+	
+	#Append the formula at the end of the file
+	var save_data = File.new()
+	save_data.open(favorites_file_path, File.READ_WRITE)
+	save_data.seek_end()
+	save_data.store_line(to_json(formulae_temp))
+	save_data.close()
+	#update current length
+	emit_signal("favorites_changed")
+
 
