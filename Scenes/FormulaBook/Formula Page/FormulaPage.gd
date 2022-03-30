@@ -38,7 +38,7 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 	while index <5:
 		var component_node = "FormulaPageControl/Component"+str(index+1)+"/Name"
 		var components = formula_parameters["Components"]
-		get_node(component_node).text= components[index]
+		get_node(component_node).text= str(components[index])
 		index+=1
 	$FormulaPageUI/MassProdText.text = "PHP "+str(formula_parameters["MassProducePrice"])
 	

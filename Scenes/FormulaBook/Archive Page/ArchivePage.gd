@@ -36,23 +36,24 @@ onready var curr_page_formula=[]
 # Called when the node enters the scene tree for the first time.
 # Loads Popup names
 func _ready():
-	_on_ArchivePage_archives_changed()
+	_archives_changed()
 	count_favorites()
 
 	
 # Called when the archive file is changed
-func _on_ArchivePage_archives_changed():
-	print("[ARCHIVE SETTING UP]")
+func _archives_changed():
+	print("[ARCHIVE PAGE IS SETTING UP]")
 	#reset
 	all_formula=[]
 	curr_page_formula=[]
 	
-	$ArchivePageUI/Money/Account.text="PHP "+ Profile.format_money(Profile.money)
+	
 	#add_to_formulabook("formula_name","formula_description",["1","2","3","4","5"])
 	#Create Formula save fiiles is not yet existing, otherwise load the data
 	#Load presaved formula
 	initialize_archive_page() 
 	set_archive_page()
+	print("[Formula]: ",all_formula)
 
 
 
@@ -67,6 +68,7 @@ func initialize_archive_page():
 			var dict = parse_json(file.get_line())
 			if dict==null:
 				continue
+			print("GOT: ",dict)
 			all_formula.append(dict)
 			a_page.append(dict)
 			if len(a_page)==20:
@@ -95,10 +97,11 @@ func count_favorites():
 
 #Sets up the favorites page's formula
 func set_archive_page():
-	if len(curr_page_formula)!=0:	
+	var index = 1
+	var slot_path = ""
+	if len(curr_page_formula)>0:	
 		var page_formula = curr_page_formula[curr_page-1] #list of directories in a page
-		var index = 1
-		var slot_path = ""
+
 		while index<=len(page_formula):
 			var dict=page_formula[index-1]
 			slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
@@ -114,7 +117,12 @@ func set_archive_page():
 				get_node(slot_path).is_occupied=false
 				index+=1
 	else:
-		pass
+		#clear the page
+		while index<=20:
+			slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
+			get_node(slot_path+"/Name").text=""
+			get_node(slot_path).is_occupied=false
+			index+=1
 
 
 # Go to Cauldron Subsystem when the button is pressed	
@@ -162,14 +170,16 @@ func _on_TextField_text_entered(new_text):
 			occupied_page=false
 	emit_signal("archives_changed")
 
+
 #Go to corresponding Cauldron Subsystem when the button is pressed. Task: Merge into one method if kaya
 func _on_Archive_pressed(fp_slot):
-	var formula_parameters= curr_page_formula[curr_page-1] [fp_slot-1] #fp_slot names are 1-index
-	
-	count_favorites()
-	print("BEFORE POPUP, FAV IS ", fav_count)
-	$Popup._on_Popup_about_to_show(formula_parameters,fav_count)
-	#$Popup.popup_centered()
+	if len(all_formula)>0:
+		var formula_parameters= curr_page_formula[curr_page-1] [fp_slot-1] #fp_slot names are 1-index
+		count_favorites()
+		print("BEFORE POPUP, FAV IS ", fav_count)
+		$Popup._on_Popup_about_to_show(formula_parameters,fav_count)
+		#$Popup.popup_centered()
+
 
 #Hard coded since we need to know the button name
 func _on_ArchiveIcon1_pressed():
@@ -346,8 +356,10 @@ func _on_Popup_set_as_fav(id):
 			break
 		index+=1
 	#save changes to file
-	emit_signal("archives_changed")
+
 	print("[SENDING]...",formulae_temp)
+	save_archives_data()
+	_ready()
 	
 	#Append the formula at the end of the file
 	var save_data = File.new()

@@ -41,10 +41,15 @@ var favorites = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("creae files")
-	#add_to_formulabook("Hey","Bago ito",[1,2,3,4,5])
+	add_to_formulabook("Hey1","Bago ito",[1,2,3,4,5])
+	add_to_formulabook("Hey2","Bago ito",[1,2,3,4,5])
 	create_archives_file()
 	create_favorites_file()
 		
+#Syncs money
+func _process(delta):
+	$Coin/money.text="PHP "+ Profile.format_money(Profile.money)
+
 
 func create_archives_file():
 	var init_formula = File.new()
@@ -54,7 +59,7 @@ func create_archives_file():
 
 func create_favorites_file():
 	var init_favorites = File.new()
-	if not init_favorites.file_exists(formula_file_path):
+	if not init_favorites.file_exists(favorites_file_path):
 		init_favorites.open(favorites_file_path, File.WRITE)
 		init_favorites.close()
 	
@@ -66,10 +71,10 @@ func _on_FormulaBook_favorites_changed():
 	
 #Sets up the favorites page's formula
 func initialize_formula_book():
+	var index = 1
 	var slot_path = ""
 	var file = File.new()
 	file.open(favorites_file_path, File.READ)
-	var index = 1
 	while not file.eof_reached(): # iterate through all lines until the end of file is reached
 		print(index)
 		if index>10:
@@ -90,7 +95,19 @@ func initialize_formula_book():
 			get_node(slot_path+"/Name").text=""
 			index+=1
 	
-	
+	#Used after deleteion and setting as fav
+	if len(favorites)==0:
+		reset()
+		
+#claer all data in the page
+func reset():
+	var index =1
+	var slot_path = ""
+	while index<=10:
+			slot_path = "FormulaBookControl/Formula"+str(index)
+			get_node(slot_path).is_occupied=false
+			get_node(slot_path+"/Name").text=""
+			index+=1
 		
 #Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
@@ -100,6 +117,7 @@ func _on_BackButton_pressed():
 	
 # Archive Page appears when the Archive icon is pressed from the Favorites page
 func _on_ArchiveIcon_pressed():
+	$ArchivePage._ready()
 	$ArchivePage.show()
 	#get_tree().change_scene("res://Scenes/FormulaBook/Archive Page/ArchivePage.tscn")
 	
@@ -127,7 +145,7 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 	save_data.close()
 	#update current length
 	curr_dir_length += 1 #for formula id
-	emit_signal("archives_changed")
+	
 	
 # this function loads the profile data
 # if there is no profile data, then it just returns nothing
@@ -173,6 +191,7 @@ func _on_Formula_pressed(fp_slot):
 	#formulaPage.set_visible()
 	#get_tree().change_scene_to(formulaPage)
 	$FormulaPage.show()
+
 
 #Hard coded since we need to know the button name
 func _on_Formula1_pressed():

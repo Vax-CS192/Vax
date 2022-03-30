@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Formula Book/Cauldron  Button.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/FormulaBook/CoinFB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/FormulaBook/hng.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/FormulaBook/Formula.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/FormulaBook/Formula Page/FormulaPage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Formula Book/Archive Box.png" type="Texture" id=6]
@@ -9,6 +10,7 @@
 [ext_resource path="res://Scenes/FormulaBook/FormulaBook.gd" type="Script" id=8]
 
 [node name="FormulaBook" type="Node2D"]
+visible = false
 script = ExtResource( 8 )
 
 [node name="FormulaBookUI" type="Node2D" parent="."]
@@ -46,6 +48,7 @@ margin_top = 1024.0
 margin_right = 2872.0
 margin_bottom = 1246.0
 texture_normal = ExtResource( 6 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -137,4 +140,5 @@ frame = 1
 [connection signal="delete_formulae" from="FormulaPage" to="." method="_on_FormulaPage_delete_formulae"]
 [connection signal="formula_deets_edited" from="FormulaPage" to="." method="_on_FormulaPage_formula_deets_edited"]
 [connection signal="an_archive_to_fave" from="ArchivePage" to="." method="_on_ArchivePage_an_archive_to_fave"]
+[connection signal="archives_changed" from="ArchivePage" to="ArchivePage" method="_archives_changed"]
 [connection signal="favorites_changed" from="ArchivePage" to="." method="_on_FormulaBook_favorites_changed"]
