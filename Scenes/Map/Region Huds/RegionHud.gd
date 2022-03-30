@@ -8,13 +8,13 @@ extends Node2D
 
 var counter = 0
 onready var deploy_button = $Buttons/DeployButton
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var vaccines = []
+onready var child_vaccines = get_node("Vaccines/ScrollContainer/VSeparator")
 
 # called whenever the deploy button is pressed, which basically calls the _close_and_deploy function
 func _on_DeployButton_pressed():
+	get_parent().get_parent().disable_region()
+	get_parent().delete_vaccines(vaccines)
 	_close_and_deploy()
 
 # called whenever the close button is pressed, which basically calls the _close_and_deploy function
@@ -23,10 +23,7 @@ func _on_CloseButton_pressed():
 
 # function responsible for closing all child instance of the Vseparator node in the scene, it then hides the region hud
 func _close_and_deploy():
-	var vaccines = get_node("Vaccines/ScrollContainer/VSeparator")
-	for node in vaccines.get_children():
-		vaccines.remove_child(node)
-		node.queue_free()
+	delete_vaccines()
 	get_parent().hide()
 	counter = 0;
 
@@ -35,3 +32,14 @@ func _process(delta):
 		deploy_button.disabled = true
 	else:
 		deploy_button.disabled = false
+
+func delete_vaccines():
+	for node in child_vaccines.get_children():
+		child_vaccines.remove_child(node)
+		node.queue_free()
+
+func add_vaccine(vaccineName):
+	vaccines.append(vaccineName)
+
+func remove_vaccine(vaccineName):
+	vaccines.erase(vaccineName)
