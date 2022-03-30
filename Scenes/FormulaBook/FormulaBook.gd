@@ -275,6 +275,7 @@ func draw():
 #Hides the Archive page when back button from the archive page is pressed
 func _on_ArchivePage_archives_closed():
 	$ArchivePage.hide()
+	self.show()
 
 
 
