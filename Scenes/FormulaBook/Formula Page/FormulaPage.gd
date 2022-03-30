@@ -64,4 +64,8 @@ func _on_MassProduce_pressed():
 # runs when Load to Cauldron button is clicked
 func _on_LoadCauldron_pressed():
 	#Cauldron.load_to_cauldron(formula_parameters.Components)
-	pass
+	synch_formula_parameters()
+	var cauldron_subsystem = get_parent().get_parent().get_node("Cauldron")
+	cauldron_subsystem.load_to_cauldron(formula_parameters["Components"])
+	print("LOAD TO CAULDRON")
+
