@@ -106,7 +106,7 @@ func set_archive_page():
 			var dict=page_formula[index-1]
 			slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
 			if dict!=null:
-				get_node(slot_path+"/Name").text=dict["ID"]
+				get_node(slot_path+"/Name").text=str(dict["ID"])
 				get_node(slot_path).is_occupied=true
 				index += 1
 				
