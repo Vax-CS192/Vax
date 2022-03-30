@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Map/Region Hud/HUDBackground.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Map/Buttons/close_button.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Map/Region Hud/bar_style.tres" type="StyleBox" id=8]
 [ext_resource path="res://Scenes/Map/Region Huds/RegionHud.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Fonts/[labels] basis33.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -29,6 +30,12 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
 
 [node name="RegionHud" type="Node2D"]
 script = ExtResource( 9 )
@@ -88,9 +95,9 @@ margin_right = 505.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0.952941, 0.945098, 0.945098, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Deployable"
 align = 1
 valign = 1
@@ -99,16 +106,14 @@ valign = 1
 margin_left = 1874.0
 margin_top = 460.0
 margin_right = 2362.0
-margin_bottom = 1245.0
+margin_bottom = 1260.0
+size_flags_stretch_ratio = 5.0
+scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VSeparator" type="VBoxContainer" parent="Vaccines/ScrollContainer"]
-margin_right = 488.0
-margin_bottom = 785.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_constants/separation = 200
 
 [node name="Region Info" type="Control" parent="."]
@@ -127,73 +132,179 @@ margin_right = 544.0
 margin_bottom = 115.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Statistics"
 align = 1
 valign = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="Region Info"]
-margin_left = 716.0
-margin_top = 508.0
-margin_right = 866.0
-margin_bottom = 1033.0
+[node name="ProgressBars" type="Control" parent="Region Info"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Symptom" type="Control" parent="Region Info/ProgressBars"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Region Info/ProgressBars/Symptom"]
+margin_left = 712.0
+margin_top = 548.0
+margin_right = 807.0
+margin_bottom = 1038.0
+custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
-custom_fonts/font = SubResource( 4 )
 value = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar2" type="ProgressBar" parent="Region Info"]
+[node name="Label" type="Label" parent="Region Info/ProgressBars/Symptom"]
+margin_left = 683.0
+margin_top = 497.0
+margin_right = 839.0
+margin_bottom = 543.0
+custom_colors/font_color = Color( 0.721569, 0.47451, 0.47451, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Symptom 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Symptom2" type="Control" parent="Region Info/ProgressBars"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ProgressBar2" type="ProgressBar" parent="Region Info/ProgressBars/Symptom2"]
 margin_left = 916.0
-margin_top = 508.0
-margin_right = 1066.0
-margin_bottom = 1033.0
+margin_top = 548.0
+margin_right = 1011.0
+margin_bottom = 1038.0
+custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
-custom_fonts/font = SubResource( 4 )
 value = 76.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar3" type="ProgressBar" parent="Region Info"]
+[node name="Label" type="Label" parent="Region Info/ProgressBars/Symptom2"]
+margin_left = 883.0
+margin_top = 497.0
+margin_right = 1039.0
+margin_bottom = 543.0
+custom_colors/font_color = Color( 0.721569, 0.47451, 0.47451, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Symptom 2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Symptom3" type="Control" parent="Region Info/ProgressBars"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="Region Info/ProgressBars/Symptom3"]
 margin_left = 1116.0
-margin_top = 508.0
-margin_right = 1266.0
-margin_bottom = 1033.0
+margin_top = 548.0
+margin_right = 1211.0
+margin_bottom = 1038.0
+custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
-custom_fonts/font = SubResource( 4 )
 value = 69.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar4" type="ProgressBar" parent="Region Info"]
+[node name="Label" type="Label" parent="Region Info/ProgressBars/Symptom3"]
+margin_left = 1083.0
+margin_top = 497.0
+margin_right = 1239.0
+margin_bottom = 543.0
+custom_colors/font_color = Color( 0.721569, 0.47451, 0.47451, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Symptom 3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Symptom4" type="Control" parent="Region Info/ProgressBars"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ProgressBar4" type="ProgressBar" parent="Region Info/ProgressBars/Symptom4"]
 margin_left = 1316.0
-margin_top = 508.0
-margin_right = 1466.0
-margin_bottom = 1033.0
+margin_top = 548.0
+margin_right = 1411.0
+margin_bottom = 1038.0
+custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
-custom_fonts/font = SubResource( 4 )
 value = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar5" type="ProgressBar" parent="Region Info"]
+[node name="Label" type="Label" parent="Region Info/ProgressBars/Symptom4"]
+margin_left = 1283.0
+margin_top = 497.0
+margin_right = 1439.0
+margin_bottom = 543.0
+custom_colors/font_color = Color( 0.721569, 0.47451, 0.47451, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Symptom 4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Symptom5" type="Control" parent="Region Info/ProgressBars"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar5" type="ProgressBar" parent="Region Info/ProgressBars/Symptom5"]
 margin_left = 1516.0
-margin_top = 508.0
-margin_right = 1666.0
-margin_bottom = 1033.0
+margin_top = 548.0
+margin_right = 1611.0
+margin_bottom = 1038.0
+custom_fonts/font = SubResource( 4 )
 custom_styles/fg = ExtResource( 8 )
 custom_styles/bg = ExtResource( 4 )
-custom_fonts/font = SubResource( 4 )
 value = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Region Info/ProgressBars/Symptom5"]
+margin_left = 1483.0
+margin_top = 497.0
+margin_right = 1639.0
+margin_bottom = 543.0
+custom_colors/font_color = Color( 0.721569, 0.47451, 0.47451, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Symptom 5"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -225,5 +336,6 @@ texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Buttons/DeployButton" to="." method="_on_DeployButton_pressed"]
 [connection signal="pressed" from="Buttons/CloseButton" to="." method="_on_CloseButton_pressed"]

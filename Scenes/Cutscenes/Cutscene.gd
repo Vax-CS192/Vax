@@ -51,7 +51,7 @@ func state_change(next_state):
 # This changes the current dialogue message to the next message of the story
 func _on_NextDialogue_pressed():
 	if counter == 6:
-		get_node("/root/Session").changeSceneTo(self, president_input.instance)
+		get_node("/root/Session").changeSceneTo(self, president_input.instance())
 	else:
 		if current_state == State.DONE:
 			counter += 1
