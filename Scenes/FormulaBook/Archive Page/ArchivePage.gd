@@ -118,7 +118,8 @@ func set_archive_page():
 
 # Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://Scenes/FormulaBook/FormulaBook.tscn")
+	self.hide()
+	PersistentScenes.formulaBook.show()
 
 # Moves to the next page
 func _on_LeftButton_pressed():
