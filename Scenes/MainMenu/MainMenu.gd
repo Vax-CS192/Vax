@@ -67,6 +67,7 @@ func _on_NewGame_pressed():
 	Profile.is_new_game = true
 	Profile.money = 1_000_000
 	get_node("/root/Session").changeSceneTo(self, cutscene.instance())
+	PersistentScenes.map.initialize_regions()
 
 # when continue is pressed, go to Lab
 # still have to load saved stuff
