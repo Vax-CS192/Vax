@@ -31,7 +31,7 @@ func _on_CauldronUI_back_to_lab():
 func _on_CauldronUI_open_formulabook():
 		var cauldron_subsystem = get_parent()
 		cauldron_subsystem.get_node("CauldronUI").hide()
-		var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
+		var formulabook_subsystem = PersistentScenes.formulaBook
 		formulabook_subsystem.show()
 
 # Load specified bundles into cauldron		
@@ -52,8 +52,9 @@ func draw():
 	cauldron_ui.reset()
 	cauldron_ui.show()
 	cauldron_ui.draw()
-	
+
+#This forwards all formula information to the formulabook	
 func add_to_formulabook(name, description,five_array):
-	var formulabook_subsystem = get_parent().get_parent().get_node("FormulaBook")
+	var formulabook_subsystem = PersistentScenes.formulaBook
 	formulabook_subsystem.add_to_formulabook(name, description, five_array)
 	

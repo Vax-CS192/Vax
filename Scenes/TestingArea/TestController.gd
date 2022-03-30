@@ -29,5 +29,8 @@ func _on_TestingAreaUI_back_pressed():
 		var lab_subsystem = preload("res://Scenes/Lab/Lab.tscn")
 		get_parent().get_parent().add_child(lab_subsystem.instance())
 
+#This draws TestingAreaUI
 func draw():
-	get_parent().get_node("TestingAreaUI").show()
+	var testingarea_subsystem = get_parent()
+	var testingarea_ui = testingarea_subsystem.get_node("TestingAreaUI")
+	testingarea_ui.show()
