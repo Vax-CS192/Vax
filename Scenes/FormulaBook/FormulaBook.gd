@@ -84,8 +84,10 @@ func initialize_formula_book():
 		
 #Go to Cauldron Subsystem when the button is pressed	
 func _on_BackButton_pressed():
-	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.formulaBook,PersistentScenes.cauldron)
-
+	self.hide()
+	#get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.formulaBook,PersistentScenes.cauldron)
+	PersistentScenes.cauldron.draw()
+	
 # Archive Page appears when the Archive icon is pressed from the Favorites page
 func _on_ArchiveIcon_pressed():
 	$ArchivePage.show()
@@ -267,6 +269,7 @@ func _on_FormulaPage_formula_deets_edited(formula_parameters):
 
 #directly shows the formula book screen which is hidden by default
 func draw():
+	get_node("/root/Session").hideAndChangeSceneTo(self, PersistentScenes.formulaBook)
 	get_node("/root/Session").hideAndChangeSceneTo(self, PersistentScenes.formulaBook)
 
 #Hides the Archive page when back button from the archive page is pressed

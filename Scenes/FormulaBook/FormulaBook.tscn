@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/FormulaBook/FormulaBook.gd" type="Script" id=8]
 
 [node name="FormulaBook" type="Node2D"]
+visible = false
 script = ExtResource( 8 )
 
 [node name="FormulaBookUI" type="Node2D" parent="."]
@@ -118,7 +119,7 @@ visible = false
 
 [node name="Coin" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2227, 118 )
-frame = 7
+frame = 4
 
 [connection signal="draw" from="." to="." method="_on_FormulaBook_draw"]
 [connection signal="favorites_changed" from="." to="." method="_on_FormulaBook_favorites_changed"]
