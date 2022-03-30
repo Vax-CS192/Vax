@@ -46,7 +46,7 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 			index+=1
 			continue
 		elif components[index]>=0:
-			var id = components[index]
+			var id = int(components[index])
 			var bundle_name = bundle_Dict[id]["bundleName"]
 			get_node(component_node).text= bundle_name
 			index+=1

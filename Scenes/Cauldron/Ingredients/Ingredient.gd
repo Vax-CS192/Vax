@@ -75,6 +75,6 @@ func reset():
 	included = false
 func select():
 	self.rect_position = Vector2(origin_x,320)
-	
+	self.included = true
 func set_name(formula_name):
 	$my_name.set_text(formula_name)
