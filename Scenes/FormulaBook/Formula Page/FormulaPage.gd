@@ -65,7 +65,7 @@ func _on_MassProduce_pressed():
 func _on_LoadCauldron_pressed():
 	#Cauldron.load_to_cauldron(formula_parameters.Components)
 	synch_formula_parameters()
-	var cauldron_subsystem = get_parent().get_parent().get_node("Cauldron")
+	var cauldron_subsystem = PersistentScenes.cauldron
 	cauldron_subsystem.load_to_cauldron(formula_parameters["Components"])
 	print("LOAD TO CAULDRON")
 
