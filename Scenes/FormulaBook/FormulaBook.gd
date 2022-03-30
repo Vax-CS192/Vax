@@ -16,6 +16,7 @@ extends Node2D
 signal favorites_changed() #indicates that the there has been some changes in the favorites file
 #signal fav_count_changed(fav_count)
 signal archives_changed()
+signal check_new_exist(dict_to_save)
 
 onready var formula_file_path = "user://formuladirectory.save"
 onready var favorites_file_path = "user://favoritesdirectory.save"
@@ -25,8 +26,7 @@ onready var favorites_file_path = "user://favoritesdirectory.save"
 var is_new_game: bool
 #Directory items---------------------------
 var dict_to_save = {	#can be checked if occpied if it is in the favorites file
-		"ID":null,
-		"Name": null,
+		"ID":null, #name is the id
 		"Description": null,
 		"MassProducePrice": null, #Task: create a Randomize function for mass produce price, or something based to it's components price
 		"Components": null
@@ -40,9 +40,6 @@ var favorites = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("creae files")
-	add_to_formulabook("Hey1","Bago ito",[1,2,3,4,5])
-	add_to_formulabook("Hey2","Bago ito",[1,2,3,4,5])
 	create_archives_file()
 	create_favorites_file()
 		
@@ -65,25 +62,26 @@ func create_favorites_file():
 	
 # Called when the favorites file is changed
 func _on_FormulaBook_favorites_changed():
+	favorites=[]
 	var favorites_formula = File.new()
 	if favorites_formula.file_exists(formula_file_path):
 		initialize_formula_book() 
 	
 #Sets up the favorites page's formula
 func initialize_formula_book():
+	favorites=[]
 	var index = 1
 	var slot_path = ""
 	var file = File.new()
 	file.open(favorites_file_path, File.READ)
 	while not file.eof_reached(): # iterate through all lines until the end of file is reached
-		print(index)
 		if index>10:
 			break
 		slot_path = "FormulaBookControl/Formula"+str(index)
 		var dict = parse_json(file.get_line())
 		favorites.append(dict)
 		if dict!=null:
-			get_node(slot_path+"/Name").text=dict["Name"]
+			get_node(slot_path+"/Name").text=str(dict["ID"])
 			get_node(slot_path).is_occupied=true
 			index += 1
 	file.close()
@@ -120,8 +118,11 @@ func _on_ArchiveIcon_pressed():
 	$ArchivePage._ready()
 	$ArchivePage.show()
 	#get_tree().change_scene("res://Scenes/FormulaBook/Archive Page/ArchivePage.tscn")
-	
 
+#checks if added formula is already existing
+
+	
+	
 # This function saves a Formula data to the Formula Directory file. 
 # Can be called by the cauldron to save newly mixed formula by calling FormulaBook.save_formula()
 # check the link below to see where your OS saves profile.save
@@ -129,27 +130,35 @@ func _on_ArchiveIcon_pressed():
 func add_to_formulabook(formula_name:String,formula_description:String,components:Array):
 	create_archives_file()
 	dict_to_save = {	#can be checked if occpied if it is in the favorites file
-		"ID":curr_dir_length+1, #so it starts with 1
-		"Name": formula_name,
+		"ID":formula_name, #Name is treated as id
 		"Description": formula_description,
 		"MassProducePrice": mass_prod_price, #Task: create a Randomize function for mass produce price, or something based to it's components price
 		"Components": components
 	}
 	
-	#Append the formula at the end of the file
-	var save_data = File.new()
+	#reset favorites list
+	_on_FormulaBook_favorites_changed()
 	
-	save_data.open(formula_file_path, File.READ_WRITE)
-	save_data.seek_end()
-	save_data.store_line(to_json(dict_to_save))
-	save_data.close()
-	#update current length
-	curr_dir_length += 1 #for formula id
-	
+	var exist = false
+	var index = 0
+	for formulae in favorites:	
+		if formulae == null:
+			continue
+		if formulae["ID"]==dict_to_save["ID"]:
+			exist=true
+			favorites[index]=dict_to_save
+			break
+		index+=1
+	save_favorites_data()
+		
+	#if it doesnt exist in favorites, check archive file
+	if not exist:
+		emit_signal("check_new_exist",dict_to_save)
+	_on_FormulaBook_favorites_changed()
 	
 # this function loads the profile data
 # if there is no profile data, then it just returns nothing
-func load_a_formulae(id:int,file_path:String):
+func load_a_formulae(id:String,file_path:String):
 	var save_formula = File.new()
 	if not save_formula.file_exists(file_path):
 		is_new_game = true
@@ -167,7 +176,7 @@ func load_a_formulae(id:int,file_path:String):
 		return 1 #indicates that it is a non-existing formula
 
 #Adds a selected formula from the archives to the favorites file
-func set_as_favorite(id:int):
+func set_as_favorite(id:String):
 	var dict=load_a_formulae(id,formula_file_path)
 	if dict!=0 || dict!=1:
 		dict["is_occupied"]=true
@@ -178,7 +187,7 @@ func set_as_favorite(id:int):
 		save_fav.close()
 		
 #Returns if the formula occupies a slot in the favorites page
-func is_favorite_formula(id:int):
+func is_favorite_formula(id:String):
 	var dict=load_a_formulae(id,favorites_file_path)
 	if dict!=0 || dict!=1:
 		return true #A formula in the favorites formula page
@@ -186,6 +195,8 @@ func is_favorite_formula(id:int):
 
 #Go to corresponding Cauldron Subsystem when the button is pressed. Task: Merge into one method if kaya
 func _on_Formula_pressed(fp_slot):
+	emit_signal("favorites_changed")
+	print("[CURR FAVS]\n",favorites)
 	var formulae_details = favorites[fp_slot-1] #fp_slot names are 1-index
 	$FormulaPage.load_formula_parameters(formulae_details)
 	#formulaPage.set_visible()
@@ -278,7 +289,7 @@ func save_favorites_data():
 func _on_FormulaPage_delete_formulae(id):
 	var index=0
 	for formulae in favorites:
-		if formulae["ID"]==id:
+		if formulae["ID"]!=null and formulae["ID"]==id:
 			favorites.remove(index)
 			break
 		index+=1
@@ -292,6 +303,8 @@ func _on_FormulaPage_formula_deets_edited(formula_parameters):
 	for formulae in favorites:
 		if formulae["ID"]==formula_parameters["ID"]:
 			print("EDITED TO",formula_parameters)
+			favorites.remove(index)
+			print("TIRA DAPAT",favorites)
 			favorites[index]=formula_parameters
 			break
 		index+=1
@@ -300,8 +313,8 @@ func _on_FormulaPage_formula_deets_edited(formula_parameters):
 
 #directly shows the formula book screen which is hidden by default
 func draw():
-	get_node("/root/Session").hideAndChangeSceneTo(self, PersistentScenes.formulaBook)
-	get_node("/root/Session").hideAndChangeSceneTo(self, PersistentScenes.formulaBook)
+	_on_FormulaBook_favorites_changed()
+	self.show()
 
 #Hides the Archive page when back button from the archive page is pressed
 #Hides the Archive page when back button from the archive page is pressed

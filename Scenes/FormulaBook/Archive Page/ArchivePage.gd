@@ -42,12 +42,7 @@ func _ready():
 	
 # Called when the archive file is changed
 func _archives_changed():
-	print("[ARCHIVE PAGE IS SETTING UP]")
-	#reset
-	all_formula=[]
-	curr_page_formula=[]
-	
-	
+	print("[ARCHIVE PAGE IS SETTING UP]")	
 	#add_to_formulabook("formula_name","formula_description",["1","2","3","4","5"])
 	#Create Formula save fiiles is not yet existing, otherwise load the data
 	#Load presaved formula
@@ -59,6 +54,11 @@ func _archives_changed():
 
 #read all formula
 func initialize_archive_page():
+	#reset
+	all_formula=[]
+	curr_page_formula=[]
+	
+	#reread file
 	var file = File.new()
 	if file.file_exists(formula_file_path):
 		file.open(formula_file_path, File.READ)
@@ -106,7 +106,7 @@ func set_archive_page():
 			var dict=page_formula[index-1]
 			slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
 			if dict!=null:
-				get_node(slot_path+"/Name").text=dict["Name"]
+				get_node(slot_path+"/Name").text=dict["ID"]
 				get_node(slot_path).is_occupied=true
 				index += 1
 				
@@ -132,26 +132,31 @@ func _on_BackButton_pressed():
 
 # Moves to the next page
 func _on_LeftButton_pressed():
-	if curr_page==1:#before update
-		occupied_page=false 
-		curr_page =len(curr_page_formula)
-	elif curr_page==2:
-		occupied_page=true
-		curr_page -=1
-	else:
-		occupied_page=false
-		curr_page -=1
+	if len(curr_page_formula)>1:
+		if curr_page==1:#before update
+			curr_page =len(curr_page_formula)
+		elif curr_page==2:
+			occupied_page=true
+			curr_page -=1
+		else:
+			occupied_page=false
+			curr_page -=1
+	else:#if no formula or only one page
+		curr_page=1
 	$ArchivePageControl/PageField/TextField.text = str(curr_page)
 	emit_signal("archives_changed")
 
 # Moves to the previous page
 func _on_RightButton_pressed():
-	if curr_page==len(curr_page_formula): #before update
-		occupied_page=true #go back to first page
-		curr_page =1
-	else:
-		occupied_page=false
-		curr_page +=1
+	if len(curr_page_formula)>1:
+		if curr_page==len(curr_page_formula): #before update
+			occupied_page=true #go back to first page
+			curr_page =1
+		else:
+			occupied_page=false
+			curr_page +=1
+	else:#if no formula or only one page
+		curr_page=1
 	$ArchivePageControl/PageField/TextField.text = str(curr_page)
 	emit_signal("archives_changed")
 
@@ -371,3 +376,23 @@ func _on_Popup_set_as_fav(id):
 	emit_signal("favorites_changed")
 
 
+func _on_FormulaBook_check_new_exist(dict_to_save):
+	_archives_changed()
+	var exist = false
+	var index = 0
+	for formulae in all_formula:
+		if formulae["ID"]==dict_to_save["ID"]:
+			exist=true
+			all_formula[index]=dict_to_save
+			break
+		index+=1
+	save_archives_data()
+	
+	if not exist:
+		#Append the formula at the end of the file
+		var save_data = File.new()
+		save_data.open(formula_file_path, File.READ_WRITE)
+		save_data.seek_end()
+		save_data.store_line(to_json(dict_to_save))
+		save_data.close()
+	_archives_changed()
