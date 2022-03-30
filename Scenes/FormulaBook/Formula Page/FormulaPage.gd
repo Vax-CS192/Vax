@@ -31,7 +31,7 @@ func _ready():
 #Task: Called by Formula book when a slot is pressed
 func load_formula_parameters(new_formula_parameters: Dictionary):
 	formula_parameters = new_formula_parameters
-	$FormulaPageControl/FormulaName.text=formula_parameters["Name"]
+	$FormulaPageControl/FormulaName.text=formula_parameters["ID"]
 	$FormulaPageControl/FormulaNote.text= formula_parameters["Description"]
 	var index = 0
 	while index <5:
@@ -43,7 +43,7 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 	
 #saves possible changes in the formula deetails
 func synch_formula_parameters():
-	formula_parameters["Name"]=$FormulaPageControl/FormulaName.text
+	formula_parameters["ID"]=$FormulaPageControl/FormulaName.text
 	formula_parameters["Description"]=$FormulaPageControl/FormulaNote.text
 
 #Go to Cauldron Subsystem when the button is pressed	
@@ -55,11 +55,11 @@ func _on_BackButton_pressed():
 
 # Formula is deleted from the Formula file
 func _on_DeleteFormula_pressed():
-	emit_signal("delete_formulae",formula_parameters["Name"])
+	emit_signal("delete_formulae",formula_parameters["ID"])
 
 # runs when Mass Produce button is clicked
 func _on_MassProduce_pressed():
-	#Map.add_to_mass_produced(formula_parameters.Name,formula_parameters.Components)
+	#Map.add_to_mass_produced(formula_parameters.NameName,formula_parameters.Components)
 	pass
 # runs when Load to Cauldron button is clicked
 func _on_LoadCauldron_pressed():

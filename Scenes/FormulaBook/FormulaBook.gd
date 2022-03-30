@@ -136,12 +136,25 @@ func add_to_formulabook(formula_name:String,formula_description:String,component
 		"Components": components
 	}
 	
-	#Delete if preexisting
-	emit_signal("check_new_exist",dict_to_save)
+	#reset favorites list
+	_on_FormulaBook_favorites_changed()
 	
-	
-
-	
+	var exist = false
+	var index = 0
+	for formulae in favorites:	
+		if formulae == null:
+			continue
+		if formulae["ID"]==dict_to_save["ID"]:
+			exist=true
+			favorites[index]=dict_to_save
+			break
+		index+=1
+	save_favorites_data()
+		
+	#if it doesnt exist in favorites, check archive file
+	if not exist:
+		emit_signal("check_new_exist",dict_to_save)
+	_on_FormulaBook_favorites_changed()
 	
 # this function loads the profile data
 # if there is no profile data, then it just returns nothing
