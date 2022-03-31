@@ -180,6 +180,11 @@ Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
 
+File: Assets/Lab/lab-bg-sheet.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+
 File: Assets/Lab/yes_no.png
 Author: John Henry Galino
 License: CC0 1.0
