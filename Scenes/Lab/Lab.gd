@@ -16,6 +16,8 @@ extends Control
 var mainMenu = preload("res://Scenes/MainMenu/MainMenu.tscn")
 var templatePopUp = preload("res://Scenes/Lab/TemplatePopUp.tscn")
 
+signal SaveVirusAndBundles
+
 # This function is run at the start of the scene
 func _ready():
 	# Since we need to connect signals from the instantiated ButtonContainer,
@@ -30,6 +32,8 @@ func _ready():
 	shopButton.connect("pressed", self, "_on_shopButton_pressed")
 	mapButton.connect("pressed", self, "_on_mapButton_pressed")
 	testButton.connect("pressed", self, "_on_testButton_presed")
+	self.connect("SaveVirusAndBundles", get_node("/root/Session"), \
+				"saveVirusAndBundles")
 	
 	# if new game, then start timer
 	if Profile.is_new_game == true:
@@ -38,6 +42,7 @@ func _ready():
 # change scene when button to FormulaBook is pressed
 # subject to change
 func _on_BackToMainMenu_pressed():
+	emit_signal("SaveVirusAndBundles")
 	Profile.save_data()
 	get_node("/root/Session").changeSceneTo(self, mainMenu.instance())
 

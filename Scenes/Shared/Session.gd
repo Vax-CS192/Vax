@@ -52,6 +52,7 @@ func hideAndChangeSceneTo(current: CanvasItem, nextScene: Node):
 	self.add_child(nextScene)
 	
 func generateVirusAndBundles():
+	print("generating virus and bundles")
 	var bundles = {}
 	var baseSymp0 = generateSymptom(10)
 	var baseSymp1 = generateSymptom(10)
@@ -76,15 +77,32 @@ func generateVirusAndBundles():
 	# generate bundles from virus
 	var bundleID = 0
 	for key in virus.keys():
-		for letter in letters:
+		for n in range(4):
 			if bundleID % 4 == 0:
-				bundles[bundleID] = generateBundle(bundleID, key, 0.0,
-												letter, "", virus[key])
+				bundles[bundleID] = generateBundle(bundleID, key, 0.0, 0,
+												letters[key*4+n], "Add description", virus[key])
 			else:
-				bundles[bundleID] = generateBundle(bundleID, key, 0.0,
-									letter, "", generateBundleSequence(virus[key]))
+				bundles[bundleID] = generateBundle(bundleID, key, 0.0, 0,
+									letters[key*4+n], "Add description", generateBundleSequence(virus[key]))
 			bundleID += 1
 			
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles
+	
+func saveVirusAndBundles():
+	print("saving virus and bundles")
+	var save_game = File.new()
+	save_game.open("user://virus&bundles.save", File.WRITE)
+	save_game.store_line(to_json(mainDict))
+	save_game.close()
+	
+func loadVirusAndBundles():
+	print("loading virus and bundles")
+	var save_game = File.new()
+	if not save_game.file_exists("user://virus&bundles.save"):
+		return
+	else:
+		save_game.open("user://virus&bundles.save", File.READ)
+		mainDict = parse_json(save_game.get_line())
+		save_game.close()
 

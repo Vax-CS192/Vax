@@ -22,6 +22,7 @@ export var num_of_viruses = 15
 
 signal NewGame
 signal AddPersistentScenes
+signal loadVirusAndBundles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,6 +30,8 @@ func _ready():
 	self.connect("NewGame", get_node("/root/Profile"), "clear_user_directory")
 	self.connect("AddPersistentScenes", get_node("/root/PersistentScenes"), \
 				"addPersistentScenesToSceneTree")
+	self.connect("loadVirusAndBundles", get_node("/root/Session"), \
+				"loadVirusAndBundles")
 	
 	randomize() # randomize seed for random number
 	
@@ -84,6 +87,7 @@ func _on_NewGame_pressed():
 # when continue is pressed, go to Lab
 # still have to load saved stuff
 func _on_Continue_pressed():
+	emit_signal("loadVirusAndBundles")
 	emit_signal("AddPersistentScenes")
 	get_node("/root/Session").changeSceneTo(self, lab.instance())
 

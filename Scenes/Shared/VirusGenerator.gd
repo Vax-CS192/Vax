@@ -44,13 +44,14 @@ func generateBundleSequence(base: String) -> String:
 					+ generateSymptom(10 - lengthOfBaseRetained)
 	return genBund1
 	
-func generateBundle(id: int, key: int, price: float, bundleName: String, 
+func generateBundle(id: int, key: int, price: float, inStock: int, bundleName: String, 
 	desc: String, sequence: String) -> Dictionary:
 		return	{
 			"id": id,
 			"symptom": key,
 			"price": price,
+			"inStock": inStock,
 			"bundleName": bundleName,
 			"desc": desc,
-			"sequence": sequence
+			"sequence": sequence,
 			}
