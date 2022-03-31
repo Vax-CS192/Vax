@@ -80,17 +80,6 @@ func load_data():
 		president_name = dict["president_name"]
 		is_new_game = dict["is_new_game"]
 		save_game.close()
-
-# initial save state
-func save_president_name():
-	var save_game = File.new()
-	
-	var initial_dict_save = {
-		"president_name" : president_name
-	}
-	save_game.open("user://profile.save", File.WRITE)
-	save_game.store_line(to_json(initial_dict_save))
-	save_game.close()
 	
 func clear_user_directory():
 	var dir = Directory.new()
