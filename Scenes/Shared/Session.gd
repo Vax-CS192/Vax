@@ -30,17 +30,11 @@ signal entered
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# temporary for testing only. delete on final product
-	generateVirusAndBundles()
+	# generateVirusAndBundles()
 	
-	# on ready, connect the entered signal to PersistentScenes, then emit the
-	# signal to add the persistent scenes to session
-	self.connect("entered", get_node("/root/PersistentScenes"), "_on_ready_Session")
-	emit_signal("entered")
 	# instantiate mainMenu and add it as children
 	mainMenu = mainMenu.instance()
 	self.add_child(mainMenu)
-
-
 
 # this function changes the scene for susbsytems that don't need to be persistent
 # currentScene: the current scene
@@ -93,4 +87,4 @@ func generateVirusAndBundles():
 			
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles
-	#print(mainDict["bundles"])
+

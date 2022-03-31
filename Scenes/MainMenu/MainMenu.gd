@@ -20,8 +20,16 @@ var lab = load("res://Scenes/Lab/Lab.tscn")
 
 export var num_of_viruses = 15
 
+signal NewGame
+signal AddPersistentScenes
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	self.connect("NewGame", get_node("/root/Profile"), "clear_user_directory")
+	self.connect("AddPersistentScenes", get_node("/root/PersistentScenes"), \
+				"addPersistentScenesToSceneTree")
+	
 	randomize() # randomize seed for random number
 	
 	# spawn n viruses 
@@ -52,7 +60,7 @@ func _ready():
 	# if new game, disable continue button
 	if Profile.is_new_game == true:
 		# set this to true later
-		$CanvasLayer/Buttons/Continue.disabled = false
+		$CanvasLayer/Buttons/Continue.disabled = true
 	else:
 		$CanvasLayer/Buttons/Continue.disabled = false
 	
@@ -63,6 +71,8 @@ func _ready():
 
 # changes scene to Cutscene when new game is pressed
 func _on_NewGame_pressed():
+	emit_signal("NewGame")
+	emit_signal("AddPersistentScenes")
 	# generate new Virus and Bundles on new game
 	get_node("/root/Session").generateVirusAndBundles()
 	# set new game to true and set money
@@ -74,6 +84,7 @@ func _on_NewGame_pressed():
 # when continue is pressed, go to Lab
 # still have to load saved stuff
 func _on_Continue_pressed():
+	emit_signal("AddPersistentScenes")
 	get_node("/root/Session").changeSceneTo(self, lab.instance())
 
 # exit
