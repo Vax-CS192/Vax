@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Lab/ButtonContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Lab/Lab.gd" type="Script" id=2]
@@ -7,14 +7,27 @@
 [ext_resource path="res://Assets/Lab/lab-bg-color.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fonts/[labels] basis33.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Assets/Lab/main_menu_button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Lab/lab-bg-sheet.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 6 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 8 )
+region = Rect2( 128, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 8 )
+region = Rect2( 256, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 8 )
+region = Rect2( 384, 0, 128, 64 )
+
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -59,7 +72,9 @@ valign = 1
 [node name="LabBG" type="AnimatedSprite" parent="."]
 position = Vector2( 1492.52, 347.548 )
 scale = Vector2( 12, 12 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
+frame = 3
+playing = true
 offset = Vector2( 0, 20 )
 
 [node name="ButtonContainer" parent="." instance=ExtResource( 1 )]
@@ -68,7 +83,6 @@ margin_bottom = -97.3735
 
 [node name="Money" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2260.52, 100 )
-frame = 7
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
