@@ -79,10 +79,10 @@ func generateVirusAndBundles():
 	for key in virus.keys():
 		for n in range(4):
 			if bundleID % 4 == 0:
-				bundles[bundleID] = generateBundle(str(bundleID), str(key), "0.0", "0",
+				bundles[str(bundleID)] = generateBundle(str(bundleID), str(key), "0.0", "0",
 												letters[key*4+n], "Add description", virus[key])
 			else:
-				bundles[bundleID] = generateBundle(str(bundleID), str(key), "0.0", "0",
+				bundles[str(bundleID)] = generateBundle(str(bundleID), str(key), "0.0", "0",
 											letters[key*4+n], "Add description", generateBundleSequence(virus[key]))
 			bundleID += 1
 			
