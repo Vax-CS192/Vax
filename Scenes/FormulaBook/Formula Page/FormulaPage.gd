@@ -81,7 +81,7 @@ func _on_DeleteFormula_pressed():
 
 # runs when Mass Produce button is clicked. Formula page is closed after
 func _on_MassProduce_pressed():
-	if Profile.money>formula_parameters["MassProducePrice"]:
+	if Profile.money>=formula_parameters["MassProducePrice"]:
 		#synch recently changed details
 		synch_formula_parameters()
 		
