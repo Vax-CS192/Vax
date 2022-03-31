@@ -79,11 +79,11 @@ func generateVirusAndBundles():
 	for key in virus.keys():
 		for n in range(4):
 			if bundleID % 4 == 0:
-				bundles[bundleID] = generateBundle(bundleID, key, 0.0, 0,
+				bundles[bundleID] = generateBundle(str(bundleID), str(key), "0.0", "0",
 												letters[key*4+n], "Add description", virus[key])
 			else:
-				bundles[bundleID] = generateBundle(bundleID, key, 0.0, 0,
-									letters[key*4+n], "Add description", generateBundleSequence(virus[key]))
+				bundles[bundleID] = generateBundle(str(bundleID), str(key), "0.0", "0",
+											letters[key*4+n], "Add description", generateBundleSequence(virus[key]))
 			bundleID += 1
 			
 	# add bundles to mainDict
@@ -104,5 +104,6 @@ func loadVirusAndBundles():
 	else:
 		save_game.open("user://virus&bundles.save", File.READ)
 		mainDict = parse_json(save_game.get_line())
+		print(mainDict)
 		save_game.close()
 
