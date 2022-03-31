@@ -53,6 +53,7 @@ func _on_shopButton_pressed():
 # changes scene to Map when map button is pressed
 func _on_mapButton_pressed():
 	get_node("/root/Session").changeSceneTo(self, PersistentScenes.map)
+	PersistentScenes.map.init_map()
 
 # change scene to Testing when Test button is pressed
 func _on_testButton_presed():

@@ -9,23 +9,15 @@ extends VirusGenerator
 onready var money_amount = $Money/Account
 
 var button = 0
-
-func _ready():
-	mass_produced_vaccines("hello", [1, 2, 3, 4, 5])
-	mass_produced_vaccines("world", [1, 2, 3, 4, 5])
-	mass_produced_vaccines("alam", [1, 2, 3, 4, 5])
-	mass_produced_vaccines("mo", [1, 2, 3, 4, 5])
-	mass_produced_vaccines("ba", [1, 2, 3, 4, 5])
-	mass_produced_vaccines("kung", [1, 2, 3, 4, 5])
-	mass_produced_vaccines("bakit", [1, 2, 3, 4, 5])
-	mass_produced_vaccines("mahal", [1, 2, 3, 4, 5])
+var region_file = File.new()
+var dict
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	money_amount.text = "PHP %s" % [Profile.format_money(Profile.money)]
 
 func disable_region():
-	$Buttons.get_children()[button].disabled = true
+	$Buttons.get_child(button).disabled = true
 
 func mass_produced_vaccines(vaccineName, bundleSequences):
 	var save_game = File.new()
@@ -47,6 +39,9 @@ func mass_produced_vaccines(vaccineName, bundleSequences):
 
 func init_map():
 	$RegionHudPopup.load_vaccines()
+	region_file.open("user://Regions.save", File.READ)
+	dict = parse_json(region_file.get_line())
+	region_file.close()
 
 func initialize_regions():
 	var save_game = File.new()
@@ -55,16 +50,42 @@ func initialize_regions():
 	for i in range(17):
 		var in_dict = {}
 		var sequences  = []
+		var effectivity = []
 		in_dict["disabled"] = false
 		in_dict["waitTime"] = OS.get_unix_time()
 		for j in range(5):
-			sequences.append(generateSymptom(10))
+			var symptom = generateSymptom(10)
+			var base = get_parent().mainDict["symptoms"][j]
+			var unmatched = 0
+			for k in range(symptom.length()):
+				if symptom[k] != base[k]:
+					unmatched += 1
+			var efficacy = (float(unmatched) / float(symptom.length())) * 100
+			sequences.append(symptom)
+			effectivity.append(efficacy)
 		in_dict["initsequences"] = sequences
+		in_dict["effectivity"] = effectivity
+		in_dict["vaccinesDeployed"] = []
 		outer_dict[i] = in_dict
 	save_game.open("user://Regions.save", File.WRITE)
 	save_game.store_line(to_json(outer_dict))
 	save_game.close()
-	
-		
-		
-		
+
+func update_regions_file(VaccinesDeployed):
+	var save_game = File.new()
+	var bundleDict = get_parent().mainDict["bundles"]
+	print(bundleDict[1])
+	var vaccines = []
+	for i in VaccinesDeployed:
+		var vaccine = []
+		for j in i:
+			if j != -1:
+				vaccine.append(bundleDict[int(j)]["sequence"])
+			else:
+				vaccine.append("zzzzzzzzzz")
+		vaccines.append(vaccine)
+	dict[str(button-1)]["vaccinesDeployed"] = vaccines
+	dict[str(button-1)]["disabled"] = true
+	save_game.open("user://Regions.save", File.WRITE)
+	save_game.store_line(to_json(dict))
+	save_game.close()
