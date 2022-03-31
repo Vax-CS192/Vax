@@ -81,7 +81,7 @@ func update_regions_file(VaccinesDeployed):
 	for i in VaccinesDeployed:
 		var vaccine = []
 		for j in i:
-			if j != -1:
+			if j != "-1":
 				vaccine.append(bundleDict[str(int(j))]["sequence"])
 			else:
 				vaccine.append("zzzzzzzzzz")
