@@ -91,3 +91,10 @@ func save_president_name():
 	save_game.open("user://profile.save", File.WRITE)
 	save_game.store_line(to_json(initial_dict_save))
 	save_game.close()
+	
+func clear_user_directory():
+	var dir = Directory.new()
+	dir.remove("user://profile.save")
+	dir.remove("user://formuladirectory.save")
+	dir.remove("user://favoritesdirectory.save")
+	dir.remove("user://AvailableVaccines.save")

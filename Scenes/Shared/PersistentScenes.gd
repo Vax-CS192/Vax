@@ -35,7 +35,7 @@ func _process(delta):
 
 # this function runs when the Session node enters into the SceneTree. It adds
 # instanced subsystems as children to Session
-func _on_ready_Session():
+func addPersistentScenesToSceneTree():
 	map.hide()
 	shop.hide()
 	get_node("/root/Session").add_child(cauldron)
