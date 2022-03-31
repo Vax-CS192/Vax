@@ -129,9 +129,9 @@ __meta__ = {
 }
 
 [node name="Coin" type="AnimatedSprite" parent="."]
-position = Vector2( 2117, 71 )
+position = Vector2( 2142, 75 )
 frames = SubResource( 10 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="Cauldron" type="Sprite" parent="."]
