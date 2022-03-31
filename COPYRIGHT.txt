@@ -113,6 +113,26 @@ Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
 
+File: Assets/Formula Book/Formula Page/Mass Produce
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from prototype and stored in png
+
+File: Assets/Formula Book/Formula Page/Mass Produce Disabled
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from prototype and stored in png
+
+File: Assets/Formula Book/Formula Page/Load to Cauldron
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from prototype and stored in png
+
+File: Assets/Formula Book/Formula Page/Delete Formula
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from prototype and stored in png
+
 File: Assets/Formula Book/Occupied Formula
 Author: Aira Mae Aloveros
 License: 0BSD
