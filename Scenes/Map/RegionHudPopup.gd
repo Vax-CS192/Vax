@@ -148,10 +148,11 @@ func _on_16_Region_13_pressed():
 	
 func load_vaccines():
 	var save_game = File.new()
-	save_game.open("user://AvailableVaccines.save", File.READ)
-	var dict = parse_json(save_game.get_line())
-	available_vaccines = dict.keys()
-	save_game.close()
+	if (save_game.file_exists("user://AvailableVaccines.save")):
+		save_game.open("user://AvailableVaccines.save", File.READ)
+		var dict = parse_json(save_game.get_line())
+		available_vaccines = dict.keys()
+		save_game.close()
 
 func delete_vaccines(vaccines):
 	var save_game = File.new()

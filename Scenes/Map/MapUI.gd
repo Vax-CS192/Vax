@@ -41,6 +41,9 @@ func init_map():
 	$RegionHudPopup.load_vaccines()
 	region_file.open("user://Regions.save", File.READ)
 	dict = parse_json(region_file.get_line())
+	var regionButtons = $Buttons.get_children()
+	for i in range(17):
+		regionButtons[i+1].disabled = dict[str(i)]["disabled"]
 	region_file.close()
 
 func initialize_regions():
