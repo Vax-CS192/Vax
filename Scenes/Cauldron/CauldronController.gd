@@ -40,7 +40,7 @@ func load_to_cauldron(five_array):
 	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
 	cauldron_ui.reset()
 	for x in range(5):
-		if five_array[x] == -1:
+		if five_array[x] == str(-1):
 			break
 		cauldron_ui.select_ingredient(five_array[x])
 	cauldron_ui.draw()
