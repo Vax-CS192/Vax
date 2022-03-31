@@ -73,8 +73,10 @@ func _on_MassProduce_pressed():
 	#Map.add_to_mass_produced(formula_parameters.NameName,formula_parameters.Components)
 	PersistentScenes.map.mass_produced_vaccines(formula_parameters["ID"], formula_parameters["Components"])
 	#close the formula page
+	print("Mass Produce is clicked")
 	_on_BackButton_pressed()
-
+	#pass
+	
 # runs when Load to Cauldron button is clicked
 func _on_LoadCauldron_pressed():
 	#Cauldron.load_to_cauldron(formula_parameters.Components)
