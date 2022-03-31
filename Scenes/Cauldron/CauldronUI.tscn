@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/Cauldron/Shelf.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
+size = 35
 font_data = ExtResource( 5 )
 
 [sub_resource type="AtlasTexture" id=11]
@@ -106,10 +106,10 @@ __meta__ = {
 }
 
 [node name="money_value" type="RichTextLabel" parent="money_bg"]
-margin_left = 2091.0
-margin_top = 60.0
-margin_right = 2979.0
-margin_bottom = 169.0
+margin_left = 2193.0
+margin_top = 56.0
+margin_right = 3081.0
+margin_bottom = 165.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "PHP 1,000,000.00"
@@ -129,7 +129,7 @@ __meta__ = {
 }
 
 [node name="Coin" type="AnimatedSprite" parent="."]
-position = Vector2( 2011, 79 )
+position = Vector2( 2117, 71 )
 frames = SubResource( 10 )
 frame = 5
 playing = true
