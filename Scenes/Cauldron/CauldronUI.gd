@@ -40,6 +40,7 @@ func _ready():
 		
 #Change the names of ingredients to reflect what is in the bundles
 func draw():
+	get_node("money_bg/money_value").text = "PHP "+ Profile.format_money(Profile.money)
 	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
 	var all_ingredients = $Bundles.get_children()
 	for x in range(20):
@@ -48,7 +49,6 @@ func draw():
 # Check whether the mix button should be enabled every frame
 # Also, update money in real time
 func _process(_delta):
-	get_node("money_bg/money_value").text = "PHP "+ Profile.format_money(Profile.money)
 	var all_bundles = $Bundles.get_children()
 	var total_selected = 0;
 	for every_bundle in all_bundles:
