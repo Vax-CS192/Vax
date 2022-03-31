@@ -10,6 +10,7 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
+# Draw TestingAreaUi to screen
 func draw():
 	$TestController.draw()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
