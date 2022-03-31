@@ -139,7 +139,7 @@ visible = false
 
 [node name="Coin" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2227, 118 )
-frame = 4
+frame = 0
 
 [connection signal="check_new_exist" from="." to="ArchivePage" method="_on_FormulaBook_check_new_exist"]
 [connection signal="draw" from="." to="." method="_on_FormulaBook_draw"]
