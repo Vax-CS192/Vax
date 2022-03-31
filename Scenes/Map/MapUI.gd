@@ -77,13 +77,12 @@ func initialize_regions():
 func update_regions_file(VaccinesDeployed):
 	var save_game = File.new()
 	var bundleDict = get_parent().mainDict["bundles"]
-	print(bundleDict[1])
 	var vaccines = []
 	for i in VaccinesDeployed:
 		var vaccine = []
 		for j in i:
 			if j != -1:
-				vaccine.append(bundleDict[int(j)]["sequence"])
+				vaccine.append(bundleDict[str(int(j))]["sequence"])
 			else:
 				vaccine.append("zzzzzzzzzz")
 		vaccines.append(vaccine)
