@@ -43,7 +43,7 @@ func draw():
 	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
 	var all_ingredients = $Bundles.get_children()
 	for x in range(20):
-		all_ingredients[x].set_name(bundle_dict[x]["bundleName"])
+		all_ingredients[x].set_name(bundle_dict[str(x)]["bundleName"])
 		self.show()
 # Check whether the mix button should be enabled every frame
 # Also, update money in real time
@@ -76,11 +76,11 @@ func confirm(name,description):
 	var counter = 0
 	for ingredient in $Bundles.get_children():
 		if ingredient.included:
-			five_array.append(counter)
+			five_array.append(str(counter))
 		counter += 1
 	var remaining_blanks = 5 - len(five_array)
 	for x in range(remaining_blanks):
-		five_array.append(-1)
+		five_array.append(str(-1))
 	cauldron_controller.add_to_formulabook(name,description,five_array)
 #Propagate the MixPopup's signal to the individual bundles
 func reset():
@@ -91,4 +91,4 @@ func reset():
 #Selects an ingredient and puts it on the working area
 func select_ingredient(bundle_id):
 	var all_bundles = $Bundles.get_children()
-	all_bundles[bundle_id].select()
+	all_bundles[int(bundle_id)].select()
