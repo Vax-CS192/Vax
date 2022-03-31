@@ -15,8 +15,10 @@ func _ready():
 #func _process(delta):
 #	pass
 
+# Load a formula into the cauldron's working area
 func load_to_cauldron(five_array):
 	$CauldronController.load_to_cauldron(five_array)
-
+	
+#Draw CauldronUI to the screen
 func draw():
 	$CauldronController.draw()
