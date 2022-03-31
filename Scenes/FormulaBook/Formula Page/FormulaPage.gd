@@ -15,6 +15,8 @@ extends Node2D
 
 signal delete_formulae(id)
 signal formula_deets_edited(formula_parameters)
+onready var enabled_mass_prod_button = preload("res://Assets/Formula Book/Formula Page/Mass Produce.png")
+onready var disabled_mass_prod_button = preload("res://Assets/Formula Book/Formula Page/Mass Produce Disabled.png")
 
 onready var formula_parameters := {
 	"ID":null,
@@ -26,6 +28,10 @@ onready var formula_parameters := {
 
 func _ready():
 	pass
+
+
+	
+	
 	
 #Loads data to the page
 #Task: Called by Formula book when a slot is pressed
@@ -52,6 +58,11 @@ func load_formula_parameters(new_formula_parameters: Dictionary):
 			index+=1
 	$FormulaPageUI/MassProdText.text = "PHP "+str(formula_parameters["MassProducePrice"])
 	
+	if Profile.money<=0 or Profile.money<formula_parameters["MassProducePrice"]:
+		$FormulaPageControl/MassProduce.texture_normal=disabled_mass_prod_button
+	else: 
+		$FormulaPageControl/MassProduce.texture_normal=enabled_mass_prod_button 
+	
 #saves possible changes in the formula deetails
 func synch_formula_parameters():
 	formula_parameters["ID"]=$FormulaPageControl/FormulaName.text
@@ -70,14 +81,16 @@ func _on_DeleteFormula_pressed():
 
 # runs when Mass Produce button is clicked. Formula page is closed after
 func _on_MassProduce_pressed():
-	#synch recently changed details
-	synch_formula_parameters()
-	
-	#Map.add_to_mass_produced(formula_parameters.NameName,formula_parameters.Components)
-	PersistentScenes.map.mass_produced_vaccines(formula_parameters["ID"], formula_parameters["Components"])
-	
-	#close the formula page, edited data will not be saved
-	emit_signal("formula_deets_edited", formula_parameters)
+	if Profile.money>formula_parameters["MassProducePrice"]:
+		#synch recently changed details
+		synch_formula_parameters()
+		
+		#Map.add_to_mass_produced(formula_parameters.NameName,formula_parameters.Components)
+		PersistentScenes.map.mass_produced_vaccines(formula_parameters["ID"], formula_parameters["Components"])
+		
+		#close the formula page, edited data will not be saved
+		Profile.money-=formula_parameters["MassProducePrice"]
+		emit_signal("formula_deets_edited", formula_parameters)
 	
 # runs when Load to Cauldron button is clicked
 func _on_LoadCauldron_pressed():
