@@ -13,6 +13,7 @@ var red_scene
 var violet_scene
 var green_scene
 
+#Prepare the ingredients in the CauldronUi
 func _ready():
 	yellow_scene = preload("res://Scenes/Cauldron/Ingredients/Yellow.tscn")
 	blue_scene = preload("res://Scenes/Cauldron/Ingredients/Blue.tscn")

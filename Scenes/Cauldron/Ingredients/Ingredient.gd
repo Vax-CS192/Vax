@@ -70,11 +70,16 @@ func set_up(formula_name, x_pos, y_pos):
 	origin_x = x_pos
 	origin_y = y_pos
 
+#Programatically remove an ingredient from the working area
 func reset():
 	self.rect_position = Vector2(origin_x,origin_y)
 	included = false
+	
+#Programatically put an ingredient in the working area
 func select():
 	self.rect_position = Vector2(origin_x,320)
 	self.included = true
-func set_name(formula_name):
-	$my_name.set_text(formula_name)
+	
+#Set the name of an ingredient
+func set_name(ingredient_name):
+	$my_name.set_text(ingredient_name)
