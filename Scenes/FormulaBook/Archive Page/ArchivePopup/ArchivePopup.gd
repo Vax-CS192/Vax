@@ -51,6 +51,16 @@ onready var formula_parameters := {
 #		$ArchivePopupControl/SetAsFavoriteButton.texture_normal=disabled_fav_button
 var favorites_count=0
 
+#reset to default
+func reset():
+	for i in range(10):
+		var slot_path="ArchivePopupControl/Slots/Slot"+str(i+1)
+		if get_node(slot_path).is_occupied==false:
+			get_node(slot_path).is_pressed = false
+			get_node(slot_path).is_disabled = true
+	$ArchivePopupControl/SetAsFavoriteButton.texture_normal=disabled_fav_button
+
+
 func _on_Popup_about_to_show(new_formula_parameters: Dictionary,fav_count:int):
 	favorites_count=fav_count
 	formula_parameters = new_formula_parameters
@@ -71,15 +81,18 @@ func synch_formula_parameters():
 #Emits signal
 func _on_DeleteButton_pressed():
 	emit_signal("delete_an_archive",formula_parameters["ID"])
+	reset()
 	self.hide()
 
 func _on_Popup_popup_hide():
 	synch_formula_parameters()
 	emit_signal("archive_deets_edited", formula_parameters)
+	reset()
 	self.hide() # Replace with function body.
 
 func _on_SetAsFavoriteButton_pressed():
 	emit_signal("set_as_fav",formula_parameters["ID"])
+	reset()
 	self.hide()
 
 
@@ -149,7 +162,7 @@ func _a_slot_pressed(num):
 		if i < favorites_count:
 			continue
 		elif (i+1)==num:
-			if get_node(slot_path).is_pressed==true: #Previously pressed toggle to false
+			if get_node(slot_path).is_disabled==false: #Previously pressed toggle to false
 				get_node(slot_path).is_pressed=false
 				get_node(slot_path).is_disabled=true
 				emit_signal("a_slot_unpressed")

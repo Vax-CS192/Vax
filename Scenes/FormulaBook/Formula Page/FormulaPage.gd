@@ -70,11 +70,15 @@ func _on_DeleteFormula_pressed():
 
 # runs when Mass Produce button is clicked. Formula page is closed after
 func _on_MassProduce_pressed():
+	#synch recently changed details
+	synch_formula_parameters()
+	
 	#Map.add_to_mass_produced(formula_parameters.NameName,formula_parameters.Components)
 	PersistentScenes.map.mass_produced_vaccines(formula_parameters["ID"], formula_parameters["Components"])
-	#close the formula page
-	_on_BackButton_pressed()
-
+	
+	#close the formula page, edited data will not be saved
+	emit_signal("formula_deets_edited", formula_parameters)
+	
 # runs when Load to Cauldron button is clicked
 func _on_LoadCauldron_pressed():
 	#Cauldron.load_to_cauldron(formula_parameters.Components)

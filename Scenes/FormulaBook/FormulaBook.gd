@@ -62,13 +62,15 @@ func create_favorites_file():
 	
 # Called when the favorites file is changed
 func _on_FormulaBook_favorites_changed():
-	favorites=[]
 	var favorites_formula = File.new()
 	if favorites_formula.file_exists(formula_file_path):
+		favorites_formula.close()
 		initialize_formula_book() 
 	
 #Sets up the favorites page's formula
 func initialize_formula_book():
+	print("[BEFORE FAVS]")
+	print(favorites)
 	favorites=[]
 	var index = 1
 	var slot_path = ""
@@ -79,19 +81,21 @@ func initialize_formula_book():
 			break
 		slot_path = "FormulaBookControl/Formula"+str(index)
 		var dict = parse_json(file.get_line())
-		favorites.append(dict)
+		print("[FAV DICTIONARY]", dict)
 		if dict!=null:
+			favorites.append(dict)
 			get_node(slot_path+"/Name").text=str(dict["ID"])
 			get_node(slot_path).is_occupied=true
 			index += 1
 	file.close()
+	print("----------")
 
-	if index<=10: #set occupied to false
-		while index<=10:
-			slot_path = "FormulaBookControl/Formula"+str(index)
-			get_node(slot_path).is_occupied=false
-			get_node(slot_path+"/Name").text=""
-			index+=1
+	#if index<=10: 
+	while index<=10:#set occupied to false
+		slot_path = "FormulaBookControl/Formula"+str(index)
+		get_node(slot_path).is_occupied=false
+		get_node(slot_path+"/Name").text=""
+		index+=1
 	
 	#Used after deleteion and setting as fav
 	if len(favorites)==0:
@@ -297,13 +301,17 @@ func _on_FormulaPage_delete_formulae(id):
 	
 #updates the deetails of the edited data
 func _on_FormulaPage_formula_deets_edited(formula_parameters):
-	var index=0
-	for formulae in favorites:
-		if formulae["ID"]==formula_parameters["ID"]:
-			favorites.remove(index)
-			favorites[index]=formula_parameters
-			break
-		index+=1
+	print("[FORMULA EDITED RECEIVED] ",formula_parameters)
+	#refresh current local list
+	#_on_FormulaBook_favorites_changed()
+	if formula_parameters!=null:
+		var index=0
+		for formulae in favorites:
+			if formulae["ID"]==formula_parameters["ID"]:
+				#favorites.remove(index)
+				favorites[index]=formula_parameters
+				break
+			index+=1
 	save_favorites_data()
 	$FormulaPage.hide()
 

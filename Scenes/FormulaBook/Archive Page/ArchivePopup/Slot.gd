@@ -24,10 +24,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # If there is previously saved formula, the icon will be set accordingly
 func _process(delta):
-	if is_occupied==true or  is_pressed==true:
+	if is_occupied==true or (is_pressed==true and is_disabled==false):
 		get_node(".").texture_normal=occupied_icon
-	elif is_disabled==true:
+	else:
 		get_node(".").texture_normal=empty_icon
+
 
 #Go to corresponding Cauldron Subsystem when the button is pressed	
 func _on_Slot_pressed():

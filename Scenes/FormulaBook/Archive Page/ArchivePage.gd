@@ -312,6 +312,7 @@ func _on_Popup_delete_an_archive(id):
 			break
 		index+=1
 	$Popup.hide()
+	$Popup.reset()
 	save_archives_data()
 
 
