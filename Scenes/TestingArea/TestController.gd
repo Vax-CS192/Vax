@@ -33,4 +33,4 @@ func _on_TestingAreaUI_back_pressed():
 func draw():
 	var testingarea_subsystem = get_parent()
 	var testingarea_ui = testingarea_subsystem.get_node("TestingAreaUI")
-	testingarea_ui.show()
+	testingarea_ui.draw()
