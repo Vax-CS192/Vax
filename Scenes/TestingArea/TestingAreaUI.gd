@@ -18,16 +18,17 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Update money in real time
-func _process(delta):
 
-	pass
+#func _process(delta):
+
+#	pass
 
 #  This method causes the TestingAreaUI to signal to TestController to instance the Lab
-#  subsystem and remove the TestingArea subsystem from memory.
+#  subsystem and to hide TestingAreaUI
 func _on_back_pressed():
 	emit_signal("back_pressed")
 
+# This method updates the money and draws TestingAreaUI to screen
 func draw():
 		get_node("money_bg/money_value").text = "PHP " + Profile.format_money(Profile.money)
 		self.show()
