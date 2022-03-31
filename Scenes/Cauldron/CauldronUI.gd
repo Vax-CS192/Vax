@@ -40,7 +40,11 @@ func _ready():
 		
 #Change the names of ingredients to reflect what is in the bundles
 func draw():
-	reset()
+	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
+	var all_ingredients = $Bundles.get_children()
+	for x in range(20):
+		all_ingredients[x].set_name(bundle_dict[x]["bundleName"])
+		self.show()
 # Check whether the mix button should be enabled every frame
 # Also, update money in real time
 func _process(_delta):

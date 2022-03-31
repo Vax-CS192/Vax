@@ -43,14 +43,13 @@ func load_to_cauldron(five_array):
 		if five_array[x] == -1:
 			break
 		cauldron_ui.select_ingredient(five_array[x])
-	cauldron_ui.show()
+	cauldron_ui.draw()
 	
 # Reset the CauldronUI and draw it to the screen
 func draw():
 	var cauldron_subsystem = get_parent()
 	var cauldron_ui = cauldron_subsystem.get_node("CauldronUI")
 	cauldron_ui.reset()
-	cauldron_ui.show()
 	cauldron_ui.draw()
 
 #This forwards all formula information to the formulabook	
