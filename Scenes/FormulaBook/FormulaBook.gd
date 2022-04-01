@@ -14,7 +14,6 @@
 extends Node2D
 
 signal favorites_changed() #indicates that the there has been some changes in the favorites file
-#signal fav_count_changed(fav_count)
 signal archives_changed()
 signal check_new_exist(dict_to_save)
 
@@ -47,13 +46,14 @@ func _ready():
 func _process(delta):
 	$Coin/money.text="PHP "+ Profile.format_money(Profile.money)
 
-
+#creates archive save file
 func create_archives_file():
 	var init_formula = File.new()
 	if not init_formula.file_exists(formula_file_path):
 		init_formula.open(formula_file_path, File.WRITE)
 		init_formula.close()
 
+#creates favorites save file
 func create_favorites_file():
 	var init_favorites = File.new()
 	if not init_favorites.file_exists(favorites_file_path):
@@ -207,7 +207,7 @@ func _on_Formula_pressed(fp_slot):
 	$FormulaPage.show()
 
 
-#Hard coded since we need to know the button name
+#The following are hard coded since we need to know the button name
 func _on_Formula1_pressed():
 	if $FormulaBookControl/Formula1.is_occupied==true:
 		_on_Formula_pressed(1)
@@ -320,7 +320,6 @@ func draw():
 	_on_FormulaBook_favorites_changed()
 	self.show()
 
-#Hides the Archive page when back button from the archive page is pressed
 #Hides the Archive page when back button from the archive page is pressed
 func _on_ArchivePage_archives_closed():
 	$ArchivePage.hide()

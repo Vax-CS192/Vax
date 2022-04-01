@@ -49,8 +49,6 @@ func _archives_changed():
 	initialize_archive_page() 
 	set_archive_page()
 
-
-
 #read all formula
 func initialize_archive_page():
 	#reset
@@ -79,6 +77,7 @@ func initialize_archive_page():
 	else: 
 		pass
 
+#Synchs favorites count to archive popup slots
 func count_favorites():
 	fav_count=0
 	var file = File.new()
@@ -303,7 +302,7 @@ func _on_ArchiveIcon20_pressed():
 	else:
 		pass
 		
-#Deltes the sent id
+#Deletes the sent id from the archives file
 func _on_Popup_delete_an_archive(id):
 	var index=0
 	for formulae in all_formula:
@@ -315,7 +314,7 @@ func _on_Popup_delete_an_archive(id):
 	$Popup.reset()
 	save_archives_data()
 
-
+#Saves the edited data to the archives file
 func save_archives_data():
 	var remove_data = File.new()
 	if remove_data.file_exists(formula_file_path):
@@ -329,7 +328,7 @@ func save_archives_data():
 	save_data.close()
 	emit_signal("archives_changed")
 
-
+#Synchs edited archive data to the archives file
 func _on_Popup_archive_deets_edited(formula_parameters):
 	var index=0
 	for formulae in all_formula:
@@ -367,7 +366,7 @@ func _on_Popup_set_as_fav(id):
 		#update current length
 		emit_signal("favorites_changed")
 
-
+#checks if the added formula already exists at the archives save file. Overwrites it if that's the case.
 func _on_FormulaBook_check_new_exist(dict_to_save):
 	_archives_changed()
 	var exist = false
@@ -389,6 +388,6 @@ func _on_FormulaBook_check_new_exist(dict_to_save):
 		save_data.close()
 	_archives_changed()
 
-
+#sets the favorite button to enabled
 func _on_Popup_set_fav_enabled(status):
 	set_fav_enabled =status

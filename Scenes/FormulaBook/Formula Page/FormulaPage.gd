@@ -29,12 +29,7 @@ onready var formula_parameters := {
 func _ready():
 	pass
 
-
-	
-	
-	
-#Loads data to the page
-#Task: Called by Formula book when a slot is pressed
+#Loads data to the page. Called by Formula book when a slot is pressed
 func load_formula_parameters(new_formula_parameters: Dictionary):
 	var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
 	formula_parameters = new_formula_parameters
@@ -100,5 +95,3 @@ func _on_LoadCauldron_pressed():
 	self.hide()
 	PersistentScenes.formulaBook.hide()
 	cauldron_subsystem.load_to_cauldron(formula_parameters["Components"])
-
-
