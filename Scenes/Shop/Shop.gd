@@ -8,56 +8,119 @@
 # WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, 
 # NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
 # OF THIS SOFTWARE.
+ 
+extends Node2D
 
+signal bundle_pressed
+signal bundle_unpressed
 
-extends Node
-
-var lab = preload("res://Scenes/Lab/Lab.tscn")
+var open_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Opened.png")
+var closed_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Normal.png")
+onready var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
 
 # Called when the node enters the scene tree for the first time.
-#Bundle name, and color as well as Popup name are set here
+# Bundle name, and color as well as Popup name are set here.
 func _ready():
 	#randomize() #will be needed to randomize bundle names
 	#Set Bundle Names
-	$ShopControl/Bundle1/Bundle/Name.text="One"	
-	$ShopControl/Bundle2/Bundle/Name.text="Two"
-	$ShopControl/Bundle3/Bundle/Name.text="Three"
-	$ShopControl/Bundle4/Bundle/Name.text="Four"
-	$ShopControl/Bundle5/Bundle/Name.text="Five"
-	$ShopControl/Bundle6/Bundle/Name.text="Six"
-	$ShopControl/Bundle7/Bundle/Name.text="Seven"
-	$ShopControl/Bundle8/Bundle/Name.text="Eight"
-	$ShopControl/Bundle9/Bundle/Name.text="Nine"
-	$ShopControl/Bundle10/Bundle/Name.text="Ten"
-	$ShopControl/Bundle11/Bundle/Name.text="Eleven"
-	$ShopControl/Bundle12/Bundle/Name.text="Twelve"
-	$ShopControl/Bundle13/Bundle/Name.text="Thirteen"
 
-	#Set name colors to compliment tables 
-	$ShopControl/Bundle9/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle10/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle11/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle12/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	$ShopControl/Bundle13/Bundle/Name.set("custom_colors/font_color",Color(1,1,1,1))
-	
-	#Set PopupNames - Task: Create a function that fills up the popup details
-	$ShopControl/Bundle1/Popup/ArchivePopupControl/FormulaName.text="One"
-	$ShopControl/Bundle2/Popup/ArchivePopupControl/FormulaName.text="Two"
-	$ShopControl/Bundle3/Popup/ArchivePopupControl/FormulaName.text="Three"
-	$ShopControl/Bundle4/Popup/ArchivePopupControl/FormulaName.text="Four"
-	$ShopControl/Bundle5/Popup/ArchivePopupControl/FormulaName.text="Five"
-	$ShopControl/Bundle6/Popup/ArchivePopupControl/FormulaName.text="Six"
-	$ShopControl/Bundle7/Popup/ArchivePopupControl/FormulaName.text="Seven"
-	$ShopControl/Bundle8/Popup/ArchivePopupControl/FormulaName.text="Eight"
-	$ShopControl/Bundle9/Popup/ArchivePopupControl/FormulaName.text="Nine"
-	$ShopControl/Bundle10/Popup/ArchivePopupControl/FormulaName.text="Ten"
-	$ShopControl/Bundle11/Popup/ArchivePopupControl/FormulaName.text="Eleven"
-	$ShopControl/Bundle12/Popup/ArchivePopupControl/FormulaName.text="Twelve"
-	$ShopControl/Bundle13/Popup/ArchivePopupControl/FormulaName.text="Thirteen"
+	set_bundle_deets()
 
+#Syncs money
+func _process(delta):
+	$Coin/money.text="PHP "+ Profile.format_money(Profile.money)
 
+#Setcounter and name
+#Task: call a signal to  enable this function whenever a counter is updated
+func set_bundle_deets():
+	for i in range(20):
+		var bundle_deets = bundle_Dict[str(i)]#Task: ask if 1- index or zero-iondex
+		var name_path = "ShopControl/Bundle"+str(i+1)+"/Name"
+		get_node(name_path).text =bundle_deets["bundleName"]
+
+		var counter_path = "ShopControl/Bundle"+str(i+1)+"/Counter"
+		get_node(counter_path).text =bundle_deets["inStock"]
+		
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():
-	get_node("/root/Session").hideAndChangeSceneTo(PersistentScenes.shop, lab.instance())
+	var shop_subsystem = get_parent()
+	shop_subsystem.get_node("Shop").hide()
+	var lab_subsystem = preload("res://Scenes/Lab/Lab.tscn")
+	get_parent().get_parent().add_child(lab_subsystem.instance())
 
+#When bundle is pressed shop 
+func _on_BundleIcon_pressed(fp_slot):
+	var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
+	print(bundle_Dict)
+	var bundle_deets = bundle_Dict[str(fp_slot-1)]#Task: ask if 1- index or zero-iondex
+	var path = "ShopControl/Bundle"+str(fp_slot)
+	_on_Popup_bundle_pressed(path)
+	$Popup._on_Popup_about_to_show(fp_slot,path,bundle_deets)
 
+func _on_Bundle1_pressed():
+	_on_BundleIcon_pressed(1)
+
+func _on_Bundle2_pressed():
+	_on_BundleIcon_pressed(2)
+
+func _on_Bundle3_pressed():
+	_on_BundleIcon_pressed(3)
+
+func _on_Bundle4_pressed():
+	_on_BundleIcon_pressed(4)
+	
+func _on_Bundle5_pressed():
+	_on_BundleIcon_pressed(5)
+
+func _on_Bundle6_pressed():
+	_on_BundleIcon_pressed(6)
+
+func _on_Bundle7_pressed():
+	_on_BundleIcon_pressed(7)
+
+func _on_Bundle8_pressed():
+	_on_BundleIcon_pressed(8)
+
+func _on_Bundle9_pressed():
+	_on_BundleIcon_pressed(9)
+
+func _on_Bundle10_pressed():
+	_on_BundleIcon_pressed(10)
+
+func _on_Bundle11_pressed():
+	_on_BundleIcon_pressed(11)
+
+func _on_Bundle12_pressed():
+	_on_BundleIcon_pressed(12)
+
+func _on_Bundle13_pressed():
+	_on_BundleIcon_pressed(13)
+
+func _on_Bundle14_pressed():
+	_on_BundleIcon_pressed(14)
+
+func _on_Bundle15_pressed():
+	_on_BundleIcon_pressed(15)
+
+func _on_Bundle16_pressed():
+	_on_BundleIcon_pressed(16)
+
+func _on_Bundle17_pressed():
+	_on_BundleIcon_pressed(17)
+
+func _on_Bundle18_pressed():
+	_on_BundleIcon_pressed(18)
+
+func _on_Bundle19_pressed():
+	_on_BundleIcon_pressed(19)
+
+func _on_Bundle20_pressed():
+	_on_BundleIcon_pressed(20)
+
+#Changes bundle icon to opened once popup is opened
+func _on_Popup_bundle_pressed(path):
+	get_node(path).texture_normal=open_bundle
+	
+#Changes bundle icon to normal once popup is closed
+func _on_Popup_bundle_unpressed(path):
+	get_node(path).texture_normal=closed_bundle

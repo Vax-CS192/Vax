@@ -1,4 +1,4 @@
-# Author: Aira Mae E. Aloveros
+	# Author: Aira Mae E. Aloveros
 # License: 0BSD
 # Permission to use, copy, modify, and/or distribute this software for any purpose with or without 
 # fee is hereby granted.
@@ -10,21 +10,14 @@
 # NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
 # OF THIS SOFTWARE.
 
-
-extends Control
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+extends TextureButton
+var open_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Opened.png")
+var closed_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Normal.png")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _on_Shop_bundle_pressed():
+	self.texture_normal=open_bundle
 
 
-# Bundle popup appears when a bundle is pressed
-func _on_Bundle_pressed():
-	$Popup.popup_centered()
-	
+func _on_Popup_bundle_unpressed():
+	self.texture_normal=closed_bundle

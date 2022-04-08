@@ -1,20 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Shop/Lab Button.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Shop/Table2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Shop/Money Icon.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Shop/CoinShop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Shop/Bundle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Shop/Table1.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scenes/Shop/BundlePopup/BundlePopup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Shop/Shop.gd" type="Script" id=12]
 
-[sub_resource type="DynamicFont" id=4]
-size = 35
-extra_spacing_char = -5
-font_data = ExtResource( 6 )
-
 [node name="Shop" type="Node2D"]
-visible = false
 script = ExtResource( 12 )
 
 [node name="ShopUI" type="Node2D" parent="."]
@@ -50,27 +44,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Money" type="Control" parent="ShopUI"]
-
-[node name="Account" type="Label" parent="ShopUI/Money"]
-margin_left = 2178.0
-margin_top = 103.0
-margin_right = 2868.0
-margin_bottom = 153.0
-custom_colors/font_color = Color( 0.027451, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "Php 1, 534, 954, 030.00"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Icon" type="Sprite" parent="ShopUI/Money"]
-position = Vector2( 902, 727 )
-texture = ExtResource( 3 )
-offset = Vector2( 1209, -612 )
-hframes = 8
-frame = 7
-
 [node name="ShopControl" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -90,85 +63,156 @@ __meta__ = {
 }
 
 [node name="Bundle1" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 384.0
-margin_top = 616.0
-margin_right = 580.0
-margin_bottom = 801.0
-
-[node name="Bundle2" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 616.0
-margin_top = 568.0
-margin_right = 804.0
+margin_left = 325.0
+margin_top = 704.0
+margin_right = 384.0
 margin_bottom = 749.0
 
+[node name="Bundle2" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 476.0
+margin_top = 669.0
+margin_right = 535.0
+margin_bottom = 714.0
+
 [node name="Bundle3" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 819.0
-margin_top = 616.0
-margin_right = 1004.0
-margin_bottom = 801.0
+margin_left = 650.0
+margin_top = 707.0
+margin_right = 709.0
+margin_bottom = 752.0
 
 [node name="Bundle4" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 1017.0
-margin_top = 560.0
-margin_right = 1198.0
-margin_bottom = 729.0
+margin_left = 825.0
+margin_top = 661.0
+margin_right = 884.0
+margin_bottom = 706.0
 
 [node name="Bundle5" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 1664.0
-margin_top = 584.0
-margin_right = 1856.0
-margin_bottom = 769.0
+margin_left = 968.0
+margin_top = 713.0
+margin_right = 1027.0
+margin_bottom = 758.0
 
 [node name="Bundle6" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 1896.0
-margin_top = 536.0
-margin_right = 2081.0
-margin_bottom = 709.0
+margin_left = 1101.0
+margin_top = 666.0
+margin_right = 1160.0
+margin_bottom = 711.0
 
 [node name="Bundle7" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 2099.0
-margin_top = 584.0
-margin_right = 2280.0
-margin_bottom = 757.0
+margin_left = 794.0
+margin_top = 1174.0
+margin_right = 853.0
+margin_bottom = 1219.0
 
 [node name="Bundle8" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 2297.0
-margin_top = 528.0
-margin_right = 2485.0
-margin_bottom = 713.0
+margin_left = 621.0
+margin_top = 1134.0
+margin_right = 680.0
+margin_bottom = 1179.0
 
 [node name="Bundle9" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 584.0
-margin_top = 1080.0
-margin_right = 772.0
-margin_bottom = 1265.0
+margin_left = 943.0
+margin_top = 1123.0
+margin_right = 1002.0
+margin_bottom = 1168.0
 
 [node name="Bundle10" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 791.0
-margin_top = 1048.0
-margin_right = 972.0
-margin_bottom = 1233.0
+margin_left = 1107.0
+margin_top = 1172.0
+margin_right = 1166.0
+margin_bottom = 1217.0
 
 [node name="Bundle11" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 1008.0
-margin_top = 1088.0
-margin_right = 1200.0
-margin_bottom = 1280.0
+margin_left = 1666.0
+margin_top = 664.0
+margin_right = 1725.0
+margin_bottom = 709.0
 
 [node name="Bundle12" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 1688.0
-margin_top = 904.0
-margin_right = 1876.0
-margin_bottom = 1085.0
+margin_left = 1822.0
+margin_top = 632.0
+margin_right = 1881.0
+margin_bottom = 677.0
 
 [node name="Bundle13" parent="ShopControl" instance=ExtResource( 4 )]
-margin_left = 2360.0
-margin_top = 896.0
-margin_right = 2548.0
-margin_bottom = 1073.0
+margin_left = 1961.0
+margin_top = 660.0
+margin_right = 2020.0
+margin_bottom = 705.0
 
-[node name="Popup" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Bundle14" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 2119.0
+margin_top = 635.0
+margin_right = 2178.0
+margin_bottom = 680.0
 
+[node name="Bundle15" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 2289.0
+margin_top = 663.0
+margin_right = 2348.0
+margin_bottom = 708.0
+
+[node name="Bundle16" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 2425.0
+margin_top = 626.0
+margin_right = 2484.0
+margin_bottom = 671.0
+
+[node name="Bundle17" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1658.0
+margin_top = 968.0
+margin_right = 1717.0
+margin_bottom = 1013.0
+
+[node name="Bundle18" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 1808.0
+margin_top = 928.0
+margin_right = 1867.0
+margin_bottom = 973.0
+
+[node name="Bundle19" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 2303.0
+margin_top = 938.0
+margin_right = 2362.0
+margin_bottom = 983.0
+
+[node name="Bundle20" parent="ShopControl" instance=ExtResource( 4 )]
+margin_left = 2454.0
+margin_top = 966.0
+margin_right = 2513.0
+margin_bottom = 1011.0
+
+[node name="Coin" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2139, 124 )
+frame = 0
+
+[node name="Popup" parent="." instance=ExtResource( 6 )]
+margin_left = 868.0
+margin_top = 275.0
+margin_right = 1948.0
+margin_bottom = 1147.0
+
+[connection signal="bundle_pressed" from="." to="ShopControl/Bundle1" method="_on_Shop_bundle_pressed"]
 [connection signal="pressed" from="ShopControl/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle1" to="." method="_on_Bundle1_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle2" to="." method="_on_Bundle2_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle3" to="." method="_on_Bundle3_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle4" to="." method="_on_Bundle4_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle5" to="." method="_on_Bundle5_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle6" to="." method="_on_Bundle6_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle7" to="." method="_on_Bundle7_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle8" to="." method="_on_Bundle8_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle9" to="." method="_on_Bundle9_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle10" to="." method="_on_Bundle10_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle11" to="." method="_on_Bundle11_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle12" to="." method="_on_Bundle12_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle13" to="." method="_on_Bundle13_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle14" to="." method="_on_Bundle14_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle15" to="." method="_on_Bundle15_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle16" to="." method="_on_Bundle16_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle17" to="." method="_on_Bundle17_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle18" to="." method="_on_Bundle18_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle19" to="." method="_on_Bundle19_pressed"]
+[connection signal="pressed" from="ShopControl/Bundle20" to="." method="_on_Bundle20_pressed"]
+[connection signal="bundle_unpressed" from="Popup" to="." method="_on_Popup_bundle_unpressed"]
+[connection signal="update_bundle" from="Popup" to="." method="set_bundle_deets"]
