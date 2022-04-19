@@ -324,7 +324,8 @@ func draw():
 func _on_ArchivePage_archives_closed():
 	$ArchivePage.hide()
 	self.show()
+	self.show()
 
-
-
-	
+#Returns a list of current favorites 
+func get_curr_favorites():
+	return favorites
