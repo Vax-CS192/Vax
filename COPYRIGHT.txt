@@ -137,7 +137,15 @@ File: Assets/Formula Book/Occupied Formula
 Author: Aira Mae Aloveros
 License: 0BSD
 Notice:Image extracted from prototype and stored in png
- 
+
+File:  Assets/Shop/Destructible Objects Sprite Sheet - Normal.pn, Assets/Shop/Destructible Objects Sprite Sheet - Opened.png and Assets/Shop/Destructible Objects Sprite Sheet - Pressed.png
+Author: Elthen
+License Text:
+All my assets are under an  Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license with the given supplement permissions:
+You can use the assets in commercial projects, as long as you don't redistribute (i.e upload the assets to other sites) or resell(this includes minting as nfts) the assets. 
+You don't have to give credit to me, but it is always appreciated.
+Under no circumstances can you use any of my work, sprites, assets in any form of blockchain-related technology, which includes NFTs, P2E Game, cryptocurrency, or future inventions in the space. It doesn't matter if you make games out of them, sell them by themselves. No matter how much they are modified, you are not allowed to use my sprites in any kind of NFT.
+
 File: Assets/Formula Book/Money icon and Assets/Shop/Money icon
 Source: https://opengameart.org/content/spinning-pixel-coin-0
 Author: irmirx
