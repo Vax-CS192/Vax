@@ -1,0 +1,158 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/TestingArea/Occupied Formula.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/TestingArea/ReagentOverlay.gd" type="Script" id=3]
+
+[node name="ReagentOverlay" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 2999.0
+margin_bottom = 1453.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F1" type="Button" parent="."]
+margin_left = 199.0
+margin_top = 83.0
+margin_right = 520.0
+margin_bottom = 508.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F2" type="Button" parent="."]
+margin_left = 674.0
+margin_top = 83.0
+margin_right = 995.0
+margin_bottom = 508.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F3" type="Button" parent="."]
+margin_left = 1140.0
+margin_top = 78.0
+margin_right = 1461.0
+margin_bottom = 503.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F4" type="Button" parent="."]
+margin_left = 1617.0
+margin_top = 80.0
+margin_right = 1938.0
+margin_bottom = 505.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F5" type="Button" parent="."]
+margin_left = 2079.0
+margin_top = 74.0
+margin_right = 2400.0
+margin_bottom = 499.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F6" type="Button" parent="."]
+margin_left = 2541.0
+margin_top = 71.0
+margin_right = 2862.0
+margin_bottom = 496.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F7" type="Button" parent="."]
+margin_left = 391.0
+margin_top = 826.0
+margin_right = 712.0
+margin_bottom = 1251.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F8" type="Button" parent="."]
+margin_left = 878.0
+margin_top = 838.0
+margin_right = 1199.0
+margin_bottom = 1263.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F9" type="Button" parent="."]
+margin_left = 1353.0
+margin_top = 833.0
+margin_right = 1674.0
+margin_bottom = 1258.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F10" type="Button" parent="."]
+margin_left = 1831.0
+margin_top = 834.0
+margin_right = 2152.0
+margin_bottom = 1259.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blank" type="Button" parent="."]
+margin_left = 2326.0
+margin_top = 827.0
+margin_right = 2647.0
+margin_bottom = 1252.0
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="F1" to="." method="_on_F1_pressed"]
+[connection signal="pressed" from="F2" to="." method="_on_F2_pressed"]
+[connection signal="pressed" from="F3" to="." method="_on_F3_pressed"]
+[connection signal="pressed" from="F4" to="." method="_on_F4_pressed"]
+[connection signal="pressed" from="F5" to="." method="_on_F5_pressed"]
+[connection signal="pressed" from="F6" to="." method="_on_F6_pressed"]
+[connection signal="pressed" from="F7" to="." method="_on_F7_pressed"]
+[connection signal="pressed" from="F8" to="." method="_on_F8_pressed"]
+[connection signal="pressed" from="F9" to="." method="_on_F9_pressed"]
+[connection signal="pressed" from="F10" to="." method="_on_F10_pressed"]
+[connection signal="pressed" from="Blank" to="." method="_on_Blank_pressed"]

@@ -7,6 +7,12 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 
 The remainder of this file documents the assets referenced by scenes, the assets whose paths are referenced in gdscripts, the godot icon, and the Godot binary bundled with Vax. 
+
+File: Assets/TestingArea/Occupied Formula.png
+Author: Aira Mae Aloveros
+License: 0BSD
+Notice:Image extracted from prototype and stored in png
+
 File: Assets/Cauldron/Shelf.png
 Author: Jeremy Vincent Yu
 License: 0BSD
@@ -97,6 +103,7 @@ Comment: Godot Engine logo
 Copyright: 2017, Andrea Calabró
 License: CC-BY-4.0
 Link to License: https://creativecommons.org/licenses/by/4.0/legalcode
+
 
 File: Assets/Formula Book/Archive Box
 Author: Aira Mae Aloveros

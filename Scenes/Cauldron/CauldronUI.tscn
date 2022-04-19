@@ -131,6 +131,7 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2142, 75 )
 frames = SubResource( 10 )
+frame = 2
 playing = true
 
 [node name="Cauldron" type="Sprite" parent="."]
