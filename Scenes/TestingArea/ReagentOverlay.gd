@@ -76,3 +76,7 @@ func _on_F10_pressed():
 func _on_Blank_pressed():
 	get_parent().get_parent().set_vaccine(-1)
 	get_parent().hide()
+	
+func set_names(favorite_names):
+	for x in range(1,len(favorite_names)+1):
+		get_node("F"+str(x)).text = favorite_names[x-1]

@@ -11,6 +11,7 @@ var selected_patient = -1
 var patient_vaccines = [-1,-1,-1,-1,-1]
 var max_vaccine = 0
 var pretest = true
+var favorite_names = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -29,8 +30,12 @@ func _ready():
 func _on_back_pressed():
 	emit_signal("back_pressed")
 
-# This method updates the money and draws TestingAreaUI to screen
+# This method updates the money and the favorite  and draws TestingAreaUI to screen
 func draw():
+		favorite_names = get_parent().get_node("TestController").get_favorite_names()
+		max_vaccine = len(favorite_names)
+		var reagent_overlay = $ReagentHolder.get_node("ReagentHolder/ReagentOverlay")
+		
 		get_node("money_bg/money_value").text = "PHP " + Profile.format_money(Profile.money)
 		self.show()
 

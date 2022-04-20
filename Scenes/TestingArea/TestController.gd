@@ -6,8 +6,8 @@
 
 
 extends Node
-
-
+var favorites
+var favorite_names = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -31,6 +31,17 @@ func _on_TestingAreaUI_back_pressed():
 
 #This draws TestingAreaUI
 func draw():
+	favorites = PersistentScenes.formulaBook.get_curr_favorites() #refresh copy of favorites
+	favorite_names.clear()
+	for favorite in favorites:
+		if favorite["ID"] != null:
+			favorite_names.append(favorite["ID"])
+		else:
+			break
 	var testingarea_subsystem = get_parent()
 	var testingarea_ui = testingarea_subsystem.get_node("TestingAreaUI")
 	testingarea_ui.draw()
+
+#This returns a list of the favorites' names
+func get_favorite_names():
+	return favorite_names
