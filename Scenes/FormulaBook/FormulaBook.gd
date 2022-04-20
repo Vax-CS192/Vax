@@ -41,7 +41,7 @@ var favorites = []
 func _ready():
 	create_archives_file()
 	create_favorites_file()
-	favorites = []
+	initialize_formula_book()
 		
 #Syncs money
 func _process(delta):
