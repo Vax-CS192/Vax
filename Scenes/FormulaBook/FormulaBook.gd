@@ -41,6 +41,7 @@ var favorites = []
 func _ready():
 	create_archives_file()
 	create_favorites_file()
+	favorites = []
 		
 #Syncs money
 func _process(delta):
@@ -69,8 +70,8 @@ func _on_FormulaBook_favorites_changed():
 	
 #Sets up the favorites page's formula
 func initialize_formula_book():
-	print("[BEFORE FAVS]")
-	print(favorites)
+	#print("[BEFORE FAVS]")
+	#print(favorites)
 	favorites=[]
 	var index = 1
 	var slot_path = ""
@@ -81,14 +82,14 @@ func initialize_formula_book():
 			break
 		slot_path = "FormulaBookControl/Formula"+str(index)
 		var dict = parse_json(file.get_line())
-		print("[FAV DICTIONARY]", dict)
+		#print("[FAV DICTIONARY]", dict)
 		if dict!=null:
 			favorites.append(dict)
 			get_node(slot_path+"/Name").text=str(dict["ID"])
 			get_node(slot_path).is_occupied=true
 			index += 1
 	file.close()
-	print("----------")
+	#print("----------")
 
 	#if index<=10: 
 	while index<=10:#set occupied to false
@@ -301,7 +302,7 @@ func _on_FormulaPage_delete_formulae(id):
 	
 #updates the deetails of the edited data
 func _on_FormulaPage_formula_deets_edited(formula_parameters):
-	print("[FORMULA EDITED RECEIVED] ",formula_parameters)
+	#print("[FORMULA EDITED RECEIVED] ",formula_parameters)
 	#refresh current local list
 	#_on_FormulaBook_favorites_changed()
 	if formula_parameters!=null:
