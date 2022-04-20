@@ -34,8 +34,8 @@ func _on_back_pressed():
 func draw():
 		favorite_names = get_parent().get_node("TestController").get_favorite_names()
 		max_vaccine = len(favorite_names)
-		var reagent_overlay = $ReagentHolder.get_node("ReagentHolder/ReagentOverlay")
-		
+		var reagent_overlay = $ReagentHolder.get_node("ReagentOverlay")
+		reagent_overlay.set_names(favorite_names)
 		get_node("money_bg/money_value").text = "PHP " + Profile.format_money(Profile.money)
 		self.show()
 

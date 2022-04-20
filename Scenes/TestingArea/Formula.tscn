@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/TestingArea/Occupied Formula.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/prstart.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Formula" type="TextureButton"]
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 218.0
+margin_right = 298.0
+margin_bottom = 279.0
+custom_colors/font_color = Color( 0.623529, 0.262745, 0.27451, 1 )
+custom_fonts/font = SubResource( 1 )
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
