@@ -51,7 +51,7 @@ func _on_BackButton_pressed():
 #When bundle is pressed shop 
 func _on_BundleIcon_pressed(fp_slot):
 	var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
-	print(bundle_Dict)
+	#print(bundle_Dict)
 	var bundle_deets = bundle_Dict[str(fp_slot-1)]#Task: ask if 1- index or zero-iondex
 	var path = "ShopControl/Bundle"+str(fp_slot)
 	_on_Popup_bundle_pressed(path)

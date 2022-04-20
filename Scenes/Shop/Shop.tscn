@@ -184,7 +184,6 @@ margin_bottom = 1011.0
 
 [node name="Coin" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2139, 124 )
-frame = 0
 
 [node name="Popup" parent="." instance=ExtResource( 6 )]
 margin_left = 868.0
