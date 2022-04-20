@@ -106,6 +106,9 @@ margin_right = 2914.0
 margin_bottom = 445.0
 texture_normal = ExtResource( 5 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="patient1" type="TextureButton" parent="."]
 margin_left = 337.0
@@ -267,6 +270,7 @@ __meta__ = {
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="test" to="." method="_on_test_pressed"]
 [connection signal="pressed" from="patient1" to="." method="_on_patient1_pressed"]
 [connection signal="pressed" from="patient2" to="." method="_on_patient2_pressed"]
 [connection signal="pressed" from="patient3" to="." method="_on_patient3_pressed"]

@@ -72,11 +72,13 @@ func _on_patient5_pressed():
 #This sets the vaccine associated with a patient
 func set_vaccine(selected_vaccine: int):
 	var patient_reference = $Labels.get_node("p"+str(selected_patient))
-	if selected_vaccine <= max_vaccine:
-		patient_vaccines[selected_patient] = selected_vaccine
-	else:	
+	if selected_vaccine == -1 or selected_vaccine > max_vaccine:	
 		patient_vaccines[selected_patient] = - 1
 		patient_reference.text = "Blank"
+	else:
+		patient_vaccines[selected_patient] = selected_vaccine
+		patient_reference.text = favorite_names[selected_vaccine-1]
+
 
 #Reset TestingArea to initial State
 func _on_reset_pressed():
@@ -84,3 +86,9 @@ func _on_reset_pressed():
 	for x in range(-5):
 		patient_vaccines[x] = -1
 		$Labels.get_node("p"+str(selected_patient)).text= "Blank"
+
+#Validate whether the player has enough of every bundle to launch the test. If not, tell the player yo buy more of a bundle.
+func _on_test_pressed():
+	var test_controller = get_parent().get_node("TestController")
+	var test_results = test_controller.validate(patient_vaccines)
+	

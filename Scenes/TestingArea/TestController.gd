@@ -45,3 +45,14 @@ func draw():
 #This returns a list of the favorites' names
 func get_favorite_names():
 	return favorite_names
+
+# This validates, based on a provided list of vaccines, 
+# whether the player has enough of each bundle to perform the test
+# If yes, this returns 0, else it returns -1
+func validate(patient_vaccines):
+	var vaccine_decompositions = []
+	for vaccine in patient_vaccines:
+		if vaccine == -1:
+			 continue
+		
+		
