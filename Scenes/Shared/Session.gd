@@ -21,6 +21,24 @@ var mainMenu = load("res://Scenes/MainMenu/MainMenu.tscn")
 # The sequence in the bundle are arrays of 4 randomly generated DNA strings with 
 # the first item in the array being the actual symptom
 # 
+#
+# The structure of mainDict will be as follows
+# {
+#	"symptoms": {
+#				 0: <random string>,
+#				 1: <random string>,
+#				 2: <random string>,
+#				 3: <random string>,
+#				 4: <random string>
+#				},
+#	"bundles":	{
+#				 0: {
+#					<bundle>
+#					},
+#				 ...
+#				}
+# }
+#
 # The structure of each bundle is as follows
 # {
 #	"id": id -> identifier for bundle,
@@ -31,7 +49,6 @@ var mainMenu = load("res://Scenes/MainMenu/MainMenu.tscn")
 #	"desc": desc -> player-generated description,
 #	"sequence": sequence -> sequence that's used to compute how effective the bundle is,
 # }
-
 var mainDict = {}
 
 # This signal is used to signify to PersistentScenes to add the persistent
@@ -40,12 +57,15 @@ signal entered
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# temporary for testing only. delete on final product
-	# generateVirusAndBundles()
-	
+	randomize()
 	# instantiate mainMenu and add it as children
 	mainMenu = mainMenu.instance()
 	self.add_child(mainMenu)
+	
+	# set timer's time. The timer should start on lab instantiation. The lab should check if timer
+	# is ongoing or not
+	$EventTimer.wait_time = 300
+	$EventTimer.connect("timeout", get_node("/root/Session"), "callEventSystem")
 
 # this function changes the scene for susbsytems that don't need to be persistent
 # currentScene: the current scene
@@ -94,7 +114,7 @@ func generateVirusAndBundles():
 			if bundleID % 4 == 0:
 				bundles[str(bundleID)] = generateBundle(str(bundleID), # id
 														str(key), # symptom
-														"0.0", # price
+														str(round(rand_range(5000.0, 10000.0))), # price
 														"0", # inStock
 														letters[key*4+n], # bundleName
 														"Add description", # desc
@@ -102,7 +122,7 @@ func generateVirusAndBundles():
 			else:
 				bundles[str(bundleID)] = generateBundle(str(bundleID), 
 														str(key),
-														"0.0", 
+														str(round(rand_range(5000.0, 10000.0))), 
 														"0",
 														letters[key*4+n], 
 														"Add description", 
@@ -137,3 +157,6 @@ func loadVirusAndBundles():
 		print(mainDict)
 		save_game.close()
 
+# when EventTimer timeouts, call a random event.
+func callEventSystem():
+	EventSystem.startEvent()
