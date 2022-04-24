@@ -75,9 +75,10 @@ func _ready():
 # changes scene to Cutscene when new game is pressed
 func _on_NewGame_pressed():
 	emit_signal("NewGame")
-	emit_signal("AddPersistentScenes")
 	# generate new Virus and Bundles on new game
 	get_node("/root/Session").generateVirusAndBundles()
+	
+	emit_signal("AddPersistentScenes")
 	# set new game to true and set money
 	Profile.is_new_game = true
 	Profile.money = 1_000_000

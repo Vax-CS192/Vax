@@ -33,17 +33,15 @@ func generateSymptom(length: int) -> String:
 		symp += alphabet.get(String(random))
 	return symp
 
-# generate bundles. baseSymp is the actual symptom, while genBund1, genBund2, and
-# genBund3 are derived from it. baseSymp is supposed to be the bundle that cures
-# the symptom by 100%, which is why it is the symptom as well. genBund1, genBund2, and
-# genBund3 are bundles with less efficiency than baseSymp
+# generateBundleSequnce returns a sequence that is randomly altered from the base
 func generateBundleSequence(base: String) -> String:
 	randomize()
 	var lengthOfBaseRetained = round(rand_range(1,9))
 	var genBund1 = base.substr(0,lengthOfBaseRetained) \
 					+ generateSymptom(10 - lengthOfBaseRetained)
 	return genBund1
-	
+
+# generateBundle returns a dictionary that represents a bundle
 func generateBundle(id: String, key: String, price: String, inStock: String, bundleName: String, 
 	desc: String, sequence: String) -> Dictionary:
 		return	{

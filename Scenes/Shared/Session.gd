@@ -18,8 +18,19 @@ extends VirusGenerator
 var mainMenu = load("res://Scenes/MainMenu/MainMenu.tscn")
 
 # We generate bundles using the inherited method generateBundles.
-# These bundles are arrays of 4 randomly generated DNA strings with the
-# first item in the array being the actual symptom
+# The sequence in the bundle are arrays of 4 randomly generated DNA strings with 
+# the first item in the array being the actual symptom
+# 
+# The structure of each bundle is as follows
+# {
+#	"id": id -> identifier for bundle,
+#	"symptom": key -> what symptom it is trying to cure,
+#	"price": price -> price of bundle,
+#	"inStock": inStock -> number of stock of the bundle,
+#	"bundleName": bundleName -> the bundle's name,
+#	"desc": desc -> player-generated description,
+#	"sequence": sequence -> sequence that's used to compute how effective the bundle is,
+# }
 
 var mainDict = {}
 
@@ -74,20 +85,39 @@ func generateVirusAndBundles():
 		"symptoms": virus
 	}
 	
-	# generate bundles from virus
+	# generate bundles from virus. for each symptom, generate 4 bundles
 	var bundleID = 0
 	for key in virus.keys():
 		for n in range(4):
+			# the first bundle for each symptom should cure that syptom perfectly, else
+			# the bundle is modified 
 			if bundleID % 4 == 0:
-				bundles[str(bundleID)] = generateBundle(str(bundleID), str(key), "0.0", "0",
-												letters[key*4+n], "Add description", virus[key])
+				bundles[str(bundleID)] = generateBundle(str(bundleID), # id
+														str(key), # symptom
+														"0.0", # price
+														"0", # inStock
+														letters[key*4+n], # bundleName
+														"Add description", # desc
+														virus[key]) #sequence
 			else:
-				bundles[str(bundleID)] = generateBundle(str(bundleID), str(key), "0.0", "0",
-											letters[key*4+n], "Add description", generateBundleSequence(virus[key]))
+				bundles[str(bundleID)] = generateBundle(str(bundleID), 
+														str(key),
+														"0.0", 
+														"0",
+														letters[key*4+n], 
+														"Add description", 
+														generateBundleSequence(virus[key]))
 			bundleID += 1
 			
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles
+	
+# this function gives the player a number of bundles since they pressed Yes in the template pop-up
+# this function simply changes the inStock property of the bundles in maindDict.bundles
+# TODO: How many bundles should be given to the player?
+func templateAddBundles():
+	
+	return
 	
 func saveVirusAndBundles():
 	print("saving virus and bundles")
