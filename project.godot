@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 
 Profile="*res://Scenes/Shared/Profile.gd"
 PersistentScenes="*res://Scenes/Shared/PersistentScenes.gd"
+EventSystem="*res://Scenes/Shared/EventSystem.gd"
 
 [display]
 

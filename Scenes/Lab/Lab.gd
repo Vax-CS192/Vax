@@ -15,19 +15,20 @@ extends Control
 # preload to make main menu scene and template pop-up switch faster
 var mainMenu = preload("res://Scenes/MainMenu/MainMenu.tscn")
 var templatePopUp = preload("res://Scenes/Lab/TemplatePopUp.tscn")
+# Since we need to connect signals from the instantiated ButtonContainer,
+# we have to manually get a reference to those buttons using code and
+# connect the signals to this script manually
+onready var cauldronButton = get_node("ButtonContainer/Cauldron")
+onready var shopButton = get_node("ButtonContainer/Shop")
+onready var mapButton = get_node("ButtonContainer/Map")
+onready var testButton = get_node("ButtonContainer/Testing")
+
+onready var eventTimer: Timer = get_node("/root/Session/EventTimer")
 
 signal SaveVirusAndBundles
 
 # This function is run at the start of the scene
 func _ready():
-	# Since we need to connect signals from the instantiated ButtonContainer,
-	# we have to manually get a reference to those buttons using code and
-	# connect the signals to this script manually
-	var cauldronButton = get_node("ButtonContainer/Cauldron")
-	var shopButton = get_node("ButtonContainer/Shop")
-	var mapButton = get_node("ButtonContainer/Map")
-	var testButton = get_node("ButtonContainer/Testing")
-	
 	cauldronButton.connect("pressed", self, "_on_cauldronButton_pressed")
 	shopButton.connect("pressed", self, "_on_shopButton_pressed")
 	mapButton.connect("pressed", self, "_on_mapButton_pressed")
@@ -38,6 +39,12 @@ func _ready():
 	# if new game, then start timer
 	if Profile.is_new_game == true:
 		$Timer.start()
+		
+	# time_left is 0 when timer is inactive
+	if eventTimer.time_left == 0.0:
+		print("starting event timer")
+		eventTimer.start()
+
 
 # change scene when button to FormulaBook is pressed
 # subject to change
@@ -69,7 +76,21 @@ func _on_testButton_presed():
 func _process(delta):
 	# sets money on screen
 	$Money/money.text = "PHP " + Profile.format_money(Profile.money)
-
+	
+	# check if shop and testing area should be disabled
+	var eventSystem = get_node("/root/EventSystem")
+	
+	if eventSystem.shopEnabled == false:
+		shopButton.disabled = true
+	else:
+		shopButton.disabled = false
+		
+	if eventSystem.testingAreaEnabled == false:
+		testButton.disabled = true
+	else:
+		testButton.disabled = false
+	
+	
 # after 0.5 seconds, instantiate template popup
 func _on_Timer_timeout():
 	templatePopUp = templatePopUp.instance()
