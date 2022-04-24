@@ -49,10 +49,22 @@ func get_favorite_names():
 # This validates, based on a provided list of vaccines, 
 # whether the player has enough of each bundle to perform the test
 # If yes, this returns 0, else it returns -1
+#If no, return the bundleID of the bundle to buy more of
 func validate(patient_vaccines):
 	var vaccine_decompositions = []
+	var required_counter  = []
+	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
+	for _x in range(20):
+		required_counter.append(0)
 	for vaccine in patient_vaccines:
 		if vaccine == -1:
 			 continue
-		
-		
+		vaccine_decompositions.append(favorites[vaccine-1]["Components"])
+	for decomposition in vaccine_decompositions:
+		for element in decomposition:
+			if int(element) != -1:
+				required_counter[int(element)] += 1
+	for x in range(20):
+		if required_counter[x] >  int(bundle_dict[str(x)]["inStock"]):
+			return x
+	return -1

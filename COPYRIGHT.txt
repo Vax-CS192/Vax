@@ -310,8 +310,14 @@ Author: Kurt Ian Khalid Israel
 License: 0BSD
 Notice: Image extracted from prototype and stored in png; graphical reset symbol removed; left side of image repaired using right side of image
 
-File: Assets/TestingArea/Test.png
+File: Assets/TestingArea/Test_Disabled.png, modified by Jeremy Vincent Yu
 Author: Kurt Ian Khalid Israel
+License: 0BSD
+Notice: Image extracted from prototype and stored in png; graphical play symbol removed; left side of image repaired using right side of image, image recolored to gray
+
+
+File: Assets/TestingArea/Test.png
+Author: Kurt Ian Khalid Israel, modified by Jeremy Vincent Yu
 License: 0BSD
 Notice: Image extracted from prototype and stored in png; graphical play symbol removed; left side of image repaired using right side of image
 

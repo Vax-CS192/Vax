@@ -87,8 +87,18 @@ func _on_reset_pressed():
 		patient_vaccines[x] = -1
 		$Labels.get_node("p"+str(selected_patient)).text= "Blank"
 
-#Validate whether the player has enough of every bundle to launch the test. If not, tell the player yo buy more of a bundle.
+#Validate whether the player has enough of every bundle to launch the test.
+#If not, tell the player yo buy more of a bundle.
+#If so, instruct TestController to compute test results
 func _on_test_pressed():
 	var test_controller = get_parent().get_node("TestController")
 	var test_results = test_controller.validate(patient_vaccines)
-	
+	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
+	if test_results != -1:
+		var info_reference = $NotEnoughHolder.get_node("NotEnough")
+		var message = "You do not have enough ingredients for this test. Buy more " + bundle_dict[str(test_results)]["bundleName"] + " from the Shop."
+		$NotEnoughHolder.get_node("NotEnough").set_message(message)
+		$NotEnoughHolder.show_info()
+		return
+	pretest = false
+	$test.disabled = true
