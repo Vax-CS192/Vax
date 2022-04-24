@@ -10,35 +10,31 @@
 # NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
 # OF THIS SOFTWARE.
 
-extends TextureRect
+# DESIGN: The event system craetes random events for the player as added challenges and stuff.
+# EventSystem.gd will also be an autoload global since each event can affect multiple systems. 
+# Each event possible will be declared here as a function. A timer will be created which will
+# run a random number generator after some time. The random number generated will decide which 
+# event will happen to the player.
 
+extends Node
 
-onready var session = get_node("/root/Session")
-signal pressedYesInTemplate
-
+onready var timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# when pressedYesInTemplate is emitted, call templateAddBundles in Session
-	self.connect("pressedYesInTemplate", get_node("/root/Session"), "templateAddBundles")
+	randomize()
+	timer.start(600) # set timer for 10 mins
 
+func startEvent():
+	var event = randi() % 10 # get number between 0 - 9 inclusive
+	
+	# match event
+	match event:
+		0: return
+		_: return
+
+# TODO: what events should i use?
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-# called when yes is pressed in template pop-up
-func _on_Yes_pressed():
-	# Deduct money
-	Profile.money -= 500_000
-	Profile.is_new_game = false
-	# Add bundles to player
-	# TODO
-	emit_signal("pressedYesInTemplate")
-	$".".queue_free()
-
-# called when no is pressed
-func _on_No_pressed():
-	# Destroy self
-	Profile.is_new_game = false
-	$".".queue_free()
