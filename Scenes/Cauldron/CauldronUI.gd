@@ -48,7 +48,7 @@ func draw():
 		all_ingredients[x].set_name(bundle_dict[str(x)]["bundleName"])
 		self.show()
 # Check whether the mix button should be enabled every frame
-# Also, update money in real time
+
 func _process(_delta):
 	var all_bundles = $Bundles.get_children()
 	var total_selected = 0;

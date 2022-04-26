@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/TestingArea/TestingAreaUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/TestingArea/TestController.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/TestingArea/TestingArea.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/TestingArea/TestData.tscn" type="PackedScene" id=4]
 
 [node name="TestingArea" type="Node"]
 script = ExtResource( 3 )
@@ -11,5 +12,7 @@ script = ExtResource( 3 )
 
 [node name="TestingAreaUI" parent="." instance=ExtResource( 1 )]
 visible = false
+
+[node name="TestData" parent="." instance=ExtResource( 4 )]
 
 [connection signal="back_pressed" from="TestingAreaUI" to="TestController" method="_on_TestingAreaUI_back_pressed"]

@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/TestingArea/Formula.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/TestingArea/ReagentOverlay.gd" type="Script" id=3]
+
+[node name="ReagentOverlay" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 2999.0
+margin_bottom = 1453.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="F1" parent="." instance=ExtResource( 1 )]
+margin_left = 112.0
+margin_top = 148.0
+margin_right = 445.0
+margin_bottom = 591.0
+
+[node name="F2" parent="." instance=ExtResource( 1 )]
+margin_left = 600.0
+margin_top = 152.0
+margin_right = 933.0
+margin_bottom = 595.0
+
+[node name="F3" parent="." instance=ExtResource( 1 )]
+margin_left = 1092.0
+margin_top = 144.0
+margin_right = 1425.0
+margin_bottom = 587.0
+
+[node name="F4" parent="." instance=ExtResource( 1 )]
+margin_left = 1584.0
+margin_top = 140.0
+margin_right = 1917.0
+margin_bottom = 583.0
+
+[node name="F5" parent="." instance=ExtResource( 1 )]
+margin_left = 2076.0
+margin_top = 136.0
+margin_right = 2409.0
+margin_bottom = 579.0
+
+[node name="F6" parent="." instance=ExtResource( 1 )]
+margin_left = 2548.0
+margin_top = 128.0
+margin_right = 2881.0
+margin_bottom = 571.0
+
+[node name="F7" parent="." instance=ExtResource( 1 )]
+margin_left = 324.0
+margin_top = 856.0
+margin_right = 657.0
+margin_bottom = 1299.0
+
+[node name="F8" parent="." instance=ExtResource( 1 )]
+margin_left = 836.0
+margin_top = 860.0
+margin_right = 1169.0
+margin_bottom = 1303.0
+
+[node name="F9" parent="." instance=ExtResource( 1 )]
+margin_left = 1340.0
+margin_top = 864.0
+margin_right = 1673.0
+margin_bottom = 1307.0
+
+[node name="F10" parent="." instance=ExtResource( 1 )]
+margin_left = 1840.0
+margin_top = 864.0
+margin_right = 2173.0
+margin_bottom = 1307.0
+
+[node name="Blank" parent="." instance=ExtResource( 1 )]
+margin_left = 2332.0
+margin_top = 864.0
+margin_right = 2665.0
+margin_bottom = 1307.0
+
+[connection signal="pressed" from="F1" to="." method="_on_F1_pressed"]
+[connection signal="pressed" from="F2" to="." method="_on_F2_pressed"]
+[connection signal="pressed" from="F3" to="." method="_on_F3_pressed"]
+[connection signal="pressed" from="F4" to="." method="_on_F4_pressed"]
+[connection signal="pressed" from="F5" to="." method="_on_F5_pressed"]
+[connection signal="pressed" from="F6" to="." method="_on_F6_pressed"]
+[connection signal="pressed" from="F7" to="." method="_on_F7_pressed"]
+[connection signal="pressed" from="F8" to="." method="_on_F8_pressed"]
+[connection signal="pressed" from="F9" to="." method="_on_F9_pressed"]
+[connection signal="pressed" from="F10" to="." method="_on_F10_pressed"]
