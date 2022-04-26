@@ -42,7 +42,7 @@ func _ready():
 		
 	# time_left is 0 when timer is inactive
 	if eventTimer.time_left == 0.0:
-		print("starting event timer")
+		# print("starting event timer")
 		eventTimer.start()
 
 
