@@ -140,14 +140,14 @@ func templateAddBundles():
 	return
 	
 func saveVirusAndBundles():
-	print("saving virus and bundles")
+	# print("saving virus and bundles")
 	var save_game = File.new()
 	save_game.open("user://virus&bundles.save", File.WRITE)
 	save_game.store_line(to_json(mainDict))
 	save_game.close()
 	
 func loadVirusAndBundles():
-	print("loading virus and bundles")
+	# print("loading virus and bundles")
 	var save_game = File.new()
 	if not save_game.file_exists("user://virus&bundles.save"):
 		return
