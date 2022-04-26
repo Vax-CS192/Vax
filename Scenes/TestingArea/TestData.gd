@@ -18,8 +18,11 @@ func _ready():
 	var current_time = OS.get_unix_time();
 	var persistent_data = File.new()
 	if not persistent_data.file_exists("user://testing_area.save"):
+		print("Trying to set pretest to true")
 		pretest = true
+		print("Pretest is now",pretest)
 		return
+	persistent_data.open("user://testing_area.save",File.READ)
 	testing_area_data = parse_json(persistent_data.get_line())
 	persistent_data.close()
 	if testing_area_data["testing"] == str(true):
