@@ -31,7 +31,7 @@ func _ready():
 func startEvent():
 	var event = randi() % 9 # get number between 0 - 8 inclusive; change to 9 later
 
-	print("doing event: %s" % event)
+	# print("doing event: %s" % event)
 	
 	# match event
 	match event:
