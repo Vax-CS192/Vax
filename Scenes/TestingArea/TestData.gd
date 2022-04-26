@@ -3,7 +3,7 @@ var testing_area_data = {}
 var pretest = false
 var testing = false
 var test_done = false
-var demo = true
+var demo = false
 var waiting_time = 1800
 var starting_time = -1
 # Declare member variables here. Examples:
@@ -18,9 +18,9 @@ func _ready():
 	var current_time = OS.get_unix_time();
 	var persistent_data = File.new()
 	if not persistent_data.file_exists("user://testing_area.save"):
-		print("Trying to set pretest to true")
+		#print("Trying to set pretest to true")
 		pretest = true
-		print("Pretest is now",pretest)
+		#print("Pretest is now",pretest)
 		return
 	persistent_data.open("user://testing_area.save",File.READ)
 	testing_area_data = parse_json(persistent_data.get_line())
@@ -53,6 +53,7 @@ func save_data(timer_ctime,pretest,testing,test_done):
 	
 #Load a particular property from file. Could be pretest, testing, test_done, or test_results 
 func load_property(x):
+	#print("Pretest is now:",pretest)
 	if x == "testing":
 		return testing
 	elif x == "pretest":

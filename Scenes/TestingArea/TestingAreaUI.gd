@@ -14,17 +14,17 @@ var pretest = true
 var testing = false
 var test_done = false
 var favorite_names = []
-var demo = true
+var demo = false
 var waiting_time = 1800
 var timer_ctime = 0
-
+var first_draw = true
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func first_draw_init():
 	if demo :
 		waiting_time = 15
 	var testcontroller = get_parent().get_node("TestController")
@@ -37,9 +37,8 @@ func _ready():
 		$patient2.disabled = true
 		$patient3.disabled = true
 		$patient4.disabled = true
-		$patient5.disabled = true
-		waiting_time =  OS.get_unix_time() - testcontroller.load_property("start_time")
-		$Cooldown.start(waiting_time)
+		$patient5.disabled = true  
+		$Cooldown.start(waiting_time - (OS.get_unix_time() - testcontroller.load_property("start_time")))
 		$TimeLeft.show()
 		
 	timer_ctime = OS.get_unix_time()
@@ -71,6 +70,9 @@ func _on_back_pressed():
 
 # This method updates the money and the favorite  and draws TestingAreaUI to screen
 func draw():
+		if first_draw:
+			first_draw_init()
+			first_draw = false
 		favorite_names = get_parent().get_node("TestController").get_favorite_names()
 		max_vaccine = len(favorite_names)
 		var reagent_overlay = $ReagentHolder.get_node("ReagentOverlay")
