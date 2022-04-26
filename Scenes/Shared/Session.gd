@@ -154,7 +154,7 @@ func loadVirusAndBundles():
 	else:
 		save_game.open("user://virus&bundles.save", File.READ)
 		mainDict = parse_json(save_game.get_line())
-		print(mainDict)
+		# print(mainDict)
 		save_game.close()
 
 # when EventTimer timeouts, call a random event.
