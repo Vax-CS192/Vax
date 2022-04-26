@@ -82,6 +82,12 @@ func execute_test(patient_vaccines):
 			vaccine_decompositions.append([])
 			continue
 		vaccine_decompositions.append(favorites[vaccine-1]["Components"])
+	for decomposition in vaccine_decompositions:
+		for element in decomposition:
+			if int(element) != -1:
+				required_counter[int(element)] += 1
+	for x in range(20):
+		bundle_dict[str(x)]["inStock"] = str(int(bundle_dict[str(x)]["inStock"]) - required_counter[x])
 
 #Pass data to TestData DAO for storage
 func save_data(timer_ctime,pretest,testing,test_done):

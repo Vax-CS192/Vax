@@ -195,7 +195,6 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
 frames = SubResource( 11 )
-frame = 1
 playing = true
 
 [node name="ReagentHolder" type="Popup" parent="."]
