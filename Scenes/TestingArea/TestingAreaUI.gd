@@ -11,7 +11,13 @@ var selected_patient = -1
 var patient_vaccines = [-1,-1,-1,-1,-1]
 var max_vaccine = 0
 var pretest = true
+var testing = false
+var test_done = false
 var favorite_names = []
+var demo = true
+var waiting_time = 1800
+var timer_ctime = 0
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -19,15 +25,48 @@ var favorite_names = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if demo :
+		waiting_time = 15
+	var testcontroller = get_parent().get_node("TestController")
+	pretest = testcontroller.load_property("pretest")
+	testing = testcontroller.load_property("testing")
+	test_done = testcontroller.load_property("test_done")
+	if testing:
+		$test.disabled = true
+		$patient1.disabled = true
+		$patient2.disabled = true
+		$patient3.disabled = true
+		$patient4.disabled = true
+		$patient5.disabled = true
+		waiting_time =  OS.get_unix_time() - testcontroller.load_property("start_time")
+		$Cooldown.start(waiting_time)
+		$TimeLeft.show()
+		
+	timer_ctime = OS.get_unix_time()
+#Format Time into MM		
+func format_time(some_time):
+	var discretized = int(some_time)
+	var minutes_left = int(discretized/60)
+	var seconds_left = discretized%60
+	var pad_seconds = ""
+	var pad_minutes = ""
+	if seconds_left <10:
+		pad_seconds = "0"
+	if minutes_left <10:
+		pad_minutes = "0"
+	return pad_minutes + str(minutes_left)+":"+pad_seconds+str(seconds_left)
 
-#func _process(delta):
-
+#If in testing stage, update counter on every frame.
+func _process(_delta):
+	if testing:
+		$TimeLeft.text = format_time($Cooldown.get_time_left())
 #	pass
 
 #  This method causes the TestingAreaUI to signal to TestController to instance the Lab
 #  subsystem and to hide TestingAreaUI
 func _on_back_pressed():
+	var testcontroller = get_parent().get_node("TestController") 
+	testcontroller.save_data(timer_ctime,pretest,testing,test_done)
 	emit_signal("back_pressed")
 
 # This method updates the money and the favorite  and draws TestingAreaUI to screen
@@ -83,13 +122,22 @@ func set_vaccine(selected_vaccine: int):
 #Reset TestingArea to initial State
 func _on_reset_pressed():
 	pretest  = true
-	for x in range(-5):
+	testing = false
+	test_done = false
+	$TimeLeft.hide()
+	for x in range(5):
 		patient_vaccines[x] = -1
-		$Labels.get_node("p"+str(selected_patient)).text= "Blank"
-
+		$Labels.get_node("p"+str(x)).text= "Blank"
+	$test.disabled = false
+	$patient1.disabled = false
+	$patient2.disabled = false
+	$patient3.disabled = false
+	$patient4.disabled = false
+	$patient5.disabled = false
+	
 #Validate whether the player has enough of every bundle to launch the test.
 #If not, tell the player yo buy more of a bundle.
-#If so, instruct TestController to compute test results
+#If so, instruct TestController to compute test results and make the appropriate deductions
 func _on_test_pressed():
 	var test_controller = get_parent().get_node("TestController")
 	var test_results = test_controller.validate(patient_vaccines)
@@ -101,4 +149,27 @@ func _on_test_pressed():
 		$NotEnoughHolder.show_info()
 		return
 	pretest = false
+	testing = true
 	$test.disabled = true
+	$patient1.disabled = true
+	$patient2.disabled = true
+	$patient3.disabled = true
+	$patient4.disabled = true
+	$patient5.disabled = true
+	test_controller.execute_test(patient_vaccines)
+	$Cooldown.start(waiting_time)
+	$TimeLeft.show()
+	timer_ctime = OS.get_unix_time()
+
+#Switch to post-test state after timeout
+func _on_Cooldown_timeout():
+	testing = false
+	test_done = true
+	$Cooldown.stop()
+	$TimeLeft.hide()
+	$patient1.disabled = false
+	$patient2.disabled = false
+	$patient3.disabled = false
+	$patient4.disabled = false
+	$patient5.disabled = false
+	

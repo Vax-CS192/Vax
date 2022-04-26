@@ -8,6 +8,7 @@
 extends Node
 var favorites
 var favorite_names = []
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -68,3 +69,28 @@ func validate(patient_vaccines):
 		if required_counter[x] >  int(bundle_dict[str(x)]["inStock"]):
 			return x
 	return -1
+
+#Testing Logic mostly copied from the map but modified to add some noise
+func execute_test(patient_vaccines):
+	var vaccine_decompositions = []
+	var required_counter  = []
+	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
+	for _x in range(20):
+		required_counter.append(0)
+	for vaccine in patient_vaccines:
+		if vaccine == -1:
+			vaccine_decompositions.append([])
+			continue
+		vaccine_decompositions.append(favorites[vaccine-1]["Components"])
+
+#Pass data to TestData DAO for storage
+func save_data(timer_ctime,pretest,testing,test_done):
+	var test_data = get_parent().get_node("TestData")
+	test_data.save_data(timer_ctime,pretest,testing,test_done)
+
+
+#Retrieve Data from TestData DAO
+func load_property(x):
+	var test_data = get_parent().get_node("TestData")
+	return test_data.load_property(x)
+	

@@ -8,6 +8,12 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 The remainder of this file documents the assets referenced by scenes, the assets whose paths are referenced in gdscripts, the godot icon, and the Godot binary bundled with Vax. 
 
+File: Assets/MainMenu/not_enough.png
+Author: John Henry Galino
+License: CC0 1.0
+Link to License: http://creativecommons.org/publicdomain/zero/1.0
+Notice: Image renamed from main_menu_pop_up.png
+
 File: Assets/TestingArea/Occupied Formula.png
 Author: Aira Mae Aloveros
 License: 0BSD
@@ -169,6 +175,12 @@ Source: https://opengameart.org/content/wooden-cupboard-shelf-pcdesk
 Author: jwiese
 Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
 
+
+File: Assets/TestingArea/logo_disabled.png
+Author: KBArt
+License: CC-BY-4.0
+Link to License: https://creativecommons.org/licenses/by/4.0/legalcode
+Notice: Desaturated from original in order to show a disabled icon
 
 File: Assets/TestingArea/logo.png
 Author: KBArt
