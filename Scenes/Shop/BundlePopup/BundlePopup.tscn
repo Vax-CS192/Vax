@@ -122,4 +122,5 @@ __meta__ = {
 
 [connection signal="about_to_show" from="." to="." method="_on_Popup_about_to_show"]
 [connection signal="popup_hide" from="." to="." method="_on_Popup_popup_hide"]
+[connection signal="update_bundle" from="." to="." method="_update_deets"]
 [connection signal="pressed" from="ArchivePopupControl/Buy Button" to="." method="_on_Buy_Button_pressed"]
