@@ -13,7 +13,6 @@ onready var child_vaccines = get_node("Vaccines/ScrollContainer/VSeparator")
 
 # called whenever the deploy button is pressed, which basically calls the _close_and_deploy function
 func _on_DeployButton_pressed():
-	get_parent().get_parent().disable_region()
 	var AV_file = File.new()
 	AV_file.open("user://AvailableVaccines.save", File.READ)
 	var dict = parse_json(AV_file.get_line())
@@ -25,6 +24,7 @@ func _on_DeployButton_pressed():
 	get_parent().get_parent().update_regions_file(VaccinesDeployed)
 	vaccines.clear()
 	_close_and_deploy()
+	get_parent().get_parent().disable_region()
 
 # called whenever the close button is pressed, which basically calls the _close_and_deploy function
 func _on_CloseButton_pressed():

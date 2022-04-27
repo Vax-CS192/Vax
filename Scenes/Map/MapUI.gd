@@ -19,6 +19,9 @@ func _process(delta):
 func disable_region():
 	$Buttons.get_child(button).disabled = true
 
+func enable_region(region_index):
+	$Buttons.get_child(region_index + 1).disabled = false
+
 func mass_produced_vaccines(vaccineName, bundleSequences):
 	var save_game = File.new()
 	if not save_game.file_exists("user://AvailableVaccines.save"):
@@ -45,6 +48,7 @@ func init_map():
 	for i in range(17):
 		regionButtons[i+1].disabled = dict[str(i)]["disabled"]
 	region_file.close()
+	get_node("Timers").initialize()
 
 func initialize_regions():
 	var save_game = File.new()
@@ -63,19 +67,19 @@ func initialize_regions():
 			for k in range(symptom.length()):
 				if symptom[k] != base[k]:
 					unmatched += 1
-			var efficacy = (float(unmatched) / float(symptom.length())) * 100
+			var efficacy = (float(unmatched) / float(symptom.length())) * 72
 			sequences.append(symptom)
 			effectivity.append(efficacy)
 		in_dict["initsequences"] = sequences
 		in_dict["effectivity"] = effectivity
 		in_dict["vaccinesDeployed"] = []
+		in_dict["reward"] = 0
 		outer_dict[i] = in_dict
 	save_game.open("user://Regions.save", File.WRITE)
 	save_game.store_line(to_json(outer_dict))
 	save_game.close()
 
 func update_regions_file(VaccinesDeployed):
-	var save_game = File.new()
 	var bundleDict = get_parent().mainDict["bundles"]
 	var vaccines = []
 	for i in VaccinesDeployed:
@@ -88,6 +92,42 @@ func update_regions_file(VaccinesDeployed):
 		vaccines.append(vaccine)
 	dict[str(button-1)]["vaccinesDeployed"] = vaccines
 	dict[str(button-1)]["disabled"] = true
+	dict[str(button-1)]["waitTime"] = OS.get_unix_time() + 10
+	efficacy(vaccines, str(button-1))
+	save_dict()
+	
+func save_dict():
+	var save_game = File.new()
 	save_game.open("user://Regions.save", File.WRITE)
 	save_game.store_line(to_json(dict))
 	save_game.close()
+
+func get_dict_info(key):
+	return dict[str(key)]
+
+func update_dict_info(key, val):
+	dict[key] = val
+	save_dict()
+
+func efficacy(vaccines, region):
+	var effectivity = [0, 0, 0, 0, 0]
+	var regionSequence = dict[region]["initsequences"]
+	var RegionStat = dict[region]["effectivity"]
+	
+	for vaccine in vaccines:
+		for i in range(len(vaccine)):
+			var counter = 0.0
+			for j in range(len(vaccine[i])):
+				if vaccine[i][j] == regionSequence[i][j]:
+					counter += 1
+			effectivity[i] += (counter/len(vaccine[i]))
+	
+	var sum = 0.0
+	for i in range(5):
+		RegionStat[i] -= (effectivity[i] * 7)
+		sum += (effectivity[i] * 0.25)
+	
+	dict[region]["effectivity"] = RegionStat 
+	dict[region]["reward"] = sum * 1000000
+	
+
