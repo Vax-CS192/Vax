@@ -21,10 +21,14 @@ onready var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
 # Called when the node enters the scene tree for the first time.
 # Bundle name, and color as well as Popup name are set here.
 func _ready():
-	#randomize() #will be needed to randomize bundle names
 	#Set Bundle Names
-
 	set_bundle_deets()
+	update_bundle_count()
+	
+#updates bundle count	
+func update_bundle_count():
+	for fp_slot in range(1,21):
+		_on_BundleIcon_pressed(fp_slot)
 
 #Syncs money
 func _process(delta):

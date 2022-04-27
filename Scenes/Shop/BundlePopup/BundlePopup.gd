@@ -17,10 +17,10 @@ var path = ""
 var bundleNumber = 0
 
 func _on_Popup_about_to_show(fp_slot,passed_path,bundle_deets):
+	#print("updating", fp_slot)
 	path=passed_path
 	bundleNumber = fp_slot
 
-	
 	#update popup details
 	$ArchivePopupControl/FormulaName.text=bundle_deets["bundleName"]
 	$ArchivePopupControl/FormulaNote.text=bundle_deets["desc"]
