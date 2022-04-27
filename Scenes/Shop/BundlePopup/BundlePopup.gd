@@ -15,19 +15,23 @@ signal bundle_unpressed(path)
 signal update_bundle()
 var path = ""
 var bundleNumber = 0
+var bundle_deets={}
 
-func _on_Popup_about_to_show(fp_slot,passed_path,bundle_deets):
+func _on_Popup_about_to_show(fp_slot,passed_path,deets):
 	#print("updating", fp_slot)
 	path=passed_path
 	bundleNumber = fp_slot
-
+	bundle_deets=deets
 	#update popup details
-	$ArchivePopupControl/FormulaName.text=bundle_deets["bundleName"]
-	$ArchivePopupControl/FormulaNote.text=bundle_deets["desc"]
-	$ArchivePopupControl/Price.text=bundle_deets["price"]
+	update_deets()
 	#$ArchivePopupControl/FormulaNote.text=
 	#$ArchivePopupControl/Price.text=
 	self.popup_centered()
+
+func update_deets():
+	$ArchivePopupControl/FormulaName.text=bundle_deets["bundleName"]
+	$ArchivePopupControl/FormulaNote.text=bundle_deets["desc"]
+	$ArchivePopupControl/Price.text="Php "+bundle_deets["price"]
 
 #runs when popup is hidden
 func _on_Popup_popup_hide():
@@ -38,6 +42,7 @@ func _on_Popup_popup_hide():
 func _on_Buy_Button_pressed():
 	var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
 	bundle_Dict[str(bundleNumber-1)]["inStock"]=str(int(bundle_Dict[str(bundleNumber-1)]["inStock"])+3)
+	print("count: ",bundle_Dict[str(bundleNumber-1)]["inStock"])
 	
 	#save updated name and note
 	bundle_Dict[str(bundleNumber-1)]["bundleName"]=$ArchivePopupControl/FormulaName.text

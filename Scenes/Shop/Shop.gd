@@ -23,10 +23,17 @@ onready var bundle_Dict = get_node("/root/Session").mainDict["bundles"]
 func _ready():
 	#Set Bundle Names
 	set_bundle_deets()
-	update_bundle_count()
 	
+	
+#directly shows the shop screen which is hidden by default
+func draw():
+	update_bundle_count()
+	set_bundle_deets()
+	self.show()
+
 #updates bundle count	
 func update_bundle_count():
+	print("bundle icon count text updated")
 	for fp_slot in range(1,21):
 		_on_BundleIcon_pressed(fp_slot)
 
@@ -44,6 +51,7 @@ func set_bundle_deets():
 
 		var counter_path = "ShopControl/Bundle"+str(i+1)+"/Counter"
 		get_node(counter_path).text =bundle_deets["inStock"]
+	update_bundle_count()
 		
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():
