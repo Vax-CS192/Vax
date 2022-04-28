@@ -30,9 +30,7 @@ func _process(delta):
 			if regioninfo["collect"] and !first:
 				instantiate_moneyBag()
 				first = true
-			regioninfo["disabled"] = false
 			MapUI.update_dict_info(region, regioninfo)
-			MapUI.enable_region(region)
 			self.hide()
 
 func set_region(index):
