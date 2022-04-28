@@ -14,19 +14,25 @@ extends Node
 
 
 # preload scenes to be instantiated
-var cauldron = preload("res://Scenes/Cauldron/Cauldron.tscn")
-var testingArea = preload("res://Scenes/TestingArea/TestingArea.tscn")
-var map = preload("res://Scenes/Map/MapUI.tscn")
-var shop = preload("res://Scenes/Shop/Shop.tscn")
-var formulaBook = preload("res://Scenes/FormulaBook/FormulaBook.tscn")
+var cauldronLoad = preload("res://Scenes/Cauldron/Cauldron.tscn")
+var testingAreaLoad = preload("res://Scenes/TestingArea/TestingArea.tscn")
+var mapLoad = preload("res://Scenes/Map/MapUI.tscn")
+var shopLoad = preload("res://Scenes/Shop/Shop.tscn")
+var formulaBookLoad = preload("res://Scenes/FormulaBook/FormulaBook.tscn")
+var cauldron
+var map
+var shop
+var formulaBook
+var testingArea
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	cauldron = cauldron.instance()
-	testingArea = testingArea.instance()
-	map = map.instance()
-	shop = shop.instance()
-	formulaBook = formulaBook.instance()
+	cauldron = cauldronLoad.instance()
+	testingArea = testingAreaLoad.instance()
+	map = mapLoad.instance()
+	shop = shopLoad.instance()
+	formulaBook = formulaBookLoad.instance()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

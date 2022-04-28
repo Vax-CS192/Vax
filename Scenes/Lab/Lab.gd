@@ -51,6 +51,10 @@ func _ready():
 func _on_BackToMainMenu_pressed():
 	emit_signal("SaveVirusAndBundles")
 	Profile.save_data()
+	for i in get_node("/root/Session").get_children():
+		if not (i is Timer):
+			i.queue_free()
+	PersistentScenes._ready()
 	get_node("/root/Session").changeSceneTo(self, mainMenu.instance())
 
 # change scene to Cauldron when cauldron button is pressed
@@ -60,7 +64,8 @@ func _on_cauldronButton_pressed():
 
 # changes scene to shop when shop button is pressed
 func _on_shopButton_pressed():
-	get_node("/root/Session").changeSceneTo(self, PersistentScenes.shop)
+	self.queue_free()
+	get_tree().get_root().get_node("Session/Shop").draw()
 	
 # changes scene to Map when map button is pressed
 func _on_mapButton_pressed():
