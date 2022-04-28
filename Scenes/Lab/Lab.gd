@@ -64,8 +64,9 @@ func _on_cauldronButton_pressed():
 
 # changes scene to shop when shop button is pressed
 func _on_shopButton_pressed():
-	self.queue_free()
-	get_tree().get_root().get_node("Session/Shop").draw()
+	#self.queue_free()
+	#get_tree().get_root().get_node("Session/Shop").draw()
+	get_node("/root/Session").changeSceneTo(self, PersistentScenes.shop)
 	
 # changes scene to Map when map button is pressed
 func _on_mapButton_pressed():

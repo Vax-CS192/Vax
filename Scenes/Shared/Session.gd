@@ -139,7 +139,7 @@ func generateVirusAndBundles():
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles2
 	
-# this function gives the player a number of bundles since they pressed Yes in the template pop-up
+# this function gives the player a number of bundles and a formula since they pressed Yes in the template pop-up
 # this function simply changes the inStock property of the bundles in maindDict.bundles
 # For now, give 5 bundles to the player
 func templateAddBundles():
@@ -156,7 +156,9 @@ func templateAddBundles():
 	formulaBook.add_to_formulabook("Template Formula","",[
 											str(randi()%20),
 											str(randi()%20),
-											str(randi()%20)
+											str(randi()%20),
+											str(randi()%20),
+											str(randi()%20),
 											])
 	
 	
