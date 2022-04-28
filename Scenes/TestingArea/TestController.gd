@@ -109,12 +109,13 @@ func execute_test(patient_vaccines):
 		var severity_parameters = {}
 		for x in range(5):
 			severity_parameters[str(x)] = str(int(80+0.2 *rand_range(0,100)))
-			for bundle in vaccine_decompositions[patient_id]:
-				if bundle == str(-1):
-					continue
-				var targeted_symptom = bundle_dict[str(bundle)]["symptom"]
-				var symptom_severity = severity(bundle,targeted_symptom)
-				if symptom_severity < int(severity_parameters[targeted_symptom]):
+			print(severity_parameters)
+		for bundle in vaccine_decompositions[patient_id]:
+			if bundle == str(-1):
+				continue
+			var targeted_symptom = bundle_dict[str(bundle)]["symptom"]
+			var symptom_severity = severity(bundle,targeted_symptom)
+			if symptom_severity < int(severity_parameters[targeted_symptom]):
 					severity_parameters[targeted_symptom] = str(symptom_severity)
 		patient_data[str(patient_id)] = severity_parameters
 
