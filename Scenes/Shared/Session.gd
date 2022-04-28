@@ -159,20 +159,17 @@ func templateAddBundles():
 	# Add bundles
 	var availableBundles = mainDict["bundles"]
 	var formulaBook = get_node("/root/Session/FormulaBook")
+	var bundlesUsed = []
 	
 	for i in range(5):
 		var indexOfBundle = randi() % 20
 		var playerStock = availableBundles[str(indexOfBundle)]["inStock"]
 		availableBundles[str(indexOfBundle)]["inStock"] = str(int(
-				availableBundles[str(indexOfBundle)]["inStock"]) + 1)
+				availableBundles[str(indexOfBundle)]["inStock"]) + 10)
+		bundlesUsed.append(availableBundles[str(indexOfBundle)]["id"])
 		
-	formulaBook.add_to_formulabook("Template Formula","",[
-											str(randi()%20),
-											str(randi()%20),
-											str(randi()%20),
-											str(randi()%20),
-											str(randi()%20),
-											])
+	formulaBook.add_to_formulabook("Template Formula","",bundlesUsed)
+	PersistentScenes.shop._ready()
 	
 	
 	
