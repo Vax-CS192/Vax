@@ -14,7 +14,7 @@ var pretest = true
 var testing = false
 var test_done = false
 var favorite_names = []
-var demo = false
+var demo = true
 var waiting_time = 1800
 var timer_ctime = 0
 var first_draw = true
@@ -40,8 +40,9 @@ func first_draw_init():
 		$patient5.disabled = true  
 		$Cooldown.start(waiting_time - (OS.get_unix_time() - testcontroller.load_property("start_time")))
 		$TimeLeft.show()
-		
-	timer_ctime = OS.get_unix_time()
+	if test_done:
+		$test.disabled = true
+		_on_Cooldown_timeout()
 #Format Time into MM		
 func format_time(some_time):
 	var discretized = int(some_time)
@@ -82,34 +83,51 @@ func draw():
 
 #This method sets the selected patient to 0, then shows ReagentOverlay
 func _on_patient1_pressed():
+	selected_patient = 0
 	if pretest:
-		selected_patient = 0
 		$ReagentHolder._on_patient_pressed()
+	if test_done:
+		var testcontroller = get_parent().get_node("TestController")
+		var test_results = testcontroller.get_results(str(selected_patient))
+		$DataHolder.show_info(test_results)
 	
 #This method sets the selected patient to 1, then shows ReagentOverlay
 func _on_patient2_pressed():
+	selected_patient = 1
 	if pretest:
-		selected_patient = 1
 		$ReagentHolder._on_patient_pressed()
-	
+	if test_done:
+		var testcontroller = get_parent().get_node("TestController")
+		var test_results = testcontroller.get_results(str(selected_patient))
+		$DataHolder.show_info(test_results)
 #This method sets the selected patient to 2, then shows ReagentOverlay
 func _on_patient3_pressed():
+	selected_patient = 2
 	if pretest:
-		selected_patient = 2
 		$ReagentHolder._on_patient_pressed()
-	
+	if test_done:
+		var testcontroller = get_parent().get_node("TestController")
+		var test_results = testcontroller.get_results(str(selected_patient))
+		$DataHolder.show_info(test_results)
 #This method sets the selected patient to 3, then shows ReagentOverlay
 func _on_patient4_pressed():
+	selected_patient = 3
 	if pretest:
-		selected_patient = 3
 		$ReagentHolder._on_patient_pressed()
+	if test_done:
+		var testcontroller = get_parent().get_node("TestController")
+		var test_results = testcontroller.get_results(str(selected_patient))
+		$DataHolder.show_info(test_results)
 
 #This method sets the selected patient to 4, then shows ReagentOverlay
 func _on_patient5_pressed():
+	selected_patient = 4
 	if pretest:
-		selected_patient = 4
 		$ReagentHolder._on_patient_pressed()
-
+	if test_done:
+		var testcontroller = get_parent().get_node("TestController")
+		var test_results = testcontroller.get_results(str(selected_patient))
+		$DataHolder.show_info(test_results)
 #This sets the vaccine associated with a patient
 func set_vaccine(selected_vaccine: int):
 	var patient_reference = $Labels.get_node("p"+str(selected_patient))
@@ -144,10 +162,19 @@ func _on_test_pressed():
 	var test_controller = get_parent().get_node("TestController")
 	var test_results = test_controller.validate(patient_vaccines)
 	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
-	if test_results != -1:
+	if len(test_results) > 0:
 		var info_reference = $NotEnoughHolder.get_node("NotEnough")
-		var message = "You do not have enough ingredients for this test. Buy more " + bundle_dict[str(test_results)]["bundleName"] + " from the Shop."
-		$NotEnoughHolder.get_node("NotEnough").set_message(message)
+		var message = "You do not have enough ingredients for this test. Buy more "
+		for x in test_results: 
+			message += bundle_dict[str(x)]["bundleName"]
+			message += ", "
+		var message_length = len(message)
+		var r_message = ""
+		var limit = message_length - 2
+		for x in range(limit):
+			r_message += message[x]
+		r_message += " from the Shop."
+		$NotEnoughHolder.get_node("NotEnough").set_message(r_message)
 		$NotEnoughHolder.show_info()
 		return
 	pretest = false
