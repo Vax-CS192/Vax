@@ -135,6 +135,7 @@ func generateVirusAndBundles():
 			var newKey = randi() % 20
 			if not(str(newKey) in bundles2.keys()):
 				bundles2[str(newKey)] = bundles[key]
+				bundles2[str(newKey)]["id"] = str(newKey)
 				bundles2[str(newKey)]["bundleName"] = letters[int(newKey)]
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles2
