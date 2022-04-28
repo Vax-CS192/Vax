@@ -7,6 +7,7 @@ var regioninfo = {}
 
 onready var timerField = get_child(0)
 onready var MapUI = get_parent().get_parent()
+var first = false
 
 var MoneyBag = preload("res://Scenes/Map/MoneyBag.tscn")
 
@@ -26,8 +27,9 @@ func _process(delta):
 			timerField.text = elapsedTime
 			self.show()
 		else:
-			if regioninfo["disabled"] == true:
+			if regioninfo["collect"] and !first:
 				instantiate_moneyBag()
+				first = true
 			regioninfo["disabled"] = false
 			MapUI.update_dict_info(region, regioninfo)
 			MapUI.enable_region(region)
@@ -40,5 +42,5 @@ func set_region(index):
 func instantiate_moneyBag():
 	var MBInstance = MoneyBag.instance()
 	MBInstance.set_position(self.rect_global_position)
-	MBInstance.set_value(regioninfo["reward"])
+	MBInstance.set_value(regioninfo["reward"], region)
 	get_parent().get_parent().get_child(5).add_child(MBInstance)

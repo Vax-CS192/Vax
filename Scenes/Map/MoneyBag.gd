@@ -1,9 +1,9 @@
 extends Button
 
-
 # Declare member variables here. Examples:
 var value = 300000
-
+var region = 100
+onready var MapUI = get_parent().get_parent()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,7 +12,11 @@ func _ready():
 
 func _on_MoneyBag_pressed():
 	Profile.money += value
-	get_parent().remove_child(self)
+	MapUI.dict[region]["collect"] = false
+	MapUI.get_child(4).get_child(region).first = false
+	MapUI.save_dict()
+	queue_free()
 
-func set_value(newVal):
+func set_value(newVal, index):
 	value = newVal
+	region = index
