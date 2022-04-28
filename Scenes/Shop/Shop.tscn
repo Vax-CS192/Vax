@@ -184,7 +184,6 @@ margin_bottom = 1011.0
 
 [node name="Coin" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2139, 124 )
-frame = 6
 
 [node name="Popup" parent="." instance=ExtResource( 6 )]
 margin_left = 868.0
@@ -193,6 +192,7 @@ margin_right = 1948.0
 margin_bottom = 1147.0
 
 [connection signal="bundle_pressed" from="." to="ShopControl/Bundle1" method="_on_Shop_bundle_pressed"]
+[connection signal="update_counter" from="." to="." method="set_bundle_deets"]
 [connection signal="pressed" from="ShopControl/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="ShopControl/Bundle1" to="." method="_on_Bundle1_pressed"]
 [connection signal="pressed" from="ShopControl/Bundle2" to="." method="_on_Bundle2_pressed"]

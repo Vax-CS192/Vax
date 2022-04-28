@@ -14,6 +14,9 @@ extends TextureButton
 var open_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Opened.png")
 var closed_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Normal.png")
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	_on_Popup_bundle_unpressed()
 
 func _on_Shop_bundle_pressed():
 	self.texture_normal=open_bundle

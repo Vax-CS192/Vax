@@ -13,6 +13,7 @@ extends Node2D
 
 signal bundle_pressed
 signal bundle_unpressed
+signal update_counter #for bundle count update
 
 var open_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Opened.png")
 var closed_bundle = preload("res://Assets/Shop/Destructible Objects Sprite Sheet - Normal.png")
@@ -24,19 +25,6 @@ func _ready():
 	#Set Bundle Names
 	set_bundle_deets()
 	
-	
-#directly shows the shop screen which is hidden by default
-func draw():
-	update_bundle_count()
-	set_bundle_deets()
-	self.show()
-
-#updates bundle count	
-func update_bundle_count():
-	print("bundle icon count text updated")
-	for fp_slot in range(1,21):
-		_on_BundleIcon_pressed(fp_slot)
-
 #Syncs money
 func _process(delta):
 	$Coin/money.text="PHP "+ Profile.format_money(Profile.money)
@@ -51,7 +39,7 @@ func set_bundle_deets():
 
 		var counter_path = "ShopControl/Bundle"+str(i+1)+"/Counter"
 		get_node(counter_path).text =bundle_deets["inStock"]
-	update_bundle_count()
+	#update_bundle_count()
 		
 #Go to Lab Subsystem when the button is pressed	
 func _on_BackButton_pressed():
