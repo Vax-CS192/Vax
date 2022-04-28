@@ -162,10 +162,19 @@ func _on_test_pressed():
 	var test_controller = get_parent().get_node("TestController")
 	var test_results = test_controller.validate(patient_vaccines)
 	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
-	if test_results != -1:
+	if len(test_results) > 0:
 		var info_reference = $NotEnoughHolder.get_node("NotEnough")
-		var message = "You do not have enough ingredients for this test. Buy more " + bundle_dict[str(test_results)]["bundleName"] + " from the Shop."
-		$NotEnoughHolder.get_node("NotEnough").set_message(message)
+		var message = "You do not have enough ingredients for this test. Buy more "
+		for x in test_results: 
+			message += bundle_dict[str(x)]["bundleName"]
+			message += ", "
+		var message_length = len(message)
+		var r_message = ""
+		var limit = message_length - 2
+		for x in range(limit):
+			r_message += message[x]
+		r_message += " from the Shop."
+		$NotEnoughHolder.get_node("NotEnough").set_message(r_message)
 		$NotEnoughHolder.show_info()
 		return
 	pretest = false

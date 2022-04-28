@@ -55,6 +55,7 @@ func validate(patient_vaccines):
 	var vaccine_decompositions = []
 	var required_counter  = []
 	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
+	var deficiencies = []
 	for _x in range(20):
 		required_counter.append(0)
 	for vaccine in patient_vaccines:
@@ -67,8 +68,8 @@ func validate(patient_vaccines):
 				required_counter[int(element)] += 1
 	for x in range(20):
 		if required_counter[x] >  int(bundle_dict[str(x)]["inStock"]):
-			return x
-	return -1
+			deficiencies.append(x)
+	return deficiencies
 
 #Test Virus against Main Virus
 func severity(bundle_id, symptom_id):
