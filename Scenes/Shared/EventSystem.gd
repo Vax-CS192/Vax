@@ -31,7 +31,7 @@ func _ready():
 func startEvent():
 	var event = randi() % 10 # get number between 0 - 9 inclusive;
 	
-	event = 9
+	# event = 9
 	
 	# print("doing event: %s" % event)
 	
