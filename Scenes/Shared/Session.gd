@@ -64,7 +64,7 @@ func _ready():
 	
 	# set timer's time. The timer should start on lab instantiation. The lab should check if timer
 	# is ongoing or not
-	$EventTimer.wait_time = 300
+	$EventTimer.wait_time = 30
 	$EventTimer.connect("timeout", get_node("/root/Session"), "callEventSystem")
 
 # this function changes the scene for susbsytems that don't need to be persistent

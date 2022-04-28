@@ -29,8 +29,10 @@ func _ready():
 
 # this function decides which event will run
 func startEvent():
-	var event = randi() % 9 # get number between 0 - 8 inclusive; change to 9 later
-
+	var event = randi() % 10 # get number between 0 - 9 inclusive;
+	
+	event = 9
+	
 	# print("doing event: %s" % event)
 	
 	# match event
@@ -44,7 +46,7 @@ func startEvent():
 		6: shopPriceDecrease()
 		7: moneyIncrease()
 		8: moneyDecrease()
-		#9: disableMapRegion()
+		9: disableMapRegion()
 
 func bundleTaxIncrease():
 	var numOfBundles = len(session.mainDict["bundles"])
@@ -183,7 +185,18 @@ func moneyDecrease():
 	
 # To implement
 func disableMapRegion():
-	pass
+	var region = randi() % 17 
+	get_node("/root/Session/MapUI").random_region_event(region, true)
+	
+	prompt("region disabled: %s" % region)
+	
+	# pauses execution of the function for 150 seconds
+	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
+	yield(get_tree().create_timer(15), "timeout")
+	
+	prompt("region enabled: %s" % region)
+	
+	get_node("/root/Session/MapUI").random_region_event(region, true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

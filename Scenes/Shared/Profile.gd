@@ -87,4 +87,4 @@ func clear_user_directory():
 	dir.remove("user://favoritesdirectory.save")
 	dir.remove("user://AvailableVaccines.save")
 	dir.remove("user://virus&bundles.save")
-	dir.remove("user://testingarea.save")
+	dir.remove("user://testing_area.save")
