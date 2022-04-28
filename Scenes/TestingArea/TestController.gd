@@ -118,7 +118,8 @@ func execute_test(patient_vaccines):
 			if symptom_severity < int(severity_parameters[targeted_symptom]):
 					severity_parameters[targeted_symptom] = str(symptom_severity)
 		patient_data[str(patient_id)] = severity_parameters
-
+	var shop_subsystem = PersistentScenes.shop
+	shop_subsystem.set_bundle_deets()
 	
 #Pass data to TestData DAO for storage
 func save_data(timer_ctime,pretest,testing,test_done):
