@@ -26,7 +26,7 @@ var first_draw = true
 # Called when the node enters the scene tree for the first time.
 func first_draw_init():
 	if demo :
-		waiting_time = 15
+		waiting_time = 6
 	var testcontroller = get_parent().get_node("TestController")
 	pretest = testcontroller.load_property("pretest")
 	testing = testcontroller.load_property("testing")
