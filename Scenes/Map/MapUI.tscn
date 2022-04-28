@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://Assets/Map/Regions/15 Region 12.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Regions/9 Region 7.png" type="Texture" id=2]
@@ -60,6 +60,7 @@
 [ext_resource path="res://Assets/Map/Regions Disabled/15 Region 12 Desaturated.png" type="Texture" id=58]
 [ext_resource path="res://Assets/Map/Regions Disabled/16 Region 13 Desaturated.png" type="Texture" id=59]
 [ext_resource path="res://Scenes/Map/Timers.gd" type="Script" id=60]
+[ext_resource path="res://Assets/Shop/Money Icon.png" type="Texture" id=61]
 
 [sub_resource type="DynamicFont" id=3]
 size = 35
@@ -67,27 +68,35 @@ extra_spacing_char = -5
 font_data = ExtResource( 21 )
 
 [sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 61 )
 region = Rect2( 0, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 61 )
 region = Rect2( 120, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 61 )
 region = Rect2( 240, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 61 )
 region = Rect2( 360, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 61 )
 region = Rect2( 480, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 61 )
 region = Rect2( 600, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 61 )
 region = Rect2( 720, 0, 120, 120 )
 
 [sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 61 )
 region = Rect2( 840, 0, 120, 120 )
 
 [sub_resource type="SpriteFrames" id=12]
@@ -138,7 +147,7 @@ __meta__ = {
 [node name="Icon" type="AnimatedSprite" parent="Money"]
 position = Vector2( -910, 1962 )
 frames = SubResource( 12 )
-frame = 4
+frame = 7
 speed_scale = 2.0
 playing = true
 offset = Vector2( 1209, -612 )

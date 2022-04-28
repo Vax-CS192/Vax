@@ -13,6 +13,8 @@ func _ready():
 func _on_MoneyBag_pressed():
 	Profile.money += value
 	MapUI.dict[region]["collect"] = false
+	MapUI.dict[region]["disabled"] = false
+	MapUI.enable_region(region)
 	MapUI.get_child(4).get_child(region).first = false
 	MapUI.save_dict()
 	queue_free()
