@@ -130,13 +130,27 @@ func generateVirusAndBundles():
 			bundleID += 1
 	
 	var bundles2 = {}
+	var newLetters = []
 	while len(bundles2) < 20:
+		print("bundle keys: %s" % str(bundles.keys()))
 		for key in bundles.keys():
 			var newKey = randi() % 20
-			if not(str(newKey) in bundles2.keys()):
-				bundles2[str(newKey)] = bundles[key]
-				bundles2[str(newKey)]["id"] = str(newKey)
-				bundles2[str(newKey)]["bundleName"] = letters[int(newKey)]
+			while str(newKey) in bundles2.keys():
+				newKey = randi() % 20
+			print("key: %s" % key)
+			print("newKey: %s" % newKey)
+			bundles2[str(newKey)] = bundles[key]
+			bundles2[str(newKey)]["id"] = str(newKey)
+			
+	var newLetter = randi() % 20
+	for bundle in bundles2:
+		while newLetter in newLetters:
+			newLetter = randi() % 20
+			newLetters.append(newLetter)
+			bundle["bundleName"] = letters[newLetter]
+			
+				
+
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles2
 	
