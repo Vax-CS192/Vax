@@ -60,6 +60,7 @@ func initialize_regions():
 		var effectivity = []
 		in_dict["disabled"] = false
 		in_dict["waitTime"] = OS.get_unix_time()
+		in_dict["collect"] = false
 		for j in range(5):
 			var symptom = generateSymptom(10)
 			var base = get_parent().mainDict["symptoms"][str(j)]
@@ -93,6 +94,7 @@ func update_regions_file(VaccinesDeployed):
 	dict[str(button-1)]["vaccinesDeployed"] = vaccines
 	dict[str(button-1)]["disabled"] = true
 	dict[str(button-1)]["waitTime"] = OS.get_unix_time() + 10
+	dict[str(button-1)]["collect"] = true
 	efficacy(vaccines, str(button-1))
 	save_dict()
 	
