@@ -8,7 +8,7 @@
 extends Node
 var favorites
 var favorite_names = []
-
+var patient_data ={}
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -16,8 +16,8 @@ var favorite_names = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	var test_data = get_parent().get_node("TestData")
+	patient_data = test_data.load_property("patient_data")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -70,8 +70,24 @@ func validate(patient_vaccines):
 			return x
 	return -1
 
-#Testing Logic mostly copied from the map but modified to add some noise
+#Test Virus against Main Virus
+func severity(bundle_id, symptom_id):
+		randomize()
+		var sev
+		var bundle_dict = get_node("/root/Session").mainDict["bundles"]
+		var virus = get_node("/root/Session").mainDict["symptoms"]
+		var symptom_sequence = virus[symptom_id]
+		var bundle_sequence = bundle_dict[bundle_id]["sequence"]
+		var similar_characters = 0
+		for index in range(len(symptom_sequence)):
+			if symptom_sequence[index] == bundle_sequence[index]:
+				similar_characters += 1
+		var similarity = int(100*(similar_characters/len(symptom_sequence)))
+		return int(0.8*(100 - similarity) +0.2 *rand_range(0,100))
+
+#Execute a Test
 func execute_test(patient_vaccines):
+	randomize()
 	var vaccine_decompositions = []
 	var required_counter  = []
 	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
@@ -88,15 +104,31 @@ func execute_test(patient_vaccines):
 				required_counter[int(element)] += 1
 	for x in range(20):
 		bundle_dict[str(x)]["inStock"] = str(int(bundle_dict[str(x)]["inStock"]) - required_counter[x])
+	for patient_id in range(5):
+		var severity_parameters = {}
+		for x in range(5):
+			severity_parameters[str(x)] = str(int(80+0.2 *rand_range(0,100)))
+			for bundle in vaccine_decompositions[patient_id]:
+				if bundle == str(-1):
+					continue
+				var targeted_symptom = bundle_dict[str(bundle)]["symptom"]
+				var symptom_severity = severity(bundle,targeted_symptom)
+				if symptom_severity < int(severity_parameters[targeted_symptom]):
+					severity_parameters[targeted_symptom] = str(symptom_severity)
+		patient_data[str(patient_id)] = severity_parameters
 
+	
 #Pass data to TestData DAO for storage
 func save_data(timer_ctime,pretest,testing,test_done):
 	var test_data = get_parent().get_node("TestData")
-	test_data.save_data(timer_ctime,pretest,testing,test_done)
+	test_data.save_data(timer_ctime,pretest,testing,test_done,patient_data)
 
 
 #Retrieve Data from TestData DAO
 func load_property(x):
 	var test_data = get_parent().get_node("TestData")
 	return test_data.load_property(x)
-	
+
+#Release a Patient's Data
+func get_results(x):
+	return patient_data[x]
