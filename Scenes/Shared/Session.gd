@@ -116,7 +116,6 @@ func generateVirusAndBundles():
 														str(key), # symptom
 														str(round(rand_range(5000.0, 10000.0))), # price
 														"0", # inStock
-														"0", #playerStock
 														letters[int(key)*4+n], # bundleName
 														"Add description", # desc
 														virus[key]) #sequence
@@ -124,7 +123,6 @@ func generateVirusAndBundles():
 				bundles[str(bundleID)] = generateBundle(str(bundleID), 
 														str(key),
 														str(round(rand_range(5000.0, 10000.0))), 
-														"0",
 														"0",
 														letters[int(key)*4+n], 
 														"Add description", 
@@ -137,21 +135,22 @@ func generateVirusAndBundles():
 			var newKey = randi() % 20
 			if not(str(newKey) in bundles2.keys()):
 				bundles2[str(newKey)] = bundles[key]
+				bundles2[str(newKey)]["bundleName"] = letters[int(newKey)]
 	# add bundles to mainDict
 	mainDict["bundles"] = bundles2
 	
 # this function gives the player a number of bundles since they pressed Yes in the template pop-up
 # this function simply changes the inStock property of the bundles in maindDict.bundles
-# For now, give 3 bundles to the player
+# For now, give 5 bundles to the player
 func templateAddBundles():
 	
 	# Add bundles
 	var availableBundles = mainDict["bundles"]
 	var formulaBook = get_node("/root/Session/FormulaBook")
 	
-	for i in range(3):
+	for i in range(5):
 		var indexOfBundle = randi() % 20
-		var playerStock = availableBundles[str(indexOfBundle)]["playerStock"]
+		var playerStock = availableBundles[str(indexOfBundle)]["inStock"]
 		playerStock = str(int(playerStock) + 1)
 		
 	formulaBook.add_to_formulabook("Template Formula","",[
