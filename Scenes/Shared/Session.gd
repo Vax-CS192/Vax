@@ -132,13 +132,10 @@ func generateVirusAndBundles():
 	var bundles2 = {}
 	var newLetters = []
 	while len(bundles2) < 20:
-		print("bundle keys: %s" % str(bundles.keys()))
 		for key in bundles.keys():
 			var newKey = randi() % 20
 			while str(newKey) in bundles2.keys():
 				newKey = randi() % 20
-			print("key: %s" % key)
-			print("newKey: %s" % newKey)
 			bundles2[str(newKey)] = bundles[key]
 			bundles2[str(newKey)]["id"] = str(newKey)
 			
@@ -166,7 +163,8 @@ func templateAddBundles():
 	for i in range(5):
 		var indexOfBundle = randi() % 20
 		var playerStock = availableBundles[str(indexOfBundle)]["inStock"]
-		playerStock = str(int(playerStock) + 1)
+		availableBundles[str(indexOfBundle)]["inStock"] = str(int(
+				availableBundles[str(indexOfBundle)]["inStock"]) + 1)
 		
 	formulaBook.add_to_formulabook("Template Formula","",[
 											str(randi()%20),
@@ -175,6 +173,7 @@ func templateAddBundles():
 											str(randi()%20),
 											str(randi()%20),
 											])
+	
 	
 	
 func saveVirusAndBundles():
