@@ -29,7 +29,7 @@ func _ready():
 
 # this function decides which event will run
 func startEvent():
-	var event = randi() % 10 # get number between 0 - 9 inclusive;
+	var event = randi() % 9 # get number between 0 - 8 inclusive;
 	
 	# event = 9
 	
@@ -46,7 +46,7 @@ func startEvent():
 		6: shopPriceDecrease()
 		7: moneyIncrease()
 		8: moneyDecrease()
-		9: disableMapRegion()
+		#9: disableMapRegion()
 
 func bundleTaxIncrease():
 	var numOfBundles = len(session.mainDict["bundles"])
