@@ -60,6 +60,7 @@ func initialize_regions():
 		var effectivity = []
 		in_dict["disabled"] = false
 		in_dict["waitTime"] = OS.get_unix_time()
+		in_dict["collect"] = false
 		for j in range(5):
 			var symptom = generateSymptom(10)
 			var base = get_parent().mainDict["symptoms"][str(j)]
@@ -93,6 +94,7 @@ func update_regions_file(VaccinesDeployed):
 	dict[str(button-1)]["vaccinesDeployed"] = vaccines
 	dict[str(button-1)]["disabled"] = true
 	dict[str(button-1)]["waitTime"] = OS.get_unix_time() + 10
+	dict[str(button-1)]["collect"] = true
 	efficacy(vaccines, str(button-1))
 	save_dict()
 	
@@ -124,10 +126,14 @@ func efficacy(vaccines, region):
 	
 	var sum = 0.0
 	for i in range(5):
-		RegionStat[i] -= (effectivity[i] * 7)
+		RegionStat[i] -= clamp((effectivity[i] * 7), 0, 100)
 		sum += (effectivity[i] * 0.25)
 	
 	dict[region]["effectivity"] = RegionStat 
 	dict[region]["reward"] = sum * 1000000
+
+func random_region_event(regionIndex, boolVal):
+	$Buttons.get_child(regionIndex + 1).disabled = boolVal
+	dict[regionIndex]["disabled"] = boolVal
 	
 

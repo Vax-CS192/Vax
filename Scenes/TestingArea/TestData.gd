@@ -3,9 +3,10 @@ var testing_area_data = {}
 var pretest = false
 var testing = false
 var test_done = false
-var demo = false
+var demo = true
 var waiting_time = 1800
 var starting_time = -1
+var patient_data = {}
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -25,6 +26,7 @@ func _ready():
 	persistent_data.open("user://testing_area.save",File.READ)
 	testing_area_data = parse_json(persistent_data.get_line())
 	persistent_data.close()
+	patient_data = testing_area_data["patient_data"]
 	if testing_area_data["testing"] == str(true):
 		testing = true
 		if current_time - int(testing_area_data["start_time"]) > waiting_time:
@@ -39,12 +41,13 @@ func _ready():
 		pretest = true
 		
 #Persistence logic to be called when the game is being saved
-func save_data(timer_ctime,pretest,testing,test_done):
+func save_data(timer_ctime,pretest,testing,test_done,patient_data):
 	var persistent_data = File.new()
 	testing_area_data["start_time"] = str(timer_ctime)
 	testing_area_data["pretest"] = str(pretest)
 	testing_area_data["testing"] =str(testing)
 	testing_area_data["test_done"] = str(test_done)
+	testing_area_data["patient_data"] = patient_data
 	persistent_data.open("user://testing_area.save", File.WRITE)
 	persistent_data.store_line(to_json(testing_area_data))
 	persistent_data.close()
@@ -60,11 +63,10 @@ func load_property(x):
 		return pretest
 	elif x == "test_done":
 		return test_done
-	elif x == "test_results":
-		return testing_area_data[x]
+	elif x == "patient_data":
+		return patient_data
 	elif x == "start_time":
 		return int(testing_area_data["start_time"])
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

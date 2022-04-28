@@ -8,11 +8,11 @@
 [node name="TestingArea" type="Node"]
 script = ExtResource( 3 )
 
+[node name="TestData" parent="." instance=ExtResource( 4 )]
+
 [node name="TestController" parent="." instance=ExtResource( 2 )]
 
 [node name="TestingAreaUI" parent="." instance=ExtResource( 1 )]
 visible = false
-
-[node name="TestData" parent="." instance=ExtResource( 4 )]
 
 [connection signal="back_pressed" from="TestingAreaUI" to="TestController" method="_on_TestingAreaUI_back_pressed"]
