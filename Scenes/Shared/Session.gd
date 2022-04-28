@@ -25,14 +25,14 @@ var mainMenu = load("res://Scenes/MainMenu/MainMenu.tscn")
 # The structure of mainDict will be as follows
 # {
 #	"symptoms": {
-#				 0: <random string>,
-#				 1: <random string>,
-#				 2: <random string>,
-#				 3: <random string>,
-#				 4: <random string>
+#				 "0": <random string>,
+#				 "1": <random string>,
+#				 "2": <random string>,
+#				 "3": <random string>,
+#				 "4": <random string>
 #				},
 #	"bundles":	{
-#				 0: {
+#				 "0": {
 #					<bundle>
 #					},
 #				 ...
@@ -91,11 +91,11 @@ func generateVirusAndBundles():
 	var baseSymp3 = generateSymptom(10)
 	var baseSymp4 = generateSymptom(10)
 	var virus = {
-		0: baseSymp0,
-		1: baseSymp1,
-		2: baseSymp2,
-		3: baseSymp3,
-		4: baseSymp4
+		"0": baseSymp0,
+		"1": baseSymp1,
+		"2": baseSymp2,
+		"3": baseSymp3,
+		"4": baseSymp4
 	}
 	
 	var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
@@ -116,7 +116,8 @@ func generateVirusAndBundles():
 														str(key), # symptom
 														str(round(rand_range(5000.0, 10000.0))), # price
 														"0", # inStock
-														letters[key*4+n], # bundleName
+														"0", #playerStock
+														letters[int(key)*4+n], # bundleName
 														"Add description", # desc
 														virus[key]) #sequence
 			else:
@@ -124,20 +125,41 @@ func generateVirusAndBundles():
 														str(key),
 														str(round(rand_range(5000.0, 10000.0))), 
 														"0",
-														letters[key*4+n], 
+														"0",
+														letters[int(key)*4+n], 
 														"Add description", 
 														generateBundleSequence(virus[key]))
 			bundleID += 1
-			
+	
+	var bundles2 = {}
+	while len(bundles2) < 20:
+		for key in bundles.keys():
+			var newKey = randi() % 20
+			if not(str(newKey) in bundles2.keys()):
+				bundles2[str(newKey)] = bundles[key]
 	# add bundles to mainDict
-	mainDict["bundles"] = bundles
+	mainDict["bundles"] = bundles2
 	
 # this function gives the player a number of bundles since they pressed Yes in the template pop-up
 # this function simply changes the inStock property of the bundles in maindDict.bundles
-# TODO: How many bundles should be given to the player?
+# For now, give 3 bundles to the player
 func templateAddBundles():
 	
-	return
+	# Add bundles
+	var availableBundles = mainDict["bundles"]
+	var formulaBook = get_node("/root/Session/FormulaBook")
+	
+	for i in range(3):
+		var indexOfBundle = randi() % 20
+		var playerStock = availableBundles[str(indexOfBundle)]["playerStock"]
+		playerStock = str(int(playerStock) + 1)
+		
+	formulaBook.add_to_formulabook("Template Formula","",[
+											str(randi()%20),
+											str(randi()%20),
+											str(randi()%20)
+											])
+	
 	
 func saveVirusAndBundles():
 	# print("saving virus and bundles")

@@ -20,7 +20,6 @@ var money = 1000000
 var president_name: String
 var is_new_game = true
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

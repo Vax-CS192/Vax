@@ -42,13 +42,14 @@ func generateBundleSequence(base: String) -> String:
 	return genBund1
 
 # generateBundle returns a dictionary that represents a bundle
-func generateBundle(id: String, key: String, price: String, inStock: String, bundleName: String, 
+func generateBundle(id: String, key: String, price: String, inStock: String, playerStock: String, bundleName: String, 
 	desc: String, sequence: String) -> Dictionary:
 		return	{
 			"id": id,
 			"symptom": key,
 			"price": price,
 			"inStock": inStock,
+			"playerStock": playerStock,
 			"bundleName": bundleName,
 			"desc": desc,
 			"sequence": sequence,

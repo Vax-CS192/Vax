@@ -62,7 +62,7 @@ func initialize_regions():
 		in_dict["waitTime"] = OS.get_unix_time()
 		for j in range(5):
 			var symptom = generateSymptom(10)
-			var base = get_parent().mainDict["symptoms"][j]
+			var base = get_parent().mainDict["symptoms"][str(j)]
 			var unmatched = 0
 			for k in range(symptom.length()):
 				if symptom[k] != base[k]:
