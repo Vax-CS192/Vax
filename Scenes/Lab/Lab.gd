@@ -35,6 +35,7 @@ func _ready():
 	testButton.connect("pressed", self, "_on_testButton_presed")
 	self.connect("SaveVirusAndBundles", get_node("/root/Session"), \
 				"saveVirusAndBundles")
+	$EventButton.connect("pressed", get_node("/root/Session"), "callEventSystem")
 	
 	# if new game, then start timer
 	if Profile.is_new_game == true:
