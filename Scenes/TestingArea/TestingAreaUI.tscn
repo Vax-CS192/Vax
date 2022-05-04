@@ -140,18 +140,21 @@ __meta__ = {
 
 [node name="patient2" type="TextureButton" parent="."]
 margin_left = 990.0
-margin_top = 200.0
+margin_top = 203.0
 margin_right = 1286.0
 margin_bottom = 501.0
 texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 14 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="patient3" type="TextureButton" parent="."]
-margin_left = 1435.0
-margin_top = 198.0
-margin_right = 1731.0
-margin_bottom = 499.0
+margin_left = 1443.0
+margin_top = 203.0
+margin_right = 1739.0
+margin_bottom = 504.0
 texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 14 )
 expand = true
@@ -160,10 +163,10 @@ __meta__ = {
 }
 
 [node name="patient4" type="TextureButton" parent="."]
-margin_left = 1922.0
-margin_top = 196.0
-margin_right = 2218.0
-margin_bottom = 497.0
+margin_left = 1896.0
+margin_top = 203.0
+margin_right = 2192.0
+margin_bottom = 504.0
 texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 14 )
 expand = true
@@ -172,10 +175,10 @@ __meta__ = {
 }
 
 [node name="patient5" type="TextureButton" parent="."]
-margin_left = 2361.0
-margin_top = 196.0
-margin_right = 2657.0
-margin_bottom = 497.0
+margin_left = 2349.0
+margin_top = 203.0
+margin_right = 2645.0
+margin_bottom = 504.0
 texture_normal = ExtResource( 6 )
 texture_disabled = ExtResource( 14 )
 expand = true
@@ -205,7 +208,6 @@ __meta__ = {
 [node name="Coin" type="AnimatedSprite" parent="."]
 position = Vector2( 2011, 79 )
 frames = SubResource( 11 )
-frame = 6
 playing = true
 
 [node name="ReagentHolder" type="Popup" parent="."]
@@ -263,10 +265,10 @@ __meta__ = {
 }
 
 [node name="p3" type="Label" parent="Labels"]
-margin_left = 1946.0
-margin_top = 503.0
-margin_right = 2222.0
-margin_bottom = 648.0
+margin_left = 1913.0
+margin_top = 512.0
+margin_right = 2189.0
+margin_bottom = 657.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 19 )
 text = "Blank"
@@ -278,10 +280,10 @@ __meta__ = {
 }
 
 [node name="p4" type="Label" parent="Labels"]
-margin_left = 2385.0
-margin_top = 503.0
-margin_right = 2661.0
-margin_bottom = 648.0
+margin_left = 2364.0
+margin_top = 518.0
+margin_right = 2640.0
+margin_bottom = 663.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 19 )
 text = "Blank"
