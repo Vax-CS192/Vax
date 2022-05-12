@@ -29,7 +29,7 @@ func _ready():
 
 # this function decides which event will run
 func startEvent():
-	var event = randi() % 9 # get number between 0 - 8 inclusive;
+	var event = randi() % 10 # get number between 0 - 8 inclusive;
 	
 	# event = 9
 	
@@ -46,7 +46,7 @@ func startEvent():
 		6: shopPriceDecrease()
 		7: moneyIncrease()
 		8: moneyDecrease()
-		#9: disableMapRegion()
+		9: disableMapRegion()
 
 func bundleTaxIncrease():
 	var numOfBundles = len(session.mainDict["bundles"])
@@ -185,8 +185,9 @@ func moneyDecrease():
 	
 # To implement
 func disableMapRegion():
-	var region = randi() % 17 
-	get_node("/root/Session/MapUI").random_region_event(region, true)
+	var region = randi() % 17
+	var random_adder = randi() % 20
+	get_node("/root/Session/MapUI").random_region_event(region, true, random_adder)
 	
 	prompt("region disabled: %s" % region)
 	
@@ -196,7 +197,7 @@ func disableMapRegion():
 	
 	prompt("region enabled: %s" % region)
 	
-	get_node("/root/Session/MapUI").random_region_event(region, true)
+	get_node("/root/Session/MapUI").random_region_event(region, false, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
