@@ -132,7 +132,7 @@ func efficacy(vaccines, region):
 	dict[region]["effectivity"] = RegionStat 
 	dict[region]["reward"] = sum * 1000000
 
-func random_region_event(regionIndex, boolVal):
+func random_region_event(regionIndex, boolVal, adder):
 	$Buttons.get_child(regionIndex + 1).disabled = boolVal
 	dict[regionIndex]["disabled"] = boolVal
 	
