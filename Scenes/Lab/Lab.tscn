@@ -75,6 +75,10 @@ valign = 1
 position = Vector2( 1492.52, 347.548 )
 scale = Vector2( 12, 12 )
 frames = SubResource( 5 )
+<<<<<<< HEAD
+=======
+frame = 3
+>>>>>>> main
 playing = true
 offset = Vector2( 0, 20 )
 
@@ -84,7 +88,11 @@ margin_bottom = -97.3735
 
 [node name="Money" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2260.52, 100 )
+<<<<<<< HEAD
 frame = 6
+=======
+frame = 1
+>>>>>>> main
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
