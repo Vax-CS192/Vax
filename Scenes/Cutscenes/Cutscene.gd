@@ -25,7 +25,7 @@ var gameStart = true
 const CHAR_READ_RATE = 0.0125
 
 # Declare List Variables here
-var message_list = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere, nibh quis faucibus fermentum, arcu orci semper ante, a sollicitudin urna mi eget nisl.", "Nullam ultrices ultricies enim, sit amet congue nisl volutpat ac. Donec facilisis elementum vestibulum. Donec tincidunt malesuada elementum.", "Cras ut placerat sem, ut tincidunt orci. Aenean aliquam eros tortor, in sodales lorem commodo vitae. Vestibulum finibus felis erat, non eleifend lacus malesuada volutpat.", "Ut suscipit ullamcorper tempor. Etiam pharetra metus quis fringilla egestas. Fusce vitae nisi ac metus tristique pellentesque id vitae purus. Maecenas quis mi facilisis, elementum neque in, gravida ligula.", "Sed at cursus leo. Maecenas quis dictum quam, nec scelerisque diam.", "Aenean efficitur viverra justo. Quisque feugiat sit amet tellus a bibendum. Proin auctor massa urna, ut tempor sapien lobortis ut. Aliquam ut odio nec massa auctor posuere.", "Duis eget laoreet ex. Etiam vel condimentum risus. Vestibulum maximus arcu eget ullamcorper laoreet. Nullam et urna quis diam tincidunt commodo.", "Nam molestie urna ac justo tristique, eu varius augue facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis rutrum nisl, at bibendum nisi ornare eget."]
+var message_list = ["At present, the world was at a state of tranquility. Conflicts between nations became a thing of the past, the dream of world peace had already been achieved, and every person living in the planet contently lived in peace and prosperity. ", "Until…", "A virus of unknown origin suddenly began to rise into prominence and set a panic to nations globally. Governments left and right failed to properly contain the spread of the virus and not before long, ", "the said virus had already been considered by health officials as a global pandemic.", "Governments and health organizations began observing the effects and symptoms of the virus itself. They found that the most usual of which were bodily fatigue, non-stop coughing, and intense fevers. ", "They preemptively concluded that the virus was non-lethal.", "While the said organizations were confident that the virus was indeed non-lethal, recent infection cases have begun proving otherwise. The virus, either from a mutation or out of sheer incompetence,", "had been found out to actually be deadly, bringing death in its wake and sending the public into further chaos.", "While scientists had postulated that measures to mitigate the severity of the virus’ symptoms (having proper weight, exercising, eating healthy foods, etc.) were effective in combatting the virus itself,", "they have soon backed down on those sentiments after much evidence had suggested no effect at all. They concluded that the only hope for humanity’s survival is the creation of a vaccine against the disease.", "With the production of vaccines in mind, politicians have begun swarming at the idea of manipulating and exploiting the vaccine for their own personal gain, be it from a global monopoly to boost their respective economies", "or by colluding with scientists themselves to hide further information about the nature of the virus.", "As a world-renowned vaccinologist, you have been tasked to research and work on a vaccine to combat against the deadly symptoms of the global pandemic. The country of the Philippines will serve as your primary staging area for this great task.", "The fate of the world as well as humanity’s survival is in your hands. Good luck!"]
 
 # Declare string variables here
 
@@ -50,7 +50,7 @@ func state_change(next_state):
 
 # This changes the current dialogue message to the next message of the story
 func _on_NextDialogue_pressed():
-	if counter == 6:
+	if counter == 13:
 		get_node("/root/Session").changeSceneTo(self, president_input.instance())
 	else:
 		if current_state == State.DONE:
@@ -66,15 +66,16 @@ func _on_Tween_tween_all_completed():
 
 # function respnsible for updating the sprite that is shown on the screen
 func update_sprites():
-	if counter == 1:
-		sprite_list[counter].show()
-	elif counter == 2:
+	if counter == 2:
+		sprite_list[1].show()
+	elif counter == 4:
 		sprite_list[0].hide()
 		sprite_list[1].hide()
-		sprite_list[counter].show()
-	elif counter > 2:
-		sprite_list[counter-1].hide()
-		sprite_list[counter].show()
+		sprite_list[2].show()
+	elif counter > 5:
+		sprite_list[(counter/2)-1].hide()
+		sprite_list[counter/2].show()
+	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
