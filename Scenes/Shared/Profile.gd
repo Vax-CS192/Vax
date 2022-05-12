@@ -82,9 +82,12 @@ func load_data():
 	
 func clear_user_directory():
 	var dir = Directory.new()
-	dir.remove("user://profile.save")
-	dir.remove("user://formuladirectory.save")
-	dir.remove("user://favoritesdirectory.save")
-	dir.remove("user://AvailableVaccines.save")
-	dir.remove("user://virus&bundles.save")
-	dir.remove("user://testing_area.save")
+	dir.open("user://")
+	dir.list_dir_begin()
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		else:
+			dir.remove(file)
+		

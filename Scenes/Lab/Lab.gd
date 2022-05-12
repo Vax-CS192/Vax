@@ -26,6 +26,7 @@ onready var testButton = get_node("ButtonContainer/Testing")
 onready var eventTimer: Timer = get_node("/root/Session/EventTimer")
 
 signal SaveVirusAndBundles
+signal mapInitialized
 
 # This function is run at the start of the scene
 func _ready():
@@ -35,6 +36,7 @@ func _ready():
 	testButton.connect("pressed", self, "_on_testButton_presed")
 	self.connect("SaveVirusAndBundles", get_node("/root/Session"), \
 				"saveVirusAndBundles")
+	self.connect("mapInitialized", get_node("/root/EventSystem"), "changeInd")
 	$EventButton.connect("pressed", get_node("/root/Session"), "callEventSystem")
 	
 	# if new game, then start timer
@@ -71,6 +73,7 @@ func _on_shopButton_pressed():
 	
 # changes scene to Map when map button is pressed
 func _on_mapButton_pressed():
+	emit_signal("mapInitialized")
 	get_node("/root/Session").changeSceneTo(self, PersistentScenes.map)
 	PersistentScenes.map.init_map()
 

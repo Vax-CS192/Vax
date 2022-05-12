@@ -22,16 +22,18 @@ onready var session = get_node("/root/Session")
 var shopEnabled = true
 var testingAreaEnabled = true
 var eventPrompt = preload("res://Scenes/Shared/Event.tscn")
+var ind = 9
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 
+func changeInd():
+	ind = 10
+
 # this function decides which event will run
 func startEvent():
-	var event = randi() % 10 # get number between 0 - 8 inclusive;
-	
-	# event = 9
+	var event = randi() % ind # get number between 0 - 8 inclusive;
 	
 	# print("doing event: %s" % event)
 	
@@ -53,16 +55,17 @@ func bundleTaxIncrease():
 	var indexOfBundle = randi() % numOfBundles
 	var increase = round(rand_range(2000.0, 5000.0))
 	var price = int(session.mainDict["bundles"][str(indexOfBundle)]["price"])
+	var nameOfBundle = str(session.mainDict["bundles"][str(indexOfBundle)]["bundleName"])
 	session.mainDict["bundles"][str(indexOfBundle)]["price"] = str(price + increase)
 	
 	#show prompt
-	prompt("bundleTaxIncrease: increasing index %s" % indexOfBundle)
+	prompt("Bundle %s's price has been increased" % nameOfBundle)
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
 	yield(get_tree().create_timer(150), "timeout")
 	
 	# show prompt
-	prompt("Reversing bundleTaxIncrease")
+	prompt("Bundle %s's price has returned to normal" % nameOfBundle)
 	# reverse changes
 	session.mainDict["bundles"][str(indexOfBundle)]["price"] = str(price)
 
@@ -70,13 +73,13 @@ func disableTestingArea():
 	testingAreaEnabled = false
 	
 	# show prompt
-	prompt("Disabling testArea")
+	prompt("Testing Area will be disabled!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(150), "timeout")
+	yield(get_tree().create_timer(30), "timeout")
 	
 	# show prompt
-	prompt("enable testArea")
+	prompt("Testing Area is back to normal.")
 	# reverse changes
 	testingAreaEnabled = true
 
@@ -85,16 +88,17 @@ func bundleTaxDecrease():
 	var indexOfBundle = randi() % numOfBundles
 	var decrease = round(rand_range(2000.0, 5000.0))
 	var price = int(session.mainDict["bundles"][str(indexOfBundle)]["price"])
+	var nameOfBundle = str(session.mainDict["bundles"][str(indexOfBundle)]["bundleName"])
 	session.mainDict["bundles"][str(indexOfBundle)]["price"] = str(price - decrease)
 	
 	#show prompt
-	prompt("bundleTaxDecrease: increasing index %s" % indexOfBundle)
+	prompt("Bundle %s's price has been decreased" % nameOfBundle)
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
 	yield(get_tree().create_timer(150), "timeout")
 	
 	# show prompt
-	prompt("Reversing bundleTaxDecrease")
+	prompt("Bundle %s's price has returned to normal" % nameOfBundle)
 	# reverse changes
 	session.mainDict["bundles"][str(indexOfBundle)]["price"] = str(price)
 
@@ -102,13 +106,13 @@ func shopIsDisabled():
 	shopEnabled = false
 	
 	# show prompt
-	prompt("disabling shop")
+	prompt("Shop will be disabled!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(150), "timeout")
+	yield(get_tree().create_timer(30), "timeout")
 	
 	# show prompt
-	prompt("enabling shop")
+	prompt("Shop is now back to normal.")
 	# reverse changes
 	shopEnabled = true
 
@@ -119,13 +123,13 @@ func shopIsFree():
 		bundles[bundle]["price"] = str(0.0)
 		
 	# show prompt
-	prompt("shop is free")
+	prompt("Everything in the shop is free!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(150), "timeout")
+	yield(get_tree().create_timer(60), "timeout")
 	
 	# show prompt
-	prompt("shop is not free")
+	prompt("Shop has returned to normal.")
 	# reverse changes
 	bundles = bundlesCopy
 
@@ -137,13 +141,13 @@ func shopPriceIncrease():
 		bundles[bundle]["price"] = str(int(bundles[bundle]["price"]) + increase)
 		
 	# show prompt
-	prompt("shop price increase")
+	prompt("Prices in the shop has increased!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
 	yield(get_tree().create_timer(150), "timeout")
 	
 	# show prompt
-	prompt("shop price normal")
+	prompt("Shop prices have returned to normal.")
 	# reverse changes
 	bundles = bundlesCopy
 
@@ -155,13 +159,13 @@ func shopPriceDecrease():
 		bundles[bundle]["price"] = str(int(bundles[bundle]["price"]) - decrease)
 		
 	# show prompt
-	prompt("shop price decrease")
+	prompt("Prices in the shop has decreased!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
 	yield(get_tree().create_timer(150), "timeout")
 	
 	# show prompt
-	prompt("shop price normal")
+	prompt("Shop prices have returned to normal.")
 	# reverse changes
 	bundles = bundlesCopy
 
@@ -170,7 +174,7 @@ func moneyIncrease():
 	Profile.money += increase
 	
 	# show prompt
-	prompt("money increase")
+	prompt("Your money increases.")
 
 func moneyDecrease():
 	var decrease = round(rand_range(1_000_000.0, 5_000_000.0))
@@ -181,7 +185,7 @@ func moneyDecrease():
 		Profile.money -= decrease
 		
 	# show prompt
-	prompt("money decrease")
+	prompt("Your money decreases.")
 	
 # To implement
 func disableMapRegion():
@@ -189,13 +193,13 @@ func disableMapRegion():
 	var random_adder = randi() % 20
 	get_node("/root/Session/MapUI").random_region_event(region, true, random_adder)
 	
-	prompt("region disabled: %s" % region)
+	prompt("Region %s will be disabled!" % region)
 	
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
 	yield(get_tree().create_timer(15), "timeout")
 	
-	prompt("region enabled: %s" % region)
+	prompt("Region %s is now ok." % region)
 	
 	get_node("/root/Session/MapUI").random_region_event(region, false, 0)
 
@@ -207,5 +211,4 @@ func prompt(text):
 	var event = eventPrompt.instance()
 	event.get_node("PopupText").text = text
 	var font = event.get_node("PopupText").get_font("font")
-	font.size = 100
 	session.add_child(event)
