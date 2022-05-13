@@ -30,7 +30,7 @@ func _on_TestingAreaUI_back_pressed():
 		var lab_subsystem = preload("res://Scenes/Lab/Lab.tscn")
 		get_parent().get_parent().add_child(lab_subsystem.instance())
 
-#This draws TestingAreaUI
+#This configures then draws TestingAreaUI; It also manipulates the favorite_names class variable
 func draw():
 	favorites = PersistentScenes.formulaBook.get_curr_favorites() #refresh copy of favorites
 	favorite_names.clear()
@@ -62,6 +62,7 @@ func validate(patient_vaccines):
 		if vaccine == -1:
 			 continue
 		vaccine_decompositions.append(favorites[vaccine-1]["Components"])
+
 	for decomposition in vaccine_decompositions:
 		for element in decomposition:
 			if int(element) != -1:
@@ -86,10 +87,11 @@ func severity(bundle_id, symptom_id):
 		var similarity = int(100*(similar_characters/len(symptom_sequence)))
 		return int(0.8*(100 - similarity) +0.2 *rand_range(0,100))
 
-#Execute a Test
+#Execute a Test, and save both the results and vaccine names in PatientData
 func execute_test(patient_vaccines):
 	randomize()
 	var vaccine_decompositions = []
+	var vaccine_names = []
 	var required_counter  = []
 	var bundle_dict = get_node("/root/Session").mainDict["bundles"]
 	for _x in range(20):
@@ -97,8 +99,10 @@ func execute_test(patient_vaccines):
 	for vaccine in patient_vaccines:
 		if vaccine == -1:
 			vaccine_decompositions.append([])
+			vaccine_names.append("Blank")
 			continue
 		vaccine_decompositions.append(favorites[vaccine-1]["Components"])
+		vaccine_names.append(favorites[vaccine-1]["ID"])
 	for decomposition in vaccine_decompositions:
 		for element in decomposition:
 			if int(element) != -1:
@@ -118,6 +122,7 @@ func execute_test(patient_vaccines):
 			if symptom_severity < int(severity_parameters[targeted_symptom]):
 					severity_parameters[targeted_symptom] = str(symptom_severity)
 		patient_data[str(patient_id)] = severity_parameters
+		patient_data[str(10+patient_id)] = vaccine_names[patient_id]
 
 	
 #Pass data to TestData DAO for storage
@@ -131,6 +136,10 @@ func load_property(x):
 	var test_data = get_parent().get_node("TestData")
 	return test_data.load_property(x)
 
-#Release a Patient's Data
+#Release a Patient's Test Data
 func get_results(x):
-	return patient_data[x]
+	return patient_data[str(x)]
+	
+#Recall a Patient's Vaccine Name
+func get_vaccine_name(x):
+	return patient_data[str(10+x)]
