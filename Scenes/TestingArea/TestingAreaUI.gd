@@ -24,6 +24,11 @@ var first_draw = true
 
 
 # Called when the node enters the scene tree for the first time.
+func load_names():
+	var testcontroller = get_parent().get_node("TestController")
+	for x in range(5):
+		var patient_vaccine = testcontroller.get_vaccine_name(x)
+		$Labels.get_node("p"+str(x)).text = patient_vaccine
 func first_draw_init():
 	if demo :
 		waiting_time = 6
@@ -32,6 +37,7 @@ func first_draw_init():
 	testing = testcontroller.load_property("testing")
 	test_done = testcontroller.load_property("test_done")
 	if testing:
+		load_names()
 		$test.disabled = true
 		$patient1.disabled = true
 		$patient2.disabled = true
@@ -41,6 +47,7 @@ func first_draw_init():
 		$Cooldown.start(waiting_time - (OS.get_unix_time() - testcontroller.load_property("start_time")))
 		$TimeLeft.show()
 	if test_done:
+		load_names()
 		$test.disabled = true
 		_on_Cooldown_timeout()
 #Format Time into MM		
@@ -69,7 +76,7 @@ func _on_back_pressed():
 	testcontroller.save_data(timer_ctime,pretest,testing,test_done)
 	emit_signal("back_pressed")
 
-# This method updates the money and the favorite  and draws TestingAreaUI to screen
+# This method updates the money and the favorites and draws TestingAreaUI to screen
 func draw():
 		if first_draw:
 			first_draw_init()
@@ -88,7 +95,7 @@ func _on_patient1_pressed():
 		$ReagentHolder._on_patient_pressed()
 	if test_done:
 		var testcontroller = get_parent().get_node("TestController")
-		var test_results = testcontroller.get_results(str(selected_patient))
+		var test_results = testcontroller.get_results(selected_patient)
 		$DataHolder.show_info(test_results)
 	
 #This method sets the selected patient to 1, then shows ReagentOverlay
@@ -98,7 +105,7 @@ func _on_patient2_pressed():
 		$ReagentHolder._on_patient_pressed()
 	if test_done:
 		var testcontroller = get_parent().get_node("TestController")
-		var test_results = testcontroller.get_results(str(selected_patient))
+		var test_results = testcontroller.get_results(selected_patient)
 		$DataHolder.show_info(test_results)
 #This method sets the selected patient to 2, then shows ReagentOverlay
 func _on_patient3_pressed():
@@ -107,7 +114,7 @@ func _on_patient3_pressed():
 		$ReagentHolder._on_patient_pressed()
 	if test_done:
 		var testcontroller = get_parent().get_node("TestController")
-		var test_results = testcontroller.get_results(str(selected_patient))
+		var test_results = testcontroller.get_results(selected_patient)
 		$DataHolder.show_info(test_results)
 #This method sets the selected patient to 3, then shows ReagentOverlay
 func _on_patient4_pressed():
@@ -116,7 +123,7 @@ func _on_patient4_pressed():
 		$ReagentHolder._on_patient_pressed()
 	if test_done:
 		var testcontroller = get_parent().get_node("TestController")
-		var test_results = testcontroller.get_results(str(selected_patient))
+		var test_results = testcontroller.get_results(selected_patient)
 		$DataHolder.show_info(test_results)
 
 #This method sets the selected patient to 4, then shows ReagentOverlay
@@ -126,7 +133,7 @@ func _on_patient5_pressed():
 		$ReagentHolder._on_patient_pressed()
 	if test_done:
 		var testcontroller = get_parent().get_node("TestController")
-		var test_results = testcontroller.get_results(str(selected_patient))
+		var test_results = testcontroller.get_results(selected_patient)
 		$DataHolder.show_info(test_results)
 #This sets the vaccine associated with a patient
 func set_vaccine(selected_vaccine: int):
