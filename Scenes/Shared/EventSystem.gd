@@ -191,15 +191,19 @@ func moneyDecrease():
 func disableMapRegion():
 	var region = randi() % 17
 	var random_adder = randi() % 20
-	get_node("/root/Session/MapUI").random_region_event(region, true, random_adder)
+	var region_name = get_node("/root/Session/MapUI").random_region_event(region, true, random_adder)
 	
-	prompt("Region %s will be disabled!" % region)
+
+  prompt("Region %s will be disabled!" % region_name)
+
 	
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
 	yield(get_tree().create_timer(60), "timeout")
 	
-	prompt("Region %s is now ok." % region)
+
+	prompt("Region %s is now ok." % region_name)
+
 	
 	get_node("/root/Session/MapUI").random_region_event(region, false, 0)
 

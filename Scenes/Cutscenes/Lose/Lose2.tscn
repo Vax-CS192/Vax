@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Cutscenes/NextDialogue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Cutscenes/DialogueBox/DialogueContainer.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/[labels] basis33.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 76
+font_data = ExtResource( 3 )
+
+[node name="Lose2" type="Node2D"]
+
+[node name="CutsceneUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2920.0
+margin_bottom = -1400.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG color" type="ColorRect" parent="CutsceneUI"]
+anchor_right = 74.0
+anchor_bottom = 36.0
+margin_right = 2960.0
+margin_bottom = 1440.0
+color = Color( 0.901961, 0.466667, 0.439216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="CanvasLayer" parent="CutsceneUI"]
+
+[node name="DialogueBox" type="TextureRect" parent="CutsceneUI/Dialogue"]
+anchor_right = 1.85
+margin_left = 9.0
+margin_top = 920.0
+margin_right = -2523.0
+margin_bottom = 1432.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CutsceneUI/Dialogue/DialogueBox"]
+anchor_left = 0.025
+anchor_top = 0.18
+anchor_right = 0.981
+anchor_bottom = 0.791
+margin_left = 106.4
+margin_top = -0.160004
+margin_right = -145.064
+margin_bottom = 0.00799561
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CutsceneUI/Dialogue/DialogueBox/MarginContainer"]
+visible = false
+margin_right = 2563.0
+margin_bottom = 313.0
+
+[node name="Message" type="Label" parent="CutsceneUI/Dialogue/DialogueBox/MarginContainer"]
+margin_right = 2563.0
+margin_bottom = 313.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.133333, 0.133333, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Placeholder text:"
+autowrap = true
+clip_text = true
+
+[node name="NextDialogue" parent="CutsceneUI/Dialogue" instance=ExtResource( 1 )]
+
+[node name="Tween" type="Tween" parent="."]

@@ -11,10 +11,20 @@ onready var money_amount = $Money/Account
 var button = 0
 var region_file = File.new()
 var dict
+var map_initialized = false
+
+var WinCutscene = load("res://Scenes/Cutscenes/Win/Win.tscn")
+var LoseCutscene = load("res://Scenes/Cutscenes/Lose/Lose.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	money_amount.text = "PHP %s" % [Profile.format_money(Profile.money)]
+	if map_initialized:
+		if get_average_of_all_efficacy() <= 20:
+			get_node("/root/Session").changeSceneTo(self, WinCutscene.instance())
+		
+		if get_average_of_all_efficacy() >= 85:
+			get_node("/root/Session").changeSceneTo(self, LoseCutscene.instance())
 
 func disable_region():
 	$Buttons.get_child(button).disabled = true
@@ -41,6 +51,7 @@ func mass_produced_vaccines(vaccineName, bundleSequences):
 	pass
 
 func init_map():
+	map_initialized = true
 	$RegionHudPopup.load_vaccines()
 	region_file.open("user://Regions.save", File.READ)
 	dict = parse_json(region_file.get_line())
@@ -133,7 +144,26 @@ func efficacy(vaccines, region):
 	dict[region]["reward"] = sum * 1000000
 
 func random_region_event(regionIndex, boolVal, adder):
+	var region_names = ["Region 1", "CAR", "Region 2", "Region 3", "NCR", "Region 4A", "Mimaropa Region", "Region 5", "Region 6", "Region 7", "Region 8", "Region 9", "Region 10", "BARMM", "Region 11", "Region 12", "Region 13"]
+	init_map()
 	$Buttons.get_child(regionIndex + 1).disabled = boolVal
-	dict[regionIndex]["disabled"] = boolVal
+	dict[str(regionIndex)]["disabled"] = boolVal
+	if boolVal:
+		for i in range(5):
+			dict[str(regionIndex)]["effectivity"][i] = clamp(dict[str(regionIndex)]["effectivity"][i] + adder, 0, 100)
+	
+	save_dict()
+	return region_names[regionIndex]
+
+func get_average_of_all_efficacy():
+	var totalSum = 0.0
+	var totalCount = 0.0
+	
+	for i in range(17):
+		for j in range(5):
+			totalSum += dict[str(i)]["effectivity"][j]
+			totalCount += 1
+	
+	return totalSum/totalCount
 	
 
