@@ -194,7 +194,7 @@ func disableMapRegion():
 	var region_name = get_node("/root/Session/MapUI").random_region_event(region, true, random_adder)
 	
 
-	prompt("Region %s will be disabled!" % region_name)
+	prompt("%s will be disabled!" % region_name)
 
 	
 	# pauses execution of the function for 150 seconds
@@ -202,7 +202,7 @@ func disableMapRegion():
 	yield(get_tree().create_timer(60), "timeout")
 	
 
-	prompt("Region %s is now ok." % region_name)
+	prompt("%s is now ok." % region_name)
 
 	
 	get_node("/root/Session/MapUI").random_region_event(region, false, 0)
