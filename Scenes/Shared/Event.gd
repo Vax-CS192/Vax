@@ -20,13 +20,16 @@ extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	yield(get_tree().create_timer(5), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	_on_OK_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func _input(event):
+	if (event is InputEventScreenTouch) and event.pressed:
+			_on_OK_pressed()
 
 func _on_OK_pressed():
 	self.queue_free()

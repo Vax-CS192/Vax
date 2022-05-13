@@ -94,11 +94,15 @@ margin_bottom = -97.3735
 [node name="Money" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2260.52, 100 )
 
+frame = 1
+
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
 [node name="EventButton" type="Button" parent="."]
+visible = false
 margin_left = 117.0
 margin_top = 329.0
 margin_right = 410.0
