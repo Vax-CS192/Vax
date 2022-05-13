@@ -76,7 +76,7 @@ func _on_back_pressed():
 	testcontroller.save_data(timer_ctime,pretest,testing,test_done)
 	emit_signal("back_pressed")
 
-# This method updates the money and the favorite  and draws TestingAreaUI to screen
+# This method updates the money and the favorites and draws TestingAreaUI to screen
 func draw():
 		if first_draw:
 			first_draw_init()
