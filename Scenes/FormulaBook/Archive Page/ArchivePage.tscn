@@ -331,8 +331,6 @@ margin_bottom = 1128.0
 [connection signal="pressed" from="ArchiveIcons/ArchiveIcon18" to="." method="_on_ArchiveIcon18_pressed"]
 [connection signal="pressed" from="ArchiveIcons/ArchiveIcon19" to="." method="_on_ArchiveIcon19_pressed"]
 [connection signal="pressed" from="ArchiveIcons/ArchiveIcon20" to="." method="_on_ArchiveIcon20_pressed"]
-[connection signal="a_slot_pressed" from="Popup" to="Popup" method="_a_slot_pressed"]
-[connection signal="a_slot_unpressed" from="Popup" to="Popup" method="_a_slot_unpressed"]
 [connection signal="archive_deets_edited" from="Popup" to="." method="_on_Popup_archive_deets_edited"]
 [connection signal="delete_an_archive" from="Popup" to="." method="_on_Popup_delete_an_archive"]
 [connection signal="set_as_fav" from="Popup" to="." method="_on_Popup_set_as_fav"]

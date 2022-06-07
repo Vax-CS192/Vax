@@ -181,15 +181,5 @@ __meta__ = {
 }
 
 [connection signal="popup_hide" from="." to="." method="_on_Popup_popup_hide"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot1" to="." method="_on_Slot1_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot2" to="." method="_on_Slot2_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot3" to="." method="_on_Slot3_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot4" to="." method="_on_Slot4_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot5" to="." method="_on_Slot5_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot6" to="." method="_on_Slot6_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot7" to="." method="_on_Slot7_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot8" to="." method="_on_Slot8_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot9" to="." method="_on_Slot9_pressed"]
-[connection signal="pressed" from="ArchivePopupControl/Slots/Slot10" to="." method="_on_Slot10_pressed"]
 [connection signal="pressed" from="ArchivePopupControl/DeleteButton" to="." method="_on_DeleteButton_pressed"]
 [connection signal="pressed" from="ArchivePopupControl/SetAsFavoriteButton" to="." method="_on_SetAsFavoriteButton_pressed"]
