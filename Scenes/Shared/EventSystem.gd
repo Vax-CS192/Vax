@@ -62,7 +62,7 @@ func bundleTaxIncrease():
 	prompt("Bundle %s's price has been increased" % nameOfBundle)
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(100), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 	# show prompt
 	prompt("Bundle %s's price has returned to normal" % nameOfBundle)
@@ -76,7 +76,7 @@ func disableTestingArea():
 	prompt("Testing Area will be disabled!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(30), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 	# show prompt
 	prompt("Testing Area is back to normal.")
@@ -95,7 +95,7 @@ func bundleTaxDecrease():
 	prompt("Bundle %s's price has been decreased" % nameOfBundle)
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(100), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 	# show prompt
 	prompt("Bundle %s's price has returned to normal" % nameOfBundle)
@@ -109,7 +109,7 @@ func shopIsDisabled():
 	prompt("Shop will be disabled!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(30), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 	# show prompt
 	prompt("Shop is now back to normal.")
@@ -126,7 +126,7 @@ func shopIsFree():
 	prompt("Everything in the shop is free!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(60), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 	# show prompt
 	prompt("Shop has returned to normal.")
@@ -144,7 +144,7 @@ func shopPriceIncrease():
 	prompt("Prices in the shop has increased!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(100), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 	# show prompt
 	prompt("Shop prices have returned to normal.")
@@ -162,7 +162,7 @@ func shopPriceDecrease():
 	prompt("Prices in the shop has decreased!")
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(100), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 	# show prompt
 	prompt("Shop prices have returned to normal.")
@@ -199,7 +199,7 @@ func disableMapRegion():
 	
 	# pauses execution of the function for 150 seconds
 	# more info: https://gdscript.com/solutions/godot-timing-tutorial/
-	yield(get_tree().create_timer(60), "timeout")
+	yield(get_tree().create_timer(15), "timeout")
 	
 
 	prompt("%s is now ok." % region_name)
