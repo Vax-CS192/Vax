@@ -97,7 +97,6 @@ func set_archive_page():
 	var slot_path = ""
 	if len(curr_page_formula)>0:	
 		var page_formula = curr_page_formula[curr_page-1] #list of directories in a page
-
 		while index<=len(page_formula):
 			var dict=page_formula[index-1]
 			slot_path = "ArchiveIcons/ArchiveIcon"+str(index)
@@ -305,6 +304,8 @@ func _on_ArchiveIcon20_pressed():
 #Deletes the sent id from the archives file
 func _on_Popup_delete_an_archive(id):
 	var index=0
+	if len(curr_page_formula[curr_page-1])==1: #if setting it as favorite would delete a page, decrease the currpgae
+		curr_page-=1
 	for formulae in all_formula:
 		if formulae["ID"]==id:
 			all_formula.remove(index)
@@ -313,6 +314,7 @@ func _on_Popup_delete_an_archive(id):
 	$Popup.hide()
 	$Popup.reset()
 	save_archives_data()
+	$ArchivePageControl/PageField/TextField.text = str(curr_page)
 
 #Saves the edited data to the archives file
 func save_archives_data():
@@ -327,6 +329,7 @@ func save_archives_data():
 			save_data.store_line(to_json(formulae))
 	save_data.close()
 	emit_signal("archives_changed")
+	
 
 #Synchs edited archive data to the archives file
 func _on_Popup_archive_deets_edited(formula_parameters):
@@ -342,6 +345,8 @@ func _on_Popup_archive_deets_edited(formula_parameters):
 #Transfer data from archives to favorites file
 func _on_Popup_set_as_fav(id):
 	#temporarily store formulae
+	if len(curr_page_formula[curr_page-1])==1: #if setting it as favorite would delete a page, decrease the currpgae
+		curr_page-=1
 	var index =0 
 	var formulae_temp={}
 	for formulae in all_formula:
@@ -352,10 +357,10 @@ func _on_Popup_set_as_fav(id):
 			break
 		index+=1
 	#save changes to file
-
+	$ArchivePageControl/PageField/TextField.text = str(curr_page)
 	save_archives_data()
 	_ready()
-	
+		
 	#Append the formula at the end of the file
 	var save_data = File.new()
 	save_data.open(favorites_file_path, File.READ_WRITE)
