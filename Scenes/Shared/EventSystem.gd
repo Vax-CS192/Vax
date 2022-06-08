@@ -212,7 +212,8 @@ func disableMapRegion():
 #	pass
 
 func prompt(text):
-	var event = eventPrompt.instance()
-	event.get_node("PopupText").text = text
-	var font = event.get_node("PopupText").get_font("font")
-	session.add_child(event)
+	if !get_node("/root/Session").has_node("MainMenu"):
+		var event = eventPrompt.instance()
+		event.get_node("PopupText").text = text
+		var font = event.get_node("PopupText").get_font("font")
+		session.add_child(event)
