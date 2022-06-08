@@ -22,14 +22,14 @@ onready var session = get_node("/root/Session")
 var shopEnabled = true
 var testingAreaEnabled = true
 var eventPrompt = preload("res://Scenes/Shared/Event.tscn")
-var ind = 9
+var ind = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 
 func changeInd():
-	ind = 10
+	ind = 5
 
 # this function decides which event will run
 func startEvent():
@@ -41,14 +41,10 @@ func startEvent():
 	match event:
 		0: bundleTaxIncrease()
 		1: disableTestingArea()
-		2: bundleTaxDecrease()
-		3: shopIsDisabled()
-		4: shopIsFree()
-		5: shopPriceIncrease()
-		6: shopPriceDecrease()
-		7: moneyIncrease()
-		8: moneyDecrease()
-		9: disableMapRegion()
+		2: shopIsDisabled()
+		3: moneyIncrease()
+		4: moneyDecrease()
+		5: disableMapRegion()
 
 func bundleTaxIncrease():
 	var numOfBundles = len(session.mainDict["bundles"])
