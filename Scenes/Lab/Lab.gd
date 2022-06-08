@@ -58,6 +58,7 @@ func _on_BackToMainMenu_pressed():
 		if not (i is Timer):
 			i.queue_free()
 	PersistentScenes._ready()
+	eventTimer.stop()
 	get_node("/root/Session").changeSceneTo(self, mainMenu.instance())
 
 # change scene to Cauldron when cauldron button is pressed
