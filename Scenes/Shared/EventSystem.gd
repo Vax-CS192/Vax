@@ -22,14 +22,14 @@ onready var session = get_node("/root/Session")
 var shopEnabled = true
 var testingAreaEnabled = true
 var eventPrompt = preload("res://Scenes/Shared/Event.tscn")
-var ind = 5
+var ind = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 
 func changeInd():
-	ind = 5
+	ind = 6
 
 # this function decides which event will run
 func startEvent():
