@@ -10,7 +10,20 @@ This is a course requirement for CS191/192 Software Engineering Courses of the D
 
 - Yu, Jeremy Vincent 
 
-  
+## APK for End Users
+  For end users who are not interested in installing Godot to build our project from source, we have included a pre-built APK
+for you at <insert path here>. However, because Vecteezy does not allow us to provide its images to end-users without taking
+measures to prevent you from copying them, and we did not want to implement such measures, we have replaced all such images
+with non-copyrightable black shapes in the pre-built APK. However, if you want to see our full project, including the Vecteezy images
+that we are not free to distribute, you must download the images yourself, put them into the locations specified in the 
+Release Notes, and export the project to APK form (or any other format you want). For compliance with the licenses of
+the assets we used and the main Godot binary, we have included COPYRIGHT.txt, which contains all required legal notices,
+in the main project directory. If you choose to redistribute our project, whether as a pre-built binary or as a copy of
+the source tree, you must also distribute COPYRIGHT.txt in order to comply with all applicable licenses.
+
+
+
+## For the Developers
 
 ## Getting Started
 

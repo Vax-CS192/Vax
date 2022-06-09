@@ -351,6 +351,13 @@ Author: Aira Mae Aloveros
 License: 0BSD
 Notice: Image extracted from prototype and stored in png
 
+
+File: Assets/Map/Money Icon.png
+Author: irmirx
+License: CC-BY-3.0
+Link to License: https://creativecommons.org/licenses/by/3.0/legalcode
+
+
 File: Assets/Cauldron/01coin.png
 Author: irmirx
 License: CC-BY-3.0
