@@ -16,6 +16,8 @@ var map_initialized = false
 var WinCutscene = load("res://Scenes/Cutscenes/Win/Win.tscn")
 var LoseCutscene = load("res://Scenes/Cutscenes/Lose/Lose.tscn")
 
+var rng = RandomNumberGenerator.new()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	money_amount.text = "PHP %s" % [Profile.format_money(Profile.money)]
@@ -94,6 +96,7 @@ func initialize_regions():
 func update_regions_file(VaccinesDeployed):
 	var bundleDict = get_parent().mainDict["bundles"]
 	var vaccines = []
+	rng.randomize()
 	for i in VaccinesDeployed:
 		var vaccine = []
 		for j in i:
@@ -104,7 +107,7 @@ func update_regions_file(VaccinesDeployed):
 		vaccines.append(vaccine)
 	dict[str(button-1)]["vaccinesDeployed"] = vaccines
 	dict[str(button-1)]["disabled"] = true
-	dict[str(button-1)]["waitTime"] = OS.get_unix_time() + 10
+	dict[str(button-1)]["waitTime"] = OS.get_unix_time() + rng.randf_range(60.0, 300.0)
 	dict[str(button-1)]["collect"] = true
 	efficacy(vaccines, str(button-1))
 	save_dict()
