@@ -199,7 +199,7 @@ __meta__ = {
 position = Vector2( 1480, 720 )
 scale = Vector2( 1.35, 1.35 )
 frames = SubResource( 21 )
-frame = 18
+frame = 19
 speed_scale = 0.35
 playing = true
 
@@ -217,7 +217,7 @@ __meta__ = {
 position = Vector2( 1959, 529 )
 scale = Vector2( 0.547414, 0.547414 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -225,7 +225,7 @@ playing = true
 position = Vector2( 1745, 1151 )
 scale = Vector2( 0.857758, 0.857758 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -233,7 +233,7 @@ playing = true
 position = Vector2( 1311.62, 549.513 )
 scale = Vector2( 0.902478, 0.902478 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -241,7 +241,7 @@ playing = true
 position = Vector2( 1140, 1000 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -249,7 +249,7 @@ playing = true
 position = Vector2( 1730, 732 )
 scale = Vector2( 0.293642, 0.293642 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -257,7 +257,7 @@ playing = true
 position = Vector2( 2067, 795 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -265,7 +265,7 @@ playing = true
 position = Vector2( 1709, 289 )
 scale = Vector2( 0.461746, 0.461746 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -273,7 +273,7 @@ playing = true
 position = Vector2( 827, 1060 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
-frame = 6
+frame = 5
 speed_scale = 2.3
 playing = true
 
@@ -281,7 +281,7 @@ playing = true
 position = Vector2( 988, 337 )
 scale = Vector2( 0.461746, 0.461746 )
 frames = SubResource( 22 )
-frame = 6
+frame = 5
 speed_scale = 2.3
 playing = true
 
@@ -289,7 +289,7 @@ playing = true
 position = Vector2( 657, 701 )
 scale = Vector2( 0.847252, 0.847253 )
 frames = SubResource( 22 )
-frame = 5
+frame = 4
 speed_scale = 2.3
 playing = true
 
@@ -297,7 +297,7 @@ playing = true
 position = Vector2( 2263.25, 517.818 )
 scale = Vector2( 0.639009, 0.639009 )
 frames = SubResource( 22 )
-frame = 6
+frame = 5
 speed_scale = 2.3
 playing = true
 
@@ -305,7 +305,7 @@ playing = true
 position = Vector2( 2067, 1191 )
 scale = Vector2( 0.611799, 0.611799 )
 frames = SubResource( 22 )
-frame = 6
+frame = 5
 speed_scale = 2.3
 playing = true
 
